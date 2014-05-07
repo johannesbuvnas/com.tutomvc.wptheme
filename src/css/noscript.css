@@ -1,0 +1,55 @@
+.ImagePlaceholder
+{
+	opacity: 1;
+}
+
+.ShareComponent ul 
+{
+opacity: 1;
+visibility: visible;
+}
+
+#featuredMedia .Caption
+{
+	display: inline-block;
+}
+
+.Event.PastEvent
+{
+	display: block;
+}
+.EventFilterOptions
+{
+	display: none;
+}
+
+.Masonry
+{
+	visibility: visible;
+}
+
+#header
+{
+	position: static;
+}
+
+#mobileMenu
+{
+position: static;
+width: 100%;
+}
+#mobileMainMenu
+{
+	margin-top: 0px;
+}
+
+@media only screen and (max-width: 900px)
+{
+	#mainMenuContainer
+	{
+		display: none;
+	}
+	#stage {
+	padding: 0;
+	}
+}

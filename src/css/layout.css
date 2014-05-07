@@ -1,0 +1,150 @@
+html,
+body,
+.ContentBlock
+{
+	width: 100%;
+	background: #eaedee;
+}
+
+body
+{
+	/*padding-top: 135px;*/
+}
+#stage
+{
+	width: 100%;
+	padding: 10px 0;
+}
+#stage > .Inner
+{
+	padding: 0 10px;
+}
+@media only all
+{
+	#stage
+	{
+		overflow: hidden;
+		min-width: 0;
+	}
+}
+/* content */
+	.ContentBlockContainer
+	{
+		margin-bottom: 10px;
+		position: relative;
+	}
+	.ContentBlock
+	{
+		position: relative;
+		background: #FFF;
+		border-top: 1px solid #ebebeb;
+		width: 100%;
+		-webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
+		box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
+		z-index: 0;
+		position: absolute;
+		top: 0;
+		right: 0;
+		visibility: hidden;
+		opacity: 0;
+	}
+	.ContentBlock.Active
+	{
+		opacity: 1;
+		z-index: 1;
+	}
+	.ContentBlock > .Wrapper
+	{
+		padding: 20px;
+	}
+	.ContentBlock > .Wrapper > .Inner
+	{
+		background: #ebebeb;
+		padding: 120px 0px;
+		position: relative;
+	}
+	.ContentBlock > .Wrapper > .Inner > .BackgroundImage
+	{
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: black;
+	}
+	.ContentBlock > .Wrapper > .Inner > .TheContent
+	{
+		width: 900px;
+		margin: 0 auto;
+		position: relative;
+	}
+	.ContentBlock > .Wrapper > .Inner > .TheContent img
+	{
+		max-width: 100%;
+		height: auto;
+	}
+	@media only screen and (max-width: 1000px)
+	{
+		.ContentBlock > .Wrapper > .Inner
+		{
+			padding: 70px 0px;
+		}
+		.ContentBlock > .Wrapper > .Inner > .TheContent
+		{
+			width: 100%;
+		}
+		.ContentBlock > .Wrapper > .Inner > .TheContent > .Inner
+		{
+			padding: 0px 20px;
+		}
+	}
+	ul.ContentBlockPagination
+	{
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		list-style: none;
+		z-index: 2;
+	}
+	ul.ContentBlockPagination li
+	{
+		float: left;
+		margin: 0 3px;
+	}
+	ul.ContentBlockPagination li a
+	{
+		text-indent: -9999em;
+		text-align: left;
+		overflow: hidden;
+		display: block;
+		width: 12px;
+		height: 12px;
+		background: rgba(0,0,0,.5);
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		border-radius: 6px;
+	}
+	ul.ContentBlockPagination li.Active a
+	{
+		background: rgba(0,0,0,1);
+	}
+/* end content */
+/* #contentBlockContainerPaginationIndicator */
+	#contentBlockContainerPaginationIndicator
+	{
+		position: fixed;
+		background: rgba( 0, 0, 0, .5 );
+		color: #FFF;
+		bottom: 50px;
+		left: 50%;
+		width: 120px;
+		margin-left: -60px;
+		height: 35px;
+		font: 20px/35px "Bold";
+		text-align: center;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 10;
+	}
+/* end #contentBlockContainerPaginationIndicator */
