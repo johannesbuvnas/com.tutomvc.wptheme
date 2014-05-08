@@ -14,20 +14,9 @@ class ContentBlockMediator extends Mediator
 
 	function getContent()
 	{
-		$meta = $this->retrieve("meta");
-		if(!isset($meta) || !is_array($meta) || !count($meta)) return "";
-
-		if(array_key_exists(ContentBlockMetaBox::TYPE, $meta)) $this->parse( "meta", array( $meta ) );
+		if(!$this->retrieve("postID")) return "";
 
 		return parent::getContent();
-	}
-
-	function parseMetaFrom( $postID )
-	{
-		$this->parse( "meta", get_post_meta( $postID, ContentBlockMetaBox::NAME ) );
-		$this->parse( "permalink", get_permalink( $postID ) );
-
-		return $this;
 	}
 
 }

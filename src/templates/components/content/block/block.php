@@ -1,7 +1,14 @@
 <?php
 namespace tutomvc\theme;
+
+$meta = get_post_meta( $postID, ContentBlockMetaBox::NAME );
+if(!isset($meta) || !is_array($meta) || !count($meta)) return;
+
+if(array_key_exists(ContentBlockMetaBox::TYPE, $meta)) $this->parse( "meta", array( $meta ) );
+
+$screenshotThumbnail = FeaturedMediaMetaBox::getScreenshotThumbnailURL( $postID );
 ?>
-<div class="ContentBlockContainer" data-permalink="<?php echo $permalink; ?>">
+<div class="ContentBlockContainer" data-post-id="<?php echo $postID; ?>" data-permalink="<?php echo get_permalink( $postID ); ?>" data-thumbnail="<?php echo $screenshotThumbnail; ?>">
 	<?php
 	foreach($meta as $value)
 	{

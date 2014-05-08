@@ -18,6 +18,11 @@ function($, _, Backbone, ContentBlock, ContentBlockPagination, AppModel, AppRout
 			this.pagination = new ContentBlockPagination();
 			this.listenTo( this.pagination.model, "change:index", this.onPaginate );
 			this.thumbnail = new ContentBlockContainerThumbnail();
+			this.thumbnail.model.set({
+				src : this.$el.attr( "data-thumbnail" ).length ? this.$el.attr( "data-thumbnail" ) : null,
+				postID : this.$el.attr( "data-post-id" ),
+				permalink : this.$el.attr( "data-permalink" )
+			});
 
 			var _this = this;
 			this.$(".ContentBlock").each(function()

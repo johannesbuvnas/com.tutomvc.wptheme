@@ -1,6 +1,10 @@
 <?php
 namespace tutomvc\theme;
 global $themeFacade;
+
+$ajaxCommands = array(
+	UploadThumbnailAjaxCommand::NAME
+);
 ?>
 <title><?php echo \tutomvc\WordPressUtil::getPageTitle(); ?></title>
 <meta name="description" content="The Construction Climate Challenge is really about making the future a better place. In times where construction as an industry will continue to grow we need to do it in a responsible and sustainable way saving the climate for future generations.">
@@ -27,6 +31,7 @@ global $themeFacade;
 		},
 		version : "<?php echo AppFacade::VERSION; ?>",
 		nonce : "<?php echo wp_create_nonce( AppConstants::NONCE_NAME ); ?>",
-		ajaxURL : "<?php echo admin_url( 'admin-ajax.php' ); ?>"
+		ajaxURL : "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+		ajaxCommands : <?php echo json_encode($ajaxCommands); ?>
 	};
 </script>

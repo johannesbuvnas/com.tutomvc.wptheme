@@ -54,6 +54,7 @@ class InitCommand extends ActionCommand
 		$this->getFacade()->controller->registerCommand( new AdminInitCommand() );
 		$this->getFacade()->controller->registerCommand( new AdminMenuActionCommand() );
 		$this->getFacade()->controller->registerCommand( new PrePostLinkFilterCommand() );
-		$this->getFacade()->controller->registerCommand( new SearchQueryAjaxCommand() );
+		$this->getFacade()->controller->registerCommand( new UploadThumbnailAjaxCommand() );
+		$this->getFacade()->controller->registerCommand( new SavePostActionCommand() );
 	}
 }

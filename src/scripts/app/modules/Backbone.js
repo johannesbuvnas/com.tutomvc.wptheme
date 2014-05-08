@@ -1,17 +1,24 @@
 define([
-	"libs/backbone/backbone"
+	"libs/backbone/backbone",
+	"underscore"
 ],
-function(backbone)
+function(backbone, _)
 {
 	"use strict";
 
 	var BackboneModule = Backbone.noConflict();
 
-	BackboneModule.ajax = function()
-	{
-		// console.log("BackboneModule::ajax", arguments);
-		return BackboneModule.$.ajax.apply( BackboneModule.$, arguments );
-	};
+	// BackboneModule.ajax = function( settings )
+	// {
+	// 	var defaultSettings = {
+	// 		url : AppFacade.ajaxURL,
+	// 		data : {
+	// 			nonce : AppFacade.nonce
+	// 		}
+	// 	};
+	// 	console.log(_.extend( settings, defaultSettings ));
+	// 	return BackboneModule.$.ajax( _.extend( defaultSettings, settings ) );
+	// };
 
 	return BackboneModule;
 });

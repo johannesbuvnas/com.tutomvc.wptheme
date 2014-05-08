@@ -3,7 +3,7 @@ namespace tutomvc\theme;
 global $themeFacade;
 
 $themeFacade->view->getMediator( ContentBlockMediator::NAME )
-		->parseMetaFrom( $post->ID )
+		->parse( "postID", $post->ID )
 		->render();
 if(array_key_exists("preview", $_GET)) return;
 

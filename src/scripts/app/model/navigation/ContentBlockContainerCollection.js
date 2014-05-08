@@ -13,10 +13,11 @@ function(_, Backbone, AppRouter)
 			},
 			initialize : function()
 			{
-				this.on( "change:current", this.onChangeCurrent );
+				this.on( "change:current", this.adjustUI );
+
+				this.adjustUI();
 			},
-			// Events
-			onChangeCurrent : function()
+			adjustUI : function()
 			{
 				if(this.get("current")) this.get("view").thumbnail.$el.addClass("Current");
 				else this.get("view").thumbnail.$el.removeClass("Current");

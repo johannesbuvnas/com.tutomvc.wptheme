@@ -18,7 +18,7 @@ function(_, Backbone)
 			collection.forEach(function(model)
 				{
 					_this.$el.append( model.get("view").thumbnail.$el );
-					model.get("view").thumbnail.render( model.get("view") );
+					model.get("view").thumbnail.render();
 
 					i++;
 				});
