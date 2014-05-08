@@ -8,10 +8,11 @@ define([
 	"app/controller/WindowResizeCommand",
 	"app/modules/MasonryModule",
 	"app/view/components/content/ContentBlockContainer",
+	"app/view/components/navigation/Navigation",
 	"app/controller/ScrollCommand",
 	"app/controller/router/PageRouterCommand"
 ],
-function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand, MasonryModule, ContentBlockContainer, ScrollCommand, PageRouterCommand )
+function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand, MasonryModule, ContentBlockContainer, Navigation, ScrollCommand, PageRouterCommand )
 {
 	"use strict";
 	return function()
@@ -24,26 +25,30 @@ function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand
 				windowWidth : $(window).width(),
 				windowHeight : $(window).height()
 			});
-
-			app.contentBlockContainerCollection = new ContentBlockContainer.Collection();
-			app.$el.on( AppConstants.RESIZE, _.bind( app.contentBlockContainerCollection.render, app.contentBlockContainerCollection ) );
 		}
 
 		function prepView()
 		{
 			app.$stage = app.$( "#stage" );
 
+			app.navigation = new Navigation();
+			app.$stage.append( app.navigation.indicator.$el );
+			if(!app.$stage.hasClass("Preview")) app.$stage.append( app.navigation.pagination.$el );
+			app.$el.on( AppConstants.RESIZE, _.bind( app.navigation.collection.renderAll, app.navigation.collection ) );
+
 			app.$( ".ContentBlockContainer" ).each(function()
 			{
 				var view = new ContentBlockContainer({
 					el : this
 				});
-				app.contentBlockContainerCollection.add({
-					view : view
+				app.navigation.collection.add({
+					view : view,
+					current : app.navigation.collection.length == 0 ? true : false
 				});
 			});
-			app.contentBlockContainerCollection.render();
-			app.$stage.append( app.contentBlockContainerCollection.pagination.$el );
+			app.$stage.width( AppModel.get("windowWidth") - $("#pagination").outerWidth() );
+			app.navigation.collection.renderAll();
+			app.$stage.append( app.navigation.$el );
 
 			prepViewFallbacks();
 
@@ -93,5 +98,7 @@ function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand
 		prepModel();
 		prepView();
 		prepController();
+
+		$("body").addClass( "Ready" );
 	};
 });

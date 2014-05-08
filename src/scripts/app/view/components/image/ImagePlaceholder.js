@@ -120,9 +120,9 @@ function(Backbone, $, _, ImagesLoaded)
 			this.$el.animate( {autoAlpha: 1}, 300, Power2.easeIn,
 			function(){
 				_this.trigger( ImagePlaceholder.READY );
+				_this.$el.trigger( ImagePlaceholder.READY );
+				_this.$el.addClass("Ready");
 			} );
-
-			this.trigger( ImagePlaceholder.READY );
 		}
 	},
 	Statics

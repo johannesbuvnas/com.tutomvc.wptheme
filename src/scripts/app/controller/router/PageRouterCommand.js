@@ -10,19 +10,26 @@ function($, Backbone, AppRouter)
 	function PageRouterCommand( index, subIndex )
 	{
 		index = parseInt(index);
-		// if(!subIndex) subIndex = 1;
 
+		// Filter value
 		if(index < 1) index = 1;
-		if(index > this.contentBlockContainerCollection.pagination.model.get("total")) index = this.contentBlockContainerCollection.pagination.model.get("total");
+		if(index > this.navigation.collection.length) index = this.navigation.collection.length;
 
-		this.contentBlockContainerCollection.pagination.model.set({
-			index : index
+		// Reset and set new index
+		this.navigation.collection.forEach(function(model)
+			{
+				model.set({current:false});
+			});
+		this.navigation.collection.at(index-1).set({
+			current : true
 		});
 
+
+		// Transition time
 		var _this = this;
 		AppRouter.inTransition = true;
 
-		var contentBlockContainer = this.contentBlockContainerCollection.at( this.contentBlockContainerCollection.pagination.model.get("index") - 1 ).get("view");
+		var contentBlockContainer = this.navigation.collection.at(index-1).get("view");
 		var newScrollTop = contentBlockContainer.$el.offset().top - 10;
 		$("body").css("overflow", "hidden");
 		$(window).stop();
@@ -42,7 +49,8 @@ function($, Backbone, AppRouter)
 			if(subIndex) contentBlockContainer.pagination.model.set({index:parseInt(subIndex)});
 		} );
 
-		this.contentBlockContainerCollection.pagination.flash();
+		this.navigation.indicator.model.set({index:index});
+		this.navigation.indicator.flash();
 	}
 
 	return PageRouterCommand;

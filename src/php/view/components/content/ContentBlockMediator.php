@@ -22,4 +22,12 @@ class ContentBlockMediator extends Mediator
 		return parent::getContent();
 	}
 
+	function parseMetaFrom( $postID )
+	{
+		$this->parse( "meta", get_post_meta( $postID, ContentBlockMetaBox::NAME ) );
+		$this->parse( "permalink", get_permalink( $postID ) );
+
+		return $this;
+	}
+
 }

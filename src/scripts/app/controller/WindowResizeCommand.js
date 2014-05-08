@@ -13,6 +13,8 @@ function($, AppConstants, AppModel)
 			windowHeight : $(window).height()
 		});
 
+		this.$stage.width( AppModel.get("windowWidth") - $("#pagination").outerWidth() );
+
 		this.$el.trigger( AppConstants.RESIZE );
 	};
 });

@@ -13,21 +13,21 @@ function($, Backbone, ContentBlockContainer, AppModel, AppRouter)
 		if(AppRouter.inTransition) return e.preventDefault();
 
 		var _this = this;
-		var contentBlockContainer = this.contentBlockContainerCollection.at( this.contentBlockContainerCollection.pagination.model.get("index") - 1 ).get("view");
+		var contentBlockContainer = this.navigation.collection.findWhere({current:true}).get("view");
 		// If focus isn't lost from the current page, don't bother
 		var focusMinY = contentBlockContainer.$el.offset().top - ContentBlockContainer.OVERLAP;
 		var focusMaxY = contentBlockContainer.$el.offset().top + ( ContentBlockContainer.OVERLAP ) + ( contentBlockContainer.$el.height() - AppModel.getViewPortHeight() );
 		if( $(window).scrollTop() > focusMinY && $(window).scrollTop() < focusMaxY ) return;
 
 		// Focus is lost from current page, need to find out the next page
-		var newIndex = this.contentBlockContainerCollection.pagination.model.get("index");
+		var newIndex = this.navigation.collection.indexOf( this.navigation.collection.findWhere({current:true}) ) + 1;
 		// Determine scroll direction
 		if($(window).scrollTop() > contentBlockContainer.$el.offset().top) newIndex++; // Scrolling down, next index
 		else newIndex--; // Scrolling up, previous index
 
-		if(newIndex >= 1 && newIndex <= this.contentBlockContainerCollection.pagination.model.get("total") && this.contentBlockContainerCollection.at(newIndex - 1))
+		if(newIndex >= 1 && newIndex <= this.navigation.collection.length && this.navigation.collection.at(newIndex - 1))
 		{
-			var view = this.contentBlockContainerCollection.at(newIndex-1).get("view");
+			var view = this.navigation.collection.at(newIndex-1).get("view");
 			return view.pagination.model.get("total") > 1 ? AppRouter.navigateToPage( newIndex, view.pagination.model.get("index"), {trigger:true} ) : AppRouter.navigateToPage( newIndex, null, {trigger:true} );;
 		}
 	};

@@ -9,6 +9,7 @@
 		"underscore" : null,
 		"backbone" : null,
 		"masonry" : "latest",
-		"imagesloaded" : "latest"
+		"imagesloaded" : "latest",
+		"html2canvas" : "latest"
 	}
 }

@@ -1,7 +1,7 @@
 <?php
 namespace tutomvc\theme;
 ?>
-<div class="ContentBlockContainer">
+<div class="ContentBlockContainer" data-permalink="<?php echo $permalink; ?>">
 	<?php
 	foreach($meta as $value)
 	{

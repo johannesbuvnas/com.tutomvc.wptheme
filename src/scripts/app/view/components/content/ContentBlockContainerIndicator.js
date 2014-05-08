@@ -1,27 +1,19 @@
 define([
 	"backbone",
 	"underscore",
-	"text!app/view/components/content/ContentBlockContainerPagination.tpl.html"
+	"text!app/view/components/content/ContentBlockContainerIndicator.tpl.html"
 ],
 function(Backbone, _, HTML)
 {
 	"use strict";
-
-	var Model = Backbone.Model.extend({	
-		defaults : {
-			index : 1,
-			total : 0
-		}
-	});
-
-	var ContentBlockContainerPagination = Backbone.View.extend({
+	var ContentBlockContainerIndicator = Backbone.View.extend({
 		attributes : {
-			"id" : "contentBlockContainerPaginationIndicator"
+			"id" : "contentBlockContainerIndicator"
 		},
 		template : _.template( HTML ),
 		initialize : function()
 		{
-			this.model = new ContentBlockContainerPagination.Model();
+			this.model = new ContentBlockContainerIndicator.Model();
 			this.listenTo( this.model, "change", this.render );
 		},
 		render : function()
@@ -55,8 +47,13 @@ function(Backbone, _, HTML)
 		}
 	},
 	{
-		Model : Model
+		Model : Backbone.Model.extend({
+			defaults : {
+				index : 1,
+				total : 0
+			}
+		})
 	});
 
-	return ContentBlockContainerPagination;
+	return ContentBlockContainerIndicator;
 });

@@ -1,6 +1,5 @@
 html,
-body,
-.ContentBlock
+body
 {
 	width: 100%;
 	background: #eaedee;
@@ -8,7 +7,6 @@ body,
 
 body
 {
-	/*padding-top: 135px;*/
 }
 #stage
 {
@@ -39,14 +37,18 @@ body
 		background: #FFF;
 		border-top: 1px solid #ebebeb;
 		width: 100%;
-		-webkit-box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
-		box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
 		z-index: 0;
 		position: absolute;
 		top: 0;
 		right: 0;
 		visibility: hidden;
 		opacity: 0;
+		/*border: 1px solid #cccccc;*/
+	}
+	.ContentBlock.Preview
+	{
+		width: 1060px;
+		height: 750px;
 	}
 	.ContentBlock.Active
 	{
@@ -117,18 +119,69 @@ body
 		display: block;
 		width: 12px;
 		height: 12px;
-		background: rgba(0,0,0,.5);
+		background: #000;
 		-webkit-border-radius: 6px;
 		-moz-border-radius: 6px;
 		border-radius: 6px;
+		opacity: .5;
 	}
 	ul.ContentBlockPagination li.Active a
 	{
-		background: rgba(0,0,0,1);
+		-webkit-animation: fadeIn .5s;
+		animation: fadeIn .5s;
+		opacity: 1;
 	}
 /* end content */
-/* #contentBlockContainerPaginationIndicator */
-	#contentBlockContainerPaginationIndicator
+/* #navigation */
+	#pagination
+	{
+		position: fixed;
+		top: 0px;
+		right: 0px;
+		width: 130px;
+		height: 100%;
+		z-index: 10;
+		background: #eaedee;
+		padding: 5px 10px;
+		border-left: 1px solid #cccccc;
+	}
+	.ContentBlockContainerThumbnail
+	{
+		padding: 3px;
+		margin: 5px 0;
+		background: 0;
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		border-radius: 2px;
+		width: 114px;
+	}
+	.ContentBlockContainerThumbnail > .Inner
+	{
+		padding: 3px;
+		background: #FFF;
+		width: 106px;
+		height: 75px;
+		border: 1px solid #cccccc;
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		border-radius: 2px;
+	}
+	.ContentBlockContainerThumbnail.Current
+	{
+		background: #0099FF;
+	}
+	.ContentBlockContainerThumbnail.Current > .Inner
+	{
+		border: 1px solid #0099FF;
+	}
+	.ContentBlockContainerThumbnail iframe
+	{
+		width: 1060px;
+		position: absolute;
+		top: 0;
+		left: 100%;
+	}
+	#contentBlockContainerIndicator
 	{
 		position: fixed;
 		background: rgba( 0, 0, 0, .5 );
@@ -147,4 +200,4 @@ body
 		visibility: hidden;
 		z-index: 10;
 	}
-/* end #contentBlockContainerPaginationIndicator */
+/* end #navigation */

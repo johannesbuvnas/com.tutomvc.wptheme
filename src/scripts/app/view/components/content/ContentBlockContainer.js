@@ -5,76 +5,28 @@ define([
 	"app/view/components/content/ContentBlock",
 	"app/view/components/content/ContentBlockPagination",
 	"app/AppModel",
-	"app/view/components/content/ContentBlockContainerPagination",
-	"app/AppRouter"
+	"app/AppRouter",
+	"app/view/components/content/ContentBlockContainerThumbnail"
 ],
-function($, _, Backbone, ContentBlock, ContentBlockPagination, AppModel, ContentBlockContainerPagination, AppRouter)
+function($, _, Backbone, ContentBlock, ContentBlockPagination, AppModel, AppRouter, ContentBlockContainerThumbnail)
 {
 	"use strict";
-	var Model = Backbone.Model.extend({
-	    defaults : {
-	    	view : null
-	    }
-	  });
-
-	var Collection = Backbone.Collection.extend({
-		initialize : function()
-		{
-			this.pagination = new ContentBlockContainerPagination();
-
-			this.on( "add", this.onAdd );
-		},
-	  render : function()
-	  {
-	  	var contentBlockContainer;
-	    this.forEach( function(model)
-	      {
-	      	contentBlockContainer = model.get("view");
-
-	        contentBlockContainer.$el.attr("style", null);
-	        contentBlockContainer.render();
-	      } );
-	    contentBlockContainer.$el.css("margin-bottom", "0px");
-
-	    this.forEach( function(model)
-	      {
-	        contentBlockContainer = model.get("view");
-
-	        contentBlockContainer.model.set({
-	          y : contentBlockContainer.$el.offset().top
-	          // height : contentBlockContainer.$el.outerHeight()
-	        });
-	      } );
-	  },
-	  // Events
-	  onAdd : function(model)
-	  {
-	  	model.get("view").pagination.model.on("change:index", _.bind( this.onContentBlockNavigation, this ));
-	  	this.pagination.model.set({
-	  		total : this.length
-	  	});
-	  },
-	  onContentBlockNavigation : function(model)
-	  {
-	  	AppRouter.navigateToPage( this.pagination.model.get("index"), model.get("index") );
-	  }
-	});
-
 	var ContentBlockContainer = Backbone.View.extend({
 		initialize : function()
 		{
-			this.model = new ContentBlockContainer.Model();
 			this.collection = new Backbone.Collection();
 			this.pagination = new ContentBlockPagination();
 			this.listenTo( this.pagination.model, "change:index", this.onPaginate );
+			this.thumbnail = new ContentBlockContainerThumbnail();
 
 			var _this = this;
 			this.$(".ContentBlock").each(function()
 				{
+					var view = new ContentBlock({
+						el : this
+					});
 					_this.collection.add( {
-						view : new ContentBlock({
-							el : this
-						})
+						view : view
 					} );
 				});
 
@@ -93,14 +45,8 @@ function($, _, Backbone, ContentBlock, ContentBlockPagination, AppModel, Content
 			var _this = this;
 			this.collection.forEach(function(model)
 				{
-					model.get("view").render();
+					model.get("view").render( AppModel.getViewPortHeight() );
 				});
-
-			this.model.set({
-			  y : this.$el.offset().top,
-			  focusMinY : this.$el.offset().top - ContentBlockContainer.OVERLAP,
-			  focusMaxY : this.$el.offset().top + ( ContentBlockContainer.OVERLAP * 2 ) + ( this.$el.height() - AppModel.getViewPortHeight() )
-			});
 
 			this.adjustPagination();
 
@@ -109,9 +55,6 @@ function($, _, Backbone, ContentBlock, ContentBlockPagination, AppModel, Content
 		adjustPagination : function()
 		{
 			this.$el.height( this.collection.at( this.pagination.model.get("index") - 1 ).get("view").$el.outerHeight() );
-			this.model.set({
-			  focusMaxY : this.$el.offset().top + ( ContentBlockContainer.OVERLAP * 2 ) + ( this.$el.height() - AppModel.getViewPortHeight() )
-			});
 
 			var view;
 			this.$( ".ContentBlock.Active" ).removeClass("Active");
@@ -137,9 +80,7 @@ function($, _, Backbone, ContentBlock, ContentBlockPagination, AppModel, Content
 		}
 	},
 	{
-		OVERLAP : 180,
-		Model : Model,
-		Collection : Collection
+		OVERLAP : 180
 	});
 
 	return ContentBlockContainer;

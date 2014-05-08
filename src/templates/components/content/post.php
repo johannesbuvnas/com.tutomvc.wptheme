@@ -3,8 +3,9 @@ namespace tutomvc\theme;
 global $themeFacade;
 
 $themeFacade->view->getMediator( ContentBlockMediator::NAME )
-		->parse( "meta", get_post_meta( $post->ID, ContentBlockMetaBox::NAME ) )
+		->parseMetaFrom( $post->ID )
 		->render();
+if(array_key_exists("preview", $_GET)) return;
 
 $children = get_posts( array(
 	'post_parent' => $post->ID,

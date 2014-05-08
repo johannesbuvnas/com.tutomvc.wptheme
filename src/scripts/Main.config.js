@@ -16,7 +16,8 @@ require.config({
 		"eventEmitter/EventEmitter" : "libs/eventEmitter/EventEmitter",
 		"imagesloaded/imagesloaded" : "libs/imagesloaded/imagesloaded",
 		"modernizr" : "libs/modernizr",
-		"jquery-easytabs" : "libs/jquery-easytabs/lib/jquery.easytabs"
+		"jquery-easytabs" : "libs/jquery-easytabs/lib/jquery.easytabs",
+		"html2canvas" : "libs/html2canvas/build/html2canvas"
 	},
 	shim : {
 		backbone : {
@@ -28,7 +29,8 @@ require.config({
 		"Main" : {
 			deps : [
 				"backbone",
-				"modernizr"
+				"modernizr",
+				"html2canvas"
 			]
 		}
 	},
