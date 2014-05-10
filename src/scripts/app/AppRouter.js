@@ -1,15 +1,31 @@
 define([
-	"backbone"
+	"underscore",
+	"backbone",
+	"app/controller/filter/PageNavigationFilterCommand"
 ],
-function(Backbone)
+function(_, Backbone, PageNavigationFilterCommand)
 {
 	"use strict";
 	var Router = Backbone.Router.extend({
 		inTransition : false,
-		navigateToPage : function(contentBlockContainerIndex, contentBlockIndex, options)
+		navigateToPage : function( contentBlockContainerIndex, contentBlockIndex, options )
 		{
-			if(contentBlockIndex) this.navigate( "page/" + contentBlockContainerIndex + "/" + contentBlockIndex, options );
-			else this.navigate( "page/" + contentBlockContainerIndex, options );
+			var defaultOptions = {
+				isFiltered : false
+			};
+			options = _.extend( defaultOptions, options );
+
+			// No filter applied, need filter
+			if(!options.isFiltered)
+			{
+				return Backbone.$(window).trigger( PageNavigationFilterCommand.NAME, [this, contentBlockContainerIndex, contentBlockIndex, options] );
+			}
+			// OK it's filtered, lets go
+			else
+			{
+				if(contentBlockIndex) this.navigate( "page/" + contentBlockContainerIndex + "/" + contentBlockIndex, options );
+				else this.navigate( "page/" + contentBlockContainerIndex, options );
+			}
 		}
 	});
 

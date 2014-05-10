@@ -8,8 +8,10 @@ function(Backbone, ContentBlockContainerIndicator, ContentBlockContainerCollecti
 {
 	"use strict";
 	var Navigation = Backbone.View.extend({
+		tagName : "a",
 		attributes : {
-			"id" : "navigation"
+			"id" : "navigationButton",
+			"href" : "#"
 		},
 		initialize : function()
 		{
@@ -20,6 +22,20 @@ function(Backbone, ContentBlockContainerIndicator, ContentBlockContainerCollecti
 			// Views
 			this.indicator = new ContentBlockContainerIndicator();
 			this.pagination = new Pagination();
+
+			this.render();
+		},
+		render : function()
+		{
+			this.$el.html("Navigation");
+		},
+		events : {
+			"click" : "onClick"
+		},
+		onClick : function(e)
+		{
+			e.preventDefault();
+			this.pagination.toggle();
 		},
 		// Events
 		onCollectionChange : function(e)

@@ -6,13 +6,16 @@ define([
 	"jquery",
 	"underscore",
 	"app/controller/WindowResizeCommand",
+	"app/controller/AppResizeCommand",
 	"app/modules/MasonryModule",
+	"app/view/Stage",
 	"app/view/components/content/ContentBlockContainer",
 	"app/view/components/navigation/Navigation",
 	"app/controller/ScrollCommand",
-	"app/controller/router/PageRouterCommand"
+	"app/controller/router/PageRouterCommand",
+	"app/controller/filter/PageNavigationFilterCommand"
 ],
-function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand, MasonryModule, ContentBlockContainer, Navigation, ScrollCommand, PageRouterCommand )
+function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand, AppResizeCommand, MasonryModule, Stage, ContentBlockContainer, Navigation, ScrollCommand, PageRouterCommand, PageNavigationFilterCommand )
 {
 	"use strict";
 	return function()
@@ -29,12 +32,14 @@ function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand
 
 		function prepView()
 		{
-			app.$stage = app.$( "#stage" );
+			app.stage = new Stage({
+				el : $("#stage")
+			});
 
 			app.navigation = new Navigation();
-			app.$stage.append( app.navigation.indicator.$el );
-			if(!app.$stage.hasClass("Preview")) app.$stage.append( app.navigation.pagination.$el );
-			app.$el.on( AppConstants.RESIZE, _.bind( app.navigation.collection.renderAll, app.navigation.collection ) );
+			app.stage.$el.append( app.navigation.indicator.$el );
+			app.navigation.indicator.flash();
+			if(!app.stage.$el.hasClass("Preview")) app.stage.$el.append( app.navigation.pagination.$el );
 
 			app.$( ".ContentBlockContainer" ).each(function()
 			{
@@ -46,13 +51,15 @@ function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand
 					current : app.navigation.collection.length == 0 ? true : false
 				});
 			});
-			app.$stage.width( AppModel.get("windowWidth") - $("#pagination").outerWidth() );
+
 			app.navigation.collection.renderAll();
-			app.$stage.append( app.navigation.$el );
+			app.stage.$el.append( app.navigation.$el );
 
 			prepViewFallbacks();
 
 			MasonryModule.autoInstance( app.$el );
+
+			app.stage.render();
 		}
 
 		function prepViewFallbacks()
@@ -89,8 +96,10 @@ function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand
 			AppRouter.route( PageRouterCommand.ROUTE, _.bind( PageRouterCommand, app ) );
 
 			$(window).on( "resize", _.bind( WindowResizeCommand, app ) );
+			$("body").on( AppConstants.RESIZE, _.bind( AppResizeCommand, app ) );
+
 			$(window).on( "scroll", _.bind( ScrollCommand, app ) );
-			$(window).trigger("scroll");
+			$(window).on( PageNavigationFilterCommand.NAME, _.bind( PageNavigationFilterCommand, app ) );
 
 			Backbone.history.start();
 		}

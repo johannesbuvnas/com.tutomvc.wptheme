@@ -11,8 +11,10 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 	"use strict";
 	var ContentBlockContainerThumbnail = Backbone.View.extend({
 		attributes : {
-			"class" : "ContentBlockContainerThumbnail"
+			"class" : "ContentBlockContainerThumbnail",
+			"href" : "#"
 		},
+		tagName : "a",
 		template : _.template( HTML ),
 		iframe : null,
 		initialize : function()
@@ -24,6 +26,7 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 					permalink : null
 				}
 			});
+			this.$el.html( this.template( this.model.toJSON() ) );
 		},
 		render : function()
 		{
@@ -34,7 +37,7 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 				this.listenTo( this.iframe, "ready", this.draw );
 				this.$el.append( this.iframe.$el );
 			}
-			else if(this.model.get("src"))
+			else
 			{
 				this.$el.html( this.template( this.model.toJSON() ) );
 			}
@@ -43,19 +46,23 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 		{
 			// TODO: Check if canvas is supported, else fallback
 			var _this = this;
-			html2canvas( this.iframe.$el.contents().find(".ContentBlock").first().find("> .Wrapper > .Inner"), {
+			var html = this.iframe.$el.contents().find(".ContentBlock").first().find("> .Wrapper > .Inner");
+			html2canvas( html, {
 				onrendered: function(canvas)
 				{
+					var width = html.outerWidth();
+					var height = html.outerHeight();
 					_this.$el.html("");
 
 					// Make an extra canvas to make it a thumbnail
 					var extra_canvas = document.createElement("canvas");
-					extra_canvas.setAttribute('width',106);
-					extra_canvas.setAttribute('height',75);
+					extra_canvas.setAttribute( 'width', width / 10 );
+					extra_canvas.setAttribute( 'height', height / 10 );
 					
 					var ctx = extra_canvas.getContext('2d');
-					ctx.drawImage(canvas,0,0,canvas.width, canvas.height,0,0,106,75);
+					ctx.drawImage( canvas, 0, 0,canvas.width, canvas.height, 0, 0, width / 10, height / 10 );
 					var dataURL = extra_canvas.toDataURL();
+
 					_this.model.set({
 						src : dataURL
 					});

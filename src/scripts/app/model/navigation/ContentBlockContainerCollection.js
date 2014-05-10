@@ -40,11 +40,6 @@ function(_, Backbone, AppRouter)
 				contentBlockContainer.render();
 			} );
 			contentBlockContainer.$el.css("margin-bottom", "0px");
-
-			this.forEach( function(model)
-				{
-					contentBlockContainer = model.get("view");
-				} );
 		},
 		// Events
 		onAdd : function(model)

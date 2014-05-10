@@ -28,7 +28,7 @@ function($, Backbone, ContentBlockContainer, AppModel, AppRouter)
 		if(newIndex >= 1 && newIndex <= this.navigation.collection.length && this.navigation.collection.at(newIndex - 1))
 		{
 			var view = this.navigation.collection.at(newIndex-1).get("view");
-			return view.pagination.model.get("total") > 1 ? AppRouter.navigateToPage( newIndex, view.pagination.model.get("index"), {trigger:true} ) : AppRouter.navigateToPage( newIndex, null, {trigger:true} );;
+			return AppRouter.navigateToPage( newIndex, null, {trigger:true} );;
 		}
 	};
 });

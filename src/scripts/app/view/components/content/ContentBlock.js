@@ -11,7 +11,7 @@ function(_, Backbone, ImagePlaceholder, ImagesLoaded)
     _interval : null,
     tagName : "iframe",
     attributes : {
-      width: 1100,
+      width: 1120,
       height: 800,
       src : "http://local.tutomvc.com/?preview=true"
     },
@@ -50,6 +50,9 @@ function(_, Backbone, ImagePlaceholder, ImagesLoaded)
     {
       if(this.isReady())
       {
+        console.log( this.$el.contents().find("#stage").outerHeight() );
+        this.$el.attr( "height", this.$el.contents().find("#stage").outerHeight() );
+
         clearInterval( this._interval );
         this.trigger("ready");
       }

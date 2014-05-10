@@ -6,6 +6,8 @@ define([
 function($, Backbone, AppRouter)
 {
 	"use strict";
+	var previousIndex = 1;
+
 	PageRouterCommand.ROUTE = "page/:id(/:subid)";
 	function PageRouterCommand( index, subIndex )
 	{
@@ -14,6 +16,8 @@ function($, Backbone, AppRouter)
 		// Filter value
 		if(index < 1) index = 1;
 		if(index > this.navigation.collection.length) index = this.navigation.collection.length;
+
+		var contentBlockContainer = this.navigation.collection.at(index-1).get("view");
 
 		// Reset and set new index
 		this.navigation.collection.forEach(function(model)
@@ -26,10 +30,13 @@ function($, Backbone, AppRouter)
 
 
 		// Transition time
+		if(index > previousIndex) // Only do a transition if scrolling down
+		{
+
+		}
 		var _this = this;
 		AppRouter.inTransition = true;
 
-		var contentBlockContainer = this.navigation.collection.at(index-1).get("view");
 		var newScrollTop = contentBlockContainer.$el.offset().top - 10;
 		$("body").css("overflow", "hidden");
 		$(window).stop();
@@ -39,7 +46,7 @@ function($, Backbone, AppRouter)
 			}
 		},
 		400,
-		Power2.easeOut,
+		Sine.easeOut,
 		function()
 		{
 			$("body").css("overflow", "visible");
@@ -51,6 +58,8 @@ function($, Backbone, AppRouter)
 
 		this.navigation.indicator.model.set({index:index});
 		this.navigation.indicator.flash();
+
+		previousIndex = index;
 	}
 
 	return PageRouterCommand;
