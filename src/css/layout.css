@@ -35,7 +35,6 @@ body
 	{
 		position: relative;
 		background: #FFF;
-		border-top: 1px solid #ebebeb;
 		width: 100%;
 		z-index: 0;
 		position: absolute;
@@ -44,6 +43,10 @@ body
 		visibility: hidden;
 		opacity: 0;
 		/*border: 1px solid #cccccc;*/
+	}
+	a.ContentBlock
+	{
+		text-decoration: none;
 	}
 	.ContentBlock.Preview
 	{
@@ -78,6 +81,18 @@ body
 		width: 900px;
 		margin: 0 auto;
 		position: relative;
+	}
+	.ContentBlockContainer.PostProtected .ContentBlock
+	{
+		background: #ebebeb;
+	}
+	.ContentBlockContainer.PostProtected .ContentBlock > .Wrapper > .Inner > .TheContent
+	{
+		max-width: 360px;
+	}
+	.ContentBlockContainer.PostProtected .ContentBlock > .Wrapper > .Inner > .TheContent > .Inner
+	{
+		text-align: center;
 	}
 	.ContentBlock > .Wrapper > .Inner > .TheContent img
 	{
@@ -185,7 +200,7 @@ body
 	.ContentBlockContainerThumbnail > .Inner
 	{
 		padding: 3px;
-		background: #FFF;
+		background: #FFF url(../images/loader.gif) center center no-repeat;
 		width: 106px;
 		min-height: 70px;
 	}

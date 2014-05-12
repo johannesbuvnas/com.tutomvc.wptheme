@@ -58,6 +58,7 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 					transform : "scale(1)"
 				},1000, Expo.easeInOut, function()
 				{
+					_this.$("> .Inner").attr("style","");
 					_this.$el.css("overflow", "scroll");
 				});
 

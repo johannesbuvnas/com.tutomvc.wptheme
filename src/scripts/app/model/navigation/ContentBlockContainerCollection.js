@@ -1,9 +1,10 @@
 define([
 	"underscore",
+	"jquery",
 	"backbone",
 	"app/AppRouter"
 ],
-function(_, Backbone, AppRouter)
+function(_, $, Backbone, AppRouter)
 {
 	"use strict";
 	var Model = Backbone.Model.extend({

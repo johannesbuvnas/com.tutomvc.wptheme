@@ -1,35 +1,5 @@
-input[type=text]
-{
-	font: 24px/40px "Sans";
-	height: 40px;
-	padding: 0px 10px;
-}
-input[type=submit]
-{
-	background: #5fd1f3;
-	font: 20px/44px "Bold";
-	padding: 0 1em;
-	-webkit-appearance: none;
-}
-input[type=text].Error
-{
-	border: 2px solid #fa4852;
-}
-
-.ContentBlock input[type=text]
-{
-	min-width: 389px;
-}
-@media only screen and (max-width: 480px)
-{
-	.ContentBlock input[type=text]
-	{
-		width: 240px;
-		font: 16px/44px "Sans";
-		min-width: inherit;
-		padding: 0;
-	}
-}
+@import "components/inputs.css";
+@import "components/card.css";
 .Checkbox
 {
 	display: inline-block;
@@ -314,23 +284,6 @@ input[type=text].Error
 		background: transparent url('../images/icon-email-47x46.png') center center no-repeat;
 	}
 /* end .sharer */
-/* #newsletterForm */
-	#newsletterForm
-	{
-		text-align: center;
-	}
-	#newsletterForm input[type=text]
-	{
-		text-align: center;
-	}
-	#newsletterForm input[type=submit]
-	{
-		position: relative;
-		height: 45px;
-		top: -2px;
-		margin-top: 10px;
-	}
-/* end #newsletterForm */
 /* .EventExcerpt */
 	.EventFilterOptions
 	{

@@ -1,0 +1,16 @@
+.Card
+{
+	padding: 30px 0px;
+	background: #FFF;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid #CCC;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.Card > .Inner
+{
+	padding: 0px 30px;
+}

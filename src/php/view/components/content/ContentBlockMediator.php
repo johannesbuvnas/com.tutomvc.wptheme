@@ -14,7 +14,7 @@ class ContentBlockMediator extends Mediator
 
 	function getContent()
 	{
-		if(!$this->retrieve("postID")) return "";
+		if(!$this->retrieve("postID")) return "<p></p>";
 
 		return parent::getContent();
 	}

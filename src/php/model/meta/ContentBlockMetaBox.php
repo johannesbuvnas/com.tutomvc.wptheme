@@ -13,15 +13,24 @@ class ContentBlockMetaBox extends MetaBox
 	const TYPE_TWO_COLUMN = "content_type_two_column";
 	const EDITOR = "editor";
 	const EDITOR_SECOND = "editor_second";
+	const LINK = "link";
 
 	function __construct()
 	{
 		parent::__construct( self::NAME, __( "Content Blocks" ), array( "page", "post" ), -1, MetaBox::CONTEXT_NORMAL, MetaBox::PRIORITY_CORE );
 
 		$this->addField( new MetaField( self::BACKGROUND_IMAGE, __( "Background Image" ), "", MetaField::TYPE_ATTACHMENT, array(
-				MetaField::SETTING_MAX_CARDINALITY => 1,
-				MetaField::SETTING_DIVIDER_AFTER => TRUE
+				MetaField::SETTING_MAX_CARDINALITY => 1
 			) ) );
+		$this->addField( new MetaField(
+				self::LINK,
+				__( "Link" ), "",
+				MetaField::TYPE_LINK,
+				array(
+					MetaField::SETTING_DIVIDER_AFTER => TRUE
+				)
+			)
+		);
 
 		$this->addField( new MetaField( self::TYPE, __( "Type" ), "", MetaField::TYPE_SELECTOR_SINGLE, array(
 				MetaField::SETTING_OPTIONS => array(

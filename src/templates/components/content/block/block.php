@@ -39,13 +39,31 @@ $screenshotThumbnail = FeaturedMediaMetaBox::getScreenshotThumbnailURL( $postID 
 			$backgroundImage = wp_get_attachment_image_src( $value[ ContentBlockMetaBox::BACKGROUND_IMAGE ][0]['id'], "large" );
 		}	
 	?>
-			<div class="ContentBlock"<?php echo implode(" ", $attributes); ?>>
+		<?php
+			if( is_object($value[ ContentBlockMetaBox::LINK ]) && filter_var($value[ ContentBlockMetaBox::LINK ]->href, FILTER_VALIDATE_URL) )
+			{
+				$tagName = "a";
+				$attributes[] = 'href="'.$value[ ContentBlockMetaBox::LINK ]->href.'"';
+				$attributes[] = 'target="'.$value[ ContentBlockMetaBox::LINK ]->target.'"';
+				$attributes[] = 'title="'.$value[ ContentBlockMetaBox::LINK ]->title.'"';
+			}
+			else
+			{
+				$tagName = "div";
+			}
+		?>
+			<<?php echo $tagName; ?> class="ContentBlock <?php if(isset($backgroundImage)) echo "WithBackgroundImage"; ?>"<?php echo implode(" ", $attributes); ?>>
 				<div class="Wrapper">
 					<div class="Inner">
 						<?php
 							if(isset($backgroundImage)):
 						?>
 							<div class="BackgroundImage ImagePlaceholder" data-src="<?php echo $backgroundImage[0]; ?>" data-width="<?php echo $backgroundImage[1]; ?>" data-height="<?php echo $backgroundImage[2]; ?>">
+								<noscript>
+									<?php
+										echo wp_get_attachment_image( $value[ ContentBlockMetaBox::BACKGROUND_IMAGE ][0]['id'], "large" );
+									?>
+								</noscript>
 							</div>
 						<?php
 							endif;
@@ -53,13 +71,13 @@ $screenshotThumbnail = FeaturedMediaMetaBox::getScreenshotThumbnailURL( $postID 
 						<div class="TheContent">
 							<div class="Inner">
 								<?php
-									echo $inner;
+									echo apply_filters( "the_content", $inner );
 								?>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</<?php echo $tagName; ?>>
 	<?php
 		}
 	?>

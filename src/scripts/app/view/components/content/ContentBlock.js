@@ -50,7 +50,6 @@ function(_, Backbone, ImagePlaceholder, ImagesLoaded)
     {
       if(this.isReady())
       {
-        console.log( this.$el.contents().find("#stage").outerHeight() );
         this.$el.attr( "height", this.$el.contents().find("#stage").outerHeight() );
 
         clearInterval( this._interval );

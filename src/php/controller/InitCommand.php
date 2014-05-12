@@ -41,7 +41,8 @@ class InitCommand extends ActionCommand
 		$this->getSystem()->menuCenter->add( new MainMenu() );
 		add_theme_support( "menus" );
 
-		$this->getSystem()->settingsCenter->add( new GeneralSettings() );
+		$this->getSystem()->adminMenuPageCenter->add( new ThemeSettingsAdminMenuPage() );
+		$this->getSystem()->settingsCenter->add( new ThemeSettings() );
 	}
 
 	function prepView()

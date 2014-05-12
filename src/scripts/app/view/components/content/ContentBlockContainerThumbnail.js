@@ -47,6 +47,7 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 			// TODO: Check if canvas is supported, else fallback
 			var _this = this;
 			var html = this.iframe.$el.contents().find(".ContentBlock").first().find("> .Wrapper > .Inner");
+			if(!html.length) return;
 			html2canvas( html, {
 				onrendered: function(canvas)
 				{
@@ -87,7 +88,7 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 				},
 				success : function(e)
 				{
-					console.log(e);
+					// console.log(e);
 				},
 				error : function(e)
 				{

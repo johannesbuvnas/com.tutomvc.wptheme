@@ -4,12 +4,12 @@ use \tutomvc\Facade;
 
 class AppFacade extends Facade
 {
-	const KEY = "tutomvc/facade";
+	const KEY = "tutomvc/theme/facade";
 	const VERSION = "1.01";
 
 	static $environment;
 
-	public $eventModule;
+	public $memberModule;
 
 	function __construct()
 	{
@@ -34,6 +34,8 @@ class AppFacade extends Facade
 			break;
 		}
 
+		$this->memberModule = $this->registerSubFacade( new \tutomvc\modules\member\MemberModule() );
+		
 		$this->controller->registerCommand( new InitCommand() );
 	}
 }
