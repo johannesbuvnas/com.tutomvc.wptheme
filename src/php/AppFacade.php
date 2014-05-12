@@ -10,6 +10,7 @@ class AppFacade extends Facade
 	static $environment;
 
 	public $memberModule;
+	public $repository;
 
 	function __construct()
 	{
@@ -21,6 +22,7 @@ class AppFacade extends Facade
 		switch($_SERVER['HTTP_HOST'])
 		{
 			case "local.tutomvc.com":
+			case "192.168.66.196":
 
 				self::$environment = AppConstants::ENVIRONMENT_STAGE;
 				error_reporting( E_ERROR | E_WARNING | E_PARSE | E_NOTICE );

@@ -10,6 +10,10 @@ function($, Backbone)
 			windowWidth : 0,
 			windowHeight : 0
 		},
+		getContentBlockScrollOverlap : function()
+		{
+			return this.getViewPortHeight() / 3;
+		},
 		getViewPortHeight : function()
 		{
 			return this.get( "windowHeight" ) - parseInt($("#stage").css("padding-bottom")) - parseInt($("#stage").css("padding-top"));

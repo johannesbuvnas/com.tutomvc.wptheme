@@ -25,6 +25,14 @@ class LoginCommand extends ActionCommand
 				"user_password" => $_POST['password'],
 				"remember" => TRUE
 			), FALSE );
+
+			add_action( "init", array($this, "redirect") );
 		}
+	}
+
+	function redirect()
+	{
+		wp_redirect( $_POST['redirect'] );
+		exit;
 	}
 }

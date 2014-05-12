@@ -9,8 +9,8 @@ class ThemeSettingsAdminMenuPage extends AdminMenuSettingsPage
 	function __construct()
 	{
 		parent::__construct(
-			"Custom Settings",
-			"Custom Settings",
+			"Theme Settings",
+			"Theme Settings",
 			"edit_plugins",
 			self::NAME,
 			NULL,
@@ -18,5 +18,22 @@ class ThemeSettingsAdminMenuPage extends AdminMenuSettingsPage
 		);
 
 		$this->setType( AdminMenuSettingsPage::TYPE_THEME );
+	}
+
+	public function onLoad()
+	{
+		global $themeFacade;
+		$systemFacade = \tutomvc\Facade::getInstance( \tutomvc\Facade::KEY_SYSTEM );
+		$themeFacade->repository->init();
+		$mediator = $themeFacade->view->registerMediator( new GitPullFormMediator() );
+
+		if($themeFacade->repository->hasUnpulledCommits())
+		{
+			$systemFacade->notificationCenter->add( "You have unpulled commits." . $mediator->getContent() );
+		}
+		else
+		{
+			$systemFacade->notificationCenter->add( $themeFacade->repository->getStatus() );
+		}
 	}
 }

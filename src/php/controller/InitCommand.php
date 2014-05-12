@@ -21,6 +21,8 @@ class InitCommand extends ActionCommand
 
 	function prepModel()
 	{
+		$this->getFacade()->repository = new \tutomvc\GitRepositoryVO( $this->getFacade()->vo->getRoot(), "https://github.com/johannesbuvnas/com.tutomvc.wptheme.git" );
+
 		// Remove post tags
 		register_taxonomy('post_tag', array());
 		register_taxonomy('press_media', array( "attachment" ));

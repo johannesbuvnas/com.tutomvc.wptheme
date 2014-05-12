@@ -119,9 +119,6 @@ function($, _, Backbone, ContentBlock, ContentBlockPagination, AppModel, AppRout
 					});
 			}
 		}
-	},
-	{
-		OVERLAP : 180
 	});
 
 	return ContentBlockContainer;

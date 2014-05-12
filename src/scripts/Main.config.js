@@ -1,7 +1,6 @@
 require.config({
 	baseUrl : AppFacade.getURL( "src/scripts" ),
 	urlArgs : "v=" + AppFacade.version,
-	// urlArgs : "v=" + (Math.random() * 1000000000),
 	paths : {
 		"requirejs" : "libs/requirejs/require",
 		text : "libs/requirejs-text/text",

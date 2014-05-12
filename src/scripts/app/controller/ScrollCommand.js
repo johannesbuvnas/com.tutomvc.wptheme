@@ -15,8 +15,8 @@ function($, Backbone, ContentBlockContainer, AppModel, AppRouter)
 		var _this = this;
 		var contentBlockContainer = this.navigation.collection.findWhere({current:true}).get("view");
 		// If focus isn't lost from the current page, don't bother
-		var focusMinY = contentBlockContainer.$el.offset().top - ContentBlockContainer.OVERLAP;
-		var focusMaxY = contentBlockContainer.$el.offset().top + ( ContentBlockContainer.OVERLAP ) + ( contentBlockContainer.$el.height() - AppModel.getViewPortHeight() );
+		var focusMinY = contentBlockContainer.$el.offset().top - AppModel.getContentBlockScrollOverlap();
+		var focusMaxY = contentBlockContainer.$el.offset().top + ( AppModel.getContentBlockScrollOverlap() ) + ( contentBlockContainer.$el.height() - AppModel.getViewPortHeight() );
 		if( $(window).scrollTop() > focusMinY && $(window).scrollTop() < focusMaxY ) return;
 
 		// Focus is lost from current page, need to find out the next page

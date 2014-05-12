@@ -1,8 +1,7 @@
 <?php
 namespace tutomvc\modules\member;
 use \tutomvc\View;
-
-$username = isset($_GET) && array_key_exists("visitor", $_GET) ? $_GET['visitor'] : "visitor";
+global $themeFacade;
 ?>
 <div class="ContentBlockContainer PostProtected">
 	<div class="ContentBlock">
@@ -16,7 +15,7 @@ $username = isset($_GET) && array_key_exists("visitor", $_GET) ? $_GET['visitor'
 							Who is knocking on my door?
 						</p>
 						<?php
-							do_action( View::getMediatorRenderHook( MemberModule::KEY, LoginContentMediator::NAME ) );
+							do_action( View::getMediatorRenderHook( MemberModule::KEY, LoginFormMediator::NAME ) );
 						?>
 					</div>
 				</div>

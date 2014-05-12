@@ -1,5 +1,4 @@
 ({
-	baseUrl : "../src/scripts",
 	paths : {
 		"requirejs" : "libs/requirejs/require",
 		text : "libs/requirejs-text/text",
@@ -13,7 +12,9 @@
 		"matches-selector/matches-selector" : "libs/matches-selector/matches-selector",
 		"eventEmitter/EventEmitter" : "libs/eventEmitter/EventEmitter",
 		"imagesloaded/imagesloaded" : "libs/imagesloaded/imagesloaded",
-		"modernizr" : "libs/modernizr"
+		"modernizr" : "libs/modernizr",
+		"jquery-easytabs" : "libs/jquery-easytabs/lib/jquery.easytabs",
+		"html2canvas" : "libs/html2canvas/build/html2canvas"
 	},
 	shim : {
 		backbone : {
@@ -25,7 +26,8 @@
 		"Main" : {
 			deps : [
 				"backbone",
-				"modernizr"
+				"modernizr",
+				"html2canvas"
 			]
 		}
 	},
@@ -36,6 +38,7 @@
 			backbone : "app/modules/Backbone"
 		}
 	},
+	baseUrl : "../src/scripts",
 	include : [
 		"requirejs",
 		"Main.config"

@@ -4,7 +4,7 @@ use \tutomvc\Mediator;
 
 class LoginFormMediator extends Mediator
 {
-	const NAME = "components/content/forms/login.php";
+	const NAME = "modules/member/content/forms/login.php";
 
 
 	function __construct()

@@ -42,7 +42,6 @@ body
 		right: 0;
 		visibility: hidden;
 		opacity: 0;
-		/*border: 1px solid #cccccc;*/
 	}
 	a.ContentBlock
 	{
@@ -249,4 +248,4 @@ body
 		visibility: hidden;
 		z-index: 10;
 	}
-/* end #navigation 
+/* end #navigation */
