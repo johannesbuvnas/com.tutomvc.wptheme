@@ -63,6 +63,7 @@ function(_, Backbone, ImagePlaceholder, ImagesLoaded)
     {
       this.$wrapper = this.$( "> .Wrapper" );
       this.$inner = this.$( "> .Wrapper > .Inner" );
+      this.$theContent = this.$( "> .Wrapper > .Inner > .TheContent" );
 
       if(this.$( "> .Wrapper > .Inner > .BackgroundImage" ).length)
       {
@@ -76,12 +77,23 @@ function(_, Backbone, ImagePlaceholder, ImagesLoaded)
       this.$el.height( "auto" );
       this.$wrapper.height( "auto" );
       this.$inner.height( "100%" );
+      this.$theContent.attr("style", "");
 
       if( this.$el.outerHeight() < viewPortHeight )
       {
         this.$el.height( viewPortHeight );
-        this.$wrapper.height( viewPortHeight - parseInt( this.$wrapper.css("padding-top") ) - parseInt( this.$wrapper.css("padding-bottom") ))
-        this.$inner.height( parseInt( this.$wrapper.height() ) - parseInt( this.$inner.css("padding-top") ) - parseInt( this.$inner.css("padding-bottom") ))
+        this.$wrapper.height( viewPortHeight - parseInt( this.$wrapper.css("padding-top") ) - parseInt( this.$wrapper.css("padding-bottom") ));
+        this.$inner.height( parseInt( this.$wrapper.height() ) - parseInt( this.$inner.css("padding-top") ) - parseInt( this.$inner.css("padding-bottom") ));
+        if(this.$el.hasClass("AlignVerticalCenter"))
+        {
+          var width = this.$theContent.width();
+          var height = this.$theContent.height();
+            this.$theContent.css( "position", "absolute" );
+            this.$theContent.css( "left", "50%" );
+            this.$theContent.css( "margin-left", -(width/2) + "px" );
+            this.$theContent.css( "top", "50%" );
+            this.$theContent.css( "margin-top", -(height/2) + "px" );
+        }
       }
 
       if(this.backgroundImage)
@@ -90,6 +102,8 @@ function(_, Backbone, ImagePlaceholder, ImagesLoaded)
         this.backgroundImage.$el.height( this.$inner.outerHeight() );
         this.backgroundImage.render();
       }
+
+     
 
       return this;
     }

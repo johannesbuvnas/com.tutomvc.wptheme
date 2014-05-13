@@ -14,6 +14,8 @@ class ContentBlockMetaBox extends MetaBox
 	const EDITOR = "editor";
 	const EDITOR_SECOND = "editor_second";
 	const LINK = "link";
+	const ALIGN = "align";
+	const ALIGN_VERTICAL_CENTER = "align_vertical_center";
 
 	function __construct()
 	{
@@ -38,6 +40,14 @@ class ContentBlockMetaBox extends MetaBox
 					self::TYPE_TWO_COLUMN => __( "Two columns" ),
 				),
 				MetaField::SETTING_DEFAULT_VALUE => self::TYPE_ONE_COLUMN
+			) ) );
+
+		$this->addField( new MetaField( self::ALIGN, __( "Align" ), "", MetaField::TYPE_SELECTOR_SINGLE, array(
+				MetaField::SETTING_OPTIONS => array(
+					"default" => __( "Default" ),
+					self::ALIGN_VERTICAL_CENTER => __( "Vertical Center" ),
+				),
+				MetaField::SETTING_DEFAULT_VALUE => "default"
 			) ) );
 
 		$this->addField( new MetaField( self::EDITOR, __( "Content" ), "", MetaField::TYPE_TEXTAREA_WYSIWYG ) );

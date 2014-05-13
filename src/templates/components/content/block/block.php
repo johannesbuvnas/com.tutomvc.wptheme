@@ -14,6 +14,8 @@ $screenshotThumbnail = FeaturedMediaMetaBox::getScreenshotThumbnailURL( $postID 
 	{
 		$inner = "";
 		$attributes = array();
+		$classes = array("ContentBlock");
+
 		unset( $backgroundImage );
 
 		switch($value[ContentBlockMetaBox::TYPE])
@@ -34,9 +36,12 @@ $screenshotThumbnail = FeaturedMediaMetaBox::getScreenshotThumbnailURL( $postID 
 			break;
 		}
 
+		if($value[ContentBlockMetaBox::ALIGN] == ContentBlockMetaBox::ALIGN_VERTICAL_CENTER) $classes[] = "AlignVerticalCenter";
+
 		if(is_array($value[ ContentBlockMetaBox::BACKGROUND_IMAGE ]) && count($value[ ContentBlockMetaBox::BACKGROUND_IMAGE ]))
 		{
 			$backgroundImage = wp_get_attachment_image_src( $value[ ContentBlockMetaBox::BACKGROUND_IMAGE ][0]['id'], "large" );
+			$classes[] = "WithBackgroundImage";
 		}	
 	?>
 		<?php
@@ -52,7 +57,7 @@ $screenshotThumbnail = FeaturedMediaMetaBox::getScreenshotThumbnailURL( $postID 
 				$tagName = "div";
 			}
 		?>
-			<<?php echo $tagName; ?> class="ContentBlock <?php if(isset($backgroundImage)) echo "WithBackgroundImage"; ?>"<?php echo implode(" ", $attributes); ?>>
+			<<?php echo $tagName; ?> class="<?php echo implode(" ", $classes); ?>"<?php echo implode(" ", $attributes); ?>>
 				<div class="Wrapper">
 					<div class="Inner">
 						<?php
