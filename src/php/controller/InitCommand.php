@@ -59,5 +59,11 @@ class InitCommand extends ActionCommand
 		$this->getFacade()->controller->registerCommand( new PrePostLinkFilterCommand() );
 		$this->getFacade()->controller->registerCommand( new UploadThumbnailAjaxCommand() );
 		$this->getFacade()->controller->registerCommand( new SavePostActionCommand() );
+
+		// Multisite fixes
+		if(is_multisite())
+		{
+			$this->getFacade()->controller->registerCommand( new FilterAttachmentURLCommand() );
+		}
 	}
 }
