@@ -222,13 +222,6 @@ body
 		-moz-border-radius: 3px;
 		border-radius: 3px;
 	}
-	.ContentBlockContainerThumbnail iframe
-	{
-		position: absolute;
-		top: 0;
-		left: 0;
-		/*left: 100%;*/
-	}
 	#contentBlockContainerIndicator
 	{
 		position: fixed;
@@ -249,3 +242,9 @@ body
 		z-index: 10;
 	}
 /* end #navigation */
+#sandbox
+{
+	position: absolute;
+	top: 0;
+	left: 100%;
+}

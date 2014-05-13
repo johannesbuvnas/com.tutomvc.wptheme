@@ -14,3 +14,5 @@ $classes[] = array_key_exists("preview", $_GET) ? "Preview" : "";
 			?>
 		</div>
 	</div>
+	<div id="sandbox">
+	</div>

@@ -58,7 +58,6 @@ function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand
 				if(!app.stage.$el.hasClass("Preview"))
 				{
 					app.stage.$el.append( app.navigation.pagination.$el );
-					app.navigation.pagination.toggle();
 				}
 			}
 

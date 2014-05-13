@@ -36,7 +36,7 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 				{
 					this.iframe = new ContentBlock.Iframe( this.model.get("permalink") );
 					this.listenTo( this.iframe, "ready", this.draw );
-					this.$el.append( this.iframe.$el );
+					$("#sandbox").append( this.iframe.$el );
 				}
 			}
 			else
@@ -55,7 +55,7 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 				{
 					var width = html.outerWidth();
 					var height = html.outerHeight();
-					_this.$el.html("");
+					_this.iframe.$el.remove();
 
 					// Make an extra canvas to make it a thumbnail
 					var extra_canvas = document.createElement("canvas");
