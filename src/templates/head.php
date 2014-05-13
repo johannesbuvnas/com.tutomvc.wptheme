@@ -7,8 +7,6 @@ $ajaxCommands = array(
 );
 ?>
 <title><?php echo \tutomvc\WordPressUtil::getPageTitle(); ?></title>
-<meta name="description" content="The Construction Climate Challenge is really about making the future a better place. In times where construction as an industry will continue to grow we need to do it in a responsible and sustainable way saving the climate for future generations.">
-<meta name="keywords" content="construction climate">
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
 <meta name="viewport" content="width=device-width,initial-scale = 1.0,maximum-scale=1.0,user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
