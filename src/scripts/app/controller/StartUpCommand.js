@@ -48,20 +48,15 @@ function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand
 					current : app.navigation.collection.length == 0 ? true : false
 				});
 			});
-
-			if(app.navigation.collection.length > 1)
+			app.navigation.collection.renderAll();
+			if(app.navigation.collection.length > 1 && !app.stage.$el.hasClass("Preview"))
 			{
 				app.stage.$el.append( app.navigation.$el );
 				app.stage.$el.append( app.navigation.indicator.$el );
 				app.navigation.indicator.flash();
-
-				if(!app.stage.$el.hasClass("Preview"))
-				{
-					app.stage.$el.append( app.navigation.pagination.$el );
-				}
+				app.stage.$el.append( app.navigation.pagination.$el );
+				app.navigation.render();
 			}
-
-			app.navigation.render();
 
 			prepViewFallbacks();
 

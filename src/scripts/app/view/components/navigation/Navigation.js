@@ -25,7 +25,6 @@ function(Backbone, ContentBlockContainerIndicator, ContentBlockContainerCollecti
 		},
 		render : function()
 		{
-			this.collection.renderAll();
 			this.pagination.render( this.collection );
 			this.$el.html("Navigation");
 		},
