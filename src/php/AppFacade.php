@@ -23,7 +23,6 @@ class AppFacade extends Facade
 		{
 			case "local.tutomvc.com":
 			case "192.168.66.196":
-			case "johannes.buvnas.com":
 
 				self::$environment = AppConstants::ENVIRONMENT_STAGE;
 				error_reporting( E_ERROR | E_WARNING | E_PARSE | E_NOTICE );
