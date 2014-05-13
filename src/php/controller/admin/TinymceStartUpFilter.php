@@ -57,6 +57,11 @@ class TinymceStartUpFilter extends FilterCommand
 				'classes' => "DarkText"
 			),
 			array(
+				'title' => 'Shadow Box',
+				'selector' => "p,i,span,a,li,h1,h2,h3,h4,h5,h6",
+				'classes' => "ShadowBox"
+			),
+			array(
 			    'title' => 'Button',
 			    'selector' => "p,span,a",
 			    'attributes' => array(

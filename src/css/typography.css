@@ -103,3 +103,7 @@ h2
 {
   color: #000;
 }
+.ShadowBox
+{
+    background: rgba(0,0,0,.3);
+}
