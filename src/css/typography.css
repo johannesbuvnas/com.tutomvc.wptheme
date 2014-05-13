@@ -65,6 +65,32 @@ p
 {
 	margin-bottom: 1em;
 }
+
+strong,
+b,h1,h2,h3,h4,h5,h6,.Title,.Tagline
+{
+	font-family: "Bold";
+	font-style: normal;
+    font-weight: normal;
+}
+.Tagline
+{
+    font-size: 20px;
+}
+h1,h2,h3,h4,h5,h6,
+.Title
+{
+	font: 36px/1.16em "Bold";
+    margin-bottom: .7em;
+}
+h1,h2,h3,h4,h5,h6
+{
+    color: #0099FF;
+}
+h2
+{
+	font-size: 24px;
+}
 .BlueText
 {
     color: #0099FF;
@@ -76,55 +102,4 @@ p
 .DarkText
 {
   color: #000;
-}
-
-.Button,
-.Pagination a
-{
-    background: #5fd1f3;
-    color: #FFF;
-    border: 0;
-    text-align: center;
-    font: 16px/1.5em "Bold";
-    padding: .5em 1em;
-    /*text-transform: uppercase;*/
-    display: inline-block;
-    text-decoration: none;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
-}
-
-.Button.Green
-{
-    background: #5eb676;
-}
-.Button.Unselected
-{
-    background: #b1b3b6;
-}
-
-strong,
-b,h1,h2,h3,h4,h5,h6,.Title,.Tagline
-{
-	font-family: "Bold";
-	font-style: normal;
-  font-weight: normal;
-}
-
-.Tagline
-{
-    font-size: 20px;
-}
-
-h1,h2,h3,h4,h5,h6,
-.Title
-{
-	font: 36px/1.16em "Bold";
-	margin-bottom: .7em;
-  color: #0099FF;
-}
-h2
-{
-	font-size: 24px;
 }

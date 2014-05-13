@@ -44,23 +44,17 @@ class TinymceStartUpFilter extends FilterCommand
 			array(
 			    'title' => 'Blue Text',
 			    'selector' => "p,i,span,a,li,h1,h2,h3,h4,h5,h6",
-			    'attributes' => array(
-			    	'class' => 'BlueText'
-			    )
+			    'classes' => "BlueText"
 			),
 			array(
-					'title' => 'White Text',
-					'selector' => "p,i,span,a,li,h1,h2,h3,h4,h5,h6",
-					'attributes' => array(
-						'class' => 'WhiteText'
-					)
+				'title' => 'White Text',
+				'selector' => "p,i,span,a,li,h1,h2,h3,h4,h5,h6",
+				'classes' => "WhiteText"
 			),
 			array(
-					'title' => 'Dark Text',
-					'selector' => "p,i,span,a,li,h1,h2,h3,h4,h5,h6",
-					'attributes' => array(
-						'class' => 'DarkText'
-					)
+				'title' => 'Dark Text',
+				'selector' => "p,i,span,a,li,h1,h2,h3,h4,h5,h6",
+				'classes' => "DarkText"
 			),
 			array(
 			    'title' => 'Button',

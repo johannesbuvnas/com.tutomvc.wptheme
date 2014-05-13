@@ -1,3 +1,29 @@
+.Button
+{
+    background: #5fd1f3;
+    color: #FFF;
+    border: 0;
+    text-align: center;
+    font: 16px/1.5em "Bold";
+    padding: .5em 1em;
+    /*text-transform: uppercase;*/
+    display: inline-block;
+    text-decoration: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+.Checkbox
+{
+	display: inline-block;
+	width: 27px;
+	height: 25px;
+	background: transparent url('../images/button-checkbox.png') center top no-repeat;
+}
+.Checkbox.Checked
+{
+	background: transparent url('../images/button-checkbox.png') center bottom no-repeat;
+}
 input
 {
 	font-family: "Regular";

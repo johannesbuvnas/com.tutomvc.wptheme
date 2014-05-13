@@ -25,7 +25,6 @@ class AdminInitCommand extends ActionCommand
 
 	function prepView()
 	{
-		add_editor_style( "src/css/typography.css" );
 		add_editor_style( "src/css/wp.editor.css" );
 	}
 
