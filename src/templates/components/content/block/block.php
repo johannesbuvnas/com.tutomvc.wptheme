@@ -45,7 +45,7 @@ $screenshotThumbnail = FeaturedMediaMetaBox::getScreenshotThumbnailURL( $postID 
 		}	
 	?>
 		<?php
-			if( is_object($value[ ContentBlockMetaBox::LINK ]) && filter_var($value[ ContentBlockMetaBox::LINK ]->href, FILTER_VALIDATE_URL) )
+			if( !empty($value[ ContentBlockMetaBox::LINK ]) && property_exists($value[ ContentBlockMetaBox::LINK ], "href") && filter_var($value[ ContentBlockMetaBox::LINK ]->href, FILTER_VALIDATE_URL) )
 			{
 				$tagName = "a";
 				$attributes[] = 'href="'.$value[ ContentBlockMetaBox::LINK ]->href.'"';

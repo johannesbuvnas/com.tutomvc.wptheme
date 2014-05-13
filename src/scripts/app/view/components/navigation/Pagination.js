@@ -46,7 +46,9 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 				var _this = this;
 				var width = $(".ContentBlockContainerThumbnail").first().outerWidth();
 				var scale = AppModel.getViewPortWidth() / width;
-				var y = ( $("body").scrollTop() / ($("body").height() - AppModel.get("windowHeight")) ) * 100;
+				var windowHeight = (this.$("> .Inner").height() / AppModel.get("windowHeight"));
+				windowHeight = windowHeight * AppModel.get("windowHeight");
+				var y = ( $("body").scrollTop() / ($("body").height() - windowHeight) ) * 100;
 				this.$el.css("overflow", "hidden");
 				this.reflectScroll();
 				this.$("> .Inner").animate({
