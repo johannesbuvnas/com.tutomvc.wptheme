@@ -43,9 +43,12 @@ body
 		visibility: hidden;
 		opacity: 0;
 	}
-	a.ContentBlock
+	a.ContentBlock,
+	a.ContentBlock:hover,
+	a.ContentBlock:visited
 	{
 		text-decoration: none;
+		color: inherit;
 	}
 	.ContentBlock.Preview
 	{
