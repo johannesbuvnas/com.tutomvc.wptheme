@@ -22,11 +22,11 @@ function(Backbone, ContentBlockContainerIndicator, ContentBlockContainerCollecti
 			// Views
 			this.indicator = new ContentBlockContainerIndicator();
 			this.pagination = new Pagination();
-
-			this.render();
 		},
 		render : function()
 		{
+			this.collection.renderAll();
+			this.pagination.render( this.collection );
 			this.$el.html("Navigation");
 		},
 		events : {
@@ -44,8 +44,6 @@ function(Backbone, ContentBlockContainerIndicator, ContentBlockContainerCollecti
 				index : this.collection.indexOf( this.collection.findWhere( {current:true} ) ) + 1,
 				total : this.collection.length
 			});
-
-			this.pagination.render( this.collection );
 		}
 	});
 

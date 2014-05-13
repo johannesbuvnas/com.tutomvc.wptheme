@@ -32,10 +32,12 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 		{
 			if(!this.model.get("src") && this.model.get("postID") && this.model.get("permalink"))
 			{
-				var _this = this;
-				this.iframe = new ContentBlock.Iframe( this.model.get("permalink") );
-				this.listenTo( this.iframe, "ready", this.draw );
-				this.$el.append( this.iframe.$el );
+				if(!this.iframe)
+				{
+					this.iframe = new ContentBlock.Iframe( this.model.get("permalink") );
+					this.listenTo( this.iframe, "ready", this.draw );
+					this.$el.append( this.iframe.$el );
+				}
 			}
 			else
 			{
@@ -44,6 +46,7 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 		},
 		draw : function()
 		{
+			return;
 			// TODO: Check if canvas is supported, else fallback
 			var _this = this;
 			var html = this.iframe.$el.contents().find(".ContentBlock").first().find("> .Wrapper > .Inner");

@@ -31,9 +31,7 @@ class ThemeSettingsAdminMenuPage extends AdminMenuSettingsPage
 		{
 			$systemFacade->notificationCenter->add( "You have unpulled commits." . $mediator->getContent() );
 		}
-		else
-		{
-			$systemFacade->notificationCenter->add( $themeFacade->repository->getStatus() );
-		}
+		
+		$systemFacade->notificationCenter->add( $themeFacade->repository->getStatus() );
 	}
 }

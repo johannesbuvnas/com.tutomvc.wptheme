@@ -37,7 +37,6 @@ function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand
 			});
 
 			app.navigation = new Navigation();
-			if(!app.stage.$el.hasClass("Preview")) app.stage.$el.append( app.navigation.pagination.$el );
 
 			app.$( ".ContentBlockContainer" ).each(function()
 			{
@@ -50,13 +49,20 @@ function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand
 				});
 			});
 
-			app.navigation.collection.renderAll();
 			if(app.navigation.collection.length > 1)
 			{
 				app.stage.$el.append( app.navigation.$el );
 				app.stage.$el.append( app.navigation.indicator.$el );
 				app.navigation.indicator.flash();
+
+				if(!app.stage.$el.hasClass("Preview"))
+				{
+					app.stage.$el.append( app.navigation.pagination.$el );
+					app.navigation.pagination.toggle();
+				}
 			}
+
+			app.navigation.render();
 
 			prepViewFallbacks();
 
