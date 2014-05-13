@@ -34,15 +34,15 @@ class InitCommand extends ActionCommand
 		// Post types
 		$this->getSystem()->postTypeCenter->add( new CustomPostType() );
 		remove_post_type_support( "page", "editor" );
+		remove_post_type_support( "page", "comments" );
 		remove_post_type_support( "post", "editor" );
 		remove_post_type_support( "post", "comments" );
-		// Image sizes
-		$this->getSystem()->imageSizeCenter->add( new ImageSize( AppConstants::IMAGE_SIZE_COLUMN, __("Column"), 600, 400, TRUE ) );
-		$this->getSystem()->imageSizeCenter->add( new ImageSize( AppConstants::IMAGE_SIZE_LOGOTYPE, __("Logotype"), 180, 100 ) );
+
 		// Menus
 		$this->getSystem()->menuCenter->add( new MainMenu() );
 		add_theme_support( "menus" );
 
+		// Admin menus
 		$this->getSystem()->adminMenuPageCenter->add( new ThemeSettingsAdminMenuPage() );
 		$this->getSystem()->settingsCenter->add( new ThemeSettings() );
 	}
