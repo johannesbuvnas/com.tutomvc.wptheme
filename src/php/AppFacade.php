@@ -5,7 +5,7 @@ use \tutomvc\Facade;
 class AppFacade extends Facade
 {
 	const KEY = "tutomvc/theme/facade";
-	const VERSION = "1.012";
+	const VERSION = "1.013";
 
 	static $environment;
 
@@ -23,6 +23,7 @@ class AppFacade extends Facade
 		{
 			case "local.tutomvc.com":
 			case "192.168.66.196":
+			case "stayinmalmo.com":
 
 				self::$environment = AppConstants::ENVIRONMENT_STAGE;
 				error_reporting( E_ERROR | E_WARNING | E_PARSE | E_NOTICE );
