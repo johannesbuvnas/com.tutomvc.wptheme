@@ -46,7 +46,6 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 		},
 		draw : function()
 		{
-			return;
 			// TODO: Check if canvas is supported, else fallback
 			var _this = this;
 			var html = this.iframe.$el.contents().find(".ContentBlock").first().find("> .Wrapper > .Inner");
