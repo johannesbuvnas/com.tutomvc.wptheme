@@ -202,7 +202,7 @@ body
 	.ContentBlockContainerThumbnail > .Inner
 	{
 		padding: 3px;
-		background: #FFF url(../images/loader.gif) center center no-repeat;
+		background: #FFF;
 		width: 106px;
 		min-height: 70px;
 	}
@@ -224,6 +224,11 @@ body
 		-webkit-border-radius: 3px;
 		-moz-border-radius: 3px;
 		border-radius: 3px;
+	}
+	#pagination.InTransition .ContentBlockContainerThumbnail.Current > .Inner,
+	#pagination.InTransition .ContentBlockContainerThumbnail:hover > .Inner
+	{
+		background: #FFF!important;
 	}
 	#contentBlockContainerIndicator
 	{

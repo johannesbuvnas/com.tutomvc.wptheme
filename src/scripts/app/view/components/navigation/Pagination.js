@@ -39,6 +39,7 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 
 			if( this.$el.hasClass( "Expanded" ) )
 			{
+				this.$el.addClass("InTransition");
 				$("#stage > .Inner").animate({
 					opacity : 0
 				}, 300);
@@ -47,21 +48,42 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 				var width = $(".ContentBlockContainerThumbnail").first().outerWidth();
 				var scale = AppModel.getViewPortWidth() / width;
 				var windowHeight = (this.$("> .Inner").height() / AppModel.get("windowHeight"));
+				if(windowHeight > 1) windowHeight = 1;
+				if(windowHeight < 0) windowHeight = 0;
 				windowHeight = windowHeight * AppModel.get("windowHeight");
 				var y = ( $("body").scrollTop() / ($("body").height() - windowHeight) ) * 100;
 				this.$el.css("overflow", "hidden");
 				this.reflectScroll();
-				this.$("> .Inner").animate({
-					transform : "scale("+scale+")",
-					transformOrigin : "50% "+y+"%"
-				}, 0);
 
-				this.$("> .Inner").delay(200).animate({
-					transform : "scale(1)"
-				},1000, Expo.easeInOut, function()
+				var cssFrom = {
+					"transform" : "scale("+scale+")",
+					"transformOrigin" : "50% "+y+"%",
+					"top" : "0px",
+					"margin-top" : "0px"
+				};
+				var cssPosition = {};
+
+				if(this.$("> .Inner").outerHeight() < AppModel.get("windowHeight"))
+				{
+					cssPosition.position = "absolute";
+					cssPosition.top = "50%";
+					cssPosition['margin-top'] = 0 - (this.$("> .Inner").outerHeight() / 2);
+					cssPosition.left = "50%";
+					cssPosition['margin-left'] = -58;
+				}
+
+				var cssTo  = {
+					"transform" : "scale(1)"
+				};
+
+
+				this.$("> .Inner").animate( _.defaults( cssFrom, cssPosition ), 0 );
+				this.$("> .Inner").delay(200).animate( _.extend( cssTo, cssPosition ),1000, Expo.easeInOut, function()
 				{
 					_this.$("> .Inner").attr("style","");
+					_this.$("> .Inner").css( cssPosition );
 					_this.$el.css("overflow", "scroll");
+					_this.$el.removeClass("InTransition");
 				});
 
 				$("body").css("overflow", "hidden");
