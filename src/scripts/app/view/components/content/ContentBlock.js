@@ -84,10 +84,11 @@ function(_, Backbone, ImagePlaceholder, ImagesLoaded)
         this.$el.height( viewPortHeight );
         this.$wrapper.height( viewPortHeight - parseInt( this.$wrapper.css("padding-top") ) - parseInt( this.$wrapper.css("padding-bottom") ));
         this.$inner.height( parseInt( this.$wrapper.height() ) - parseInt( this.$inner.css("padding-top") ) - parseInt( this.$inner.css("padding-bottom") ));
+
         if(this.$el.hasClass("AlignVerticalCenter"))
         {
           var width = this.$theContent.width();
-          var height = this.$theContent.height();
+          var height = this.$theContent.height() + 60;
             this.$theContent.css( "position", "absolute" );
             this.$theContent.css( "left", "50%" );
             this.$theContent.css( "margin-left", -(width/2) + "px" );
