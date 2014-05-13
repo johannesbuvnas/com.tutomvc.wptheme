@@ -33,7 +33,13 @@ global $themeFacade;
 			// Google Analytics if is in PRODUCTION MODE
 			if(AppFacade::$environment == AppConstants::ENVIRONMENT_PRODUCTION)
 			{
-				echo get_option( ThemeSettings::GOOGLE_ANALYTICS_CODE );
+		?>
+				<script>
+		<?php
+					echo get_option( ThemeSettings::GOOGLE_ANALYTICS_CODE );
+		?>
+				</script>
+		<?php
 			}
 		?>
 		
