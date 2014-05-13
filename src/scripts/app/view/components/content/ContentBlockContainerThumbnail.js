@@ -55,7 +55,7 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 				{
 					var width = html.outerWidth();
 					var height = html.outerHeight();
-					_this.iframe.$el.remove();
+					// _this.iframe.$el.remove();
 
 					// Make an extra canvas to make it a thumbnail
 					var extra_canvas = document.createElement("canvas");
