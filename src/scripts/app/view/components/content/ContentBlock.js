@@ -35,7 +35,7 @@ function(_, Backbone, ImagePlaceholder, ImagesLoaded)
       var _this = this;
       ImagesLoaded( this.$el.contents().find("body"), function()
         {
-          _this._interval = setInterval( _.bind( _this.onInterval, _this ), 3000 );
+          _this._interval = setInterval( _.bind( _this.onInterval, _this ), 1000 );
         } );
       // if(this.isReady())
       // {
