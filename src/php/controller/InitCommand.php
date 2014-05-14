@@ -21,26 +21,18 @@ class InitCommand extends ActionCommand
 
 	function prepModel()
 	{
-		$this->getFacade()->repository = new \tutomvc\GitRepositoryVO( $this->getFacade()->vo->getRoot(), "https://github.com/johannesbuvnas/com.tutomvc.wptheme.git" );
-
-		// Remove post tags
-		register_taxonomy('post_tag', array());
-		register_taxonomy('press_media', array( "attachment" ));
+		$this->getFacade()->repository = new \tutomvc\GitRepositoryVO( $this->getFacade()->vo->getRoot(), AppConstants::REPOSITORY_URL );
 
 		// Meta Boxes
 		$this->getSystem()->metaCenter->add( new FeaturedMediaMetaBox() );
 		$this->getSystem()->metaCenter->add( new ContentBlockMetaBox() );
 
 		// Post types
-		$this->getSystem()->postTypeCenter->add( new CustomPostType() );
-		remove_post_type_support( "page", "editor" );
-		remove_post_type_support( "page", "comments" );
-		remove_post_type_support( "post", "editor" );
-		remove_post_type_support( "post", "comments" );
-
-		// Menus
-		$this->getSystem()->menuCenter->add( new MainMenu() );
-		add_theme_support( "menus" );
+		$this->getSystem()->postTypeCenter->add( new DefaultPostType() );
+		remove_post_type_support( DefaultPostType::NAME, "editor" );
+		$this->getSystem()->postTypeCenter->add( new DefaultPagePostType() );
+		remove_post_type_support( DefaultPagePostType::NAME, "comments" );
+		remove_post_type_support( DefaultPagePostType::NAME, "editor" );
 
 		// Admin menus
 		$this->getSystem()->adminMenuPageCenter->add( new ThemeSettingsAdminMenuPage() );
@@ -55,8 +47,6 @@ class InitCommand extends ActionCommand
 	function prepController()
 	{
 		$this->getFacade()->controller->registerCommand( new AdminInitCommand() );
-		$this->getFacade()->controller->registerCommand( new AdminMenuActionCommand() );
-		$this->getFacade()->controller->registerCommand( new PrePostLinkFilterCommand() );
 		$this->getFacade()->controller->registerCommand( new UploadThumbnailAjaxCommand() );
 		$this->getFacade()->controller->registerCommand( new SavePostActionCommand() );
 

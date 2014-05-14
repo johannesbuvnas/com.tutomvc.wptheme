@@ -1,6 +1,7 @@
 <?php
 namespace tutomvc\theme;
 global $themeFacade;
+global $wp_query;
 
 $ajaxCommands = array(
 	UploadThumbnailAjaxCommand::NAME
@@ -22,14 +23,20 @@ $ajaxCommands = array(
 ?>
 <script type="text/javascript">
 	AppFacade = window.AppFacade = {
-		getURL : function(relativePath)
+		"getURL" : function(relativePath)
 		{
 			var url = "<?php echo $themeFacade->getURL(); ?>";
 			return relativePath ? url + "/" + relativePath : url;
 		},
-		version : "<?php echo AppFacade::VERSION; ?>",
-		nonce : "<?php echo wp_create_nonce( AppConstants::NONCE_NAME ); ?>",
-		ajaxURL : "<?php echo admin_url( 'admin-ajax.php' ); ?>",
-		ajaxCommands : <?php echo json_encode($ajaxCommands); ?>
+		"version" : "<?php echo AppFacade::VERSION; ?>",
+		"nonce" : "<?php echo wp_create_nonce( AppConstants::NONCE_NAME ); ?>",
+		"ajaxURL" : "<?php echo admin_url( 'admin-ajax.php' ); ?>",
+		"wpQuery" : {
+			"vars" : <?php echo json_encode($wp_query->query_vars); ?>,
+			"max_num_pages" : <?php echo $wp_query->max_num_pages; ?>
+		},
+		"nextPageURL" : "<?php echo get_next_posts_page_link(); ?>",
+		"prevPageURL" : "<?php echo get_previous_posts_page_link(); ?>",
+		"ajaxCommands" : <?php echo json_encode( $ajaxCommands ); ?>
 	};
 </script>

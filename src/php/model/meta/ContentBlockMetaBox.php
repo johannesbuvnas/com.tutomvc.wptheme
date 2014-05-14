@@ -19,20 +19,7 @@ class ContentBlockMetaBox extends MetaBox
 
 	function __construct()
 	{
-		parent::__construct( self::NAME, __( "Content Blocks" ), array( "page", "post" ), -1, MetaBox::CONTEXT_NORMAL, MetaBox::PRIORITY_CORE );
-
-		$this->addField( new MetaField( self::BACKGROUND_IMAGE, __( "Background Image" ), "", MetaField::TYPE_ATTACHMENT, array(
-				MetaField::SETTING_MAX_CARDINALITY => 1
-			) ) );
-		$this->addField( new MetaField(
-				self::LINK,
-				__( "Link" ), "",
-				MetaField::TYPE_LINK,
-				array(
-					MetaField::SETTING_DIVIDER_AFTER => TRUE
-				)
-			)
-		);
+		parent::__construct( self::NAME, __( "Content" ), array( DefaultPagePostType::NAME, DefaultPostType::NAME ), -1, MetaBox::CONTEXT_NORMAL, MetaBox::PRIORITY_CORE );
 
 		$this->addField( new MetaField( self::TYPE, __( "Type" ), "", MetaField::TYPE_SELECTOR_SINGLE, array(
 				MetaField::SETTING_OPTIONS => array(
@@ -40,14 +27,6 @@ class ContentBlockMetaBox extends MetaBox
 					self::TYPE_TWO_COLUMN => __( "Two columns" ),
 				),
 				MetaField::SETTING_DEFAULT_VALUE => self::TYPE_ONE_COLUMN
-			) ) );
-
-		$this->addField( new MetaField( self::ALIGN, __( "Align" ), "", MetaField::TYPE_SELECTOR_SINGLE, array(
-				MetaField::SETTING_OPTIONS => array(
-					"default" => __( "Default" ),
-					self::ALIGN_VERTICAL_CENTER => __( "Vertical Center" ),
-				),
-				MetaField::SETTING_DEFAULT_VALUE => "default"
 			) ) );
 
 		$this->addField( new MetaField( self::EDITOR, __( "Content" ), "", MetaField::TYPE_TEXTAREA_WYSIWYG ) );
@@ -61,5 +40,25 @@ class ContentBlockMetaBox extends MetaBox
 				)
 			)
 		);
+
+		$this->addField( new MetaField( self::ALIGN, __( "Align" ), "", MetaField::TYPE_SELECTOR_SINGLE, array(
+				MetaField::SETTING_OPTIONS => array(
+					"default" => __( "Default" ),
+					self::ALIGN_VERTICAL_CENTER => __( "Vertical Center" ),
+				),
+				MetaField::SETTING_DEFAULT_VALUE => "default"
+			) ) );
+
+		$this->addField( new MetaField( self::BACKGROUND_IMAGE, __( "Background Image" ), "", MetaField::TYPE_ATTACHMENT, array(
+				MetaField::SETTING_MAX_CARDINALITY => 1
+			) ) );
+		$this->addField( new MetaField(
+				self::LINK,
+				__( "Link" ), "",
+				MetaField::TYPE_LINK
+			)
+		);
+
+		$this->setMinCardinality( 1 );
 	}
 }

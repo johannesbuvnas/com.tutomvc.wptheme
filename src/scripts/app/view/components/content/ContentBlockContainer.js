@@ -63,6 +63,15 @@ function($, _, Backbone, ContentBlock, ContentBlockPagination, AppModel, AppRout
 		adjustPagination : function()
 		{
 			this.$el.height( this.collection.at( this.pagination.model.get("index") - 1 ).get("view").$el.outerHeight() );
+			var height = this.collection.at( this.pagination.model.get("index") - 1 ).get("view").$el.outerHeight();
+			if(this.$("> .Meta").length)
+			{
+				this.$("> .Meta").css("top", height);
+				height += parseInt(this.$("> .Meta").outerHeight());
+			}
+
+			this.$el.height( height );
+			// this.$el.height( this.collection.at( this.pagination.model.get("index") - 1 ).get("view").$el.outerHeight() );
 
 			var view;
 			this.$( ".ContentBlock.Active" ).removeClass("Active");

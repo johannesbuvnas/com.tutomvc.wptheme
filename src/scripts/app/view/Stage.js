@@ -11,6 +11,7 @@ function($, _, Backbone, AppModel, AppConstants)
 	var Stage = Backbone.View.extend({
 		initialize : function()
 		{
+			console.log(AppFacade);
 		},
 		render : function()
 		{

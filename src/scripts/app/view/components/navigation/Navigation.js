@@ -1,18 +1,16 @@
 define([
 	"backbone",
-	"app/view/components/content/ContentBlockContainerIndicator",
+	"app/view/components/navigation/Indicator",
 	"app/model/navigation/ContentBlockContainerCollection",
-	"app/view/components/navigation/Pagination"
+	"app/view/components/navigation/Pagination",
+	"app/view/components/navigation/buttons/MainButton",
+	"app/view/components/navigation/buttons/NextButton",
+	"app/view/components/navigation/buttons/PreviousButton"
 ],
-function(Backbone, ContentBlockContainerIndicator, ContentBlockContainerCollection, Pagination)
+function(Backbone, Indicator, ContentBlockContainerCollection, Pagination, MainButton, NextButton, PreviousButton)
 {
 	"use strict";
 	var Navigation = Backbone.View.extend({
-		tagName : "a",
-		attributes : {
-			"id" : "navigationButton",
-			"href" : "#"
-		},
 		initialize : function()
 		{
 			// Models
@@ -20,18 +18,29 @@ function(Backbone, ContentBlockContainerIndicator, ContentBlockContainerCollecti
 			this.listenTo( this.collection, "add", this.onCollectionChange );
 
 			// Views
-			this.indicator = new ContentBlockContainerIndicator();
+			this.indicator = new Indicator({
+				el : this.$("#indicator")
+			});
 			this.pagination = new Pagination();
 		},
 		render : function()
 		{
 			this.pagination.render( this.collection );
-			this.$el.html("Navigation");
+
+			// var width = 0;
+			// Backbone.$(this.$("#buttons").children()).each(function()
+			// 	{
+			// 		width += Backbone.$(this).outerWidth() + 5;
+			// 	});
+			// this.$("#buttons").css({
+			// 	width : width,
+			// 	"margin-left" : 0 - (width / 2)
+			// });
 		},
 		events : {
-			"click" : "onClick"
+			"click #mainButton" : "onNavigationButtonClick"
 		},
-		onClick : function(e)
+		onNavigationButtonClick : function(e)
 		{
 			e.preventDefault();
 			this.pagination.toggle();

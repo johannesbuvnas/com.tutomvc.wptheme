@@ -1,19 +1,16 @@
 define([
 	"backbone",
 	"underscore",
-	"text!app/view/components/content/ContentBlockContainerIndicator.tpl.html"
+	"text!app/view/components/navigation/Indicator.tpl.html"
 ],
 function(Backbone, _, HTML)
 {
 	"use strict";
-	var ContentBlockContainerIndicator = Backbone.View.extend({
-		attributes : {
-			"id" : "contentBlockContainerIndicator"
-		},
+	var Indicator = Backbone.View.extend({
 		template : _.template( HTML ),
 		initialize : function()
 		{
-			this.model = new ContentBlockContainerIndicator.Model();
+			this.model = new Indicator.Model();
 			this.listenTo( this.model, "change", this.render );
 		},
 		render : function()
@@ -55,5 +52,5 @@ function(Backbone, _, HTML)
 		})
 	});
 
-	return ContentBlockContainerIndicator;
+	return Indicator;
 });

@@ -1,6 +1,7 @@
 <?php
 namespace tutomvc\theme;
 
+$post = get_post($postID);
 $meta = get_post_meta( $postID, ContentBlockMetaBox::NAME );
 if(!isset($meta) || !is_array($meta) || !count($meta)) return;
 
@@ -83,6 +84,22 @@ $screenshotThumbnail = FeaturedMediaMetaBox::getScreenshotThumbnailURL( $postID 
 					</div>
 				</div>
 			</<?php echo $tagName; ?>>
+	<?php
+		}
+	?>
+	<?php
+		if(post_type_supports( $post->post_type, "comments" ))
+		{
+	?>
+		<div class="Meta">
+			<div class="Inner">
+				<?php 
+					global $withcomments;
+					$withcomments = TRUE;
+					comments_template();
+				?>
+			</div>
+		</div>
 	<?php
 		}
 	?>

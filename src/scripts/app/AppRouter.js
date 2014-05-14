@@ -23,8 +23,8 @@ function(_, Backbone, PageNavigationFilterCommand)
 			// OK it's filtered, lets go
 			else
 			{
-				if(contentBlockIndex) this.navigate( "page/" + contentBlockContainerIndex + "/" + contentBlockIndex, options );
-				else this.navigate( "page/" + contentBlockContainerIndex, options );
+				if(contentBlockIndex) this.navigate( "post/" + contentBlockContainerIndex + "." + contentBlockIndex, options );
+				else this.navigate( "post/" + contentBlockContainerIndex, options );
 			}
 		}
 	});

@@ -8,10 +8,15 @@ function($, Backbone, AppRouter)
 	"use strict";
 	var previousIndex = 1;
 
-	PageRouterCommand.ROUTE = "page/:id(/:subid)";
-	function PageRouterCommand( index, subIndex )
+	PageRouterCommand.ROUTE = "post/:id";
+	function PageRouterCommand( id )
 	{
-		index = parseInt(index);
+		var id = id.split(".");
+		var index = parseInt(id[0]);
+		if(id.length > 1)
+		{
+			var subIndex = parseInt(id[1]);
+		}
 
 		// Filter value
 		if(index < 1) index = 1;
