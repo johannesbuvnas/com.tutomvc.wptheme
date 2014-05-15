@@ -80,8 +80,8 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 				this.$("> .Inner").animate( _.defaults( cssFrom, cssPosition ), 0 );
 				this.$("> .Inner").delay(200).animate( _.extend( cssTo, cssPosition ),1000, Expo.easeInOut, function()
 				{
-					_this.$("> .Inner").attr("style","");
-					_this.$("> .Inner").css( cssPosition );
+					// _this.$("> .Inner").attr("style","");
+					// _this.$("> .Inner").css( cssPosition );
 					_this.$el.css("overflow", "scroll");
 					_this.$el.removeClass("InTransition");
 				});

@@ -89,6 +89,11 @@ body
 		width: 900px;
 		margin: 0 auto;
 		position: relative;
+		-webkit-hyphens: auto;
+		-moz-hyphens:    auto;
+		-ms-hyphens:     auto;
+		hyphens:         auto;
+		word-wrap: break-word;
 	}
 	.ContentBlockContainer.PostProtected .ContentBlock
 	{
