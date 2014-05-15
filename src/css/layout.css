@@ -213,9 +213,7 @@ body
 		background: -ms-radial-gradient(center, ellipse cover,  #eaedee 43%,#eaedee 43%,#cccccc 94%); /* IE10+ */
 		background: radial-gradient(ellipse at center,  #eaedee 43%,#eaedee 43%,#cccccc 94%); /* W3C */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaedee', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
-
-
+		text-align: center;
 		display: none;
 	}
 	#pagination > .Inner
