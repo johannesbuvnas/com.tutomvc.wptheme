@@ -60,9 +60,7 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 					"transform" : "scale("+scale+")",
 					"transformOrigin" : "50% "+y+"%",
 					"top" : "0px",
-					"margin-top" : "0px",
-					"backfaceVisibility" : "hidden",
-					"transformStyle" : "preserve-3d"
+					"margin-top" : "0px"
 				};
 				var cssPosition = {};
 
@@ -81,7 +79,6 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 
 
 				this.$("> .Inner").animate( _.defaults( cssFrom, cssPosition ), 0 );
-				// return;
 				this.$("> .Inner").delay(200).animate( _.extend( cssTo, cssPosition ),1000, Expo.easeInOut, function()
 				{
 					_this.$("> .Inner").attr("style","");
