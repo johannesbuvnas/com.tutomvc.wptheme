@@ -226,6 +226,7 @@ body
 		/*-webkit-animation: fadeIn .8s;
 		animation: fadeIn .8s;*/
 		display: block;
+		-webkit-overflow-scrolling: touch;
 	}
 	.ContentBlockContainerThumbnail
 	{
