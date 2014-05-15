@@ -8,8 +8,8 @@ function($, Backbone, AppRouter)
 	"use strict";
 	var previousIndex = 1;
 
-	PageRouterCommand.ROUTE = "post/:id";
-	function PageRouterCommand( id )
+	PostRouteCommand.ROUTE = "post/:id";
+	function PostRouteCommand( id )
 	{
 		var id = id.split(".");
 		var index = parseInt(id[0]);
@@ -67,5 +67,5 @@ function($, Backbone, AppRouter)
 		previousIndex = index;
 	}
 
-	return PageRouterCommand;
+	return PostRouteCommand;
 });

@@ -27,15 +27,10 @@ function(Backbone, Indicator, ContentBlockContainerCollection, Pagination, MainB
 		{
 			this.pagination.render( this.collection );
 
-			// var width = 0;
-			// Backbone.$(this.$("#buttons").children()).each(function()
-			// 	{
-			// 		width += Backbone.$(this).outerWidth() + 5;
-			// 	});
-			// this.$("#buttons").css({
-			// 	width : width,
-			// 	"margin-left" : 0 - (width / 2)
-			// });
+			if(this.collection.length > 1)
+			{
+				this.$("#mainButton").animate({autoAlpha:1},0);
+			}
 		},
 		events : {
 			"click #mainButton" : "onNavigationButtonClick"

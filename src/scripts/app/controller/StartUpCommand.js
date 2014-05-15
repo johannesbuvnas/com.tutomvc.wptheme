@@ -12,10 +12,11 @@ define([
 	"app/view/components/content/ContentBlockContainer",
 	"app/view/components/navigation/Navigation",
 	"app/controller/ScrollCommand",
-	"app/controller/router/PageRouterCommand",
-	"app/controller/filter/PageNavigationFilterCommand"
+	"app/controller/router/PostRouteCommand",
+	"app/controller/filter/PageNavigationFilterCommand",
+	"app/controller/router/DefaultRouteCommand"
 ],
-function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand, AppResizeCommand, MasonryModule, Stage, ContentBlockContainer, Navigation, ScrollCommand, PageRouterCommand, PageNavigationFilterCommand )
+function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand, AppResizeCommand, MasonryModule, Stage, ContentBlockContainer, Navigation, ScrollCommand, PostRouteCommand, PageNavigationFilterCommand, DefaultRouteCommand )
 {
 	"use strict";
 	return function()
@@ -98,7 +99,8 @@ function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand
 
 		function prepController()
 		{
-			AppRouter.route( PageRouterCommand.ROUTE, _.bind( PageRouterCommand, app ) );
+			AppRouter.route( PostRouteCommand.ROUTE, _.bind( PostRouteCommand, app ) );
+			AppRouter.route( ":id", _.bind( DefaultRouteCommand, app ) );
 
 			$(window).on( "resize", _.bind( WindowResizeCommand, app ) );
 			$("body").on( AppConstants.RESIZE, _.bind( AppResizeCommand, app ) );

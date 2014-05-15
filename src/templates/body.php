@@ -8,7 +8,7 @@ $classes = array();
 $classes[] = array_key_exists("preview", $_GET) ? "Preview" : "";
 ?>
 	<div id="navigation">
-		<div id="indicator">
+		<div id="indicator" class="NotInteractive">
 			<p>1 / <?php echo count($wp_query->posts); ?></p>
 		</div>
 		<div id="buttons">

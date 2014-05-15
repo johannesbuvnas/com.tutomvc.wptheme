@@ -70,7 +70,10 @@ class FeaturedMediaMetaBox extends MetaBox
 		$meta = get_post_meta( $postID, $metaKey );
 		$meta = array_pop($meta);
 
-		if(!is_array($meta) || !count($meta) || !array_key_exists("url", $meta)) return "";
-		else return $meta['url'];
+		if(!is_array($meta) || !count($meta) || !array_key_exists("id", $meta)) return "";
+		
+		$src = wp_get_attachment_image_src( $meta['id'], AppConstants::IMAGE_SIZE_UNCROPPED_THUMBNAIL );
+
+		return $src[0];
 	}
 }

@@ -17,6 +17,7 @@ class PostContentMediator extends Mediator
 	{
 		$this->getFacade()->view->registerMediator( new ContentBlockMediator() );
 		$this->getFacade()->view->registerMediator( new MasonryMediator() );
+		$this->getFacade()->view->registerMediator( new PostMetaMediator() );
 	}
 
 	/* SET AND GET */

@@ -69,7 +69,7 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 					cssPosition.top = "50%";
 					cssPosition['margin-top'] = 0 - (this.$("> .Inner").outerHeight() / 2);
 					cssPosition.left = "50%";
-					cssPosition['margin-left'] = -58;
+					cssPosition['margin-left'] = 0 - (this.$("> .Inner").outerWidth() / 2);
 				}
 
 				var cssTo  = {
@@ -78,6 +78,7 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 
 
 				this.$("> .Inner").animate( _.defaults( cssFrom, cssPosition ), 0 );
+				// return;
 				this.$("> .Inner").delay(200).animate( _.extend( cssTo, cssPosition ),1000, Expo.easeInOut, function()
 				{
 					_this.$("> .Inner").attr("style","");

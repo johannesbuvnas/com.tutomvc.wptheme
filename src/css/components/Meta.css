@@ -3,21 +3,113 @@
 	position: absolute;
 	left: 0;
 	width: 100%;
-	background: #FFF;
-	border-top: 1px dashed #CCC;
+	background: #f6f6f6;
+	border-top: 1px dotted #CCC;
 	padding: 20px 0;
 }
-
-.Meta > .Inner
+.Meta > .Wrapper
 {
-	width: 900px;
+	width: 500px;
 	margin: 0 auto;
+}
+.Meta > .Wrapper > .Inner
+{
+	text-align: center;
+	font-size: 17px;
+	padding: 0px 20px;
+	position: relative;
+}
+@media only screen and (max-width: 900px)
+{
+	.Meta > .Wrapper
+	{
+		width: 100%;
+	}
+}
+
+.Meta input,
+.Meta textarea
+{
+	text-align: center;
+}
+
+.Meta > .Wrapper > .Inner p.PostMetaComments
+{
+	margin-bottom: 5px;
+}
+.Meta > .Wrapper > .Inner p.CategoryList,
+.Meta > .Wrapper > .Inner p.TagList
+{
+	margin-bottom: 8px;
+}
+
+.Meta > .Wrapper > .Inner .CategoryList,
+.Meta > .Wrapper > .Inner .TagList,
+.comment-meta a,
+.comment-list .reply,
+.comment-navigation .nav-previous a,
+.comment-navigation .nav-next a,
+.comment-navigation .nav-previous a,
+.comment-meta a
+{
+	font: 17px/20px "Bold";
+}
+.comment-meta,
+.comment-meta a
+{
+	font: 14px/1.4em "Regular";
+}
+.Meta > .Wrapper > .Inner .CategoryList a,
+.Meta > .Wrapper > .Inner .TagList a,
+.comment-list .reply a,
+.comment-meta a,
+.comment-navigation .nav-next a,
+.comment-navigation .nav-previous a
+{
+	text-decoration: none;
+}
+.Meta > .Wrapper > .Inner .CategoryList a:hover,
+.Meta > .Wrapper > .Inner .TagList a:hover
+{
+	text-decoration: underline;
+}
+.Meta > .Wrapper > .Inner .TagList a:before
+{
+	content: "#";
 }
 
 /**
  * 6.14 Comments
  * -----------------------------------------------------------------------------
  */
+ .CommentsLink
+ {
+ 	display: inline-block;
+ 	font: 17px/17px "Bold";
+ 	color: #333;
+ 	text-decoration: none;
+ 	padding-left: 20px;
+ 	background: transparent url(../../images/symbol-comment-grey.png) left center no-repeat;
+ 	padding-top: 2px;
+ }
+ .comment-reply-title
+ {
+ 	display: inline-block;
+ 	font: 24px/20px "Bold";
+ 	color: #333;
+ 	text-decoration: none;
+ 	padding-left: 25px;
+ 	background: transparent url(../../images/symbol-comment-grey.png) left top no-repeat;
+ }
+ #cancel-comment-reply-link
+ {
+ 	display: block;
+ 	line-height: 1.5em;
+ }
+ .CommentsLink:hover
+ {
+ 	color: #0099FF;
+ }
 
 .comments-area {
 	margin: 48px auto;
@@ -27,33 +119,13 @@
 
 .comment
 {
-	/*font-size: 16px;*/
 	margin: 10px 0;
 }
 
-.comment-reply-title,
-.comments-title {
-}
-
-.comment-list {
-	list-style: none;
-	margin: 0 0 48px 0;
-}
-
-.comment-author {
-}
-
-.comment-list .reply,
-.comment-metadata {
-	font-size: 12px;
-	line-height: 2;
-	text-transform: uppercase;
-}
-
-.comment-list .reply {
-}
-
-.comment-author a {
+.comment-list,
+.comment-navigation
+{
+	margin: 20px 0;
 }
 
 .comment-list .trackback a,
@@ -91,8 +163,8 @@
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	height: 18px;
 	padding: 2px;
-	position: absolute;
-	top: 0;
+	position: relative;
+	top: 6px;
 	left: 0;
 	width: 18px;
 }
@@ -106,13 +178,6 @@
 
 .says {
 	display: none;
-}
-
-.comment-author,
-.comment-awaiting-moderation,
-.comment-content,
-.comment-metadata {
-	padding-left: 30px;
 }
 
 .comment-edit-link {
@@ -145,23 +210,23 @@
 	margin-bottom: 0;
 }
 
-.comment-list .children {
-	list-style: none;
-	margin-left: 15px;
+.comment-list .children
+{
+	margin-left: 50px;
+	background: transparent url(../../images/symbol-reply-grey.png) left 3px no-repeat;
+}
+
+@media only screen and (max-width: 900px)
+{
+	.comment-list .children
+	{
+		margin-left: 10px;
+	}
 }
 
 .comment-respond {
-	margin-bottom: 24px;
+	margin: 30px 0;
 	padding: 0;
-}
-
-.comment .comment-respond {
-	margin-top: 24px;
-}
-
-.comment-respond h3 {
-	margin-top: 0;
-	margin-bottom: 24px;
 }
 
 .comment-notes,
@@ -177,7 +242,6 @@
 .comment-awaiting-moderation,
 .logged-in-as {
 	font-size: 14px;
-	line-height: 1.7142857142;
 }
 
 .no-comments {
@@ -194,7 +258,10 @@
 
 .comment-form input[type="text"],
 .comment-form input[type="email"],
-.comment-form input[type="url"] {
+.comment-form input[type="url"],
+.comment-form input[type="submit"],
+.comment-form textarea
+{
 	width: 100%;
 }
 
@@ -204,38 +271,17 @@
 	line-height: 1.5;
 }
 
-.required {
-	color: #c0392b;
-}
-
-.comment-reply-title small a {
-	color: #2b2b2b;
-	height: 24px;
-	overflow: hidden;
-	width: 24px;
-}
-
-.comment-reply-title small a:hover {
-	color: #41a62a;
-}
-
-.comment-navigation {
-	font-size: 12px;
-	line-height: 2;
-	margin-bottom: 48px;
-	text-transform: uppercase;
-}
-
 .comment-navigation .nav-next,
 .comment-navigation .nav-previous {
 	display: inline-block;
 }
 
-.comment-navigation .nav-previous a {
-	margin-right: 10px;
-}
-
 #comment-nav-above {
 	margin-top: 36px;
 	margin-bottom: 0;
+}
+
+#commentform input[type=submit]
+{
+	background: #0099FF url(../../images/symbol-write-white.png) center center no-repeat;
 }

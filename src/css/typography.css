@@ -113,3 +113,8 @@ h2
 {
     background: rgba(0,0,0,.3);
 }
+.required,
+.Required
+{
+    color: #c0392b;
+}

@@ -37,6 +37,9 @@ class InitCommand extends ActionCommand
 		// Admin menus
 		$this->getSystem()->adminMenuPageCenter->add( new ThemeSettingsAdminMenuPage() );
 		$this->getSystem()->settingsCenter->add( new ThemeSettings() );
+
+		// Image sizes
+		$this->getSystem()->imageSizeCenter->add( new \tutomvc\ImageSize( AppConstants::IMAGE_SIZE_UNCROPPED_THUMBNAIL, "Uncropped Thumbnail", get_option( "thumbnail_size_w" ), get_option( "thumbnail_size_h" ), FALSE ) );
 	}
 
 	function prepView()

@@ -1,5 +1,6 @@
 <?php
 namespace tutomvc\theme;
+global $themeFacade;
 
 $post = get_post($postID);
 $meta = get_post_meta( $postID, ContentBlockMetaBox::NAME );
@@ -83,24 +84,14 @@ $screenshotThumbnail = FeaturedMediaMetaBox::getScreenshotThumbnailURL( $postID 
 						</div>
 					</div>
 				</div>
+				<?php if($tagName == "a"): ?>
+				<div class="IconLinkedContent NotInteractive"></div>
+				<?php endif; ?>
 			</<?php echo $tagName; ?>>
 	<?php
 		}
 	?>
 	<?php
-		if(post_type_supports( $post->post_type, "comments" ))
-		{
-	?>
-		<div class="Meta">
-			<div class="Inner">
-				<?php 
-					global $withcomments;
-					$withcomments = TRUE;
-					comments_template();
-				?>
-			</div>
-		</div>
-	<?php
-		}
+		$themeFacade->view->getMediator( PostMetaMediator::NAME )->render();
 	?>
 </div>

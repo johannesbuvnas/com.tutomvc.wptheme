@@ -64,7 +64,7 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 					
 					var ctx = extra_canvas.getContext('2d');
 					ctx.drawImage( canvas, 0, 0,canvas.width, canvas.height, 0, 0, width / 10, height / 10 );
-					var dataURL = extra_canvas.toDataURL();
+					var dataURL = canvas.toDataURL();
 
 					_this.model.set({
 						src : dataURL
@@ -72,11 +72,11 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 					_this.render();
 
 					// Now we save this in the media library so we don't need to generate it all the time
-					_this.saveCanvasAsThumbnail( dataURL, _this.model.get("postID") );
+					_this.saveCanvasAsAttachment( dataURL, _this.model.get("postID") );
 				}
 			} );
 		},
-		saveCanvasAsThumbnail : function( canvasData, postID )
+		saveCanvasAsAttachment : function( canvasData, postID )
 		{
 			Backbone.ajax({
 				type : "post",
