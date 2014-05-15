@@ -14,15 +14,6 @@ function($, _, Backbone, AppModel, AppConstants)
 		},
 		render : function()
 		{
-			if($("#pagination").hasClass("Expanded") && $("#pagination").css("position") == "fixed")
-			{
-				this.$el.width( AppModel.get("windowWidth") - $("#pagination").outerWidth() );
-			}
-			else
-			{
-				this.$el.width( "100%" );
-			}
-
 			return this;
 		}
 	});

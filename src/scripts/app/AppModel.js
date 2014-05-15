@@ -9,6 +9,9 @@ function($, Backbone)
 		defaults : {
 			windowWidth : 0,
 			windowHeight : 0,
+			index : 1,
+			inTransition : false,
+			scrolling : false,
 			scrollTop : 0
 		},
 		getContentBlockScrollOverlap : function()

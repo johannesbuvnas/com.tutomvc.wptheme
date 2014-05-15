@@ -20,6 +20,7 @@ function(_, $, Backbone, AppRouter)
 			},
 			adjustUI : function()
 			{
+				// TODO : Really?
 				if(this.get("current")) this.get("view").thumbnail.$el.addClass("Current");
 				else this.get("view").thumbnail.$el.removeClass("Current");
 			}

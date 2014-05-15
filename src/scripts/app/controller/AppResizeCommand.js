@@ -1,14 +1,20 @@
 define([
 	"jquery",
 	"backbone",
-	"app/AppRouter"
+	"app/AppRouter",
+	"app/AppModel"
 ],
-function($, Backbone, AppRouter)
+function($, Backbone, AppRouter, AppModel)
 {
 	"use strict";
 	return function()
 	{
-		AppRouter.inTransition = true;
+		AppModel.set({inTransition:true});
+		var oldOverflow = $("body").css("overflow");
+		$("#stage > .Inner").animate({
+			autoAlpha : 1
+		}, 0);
+
 		$("body").css("overflow", "hidden");
 		this.stage.render();
 		this.navigation.collection.renderAll();
@@ -24,9 +30,9 @@ function($, Backbone, AppRouter)
 		Power2.easeOut,
 		function()
 		{
-			$("body").css("overflow", "visible");
+			$("body").css( "overflow", oldOverflow );
 
-			AppRouter.inTransition = false;
+			AppModel.set({inTransition:false});
 		} );
 	};
 });

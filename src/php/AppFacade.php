@@ -5,7 +5,7 @@ use \tutomvc\Facade;
 class AppFacade extends Facade
 {
 	const KEY = "tutomvc/theme/facade";
-	const VERSION = "1.026";
+	const VERSION = "1.027";
 
 	static $environment;
 

@@ -13,10 +13,28 @@ define([
 	"app/view/components/navigation/Navigation",
 	"app/controller/ScrollCommand",
 	"app/controller/router/PostRouteCommand",
-	"app/controller/filter/PageNavigationFilterCommand",
-	"app/controller/router/DefaultRouteCommand"
+	"app/controller/router/DefaultRouteCommand",
+	"app/controller/ScrollTopChangeCommand",
+	"app/controller/IndexChangeCommand"
 ],
-function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand, AppResizeCommand, MasonryModule, Stage, ContentBlockContainer, Navigation, ScrollCommand, PostRouteCommand, PageNavigationFilterCommand, DefaultRouteCommand )
+function( Backbone, 
+	AppConstants, 
+	AppModel, 
+	AppRouter, 
+	$, 
+	_, 
+	WindowResizeCommand, 
+	AppResizeCommand, 
+	MasonryModule, 
+	Stage, 
+	ContentBlockContainer, 
+	Navigation, 
+	ScrollCommand, 
+	PostRouteCommand, 
+	DefaultRouteCommand,
+	ScrollTopChangeCommand,
+	IndexChangeCommand
+)
 {
 	"use strict";
 	return function()
@@ -102,11 +120,13 @@ function( Backbone, AppConstants, AppModel, AppRouter, $, _, WindowResizeCommand
 			AppRouter.route( PostRouteCommand.ROUTE, _.bind( PostRouteCommand, app ) );
 			AppRouter.route( ":id", _.bind( DefaultRouteCommand, app ) );
 
+			AppModel.on( "change:index", _.bind( IndexChangeCommand, app ) );
+			AppModel.on( "change:scrollTop", _.bind( ScrollTopChangeCommand, app ) );
+
 			$(window).on( "resize", _.bind( WindowResizeCommand, app ) );
 			$("body").on( AppConstants.RESIZE, _.bind( AppResizeCommand, app ) );
 
 			$(window).on( "scroll", _.bind( ScrollCommand, app ) );
-			$(window).on( PageNavigationFilterCommand.NAME, _.bind( PageNavigationFilterCommand, app ) );
 
 			Backbone.history.start();
 		}

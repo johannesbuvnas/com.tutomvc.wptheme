@@ -39,6 +39,8 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 
 			if( this.$el.hasClass( "Expanded" ) )
 			{
+				this.reflectScroll();
+
 				this.$el.addClass("InTransition");
 				$("#stage > .Inner").animate({
 					opacity : 0
@@ -51,9 +53,8 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 				if(windowHeight > 1) windowHeight = 1;
 				if(windowHeight < 0) windowHeight = 0;
 				windowHeight = windowHeight * AppModel.get("windowHeight");
-				var y = ( $("body").scrollTop() / ($("body").height() - windowHeight) ) * 100;
+				var y = ( $(window).scrollTop() / ($("body").height() - windowHeight) ) * 100;
 				this.$el.css("overflow", "hidden");
-				this.reflectScroll();
 
 				var cssFrom = {
 					"transform" : "scale("+scale+")",
@@ -80,11 +81,11 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 				this.$("> .Inner").animate( _.defaults( cssFrom, cssPosition ), 0 );
 				this.$("> .Inner").delay(200).animate( _.extend( cssTo, cssPosition ),1000, Expo.easeInOut, function()
 				{
-					// _this.$("> .Inner").attr("style","");
-					// _this.$("> .Inner").css( cssPosition );
-					_this.$el.css("overflow", "scroll");
-					_this.$el.removeClass("InTransition");
-					_this.$("> .Inner").trigger( "scroll" ); // Bugfix in touch devices
+					_this.$("> .Inner").attr("style","");
+					_this.$("> .Inner").css( cssPosition );
+					_this.$el.css( "overflow", "scroll" );
+					_this.$el.removeClass( "InTransition") ;
+					_this.$("> .Inner").trigger( "scroll" ); // Bugfix in touch devices?
 				});
 
 				$("body").css("overflow", "hidden");
@@ -99,7 +100,7 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 		},
 		reflectScroll : function()
 		{
-			var y = ( $("body").scrollTop() / ($("body").height() - AppModel.get("windowHeight")) );
+			var y = ( $(window).scrollTop() / ($("body").height() - AppModel.get("windowHeight")) );
 			var paddingPercentage = parseInt($("#stage").css("padding-top")) / AppModel.get("windowHeight");
 
 			var scrollTop = y * this.$("> .Inner").height();

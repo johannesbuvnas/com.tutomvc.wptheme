@@ -2,74 +2,44 @@ define([
 	"jquery",
 	"backbone",
 	"app/AppRouter",
-	"app/AppModel"
+	"app/AppModel",
+	"app/AppConstants"
 ],
-function($, Backbone, AppRouter, AppModel)
+function($, Backbone, AppRouter, AppModel, AppConstants)
 {
 	"use strict";
-	var previousIndex = 1;
-
-	PostRouteCommand.latestY = 0;
 	PostRouteCommand.ROUTE = "post/:id";
 	function PostRouteCommand( id )
 	{
+		var _this = this;
 		var id = id.split(".");
 		var index = parseInt(id[0]);
+		var subIndex = 1;
 		if(id.length > 1)
 		{
-			var subIndex = parseInt(id[1]);
+			subIndex = parseInt(id[1]);
 		}
 
-		// Filter value
-		if(index < 1) index = 1;
-		if(index > this.navigation.collection.length) index = this.navigation.collection.length;
-
-		var contentBlockContainer = this.navigation.collection.at(index-1).get("view");
-
-		// Reset and set new index
-		this.navigation.collection.forEach(function(model)
-			{
-				model.set({current:false});
-			});
-		this.navigation.collection.at(index-1).set({
-			current : true
-		});
-
-
-		// Transition time
-		if(index > previousIndex) // Only do a transition if scrolling down
+		var updateSubIndex = function()
 		{
+			var view = _this.navigation.collection.at( index - 1 ).get("view");
+			view.pagination.model.set({index:parseInt(subIndex)});
+		};
 
-		}
-		var _this = this;
-		AppRouter.inTransition = true;
-
-		var newScrollTop = contentBlockContainer.$el.offset().top - 10;
 		AppModel.set({
-			scrollTop : newScrollTop
+			index : index
 		});
-		$("body").css("overflow", "hidden");
-		$(window).stop();
-		$(window).animate( {
-			scrollTo : {
-				y : newScrollTop
-			}
-		},
-		400,
-		Sine.easeOut,
-		function()
+
+		if(AppModel.get("inTransition"))
 		{
-			$("body").css("overflow", "visible");
+			$(window).one( AppConstants.SCROLL_TOP_UPDATED, updateSubIndex );
+		}
+		else
+		{
+			updateSubIndex();
+		}
 
-			AppRouter.inTransition = false;
-
-			if(subIndex) contentBlockContainer.pagination.model.set({index:parseInt(subIndex)});
-		} );
-
-		this.navigation.indicator.model.set({index:index});
-		this.navigation.indicator.flash();
-
-		previousIndex = index;
+		return;
 	}
 
 	return PostRouteCommand;
