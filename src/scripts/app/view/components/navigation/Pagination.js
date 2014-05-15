@@ -86,7 +86,7 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 					_this.$el.css( "overflow", "scroll" );
 					_this.$el.removeClass( "InTransition") ;
 					_this.$el.trigger( "scroll" ); // Bugfix in touch devices?
-					_this.$el.children().css( "transform", "translate3d(0,0,0)" );
+					_this.$el.scrollTop( _this.$el.scrollTop() + 1 ); // Bugfix in touch devices?
 				});
 
 				$("body").css("overflow", "hidden");
