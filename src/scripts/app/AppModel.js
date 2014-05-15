@@ -8,7 +8,8 @@ function($, Backbone)
 	var AppModel = Backbone.Model.extend({
 		defaults : {
 			windowWidth : 0,
-			windowHeight : 0
+			windowHeight : 0,
+			scrollTop : 0
 		},
 		getContentBlockScrollOverlap : function()
 		{

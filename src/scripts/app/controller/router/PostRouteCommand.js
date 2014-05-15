@@ -1,13 +1,15 @@
 define([
 	"jquery",
 	"backbone",
-	"app/AppRouter"
+	"app/AppRouter",
+	"app/AppModel"
 ],
-function($, Backbone, AppRouter)
+function($, Backbone, AppRouter, AppModel)
 {
 	"use strict";
 	var previousIndex = 1;
 
+	PostRouteCommand.latestY = 0;
 	PostRouteCommand.ROUTE = "post/:id";
 	function PostRouteCommand( id )
 	{
@@ -43,6 +45,9 @@ function($, Backbone, AppRouter)
 		AppRouter.inTransition = true;
 
 		var newScrollTop = contentBlockContainer.$el.offset().top - 10;
+		AppModel.set({
+			scrollTop : newScrollTop
+		});
 		$("body").css("overflow", "hidden");
 		$(window).stop();
 		$(window).animate( {

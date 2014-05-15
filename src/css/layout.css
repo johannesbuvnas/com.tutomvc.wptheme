@@ -205,7 +205,17 @@ body
 		height: 100%;
 		z-index: 10;
 		overflow: scroll;
-		background: #eaedee;
+		background: #eaedee; /* Old browsers */
+		background: -moz-radial-gradient(center, ellipse cover,  #eaedee 43%, #eaedee 43%, #cccccc 94%); /* FF3.6+ */
+		background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(43%,#eaedee), color-stop(43%,#eaedee), color-stop(94%,#cccccc)); /* Chrome,Safari4+ */
+		background: -webkit-radial-gradient(center, ellipse cover,  #eaedee 43%,#eaedee 43%,#cccccc 94%); /* Chrome10+,Safari5.1+ */
+		background: -o-radial-gradient(center, ellipse cover,  #eaedee 43%,#eaedee 43%,#cccccc 94%); /* Opera 12+ */
+		background: -ms-radial-gradient(center, ellipse cover,  #eaedee 43%,#eaedee 43%,#cccccc 94%); /* IE10+ */
+		background: radial-gradient(ellipse at center,  #eaedee 43%,#eaedee 43%,#cccccc 94%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaedee', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+
 		display: none;
 	}
 	#pagination > .Inner

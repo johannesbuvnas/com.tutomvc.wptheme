@@ -22,7 +22,7 @@ function($, Backbone, ContentBlockContainer, AppModel, AppRouter)
 		// Focus is lost from current page, need to find out the next page
 		var newIndex = this.navigation.collection.indexOf( this.navigation.collection.findWhere({current:true}) ) + 1;
 		// Determine scroll direction
-		if($(window).scrollTop() > contentBlockContainer.$el.offset().top) newIndex++; // Scrolling down, next index
+		if($(window).scrollTop() > AppModel.get("scrollTop")) newIndex++; // Scrolling down, next index
 		else newIndex--; // Scrolling up, previous index
 
 		if(newIndex >= 1 && newIndex <= this.navigation.collection.length && this.navigation.collection.at(newIndex - 1))
