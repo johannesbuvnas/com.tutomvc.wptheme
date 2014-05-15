@@ -6,9 +6,20 @@ define([
 	"app/view/components/content/ContentBlockPagination",
 	"app/AppModel",
 	"app/AppRouter",
-	"app/view/components/content/ContentBlockContainerThumbnail"
+	"app/view/components/content/ContentBlockContainerThumbnail",
+	"imagesloaded/imagesloaded"
 ],
-function($, _, Backbone, ContentBlock, ContentBlockPagination, AppModel, AppRouter, ContentBlockContainerThumbnail)
+function(
+	$, 
+	_,
+	Backbone, 
+	ContentBlock, 
+	ContentBlockPagination, 
+	AppModel, 
+	AppRouter, 
+	ContentBlockContainerThumbnail,
+	ImagesLoaded
+)
 {
 	"use strict";
 	var ContentBlockContainer = Backbone.View.extend({
@@ -42,6 +53,8 @@ function($, _, Backbone, ContentBlock, ContentBlockPagination, AppModel, AppRout
 					total : this.collection.length
 				});
 			}
+
+			ImagesLoaded( this.$el, _.bind( this.render, this ) );
 		},
 		render : function()
 		{
