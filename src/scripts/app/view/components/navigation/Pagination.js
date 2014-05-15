@@ -78,7 +78,6 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 
 
 				this.$("> .Inner").animate( _.defaults( cssFrom, cssPosition ), 0 );
-				// return;
 				this.$("> .Inner").delay(200).animate( _.extend( cssTo, cssPosition ),1000, Expo.easeInOut, function()
 				{
 					_this.$("> .Inner").attr("style","");
@@ -100,10 +99,9 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 		reflectScroll : function()
 		{
 			var y = ( $("body").scrollTop() / ($("body").height() - AppModel.get("windowHeight")) );
+			var paddingPercentage = parseInt($("#stage").css("padding-top")) / AppModel.get("windowHeight");
 
-			// this.$el.scrollTop( 0 );
-			// this.$el.scrollTop( this.$(".ContentBlockContainerThumbnail.Current").position().top );
-			this.$el.scrollTop( (y * this.$("> .Inner").height()) - 80 );
+			this.$el.scrollTop( (y * this.$("> .Inner").height()) - (paddingPercentage * this.$("> .Inner").height()));
 		},
 		// Events
 		events : {
