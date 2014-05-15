@@ -47,7 +47,6 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 				}, 300);
 
 				var _this = this;
-				_this.$el.css( "-webkit-overflow-scrolling", null );
 				var width = $(".ContentBlockContainerThumbnail").first().outerWidth();
 				var scale = AppModel.getViewPortWidth() / width;
 				var windowHeight = (this.$("> .Inner").height() / AppModel.get("windowHeight"));
@@ -86,8 +85,8 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 					_this.$("> .Inner").css( cssPosition );
 					_this.$el.css( "overflow", "scroll" );
 					_this.$el.removeClass( "InTransition") ;
-					_this.$el.css( "-webkit-overflow-scrolling", "touch" );
 					_this.$el.trigger( "scroll" ); // Bugfix in touch devices?
+					_this.$el.children().css( "transform", "translate3d(0,0,0)" );
 				});
 
 				$("body").css("overflow", "hidden");
