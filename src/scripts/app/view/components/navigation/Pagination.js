@@ -103,7 +103,7 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 
 			// this.$el.scrollTop( 0 );
 			// this.$el.scrollTop( this.$(".ContentBlockContainerThumbnail.Current").position().top );
-			this.$el.scrollTop( (y * this.$("> .Inner").height()) - 60 );
+			this.$el.scrollTop( (y * this.$("> .Inner").height()) - 80 );
 		},
 		// Events
 		events : {
