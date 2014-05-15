@@ -101,7 +101,10 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 			var y = ( $("body").scrollTop() / ($("body").height() - AppModel.get("windowHeight")) );
 			var paddingPercentage = parseInt($("#stage").css("padding-top")) / AppModel.get("windowHeight");
 
-			this.$el.scrollTop( (y * this.$("> .Inner").height()) - (paddingPercentage * this.$("> .Inner").height()));
+			var scrollTop = y * this.$("> .Inner").height();
+			scrollTop -= AppModel.get("windowHeight") / 2;
+
+			this.$el.scrollTop( scrollTop );
 		},
 		// Events
 		events : {
