@@ -11,6 +11,9 @@ class ShowAdminBarFilterCommand extends FilterCommand
 
 	function execute()
 	{
-		return PrivacySettings::isWPAdminAllowed();
+		$defaultValue = $this->getArg(0);
+
+		if(!PrivacySettings::isWPAdminAllowed()) return FALSE;
+		else return $defaultValue;
 	}
 }
