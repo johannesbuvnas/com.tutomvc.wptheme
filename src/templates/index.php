@@ -48,7 +48,7 @@ global $themeFacade;
 			if(AppFacade::$environment == AppConstants::ENVIRONMENT_PRODUCTION)
 			{
 		?>
-			<script async type="text/javascript" src="<?php echo $themeFacade->getURL( "src/scripts/Main.pkgd.js?v=" . AppFacade::VERSION ); ?>"></script>
+				<script async type="text/javascript" src="<?php echo $themeFacade->getURL( "src/scripts/Main.pkgd.js?v=" . AppFacade::VERSION ); ?>"></script>
 		<?php
 			}
 		?>

@@ -22,17 +22,12 @@ class AdminInitCommand extends ActionCommand
 
 	private function prepView()
 	{
-		global $current_user;
-
-		$file = basename($_SERVER['PHP_SELF']);
-		if(is_user_logged_in() && !current_user_can('manage_options') && $file != 'admin-ajax.php')
-		{
-			wp_redirect( home_url() );
-			exit();
-		}
 	}
 
 	private function prepController()
 	{
+		$this->getFacade()->controller->registerCommand( new RestrictWPAdminCommand() );
+
+		do_action( RestrictWPAdminCommand::NAME );
 	}
 }

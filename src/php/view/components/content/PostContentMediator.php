@@ -23,13 +23,6 @@ class PostContentMediator extends Mediator
 	/* SET AND GET */
 	function getContent()
 	{
-		if(filter_var( get_option(ThemeSettings::IS_PROTECTED), FILTER_VALIDATE_BOOLEAN ) && !is_user_logged_in())
-		{
-			return $this->getFacade()->memberModule->view->getMediator( \tutomvc\modules\member\LoginContentMediator::NAME )
-					->getContent();
-			exit;
-		}
-		
 		$this->parse( "post", $this->getPost() );
 
 		return parent::getContent();

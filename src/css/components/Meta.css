@@ -170,7 +170,6 @@
 }
 
 .bypostauthor > article .fn:before {
-	content: "\f408";
 	margin: 0 2px 0 -2px;
 	position: relative;
 	top: -1px;
@@ -182,10 +181,6 @@
 
 .comment-edit-link {
 	margin-left: 10px;
-}
-
-.comment-edit-link:before {
-	content: "\f411";
 }
 
 .comment-content {

@@ -18,6 +18,7 @@ class AppMediator extends Mediator
 	{
 		$this->_headMediator = $this->getFacade()->view->registerMediator( new HeadMediator() );
 		$this->_bodyMediator = $this->getFacade()->view->registerMediator( new BodyMediator() );
+		$this->getFacade()->view->registerMediator( new WPLoginMediator() );
 	}
 
 	function getContent()
@@ -27,14 +28,14 @@ class AppMediator extends Mediator
 
 		if(AppFacade::$environment == AppConstants::ENVIRONMENT_STAGE)
 		{
-			wp_enqueue_style( "tutomvc/style", $this->getFacade()->getURL( "src/css/style.css" ), NULL, AppFacade::VERSION );
-			wp_enqueue_script( "tutomvc/js/require", $this->getFacade()->getURL( "src/scripts/libs/requirejs/require.js" ), NULL, AppFacade::VERSION, TRUE );
+			wp_enqueue_style( AppConstants::STYLE_CSS, $this->getFacade()->getURL( "src/css/style.css" ), NULL, AppFacade::VERSION );
+			wp_enqueue_script( AppConstants::SCRIPT_JS_REQUIRE, $this->getFacade()->getURL( "src/scripts/libs/requirejs/require.js" ), NULL, AppFacade::VERSION, TRUE );
 			// wp_enqueue_script( "tutomvc/js", $this->getFacade()->getURL( "src/scripts/Main.config.js" ), array("tutomvc/js/require"), time(), TRUE );
-			wp_enqueue_script( "tutomvc/js", $this->getFacade()->getURL( "src/scripts/Main.config.js" ), array("tutomvc/js/require"), AppFacade::VERSION, TRUE );
+			wp_enqueue_script( AppConstants::SCRIPT_JS, $this->getFacade()->getURL( "src/scripts/Main.config.js" ), array( AppConstants::SCRIPT_JS_REQUIRE ), AppFacade::VERSION, TRUE );
 		}
 		else
 		{
-			wp_enqueue_style( "tutomvc/style", $this->getFacade()->getURL( "src/css/style.pkgd.css" ), NULL, AppFacade::VERSION );
+			wp_enqueue_style( AppConstants::STYLE_CSS, $this->getFacade()->getURL( "src/css/style.pkgd.css" ), NULL, AppFacade::VERSION );
 			// DO NOT ENQUEUE, ADD MANUALLY WITH ASYNC INSTEAD
 			// wp_enqueue_script( "tutomvc/js", $this->getFacade()->getURL( "src/scripts/Main.pkgd.js" ), NULL, AppFacade::VERSION, TRUE );
 		}

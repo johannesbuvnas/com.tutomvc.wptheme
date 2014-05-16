@@ -2,6 +2,9 @@ html,
 body
 {
 	width: 100%;
+}
+body
+{
 	background: #eaedee;
 }
 #stage

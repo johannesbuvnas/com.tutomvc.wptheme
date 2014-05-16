@@ -18,16 +18,22 @@ class InitCommand extends ActionCommand
 
 	private function prepModel()
 	{
+		// Admin menu pages
+		$this->getSystem()->adminMenuPageCenter->add( new PrivacySettingsAdminMenuPage() );
+		// Options
+		$this->getSystem()->settingsCenter->add( new PrivacySettings() );
+		// Meta
+		$this->getSystem()->metaCenter->add( new PrivacyMetaBox() );
 	}
 
 	private function prepView()
 	{
-		$this->getFacade()->view->registerMediator( new LoginContentMediator() );
 	}
 
 	private function prepController()
 	{
 		$this->getFacade()->controller->registerCommand( new AdminInitCommand() );
 		$this->getFacade()->controller->registerCommand( new ShowAdminBarFilterCommand() );
+		$this->getFacade()->controller->registerCommand( new WPCommand() );
 	}
 }

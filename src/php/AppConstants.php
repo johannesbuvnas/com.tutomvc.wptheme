@@ -11,4 +11,8 @@ class AppConstants
 	const ENVIRONMENT_PRODUCTION = "tutomvc/theme/production";
 
 	const IMAGE_SIZE_UNCROPPED_THUMBNAIL = "tutomvc/theme/imagesize/uncropped_thumbnail";
+
+	const SCRIPT_JS = "tutomvc/theme/script/js";
+	const SCRIPT_JS_REQUIRE = "tutomvc/theme/script/js/require";
+	const STYLE_CSS = "tutomvc/theme/style/css";
 }

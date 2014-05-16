@@ -6,23 +6,12 @@
     text-align: center;
     font: 16px/1.5em "Bold";
     padding: .5em 1em;
-    /*text-transform: uppercase;*/
+    text-transform: uppercase;
     display: inline-block;
     text-decoration: none;
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
-}
-.Checkbox
-{
-	display: inline-block;
-	width: 27px;
-	height: 25px;
-	background: transparent url('../images/button-checkbox.png') center top no-repeat;
-}
-.Checkbox.Checked
-{
-	background: transparent url('../images/button-checkbox.png') center bottom no-repeat;
 }
 input
 {
@@ -71,12 +60,11 @@ textarea:focus
 	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
 	box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
 }
-
 input[type=submit]
 {
 	height: 44px;
 	display: inline-block;
-	background: #0099FF url(../../images/symbol-check-white.png) center center no-repeat;
+	background: #0099FF url(../images/symbol-check-white.png) center center no-repeat;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	font: 17px/1em "Bold";
@@ -85,10 +73,7 @@ input[type=submit]
 	text-indent: -9999em;
 	overflow: hidden;
 	text-align: center;
-}
-
-.ContentBlockContainer.PostProtected .ContentBlock > .Wrapper > .Inner > .TheContent input
-{
-	width: 100%;
-	margin-bottom: 5px;
+	border: 0;
+	-webkit-box-shadow: 0;
+	box-shadow: 0;
 }

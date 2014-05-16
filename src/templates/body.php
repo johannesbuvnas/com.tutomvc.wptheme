@@ -29,6 +29,8 @@ $classes[] = array_key_exists("preview", $_GET) ? "Preview" : "";
 					while ( have_posts() )
 					{
 						the_post();
+						// global $post;
+						// if(\tutomvc\modules\member\PrivacyMetaBox::isUserAllowed( NULL, $post->ID )) $themeFacade->view->getMediator( PostContentMediator::NAME )->render();
 						$themeFacade->view->getMediator( PostContentMediator::NAME )->render();
 					}
 				}

@@ -53,7 +53,8 @@
     font-style: normal;
 
 }
-body
+body,
+body.login
 {
 	font: 20px/1.4em "Regular";
 	color: #333;

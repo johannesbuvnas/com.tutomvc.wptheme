@@ -14,6 +14,5 @@ class MemberModule extends Facade
 	function onRegister()
 	{
 		$this->controller->registerCommand( new InitCommand() );
-		$this->controller->registerCommand( new LoginCommand() );
 	}
 }
