@@ -9,7 +9,7 @@ if(array_key_exists("preview", $_GET)) return;
 
 $children = get_posts( array(
 	'post_parent' => $post->ID,
-	'post_status' => "publish",
+	// 'post_status' => "publish",
 	'post_type' => $post->post_type,
 	'nopaging'=> TRUE,
 	"orderby" => "menu_order",
@@ -18,7 +18,10 @@ $children = get_posts( array(
 
 foreach($children as $post)
 {
-	$themeFacade->view->getmediator( PostContentMediator::NAME )
-		->setPost( $post )
-		->render();
+	if(\tutomvc\modules\member\PrivacyMetaBox::isUserAllowed( NULL, $post->ID ))
+	{
+		$themeFacade->view->getmediator( PostContentMediator::NAME )
+			->setPost( $post )
+			->render();
+	}
 }
