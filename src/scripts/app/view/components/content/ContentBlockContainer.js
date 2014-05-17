@@ -32,7 +32,8 @@ function(
 			this.thumbnail.model.set({
 				src : this.$el.attr( "data-thumbnail" ),
 				postID : this.$el.attr( "data-post-id" ),
-				permalink : this.$el.attr( "data-permalink" )
+				permalink : this.$el.attr( "data-permalink" ),
+				title : this.$el.attr( "data-title" )
 			});
 
 			var _this = this;

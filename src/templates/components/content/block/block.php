@@ -10,7 +10,7 @@ if(array_key_exists(ContentBlockMetaBox::TYPE, $meta)) $this->parse( "meta", arr
 
 $screenshotThumbnail = FeaturedMediaMetaBox::getScreenshotThumbnailURL( $postID );
 ?>
-<div class="ContentBlockContainer" data-post-id="<?php echo $postID; ?>" data-permalink="<?php echo get_permalink( $postID ); ?>" data-thumbnail="<?php echo $screenshotThumbnail; ?>">
+<div class="ContentBlockContainer" data-title="<?php echo esc_attr( get_the_title($postID) ); ?>" data-post-id="<?php echo $postID; ?>" data-permalink="<?php echo get_permalink( $postID ); ?>" data-thumbnail="<?php echo $screenshotThumbnail; ?>">
 	<?php
 	foreach($meta as $value)
 	{

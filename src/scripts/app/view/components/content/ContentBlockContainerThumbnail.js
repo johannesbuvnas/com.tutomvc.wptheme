@@ -23,7 +23,8 @@ function($, _, Backbone, ContentBlock, AppConstants, HTML)
 				defaults : {
 					src : null,
 					postID : null,
-					permalink : null
+					permalink : null,
+					title : ""
 				}
 			});
 			this.$el.html( this.template( this.model.toJSON() ) );

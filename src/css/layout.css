@@ -243,6 +243,9 @@ body
 		margin: 0px auto;
 		background: 0;
 		width: 156px;
+		width: 200px;
+		text-decoration: none;
+		text-align: center;
 	}
 	.ContentBlockContainerThumbnail > .Inner
 	{
@@ -250,6 +253,7 @@ body
 		background: #FFF;
 		width: 150px;
 		min-height: 100px;
+		margin: 0 auto;
 	}
 	.ContentBlockContainerThumbnail > .Inner > img
 	{
@@ -274,6 +278,28 @@ body
 	#pagination.InTransition .ContentBlockContainerThumbnail:hover > .Inner
 	{
 		background: #FFF!important;
+	}
+	#pagination .ContentBlockContainerThumbnail span.Title
+	{
+		font: 20px/1em "Bold";
+		color: #333;
+		-webkit-animation: fadeIn .5s;
+		animation: fadeIn .5s;
+		padding: 15px 0 0 0;
+		display: block;
+		visibility: visible;
+		opacity: 1;
+	}
+	#pagination .ContentBlockContainerThumbnail:hover span.Title,
+	#pagination .ContentBlockContainerThumbnail.Current span.Title
+	{
+		color: #0099FF;
+	}
+	#pagination.InTransition .ContentBlockContainerThumbnail span.Title
+	{
+		/*visibility: hidden;
+		opacity: 0;*/
+		color: #333;
 	}
 	#indicator
 	{
