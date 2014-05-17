@@ -8,8 +8,6 @@ function($, Backbone, AppConstants)
 	"use strict";
 	return function(model, newValue)
 	{
-		console.log("ScrollTopChange:", model.get("scrollTop"));
-
 		var _this = this;
 
 		if(model.get("index") > model.previous("index"))
@@ -44,7 +42,6 @@ function($, Backbone, AppConstants)
 		}
 
 		var _this = this;
-		console.log("transition time");
 		// Transition time
 		model.set({
 			inTransition : true
@@ -63,7 +60,6 @@ function($, Backbone, AppConstants)
 		Sine.easeOut,
 		function()
 		{
-			console.log("transition time over:", newValue);
 			// Enable scroll again
 			$("body").css("overflow", "visible");
 			// Transition is over

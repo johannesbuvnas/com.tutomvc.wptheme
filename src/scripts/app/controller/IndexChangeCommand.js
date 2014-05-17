@@ -7,7 +7,6 @@ function($, AppModel)
 	"use strict";
 	return function(model, newValue)
 	{
-		console.log("Index Change Command");
 		// Adjust indicator
 		this.navigation.indicator.model.set({index:newValue});
 		// Fetch view

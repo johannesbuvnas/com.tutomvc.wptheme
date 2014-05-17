@@ -14,12 +14,5 @@ function(
 		AppModel.set({
 			scrollTop : $("#" + id).offset().top
 		});
-		
-		// $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).animate( {
-		// 	scrollTo : {
-		// 		y : $("#" + id).offset().top
-		// 	}
-		// },
-		// 0);
 	};
 });
