@@ -25,7 +25,7 @@ function(
 		// If focus isn't lost from the current page, don't bother
 		var focusMinY = contentBlockContainer.$el.offset().top - AppModel.getContentBlockScrollOverlap();
 		var focusMaxY = contentBlockContainer.$el.offset().top + ( AppModel.getContentBlockScrollOverlap() ) + ( contentBlockContainer.$el.height() - AppModel.getViewPortHeight() );
-		if( $(window).scrollTop() > focusMinY && $(window).scrollTop() < focusMaxY ) return;
+		if( $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop() > focusMinY && $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop() < focusMaxY ) return;
 
 		// Focus is lost from current page, need to find out the next page
 		// Determine scroll direction
@@ -35,7 +35,7 @@ function(
 			scrolling : true
 		});
 
-		if($(window).scrollTop() > AppModel.get("scrollTop")) newIndex++;
+		if($( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop() > AppModel.get("scrollTop")) newIndex++;
 		else newIndex--;
 
 		var view = this.navigation.collection.at( newIndex-1 ).get("view");

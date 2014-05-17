@@ -44,8 +44,8 @@ function( Backbone,
 		function prepModel()
 		{
 			AppModel.set({
-				windowWidth : $(window).width(),
-				windowHeight : $(window).height()
+				windowWidth : $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).width(),
+				windowHeight : $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).height()
 			});
 		}
 
@@ -123,12 +123,10 @@ function( Backbone,
 			AppModel.on( "change:index", _.bind( IndexChangeCommand, app ) );
 			AppModel.on( "change:scrollTop", _.bind( ScrollTopChangeCommand, app ) );
 
-			$(window).on( "resize", _.bind( WindowResizeCommand, app ) );
+			$( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).on( "resize", _.bind( WindowResizeCommand, app ) );
 			$("body").on( AppConstants.RESIZE, _.bind( AppResizeCommand, app ) );
 
-			$(window).on( "scroll", _.bind( ScrollCommand, app ) );
-
-			Backbone.history.start();
+			$( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).on( "scroll", _.bind( ScrollCommand, app ) );
 		}
 
 		prepModel();
@@ -136,5 +134,9 @@ function( Backbone,
 		prepController();
 
 		$("body").addClass( "Ready" );
+		setTimeout( function()
+			{
+				Backbone.history.start();
+			}, 100 );
 	};
 });

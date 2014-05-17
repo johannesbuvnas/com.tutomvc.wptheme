@@ -2,9 +2,10 @@ define([
 	"jquery",
 	"backbone",
 	"app/AppRouter",
-	"app/AppModel"
+	"app/AppModel",
+	"app/AppConstants"
 ],
-function($, Backbone, AppRouter, AppModel)
+function($, Backbone, AppRouter, AppModel, AppConstants)
 {
 	"use strict";
 	return function()
@@ -21,7 +22,7 @@ function($, Backbone, AppRouter, AppModel)
 
 		var contentBlockContainer = this.navigation.collection.findWhere({current:true}).get("view");
 		var newScrollTop = contentBlockContainer.$el.offset().top - 10;
-		$(window).animate( {
+		$( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).animate( {
 			scrollTo : {
 				y : newScrollTop
 			}

@@ -32,7 +32,7 @@ function($, Backbone, AppRouter, AppModel, AppConstants)
 
 		if(AppModel.get("inTransition"))
 		{
-			$(window).one( AppConstants.SCROLL_TOP_UPDATED, updateSubIndex );
+			$( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).one( AppConstants.SCROLL_TOP_UPDATED, updateSubIndex );
 		}
 		else
 		{

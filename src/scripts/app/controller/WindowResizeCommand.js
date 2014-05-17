@@ -9,8 +9,8 @@ function($, AppConstants, AppModel)
 	return function()
 	{
 		AppModel.set({
-			windowWidth : $(window).width(),
-			windowHeight : $(window).height()
+			windowWidth : $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).width(),
+			windowHeight : $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).height()
 		});
 
 		this.$el.trigger( AppConstants.RESIZE );

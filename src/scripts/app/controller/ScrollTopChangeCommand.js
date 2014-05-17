@@ -8,50 +8,53 @@ function($, Backbone, AppConstants)
 	"use strict";
 	return function(model, newValue)
 	{
+		console.log("ScrollTopChange:", model.get("scrollTop"));
+
 		var _this = this;
 
 		if(model.get("index") > model.previous("index"))
 		{
 			// Attend to scroll down
-			if($(window).scrollTop() > newValue)
+			if($( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop() > newValue)
 			{
 				// Window has already scrolled passed the new value, don't do transition
 				model.set({
-					scrollTop : $(window).scrollTop()
+					scrollTop : $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop()
 				},{
 					trigger : false
 				});
 
-				return $(window).trigger( AppConstants.SCROLL_TOP_UPDATED );
+				return $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).trigger( AppConstants.SCROLL_TOP_UPDATED );
 			}
 		}
-		else
+		else if(model.get("index") < model.previous("index"))
 		{
 			// Attend to scroll up
-			if($(window).scrollTop() < newValue)
+			if($( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop() < newValue)
 			{
 				// Window has already scrolled passed the new value, don't do transition
 				model.set({
-					scrollTop : $(window).scrollTop()
+					scrollTop : $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop()
 				},{
 					trigger : false
 				});
 
-				return $(window).trigger( AppConstants.SCROLL_TOP_UPDATED );
+				return $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).trigger( AppConstants.SCROLL_TOP_UPDATED );
 			}
 		}
 
 		var _this = this;
+		console.log("transition time");
 		// Transition time
 		model.set({
 			inTransition : true
 		});
 		// Disable scroll
-		$("body").css( "overflow", "hidden" );
+		$( "body" ).css( "overflow", "hidden" );
 		// Stop animations
-		$(window).stop();
+		$( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).stop();
 		// Animation
-		$(window).animate( {
+		$( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).animate( {
 			scrollTo : {
 				y : newValue
 			}
@@ -60,6 +63,7 @@ function($, Backbone, AppConstants)
 		Sine.easeOut,
 		function()
 		{
+			console.log("transition time over:", newValue);
 			// Enable scroll again
 			$("body").css("overflow", "visible");
 			// Transition is over
@@ -67,7 +71,7 @@ function($, Backbone, AppConstants)
 				inTransition : false
 			});
 			_this.navigation.indicator.flash();
-			return $(window).trigger( AppConstants.SCROLL_TOP_UPDATED );
+			return $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).trigger( AppConstants.SCROLL_TOP_UPDATED );
 		} );
 	};
 });

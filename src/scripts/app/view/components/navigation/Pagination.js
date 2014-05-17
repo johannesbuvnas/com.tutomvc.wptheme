@@ -53,7 +53,7 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 				if(windowHeight > 1) windowHeight = 1;
 				if(windowHeight < 0) windowHeight = 0;
 				windowHeight = windowHeight * AppModel.get("windowHeight");
-				var y = ( $(window).scrollTop() / ($("body").height() - windowHeight) ) * 100;
+				var y = ( $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop() / ($("body").height() - windowHeight) ) * 100;
 				this.$el.css("overflow", "hidden");
 
 				var cssFrom = {
@@ -100,7 +100,7 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 		},
 		reflectScroll : function()
 		{
-			var y = ( $(window).scrollTop() / ($("body").height() - AppModel.get("windowHeight")) );
+			var y = ( $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop() / ($("body").height() - AppModel.get("windowHeight")) );
 			var paddingPercentage = parseInt($("#stage").css("padding-top")) / AppModel.get("windowHeight");
 
 			var scrollTop = y * this.$("> .Inner").height();

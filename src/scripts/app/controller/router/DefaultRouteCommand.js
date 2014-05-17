@@ -1,10 +1,25 @@
 define([
-	"jquery"
+	"jquery",
+	"app/AppConstants",
+	"app/AppModel"
 ],
-function($)
+function(
+	$,
+	AppConstants,
+	AppModel
+)
 {
 	return function(id)
 	{
-		$("body").scrollTop( $("#" + id).offset().top );
+		AppModel.set({
+			scrollTop : $("#" + id).offset().top
+		});
+		
+		// $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).animate( {
+		// 	scrollTo : {
+		// 		y : $("#" + id).offset().top
+		// 	}
+		// },
+		// 0);
 	};
 });

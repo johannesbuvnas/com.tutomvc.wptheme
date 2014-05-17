@@ -8,6 +8,7 @@ define(function()
 		RESIZE_NAVIGATION : "tutomvc/theme/events/resize/navigation",
 		READY : "tutomvc/theme/events/ready",
 		SCROLL_TOP_UPDATED : "tutomvc/theme/events/scroll_top_updated",
-		WIDTH_MOBILE : 900
+		WIDTH_MOBILE : 900,
+		SELECTOR_SCROLLABLE_ELEMENT : window
 	};
 });
