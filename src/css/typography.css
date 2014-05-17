@@ -112,7 +112,7 @@ h2
 }
 .ShadowBox
 {
-    background: rgba(0,0,0,.3);
+    background: transparent url(../images/bg-000-30.png) left top repeat;
 }
 .required,
 .Required

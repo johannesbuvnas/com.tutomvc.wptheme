@@ -34,8 +34,20 @@ class WPCommand extends ActionCommand
 	function redirect()
 	{
 		global $post;
-		if($post) wp_redirect( wp_login_url( get_permalink( $post->ID ) ) );
-		else wp_redirect( wp_login_url() );
+		
+		if(is_home())
+		{
+			wp_redirect( wp_login_url( get_permalink( get_option( "page_for_posts" ) ) ) );
+		}
+		else if($post)
+		{
+			wp_redirect( wp_login_url( get_permalink( $post->ID ) ) );
+		}
+		else
+		{
+			wp_redirect( wp_login_url() );
+		}
+
 		exit;
 	}
 }
