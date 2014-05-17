@@ -10,6 +10,7 @@ class AppFacade extends Facade
 	static $environment;
 
 	public $memberModule;
+	public $metaTagsModule;
 	public $repository;
 
 	function __construct()
@@ -36,6 +37,7 @@ class AppFacade extends Facade
 		}
 
 		$this->memberModule = $this->registerSubFacade( new \tutomvc\modules\member\MemberModule() );
+		$this->metaTagsModule = $this->registerSubFacade( new \tutomvc\modules\metatags\MetaTagsModule() );
 		
 		$this->controller->registerCommand( new InitCommand() );
 	}
