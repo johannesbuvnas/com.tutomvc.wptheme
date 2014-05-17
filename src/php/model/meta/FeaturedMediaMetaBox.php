@@ -6,7 +6,6 @@ use \tutomvc\MetaField;
 class FeaturedMediaMetaBox extends MetaBox
 {
 	const NAME = "featured_media";
-	const IMAGE = "image";
 	const SCREENSHOT_THUMBNAIL = "screenshot_thumbnail";
 
 	function __construct()
@@ -21,22 +20,9 @@ class FeaturedMediaMetaBox extends MetaBox
 		);
 
 		$this->addField( new MetaField(
-			self::IMAGE,
-			__("Image"),
-			NULL,
-			MetaField::TYPE_ATTACHMENT,
-			array(
-				MetaField::SETTING_TITLE => __( "Select Image" ),
-				MetaField::SETTING_MAX_CARDINALITY => 1,
-				MetaField::SETTING_BUTTON_TITLE => __( "Insert" ),
-				MetaField::SETTING_FILTER => array( "image" ),
-			)
-		) );
-
-		$this->addField( new MetaField(
 			self::SCREENSHOT_THUMBNAIL,
 			__("Screenshot Thumbnail"),
-			__( "This is auto generated." ),
+			__( "This is auto generated. Do not edit." ),
 			MetaField::TYPE_ATTACHMENT,
 			array(
 				MetaField::SETTING_MAX_CARDINALITY => 1
