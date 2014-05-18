@@ -41,9 +41,9 @@ function(
 		{
 			app.$el.css( "overflow", oldOverflow );
 			app.$el.css({
-				"overflow" : oldOverflow,
-				"height" : app.$("#stage").outerHeight()
+				"overflow" : oldOverflow
 			});
+			app.$el.trigger( AppConstants.RESIZE_CONTENT );
 
 			AppModel.set({inTransition:false});
 		} );

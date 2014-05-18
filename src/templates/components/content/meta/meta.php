@@ -16,12 +16,14 @@ if(!count($categories) && (get_the_tags( $post->ID ) === FALSE || !count(get_the
 			<?php 
 				if(is_single())
 				{
+					echo '<h1>'.get_the_title( $post->ID ).'</h1>';
 					echo $categoryList;
 					echo $tagsList;
 					comments_template( "/src/templates/components/content/meta/comments.php" );
 				}
 				else
 				{
+					echo '<p class="Title">'.get_the_title( $post->ID ).'</p>';
 					echo '<p class="PostMetaComments"><a class="CommentsLink" href="'.get_permalink( $post ).'#comments">'.sprintf( _n( 'One comment', '%1$s comments', get_comments_number(), AppFacade::KEY ), number_format_i18n( get_comments_number() ) ).'</a></p>';
 					echo $categoryList;
 					echo $tagsList;

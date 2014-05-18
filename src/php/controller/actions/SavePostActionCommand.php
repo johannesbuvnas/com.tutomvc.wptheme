@@ -15,7 +15,7 @@ class SavePostActionCommand extends ActionCommand
 	{
 		$post = get_post( $this->getArg(0) );
 
-		if( $post->post_type == "page" )
+		if( $this->getSystem()->metaCenter->get( FeaturedMediaMetaBox::NAME )->hasPostType( $post->post_type ) )
 		{
 			FeaturedMediaMetaBox::deleteScreenshotThumbnail( $post->ID );
 		}

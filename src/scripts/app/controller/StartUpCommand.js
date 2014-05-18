@@ -7,6 +7,7 @@ define([
 	"underscore",
 	"app/controller/WindowResizeCommand",
 	"app/controller/AppResizeCommand",
+	"app/controller/AppContentResizeCommand",
 	"app/controller/AppRenderCommand",
 	"app/modules/MasonryModule",
 	"app/view/Stage",
@@ -27,6 +28,7 @@ function( Backbone,
 	_, 
 	WindowResizeCommand, 
 	AppResizeCommand,
+	AppContentResizeCommand,
 	AppRenderCommand,
 	MasonryModule, 
 	Stage, 
@@ -121,6 +123,7 @@ function( Backbone,
 
 			app.on( AppConstants.RENDER, AppRenderCommand );
 			app.$el.on( AppConstants.RESIZE, _.bind( app.render, app ) );
+			app.$el.on( AppConstants.RESIZE_CONTENT, _.bind( AppContentResizeCommand, app ) );
 			ImagesLoaded( app.$el, _.bind( app.render, app ) );
 		}
 

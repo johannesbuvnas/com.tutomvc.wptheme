@@ -79,12 +79,16 @@ body.Ready #stage
 	{
 		position: absolute;
 		left: 50%;
-		margin-left: -27.5px;
+		margin-left: -25px;
 		top: 40px;
-		background: transparent url(../images/icon-linked-content.png) center center no-repeat;
+		background: transparent url(../images/button-link.png) left top no-repeat;
 		z-index: 2;
-		width: 55px;
-		height: 21px;
+		width: 50px;
+		height: 20px;
+	}
+	.ContentBlock:hover > .IconLinkedContent
+	{
+		background-position: left -40px;
 	}
 	.ContentBlock > .Wrapper > .Inner
 	{
@@ -331,10 +335,15 @@ body.Ready #stage
 		#mainButton,
 		#previousButton,
 		#nextButton,
-		#indicator
+		#indicator,
+		.ContentBlock > .IconLinkedContent
 		{
 			background-position: right top;
 			background-size: 150% auto;
+		}
+		.ContentBlock:hover > .IconLinkedContent
+		{
+			background-position: right bottom;
 		}
 	}
 /* end #navigation */

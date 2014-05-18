@@ -6,6 +6,7 @@ define([
 	"app/view/components/content/ContentBlockPagination",
 	"app/AppModel",
 	"app/AppRouter",
+	"app/AppConstants",
 	"app/view/components/content/ContentBlockContainerThumbnail"
 ],
 function(
@@ -16,6 +17,7 @@ function(
 	ContentBlockPagination, 
 	AppModel, 
 	AppRouter, 
+	AppConstants,
 	ContentBlockContainerThumbnail
 )
 {
@@ -25,7 +27,6 @@ function(
 		{
 			this.collection = new Backbone.Collection();
 			this.pagination = new ContentBlockPagination();
-			this.listenTo( this.pagination.model, "change:index", this.onPaginate );
 			this.thumbnail = new ContentBlockContainerThumbnail();
 			this.thumbnail.model.set({
 				src : this.$el.attr( "data-thumbnail" ),
@@ -52,6 +53,8 @@ function(
 					total : this.collection.length
 				});
 			}
+
+			this.listenTo( this.pagination.model, "change:index", this.onPaginate );
 		},
 		render : function()
 		{
@@ -69,22 +72,23 @@ function(
 		},
 		adjustPagination : function()
 		{
-			this.$el.height( this.collection.at( this.pagination.model.get("index") - 1 ).get("view").$el.outerHeight() );
-			var height = this.collection.at( this.pagination.model.get("index") - 1 ).get("view").$el.outerHeight();
-			if(this.$("> .Meta").length)
-			{
-				this.$("> .Meta").css("top", height);
-				height += parseInt(this.$("> .Meta").outerHeight());
-			}
-
-			this.$el.height( height );
-			// this.$el.height( this.collection.at( this.pagination.model.get("index") - 1 ).get("view").$el.outerHeight() );
-
 			var view;
 			this.$( ".ContentBlock.Active" ).removeClass("Active");
 			view = this.collection.at( this.pagination.model.get("index") - 1 ).get("view");
+
+			var viewHeight = view.$el.outerHeight();
+			var metaHeight = 0;
+			if(this.$("> .Meta").length) metaHeight = parseInt(this.$("> .Meta").outerHeight());
+
+			this.$el.height( viewHeight + metaHeight );
+
+			
 			// Show active
 			view.$el.animate({autoAlpha:1}, 0);
+
+			this.$("> .Meta").css({
+				"top" : viewHeight
+			});
 		},
 		// Events
 		events : {
@@ -96,6 +100,7 @@ function(
 			{
 				var _this = this;
 				var view = view = this.collection.at( this.pagination.model.get("index") - 1 ).get("view");
+				var height = view.$el.outerHeight();
 				view.$el.addClass("Active");
 				var fromRight = model.previousAttributes().index < model.get("index") ? "-95%" : "95%";
 				view.$el.animate({right:fromRight, autoAlpha:1}, 0);
@@ -104,6 +109,8 @@ function(
 						// Hide others
 						_this.$( ".ContentBlock:not(.Active)" ).animate({autoAlpha:0}, 0);
 						_this.adjustPagination();
+						// Resize app
+						$("body").trigger( AppConstants.RESIZE_CONTENT );
 					});
 			}
 		}

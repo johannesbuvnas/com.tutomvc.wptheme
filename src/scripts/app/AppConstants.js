@@ -5,6 +5,7 @@ define(function()
 		// EVENTS
 		STARTUP : "tutomvc/theme/events/startup",
 		RESIZE : "tutomvc/theme/events/resize",
+		RESIZE_CONTENT : "tutomvc/theme/events/resize_content",
 		RESIZE_NAVIGATION : "tutomvc/theme/events/resize/navigation",
 		READY : "tutomvc/theme/events/ready",
 		SCROLL_TOP_UPDATED : "tutomvc/theme/events/scroll_top_updated",
