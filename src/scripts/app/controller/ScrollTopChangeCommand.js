@@ -56,8 +56,8 @@ function($, Backbone, AppConstants)
 				y : newValue
 			}
 		},
-		400,
-		Sine.easeOut,
+		1000,
+		Expo.easeOut,
 		function()
 		{
 			// Enable scroll again
