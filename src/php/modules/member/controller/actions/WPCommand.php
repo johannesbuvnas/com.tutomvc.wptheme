@@ -20,7 +20,7 @@ class WPCommand extends ActionCommand
 			if(is_user_logged_in())
 			{
 				global $user;
-				if(!count($user->roles)) wp_logout();
+				if(!count($user->roles)) wp_set_current_user( NULL );
 			}
 
 			global $post;
