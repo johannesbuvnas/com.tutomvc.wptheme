@@ -1,8 +1,8 @@
 <?php
 namespace tutomvc\modules\metatags;
 
-global $post;
-
+	$post = apply_filters( SocialMediaTagsMediator::FILTER_POST, NULL );
+	if(!$post) return;
 	$meta = get_post_meta( $post->ID, MetaTagsMetaBox::NAME );
 	$meta = count( $meta ) ? array_pop($meta) : NULL;
 
