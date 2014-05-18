@@ -19,8 +19,8 @@ class WPCommand extends ActionCommand
 			// Multisite user fix, if no roles.. Sign out the user
 			if(is_user_logged_in())
 			{
-				global $user;
-				if(!count($user->roles)) wp_set_current_user( NULL );
+				global $current_user;
+				if(!count($current_user->roles)) wp_set_current_user( NULL );
 			}
 
 			global $post;
