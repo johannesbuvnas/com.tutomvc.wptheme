@@ -18,20 +18,14 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 		initialize : function()
 		{
 			this.$el.on( "click", _.bind(this.toggle, this) );
-		},
-		render : function( collection )
-		{
 			this.$el.html( HTML );
-			var _this = this;
-			var i = 0;
-			collection.forEach(function(model)
-				{
-					i++;
-
-					var thumbnail = model.get("view").thumbnail;
-					_this.$("> .Inner").append( thumbnail.$el );
-					thumbnail.render();
-				});
+		},
+		add : function(model, collection, event)
+		{
+			var thumbnail = model.get("view").thumbnail;
+			this.$("> .Inner").append( thumbnail.$el );
+			thumbnail.render();
+			return this;
 		},
 		toggle : function()
 		{
@@ -95,7 +89,7 @@ function(_, $, Backbone, HTML, AppRouter, AppConstants, AppModel)
 				$("#stage > .Inner").animate({
 					opacity : 1
 				}, 0);
-				$("body").css("overflow", "visible");
+				$("body").css("overflow", "auto");
 			}
 		},
 		reflectScroll : function()

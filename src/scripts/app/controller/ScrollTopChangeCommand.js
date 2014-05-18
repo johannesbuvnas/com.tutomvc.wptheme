@@ -47,7 +47,7 @@ function($, Backbone, AppConstants)
 			inTransition : true
 		});
 		// Disable scroll
-		$( "body" ).css( "overflow", "hidden" );
+		_this.$el.css( "overflow", "hidden" );
 		// Stop animations
 		$( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).stop();
 		// Animation
@@ -61,7 +61,7 @@ function($, Backbone, AppConstants)
 		function()
 		{
 			// Enable scroll again
-			$("body").css("overflow", "visible");
+			_this.$el.css("overflow", "auto");
 			// Transition is over
 			model.set({
 				inTransition : false

@@ -16,7 +16,7 @@ function($, Backbone)
 		},
 		getContentBlockScrollOverlap : function()
 		{
-			return this.getViewPortHeight() / 3;
+			return this.getViewPortHeight() / 2.1;
 		},
 		getViewPortHeight : function()
 		{

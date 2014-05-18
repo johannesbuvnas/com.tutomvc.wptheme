@@ -6,8 +6,7 @@ define([
 	"app/view/components/content/ContentBlockPagination",
 	"app/AppModel",
 	"app/AppRouter",
-	"app/view/components/content/ContentBlockContainerThumbnail",
-	"imagesloaded/imagesloaded"
+	"app/view/components/content/ContentBlockContainerThumbnail"
 ],
 function(
 	$, 
@@ -17,8 +16,7 @@ function(
 	ContentBlockPagination, 
 	AppModel, 
 	AppRouter, 
-	ContentBlockContainerThumbnail,
-	ImagesLoaded
+	ContentBlockContainerThumbnail
 )
 {
 	"use strict";
@@ -54,8 +52,6 @@ function(
 					total : this.collection.length
 				});
 			}
-
-			ImagesLoaded( this.$el, _.bind( this.render, this ) );
 		},
 		render : function()
 		{

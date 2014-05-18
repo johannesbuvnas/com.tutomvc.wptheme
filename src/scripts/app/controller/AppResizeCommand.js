@@ -10,6 +10,8 @@ function($, Backbone, AppRouter, AppModel, AppConstants)
 	"use strict";
 	return function()
 	{
+		console.log( "AppResizeCommand" );
+		
 		AppModel.set({inTransition:true});
 		var oldOverflow = $("body").css("overflow");
 		$("#stage > .Inner").animate({

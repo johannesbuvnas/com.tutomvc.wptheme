@@ -17,6 +17,12 @@ function(DocReady, $, _, Backbone, AppConstants, StartUpCommand )
 		initialize : function()
 		{
 			this.on( AppConstants.STARTUP, StartUpCommand );
+		},
+		render : function()
+		{
+			this.trigger( AppConstants.RENDER );
+
+			return this;
 		}
 	});
 

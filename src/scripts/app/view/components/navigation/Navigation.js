@@ -1,4 +1,5 @@
 define([
+	"underscore",
 	"backbone",
 	"app/view/components/navigation/Indicator",
 	"app/model/navigation/ContentBlockContainerCollection",
@@ -7,7 +8,16 @@ define([
 	"app/view/components/navigation/buttons/NextButton",
 	"app/view/components/navigation/buttons/PreviousButton"
 ],
-function(Backbone, Indicator, ContentBlockContainerCollection, Pagination, MainButton, NextButton, PreviousButton)
+function(
+	_,
+	Backbone,
+	Indicator,
+	ContentBlockContainerCollection, 
+	Pagination, 
+	MainButton, 
+	NextButton, 
+	PreviousButton
+)
 {
 	"use strict";
 	var Navigation = Backbone.View.extend({
@@ -22,15 +32,25 @@ function(Backbone, Indicator, ContentBlockContainerCollection, Pagination, MainB
 				el : this.$("#indicator")
 			});
 			this.pagination = new Pagination();
+
+			// Controllers
+			this.collection.on( "add", _.bind( this.pagination.add, this.pagination ) );
 		},
 		render : function()
 		{
-			this.pagination.render( this.collection );
-
-			if(this.collection.length > 1)
+			if(this.collection.length > 1 && !Backbone.$("#stage").hasClass("Preview"))
 			{
-				this.$("#mainButton").animate({autoAlpha:1},0);
+				this.indicator.flash();
+
+				if(this.collection.length > 1)
+				{
+					this.$("#mainButton").animate({autoAlpha:1},0);
+				}
 			}
+
+			this.collection.renderAll();
+
+			return this;
 		},
 		events : {
 			"click #mainButton" : "onNavigationButtonClick"

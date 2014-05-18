@@ -7,6 +7,7 @@ define([
 	"underscore",
 	"app/controller/WindowResizeCommand",
 	"app/controller/AppResizeCommand",
+	"app/controller/AppRenderCommand",
 	"app/modules/MasonryModule",
 	"app/view/Stage",
 	"app/view/components/content/ContentBlockContainer",
@@ -15,7 +16,8 @@ define([
 	"app/controller/router/PostRouteCommand",
 	"app/controller/router/DefaultRouteCommand",
 	"app/controller/ScrollTopChangeCommand",
-	"app/controller/IndexChangeCommand"
+	"app/controller/IndexChangeCommand",
+	"imagesloaded/imagesloaded"
 ],
 function( Backbone, 
 	AppConstants, 
@@ -24,7 +26,8 @@ function( Backbone,
 	$, 
 	_, 
 	WindowResizeCommand, 
-	AppResizeCommand, 
+	AppResizeCommand,
+	AppRenderCommand,
 	MasonryModule, 
 	Stage, 
 	ContentBlockContainer, 
@@ -33,7 +36,8 @@ function( Backbone,
 	PostRouteCommand, 
 	DefaultRouteCommand,
 	ScrollTopChangeCommand,
-	IndexChangeCommand
+	IndexChangeCommand,
+	ImagesLoaded
 )
 {
 	"use strict";
@@ -58,6 +62,7 @@ function( Backbone,
 			app.navigation = new Navigation({
 				el : $("#navigation")
 			});
+			app.stage.$el.append( app.navigation.pagination.$el );
 
 			app.$( ".ContentBlockContainer" ).each(function()
 			{
@@ -69,21 +74,8 @@ function( Backbone,
 					current : app.navigation.collection.length == 0 ? true : false
 				});
 			});
-			app.navigation.collection.renderAll();
-			if(app.navigation.collection.length > 1 && !app.stage.$el.hasClass("Preview"))
-			{
-				// app.stage.$el.append( app.navigation.$el );
-				// app.stage.$el.append( app.navigation.indicator.$el );
-				app.navigation.indicator.flash();
-				app.stage.$el.append( app.navigation.pagination.$el );
-				app.navigation.render();
-			}
 
 			prepViewFallbacks();
-
-			MasonryModule.autoInstance( app.$el );
-
-			app.stage.render();
 		}
 
 		function prepViewFallbacks()
@@ -124,19 +116,16 @@ function( Backbone,
 			AppModel.on( "change:scrollTop", _.bind( ScrollTopChangeCommand, app ) );
 
 			$( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).on( "resize", _.bind( WindowResizeCommand, app ) );
-			$("body").on( AppConstants.RESIZE, _.bind( AppResizeCommand, app ) );
 
 			$( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).on( "scroll", _.bind( ScrollCommand, app ) );
+
+			app.on( AppConstants.RENDER, AppRenderCommand );
+			app.$el.on( AppConstants.RESIZE, _.bind( app.render, app ) );
+			ImagesLoaded( app.$el, _.bind( app.render, app ) );
 		}
 
 		prepModel();
 		prepView();
 		prepController();
-
-		$("body").addClass( "Ready" );
-		setTimeout( function()
-			{
-				Backbone.history.start();
-			}, 100 );
 	};
 });
