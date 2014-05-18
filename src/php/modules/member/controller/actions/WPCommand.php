@@ -16,6 +16,13 @@ class WPCommand extends ActionCommand
 	{
 		if(!is_admin())
 		{
+			// Multisite user fix, if no roles.. Sign out the user
+			if(is_user_logged_in())
+			{
+				global $user;
+				if(!count($user->roles)) wp_logout();
+			}
+
 			global $post;
 
 			if(!$post) return;

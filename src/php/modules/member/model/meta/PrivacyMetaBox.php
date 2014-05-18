@@ -65,10 +65,6 @@ class PrivacyMetaBox extends MetaBox
 		{
 			global $current_user;
 			$user = $current_user;
-			global $user_level;
-			var_dump($user);
-			var_dump($user_level);
-			exit;
 		}
 
 		if(!$postID)
