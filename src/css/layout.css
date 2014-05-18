@@ -189,6 +189,11 @@ body.Ready #stage
 		z-index: 9;
 		width: 120px;
 		margin-left: -60px;
+		opacity: .5;
+	}
+	#buttons:hover
+	{
+		opacity: 1;
 	}
 	#buttons a
 	{
