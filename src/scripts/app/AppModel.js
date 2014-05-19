@@ -11,12 +11,11 @@ function($, Backbone)
 			windowHeight : 0,
 			index : 1,
 			inTransition : false,
-			scrolling : false,
 			scrollTop : 0
 		},
 		getContentBlockScrollOverlap : function()
 		{
-			return this.getViewPortHeight() / 2.1;
+			return this.getViewPortHeight() * .21;
 		},
 		getViewPortHeight : function()
 		{

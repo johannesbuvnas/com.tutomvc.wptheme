@@ -11,7 +11,8 @@ function(
 {
 	return function(id)
 	{
-		console.log("DefaultRouteCommand");
+		if(!$("#" + id).offset()) return;
+		
 		AppModel.set({
 			scrollTop : $("#" + id).offset().top
 		});

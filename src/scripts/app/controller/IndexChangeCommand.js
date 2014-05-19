@@ -1,14 +1,20 @@
 define([
 	"jquery",
-	"app/AppModel"
+	"app/AppModel",
+	"app/AppConstants"
 ],
-function($, AppModel)
+function(
+	$,
+	AppModel,
+	AppConstants
+	)
 {
 	"use strict";
 	return function(model, newValue)
 	{
 		// Adjust indicator
 		this.navigation.indicator.model.set({index:newValue});
+		this.navigation.indicator.flash();
 		// Fetch view
 		var contentBlockContainer = this.navigation.collection.at(newValue-1).get("view");
 		
@@ -23,7 +29,7 @@ function($, AppModel)
 		});
 		//
 
-		if(newValue > model.previous("index") || !AppModel.get("scrolling"))
+		if(newValue > model.previous("index"))
 		{
 			// Scrolling down
 			var newScrollTop = contentBlockContainer.$el.offset().top - 10;

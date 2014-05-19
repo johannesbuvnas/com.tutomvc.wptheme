@@ -26,7 +26,7 @@ body.Ready #stage
 }
 #stage > .Inner
 {
-	padding: 0 10px;
+	padding: 0 15px;
 }
 @media only all
 {
@@ -157,9 +157,9 @@ body.Ready #stage
 	ul.ContentBlockPagination li
 	{
 		float: left;
-		margin: 0;
-		width: 18px;
-		height: 18px;
+		margin: 0 3px;
+		width: 15px;
+		height: 15px;
 	}
 	ul.ContentBlockPagination li a
 	{
@@ -169,11 +169,12 @@ body.Ready #stage
 		display: block;
 		width: 100%;
 		height: 100%;
-		background: transparent url(../images/symbol-dot.png) center center no-repeat;
-		opacity: .5;
+		background: transparent url(../images/button-page.png) -15px top no-repeat;
+		/*opacity: .5;*/
 	}
 	ul.ContentBlockPagination li.Active a
 	{
+		background: transparent url(../images/button-page.png) left top no-repeat;
 		-webkit-animation: fadeIn .5s;
 		animation: fadeIn .5s;
 		opacity: 1;
@@ -349,6 +350,16 @@ body.Ready #stage
 		.ContentBlock:hover > .IconLinkedContent
 		{
 			background-position: right bottom;
+		}
+		ul.ContentBlockPagination li a
+		{
+			background-size: 300% auto;
+			background-position: -30px top;
+		}
+		ul.ContentBlockPagination li.Active a
+		{
+			background-size: 300% auto;
+			background-position: -15px top;
 		}
 	}
 /* end #navigation */

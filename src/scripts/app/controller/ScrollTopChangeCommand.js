@@ -16,11 +16,11 @@ function($, Backbone, AppConstants)
 			if($( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop() > newValue)
 			{
 				// Window has already scrolled passed the new value, don't do transition
-				model.set({
-					scrollTop : $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop()
-				},{
-					trigger : false
-				});
+				// model.set({
+				// 	scrollTop : $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop()
+				// },{
+				// 	trigger : false
+				// });
 
 				return $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).trigger( AppConstants.SCROLL_TOP_UPDATED );
 			}
@@ -31,11 +31,11 @@ function($, Backbone, AppConstants)
 			if($( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop() < newValue)
 			{
 				// Window has already scrolled passed the new value, don't do transition
-				model.set({
-					scrollTop : $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop()
-				},{
-					trigger : false
-				});
+				// model.set({
+				// 	scrollTop : $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).scrollTop()
+				// },{
+				// 	trigger : false
+				// });
 
 				return $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).trigger( AppConstants.SCROLL_TOP_UPDATED );
 			}
@@ -66,7 +66,6 @@ function($, Backbone, AppConstants)
 			model.set({
 				inTransition : false
 			});
-			_this.navigation.indicator.flash();
 			return $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).trigger( AppConstants.SCROLL_TOP_UPDATED );
 		} );
 	};
