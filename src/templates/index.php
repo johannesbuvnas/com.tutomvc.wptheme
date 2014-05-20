@@ -34,6 +34,7 @@ global $themeFacade;
 			$gaAccount = get_option( ThemeSettings::GOOGLE_ANALYTICS_CODE );
 			if(!empty($gaAccount) && AppFacade::$environment == AppConstants::ENVIRONMENT_PRODUCTION && !AppFacade::$isPreview)
 			{
+				$user = wp_get_current_user();
 		?>
 				<script>
 					(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -44,18 +45,8 @@ global $themeFacade;
 					<?php
 					// New Google Analytics code to set User ID.
 					// $userId is a unique, persistent, and non-personally identifiable string ID.
-					if( is_user_logged_in() )
-					{
-						$user = wp_get_current_user();
-
-						$gacode = "ga('create', '{$gaAccount}', { 'userId': '%s' });";
-						echo sprintf( $gacode, $user->user_login );
-					}
-					else
-					{
-						$gacode = "ga('create', '{$gaAccount}', 'auto');";
-						echo sprintf( $gacode );
-					}
+					$gacode = "ga('create', '{$gaAccount}', { 'userId': '%s' });";
+					echo sprintf( $gacode, $user->user_login );
 					?>
 					ga('send', 'pageview');
 				</script>
