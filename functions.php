@@ -4,4 +4,7 @@ global $themeFacade;
 if(class_exists("\\tutomvc\TutoMVC"))
 {
 	$themeFacade = \tutomvc\TutoMVC::startup( "\\tutomvc\\theme\AppFacade", "src/templates", TRUE, "src/php", array("libs") );
+
+	// Add staging environment
+	$themeFacade->addEnvironment( "local.tutomvc.com" );
 }

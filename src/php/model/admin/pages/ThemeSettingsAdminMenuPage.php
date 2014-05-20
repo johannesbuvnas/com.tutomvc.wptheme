@@ -9,9 +9,9 @@ class ThemeSettingsAdminMenuPage extends AdminMenuSettingsPage
 	function __construct()
 	{
 		parent::__construct(
-			"Theme Settings",
-			"Theme Settings",
-			"edit_plugins",
+			"The Theme",
+			"The Theme",
+			"edit_theme_options",
 			self::NAME,
 			NULL,
 			NULL

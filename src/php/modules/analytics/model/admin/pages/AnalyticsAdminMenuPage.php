@@ -1,16 +1,16 @@
 <?php
-namespace tutomvc\modules\member;
+namespace tutomvc\modules\analytics;
 use \tutomvc\AdminMenuSettingsPage;
 
-class PrivacySettingsAdminMenuPage extends AdminMenuSettingsPage
+class AnalyticsAdminMenuPage extends AdminMenuSettingsPage
 {
-	const NAME = "custom_privacy_settings";
+	const NAME = "custom_analytics_settings";
 
 	function __construct()
 	{
 		parent::__construct(
-			__("Privacy"),
-			__("Privacy"),
+			"Google Analytics",
+			"Google Analytics",
 			"edit_theme_options",
 			self::NAME,
 			NULL,
@@ -18,9 +18,5 @@ class PrivacySettingsAdminMenuPage extends AdminMenuSettingsPage
 		);
 
 		$this->setType( AdminMenuSettingsPage::TYPE_THEME );
-	}
-
-	public function onLoad()
-	{
 	}
 }

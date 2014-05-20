@@ -26,7 +26,7 @@ class AppMediator extends Mediator
 		$this->parse( "headContent", $this->_headMediator->getContent() );
 		$this->parse( "bodyContent", $this->_bodyMediator->getContent() );
 
-		if(AppFacade::$environment == AppConstants::ENVIRONMENT_STAGE)
+		if(!AppFacade::isProduction())
 		{
 			wp_enqueue_style( AppConstants::STYLE_CSS, $this->getFacade()->getURL( "src/css/style.css" ), NULL, AppFacade::VERSION );
 			wp_enqueue_script( AppConstants::SCRIPT_JS_REQUIRE, $this->getFacade()->getURL( "src/scripts/libs/requirejs/require.js" ), NULL, AppFacade::VERSION, TRUE );

@@ -20,7 +20,8 @@ class AdminInitCommand extends ActionCommand
 
 	function prepModel()
 	{
-
+		// Notifications
+		if(!AppFacade::isProduction()) $this->getSystem()->notificationCenter->add( __("This is <strong>NOT</strong> production environment."), \tutomvc\Notification::TYPE_UPDATE );
 	}
 
 	function prepView()

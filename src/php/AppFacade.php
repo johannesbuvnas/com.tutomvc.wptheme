@@ -7,41 +7,54 @@ class AppFacade extends Facade
 	const KEY = "tutomvc/theme/facade";
 	const VERSION = "1.044";
 
-	static $environment;
+	private static $_environmentsMap;
 	static $isPreview = FALSE;
 
 	public $memberModule;
 	public $metaTagsModule;
+	public $analyticsModule;
 	public $repository;
 
 	function __construct()
 	{
 		parent::__construct( self::KEY );
+
+		self::$_environmentsMap = array(
+			AppConstants::ENVIRONMENT_STAGE => array(),
+			AppConstants::ENVIRONMENT_PRODUCTION => array()
+		);
 	}
 
 	function onRegister()
-	{
-		self::$isPreview = array_key_exists("preview", $_GET);
+	{		
+		$this->memberModule = $this->registerSubFacade( new \tutomvc\modules\member\MemberModule() );
+		$this->metaTagsModule = $this->registerSubFacade( new \tutomvc\modules\metatags\MetaTagsModule() );
+		$this->analyticsModule = $this->registerSubFacade( new \tutomvc\modules\analytics\AnalyticsModule() );
 		
-		switch($_SERVER['HTTP_HOST'])
-		{
-			case "local.tutomvc.com":
+		$this->controller->registerCommand( new InitCommand() );
+	}
 
-				self::$environment = AppConstants::ENVIRONMENT_STAGE;
+	/* ENVIRONMENT */
+	public static function addEnvironment( $environmentDomain, $type = AppConstants::ENVIRONMENT_STAGE )
+	{
+		self::$_environmentsMap[ $type ][] = $environmentDomain;
+
+		switch(self::isProduction())
+		{
+			case FALSE:
+
 				error_reporting( E_ERROR | E_WARNING | E_PARSE | E_NOTICE );
 
 			break;
 			default:
 
-				self::$environment = AppConstants::ENVIRONMENT_PRODUCTION;
 				error_reporting( E_ERROR );
 
 			break;
 		}
-
-		$this->memberModule = $this->registerSubFacade( new \tutomvc\modules\member\MemberModule() );
-		$this->metaTagsModule = $this->registerSubFacade( new \tutomvc\modules\metatags\MetaTagsModule() );
-		
-		$this->controller->registerCommand( new InitCommand() );
+	}
+	public function isProduction()
+	{
+		return !in_array( $_SERVER['HTTP_HOST'], self::$_environmentsMap[ AppConstants::ENVIRONMENT_STAGE ] );
 	}
 }
