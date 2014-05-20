@@ -31,13 +31,33 @@ global $themeFacade;
 
 		<?php
 			// Google Analytics if is in PRODUCTION MODE
-			if(AppFacade::$environment == AppConstants::ENVIRONMENT_PRODUCTION)
+			$gaAccount = get_option( ThemeSettings::GOOGLE_ANALYTICS_CODE );
+			if(!empty($gaAccount) && AppFacade::$environment == AppConstants::ENVIRONMENT_PRODUCTION && !AppFacade::$isPreview)
 			{
 		?>
 				<script>
-		<?php
-					echo get_option( ThemeSettings::GOOGLE_ANALYTICS_CODE );
-		?>
+					(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+					m=s.getElementsByTagName(o)[0];
+					a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+					})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+					<?php
+					// New Google Analytics code to set User ID.
+					// $userId is a unique, persistent, and non-personally identifiable string ID.
+					if( is_user_logged_in() )
+					{
+						$user = wp_get_current_user();
+
+						$gacode = "ga('create', '{$gaAccount}', { 'userId': '%s' });";
+						echo sprintf( $gacode, $user->user_login );
+					}
+					else
+					{
+						$gacode = "ga('create', '{$gaAccount}', 'auto');";
+						echo sprintf( $gacode );
+					}
+					?>
+					ga('send', 'pageview');
 				</script>
 		<?php
 			}

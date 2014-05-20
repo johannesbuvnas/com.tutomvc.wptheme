@@ -5,7 +5,7 @@ global $post;
 global $wp_query;
 
 $classes = array();
-$classes[] = array_key_exists("preview", $_GET) ? "Preview" : "";
+$classes[] = AppFacade::$isPreview ? "Preview" : "";
 ?>
 	<div id="navigation">
 		<div id="indicator" class="NotInteractive">

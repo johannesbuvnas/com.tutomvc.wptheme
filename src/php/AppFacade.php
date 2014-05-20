@@ -8,6 +8,7 @@ class AppFacade extends Facade
 	const VERSION = "1.043";
 
 	static $environment;
+	static $isPreview = FALSE;
 
 	public $memberModule;
 	public $metaTagsModule;
@@ -20,6 +21,8 @@ class AppFacade extends Facade
 
 	function onRegister()
 	{
+		self::$isPreview = array_key_exists("preview", $_GET);
+		
 		switch($_SERVER['HTTP_HOST'])
 		{
 			case "local.tutomvc.com":

@@ -5,7 +5,7 @@ global $themeFacade;
 $themeFacade->view->getMediator( ContentBlockMediator::NAME )
 		->parse( "postID", $post->ID )
 		->render();
-if(array_key_exists("preview", $_GET)) return;
+if(AppFacade::$isPreview) return;
 
 $children = get_posts( array(
 	'post_parent' => $post->ID,
