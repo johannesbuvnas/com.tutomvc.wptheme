@@ -20,7 +20,8 @@ define([
 	"app/controller/IndexChangeCommand",
 	"imagesloaded/imagesloaded"
 ],
-function( Backbone, 
+function( 
+	Backbone, 
 	AppConstants, 
 	AppModel, 
 	AppRouter, 
@@ -124,6 +125,7 @@ function( Backbone,
 			app.on( AppConstants.RENDER, AppRenderCommand );
 			app.$el.on( AppConstants.RESIZE, _.bind( app.render, app ) );
 			app.$el.on( AppConstants.RESIZE_CONTENT, _.bind( AppContentResizeCommand, app ) );
+
 			ImagesLoaded( app.$el, _.bind( app.render, app ) );
 		}
 

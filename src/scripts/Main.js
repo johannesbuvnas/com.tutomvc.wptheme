@@ -4,9 +4,18 @@ define([
 	"underscore",
 	"backbone",
 	"app/AppConstants",
+	"app/AppModel",
 	"app/controller/StartUpCommand"
 ],
-function(DocReady, $, _, Backbone, AppConstants, StartUpCommand )
+function(
+	DocReady,
+	$,
+	_,
+	Backbone,
+	AppConstants,
+	AppModel,
+	StartUpCommand
+	)
 {
 	"use strict";
 
@@ -14,12 +23,22 @@ function(DocReady, $, _, Backbone, AppConstants, StartUpCommand )
 
 	var AppView = Backbone.View.extend({
 		el : "body",
+		_started : false,
 		initialize : function()
 		{
 			this.on( AppConstants.STARTUP, StartUpCommand );
 		},
+		startup : function()
+		{
+			if(!this._started) app.trigger( AppConstants.STARTUP );
+		},
 		render : function()
 		{
+			if(AppModel.get("inTransition"))
+			{
+				return this.listenToOnce( AppModel, "change:inTransition", this.render );
+			}
+
 			this.trigger( AppConstants.RENDER );
 
 			return this;
@@ -30,6 +49,6 @@ function(DocReady, $, _, Backbone, AppConstants, StartUpCommand )
 
 	return DocReady(function()
 		{
-			app.trigger( AppConstants.STARTUP );
+			app.startup();
 		});
 });

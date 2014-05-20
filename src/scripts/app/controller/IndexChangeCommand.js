@@ -29,21 +29,21 @@ function(
 		});
 		//
 
+		var newScrollTop;
 		if(newValue > model.previous("index"))
 		{
 			// Scrolling down
-			var newScrollTop = contentBlockContainer.$el.offset().top - 10;
-			AppModel.set({
-				scrollTop : newScrollTop
-			});
+			newScrollTop = contentBlockContainer.$el.offset().top - 10;
 		}
 		else
 		{
 			// Scrolling up
-			var newScrollTop = contentBlockContainer.$el.offset().top + (contentBlockContainer.$el.outerHeight() - AppModel.get("windowHeight")) + 10;
-			AppModel.set({
-				scrollTop : newScrollTop
-			});
+			if(AppModel.get("isScrollingEnabled")()) newScrollTop = contentBlockContainer.$el.offset().top + (contentBlockContainer.$el.outerHeight() - AppModel.get("windowHeight")) + 10;
+			else newScrollTop = contentBlockContainer.$el.offset().top - 10;
 		}
+
+		AppModel.set({
+			scrollTop : newScrollTop
+		});
 	};
 });

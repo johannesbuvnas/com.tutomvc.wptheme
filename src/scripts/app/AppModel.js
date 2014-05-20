@@ -11,7 +11,11 @@ function($, Backbone)
 			windowHeight : 0,
 			index : 1,
 			inTransition : false,
-			scrollTop : 0
+			scrollTop : 0,
+			isScrollingEnabled : function()
+			{
+				return $( "body" ).css("overflow") != "hidden";
+			}
 		},
 		getContentBlockScrollOverlap : function()
 		{
