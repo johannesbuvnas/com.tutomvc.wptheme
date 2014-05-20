@@ -26,7 +26,9 @@ class AppFacade extends Facade
 	}
 
 	function onRegister()
-	{		
+	{	
+		self::$isPreview = array_key_exists( "preview", $_GET );
+
 		$this->memberModule = $this->registerSubFacade( new \tutomvc\modules\member\MemberModule() );
 		$this->metaTagsModule = $this->registerSubFacade( new \tutomvc\modules\metatags\MetaTagsModule() );
 		$this->analyticsModule = $this->registerSubFacade( new \tutomvc\modules\analytics\AnalyticsModule() );
