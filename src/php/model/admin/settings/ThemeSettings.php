@@ -19,7 +19,7 @@ class ThemeSettings extends Settings
 		$this->addSettingsField( new SettingsField( 
 			self::GOOGLE_ANALYTICS_CODE,
 			__( "Google Analytics Code Snippet" ), "",
-			SettingsField::TYPE_TEXTAREA,
+			SettingsField::TYPE_TEXT,
 			array(
 				SettingsField::SETTING_ROWS => 5
 			)
