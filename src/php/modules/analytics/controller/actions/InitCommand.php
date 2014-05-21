@@ -27,6 +27,7 @@ class InitCommand extends ActionCommand
 	private function prepView()
 	{
 		$this->getFacade()->view->registerMediator( new AnalyticsMediator() );
+		$this->getFacade()->view->registerMediator( new GTMMediator() );
 	}
 
 	private function prepController()

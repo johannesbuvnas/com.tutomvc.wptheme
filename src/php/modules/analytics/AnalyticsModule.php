@@ -19,5 +19,6 @@ class AnalyticsModule extends Facade
 	function render()
 	{
 		$this->view->getMediator( AnalyticsMediator::NAME )->render();
+		$this->view->getMediator( GTMMediator::NAME )->render();
 	}
 }
