@@ -30,11 +30,7 @@ global $themeFacade;
 	<body <?php body_class(); ?>>
 
 		<?php
-			// Google Analytics if is in PRODUCTION MODE
-			if(!AppFacade::$isPreview && AppFacade::isProduction())
-			{
-				$themeFacade->analyticsModule->render();
-			}
+			$themeFacade->analyticsModule->render();
 		?>
 		
 		<?php 
