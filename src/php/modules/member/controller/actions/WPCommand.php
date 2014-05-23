@@ -10,6 +10,7 @@ class WPCommand extends ActionCommand
 	function __construct()
 	{
 		parent::__construct( self::NAME );
+		$this->priority = 0;
 	}
 
 	function execute()

@@ -14,9 +14,11 @@ class PrivacyMetaBox extends MetaBox
 	const ALLOWED_USER_TYPES = "allowed_user_types";
 	const ALLOWED_USER_TYPES_ALL = "allowed_user_types_all";
 
+	static $supportedPostTypes = array( "page", "post" );
+
 	function __construct()
 	{
-		parent::__construct( self::NAME, __( "Sharing" ), array( "page" ), 1, MetaBox::CONTEXT_SIDE, MetaBox::PRIORITY_CORE );
+		parent::__construct( self::NAME, __( "Sharing" ), self::$supportedPostTypes, 1, MetaBox::CONTEXT_SIDE, MetaBox::PRIORITY_CORE );
 
 		$this->addField( new MetaField( self::IS_PROTECTED, __( "Visibility" ), "", MetaField::TYPE_SELECTOR_SINGLE, array(
 				MetaField::SETTING_OPTIONS => array(
@@ -72,6 +74,8 @@ class PrivacyMetaBox extends MetaBox
 			global $post;
 			$postID = $post->ID;
 		}
+
+		if(!in_array( get_post_type( $postID ), self::$supportedPostTypes)) return PrivacySettings::isUserAllowed($user);
 
 		$protection = get_post_meta( $postID, self::constructMetaKey( self::NAME, self::IS_PROTECTED ) );
 		switch($protection)

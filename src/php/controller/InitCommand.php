@@ -51,6 +51,11 @@ class InitCommand extends ActionCommand
 		$this->getFacade()->controller->registerCommand( new AdminInitCommand() );
 		$this->getFacade()->controller->registerCommand( new UploadThumbnailAjaxCommand() );
 		$this->getFacade()->controller->registerCommand( new SavePostActionCommand() );
+		
+		if(!is_admin())
+		{
+			$this->getFacade()->controller->registerCommand( new FoundPostsFilter() );
+		}
 
 		// Multisite fixes
 		if(is_multisite())

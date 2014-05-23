@@ -92,6 +92,8 @@ $screenshotThumbnail = FeaturedMediaMetaBox::getScreenshotThumbnailURL( $postID 
 		}
 	?>
 	<?php
-		$themeFacade->view->getMediator( PostMetaMediator::NAME )->render();
+		$themeFacade->view->getMediator( PostMetaMediator::NAME )
+			->setPost( $post )
+			->render();
 	?>
 </div>

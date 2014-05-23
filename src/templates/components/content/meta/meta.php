@@ -7,6 +7,7 @@ $categoryList = '<p class="CategoryList">'.__( "Posted in", AppFacade::KEY )." "
 
 $tagsList = get_the_tag_list( '<p class="TagList">', " ", "</p>", $post->ID );
 
+if(AppFacade::$isPreview) return;
 if(!count($categories) && (get_the_tags( $post->ID ) === FALSE || !count(get_the_tags( $post->ID )))  && !comments_open( $post->ID )) return;
 ?>
 

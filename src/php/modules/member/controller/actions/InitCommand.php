@@ -35,5 +35,10 @@ class InitCommand extends ActionCommand
 		$this->getFacade()->controller->registerCommand( new AdminInitCommand() );
 		$this->getFacade()->controller->registerCommand( new ShowAdminBarFilterCommand() );
 		$this->getFacade()->controller->registerCommand( new WPCommand() );
+
+		if(!is_admin())
+		{
+			$this->getFacade()->controller->registerCommand( new PreGetPostsAction() );
+		}
 	}
 }
