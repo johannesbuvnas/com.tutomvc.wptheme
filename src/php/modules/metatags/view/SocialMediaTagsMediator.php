@@ -26,7 +26,7 @@ class SocialMediaTagsMediator extends Mediator
 		else
 		{
 			global $post;
-			return $post;
+			return get_post(get_query_var("p"));
 		}
 	}
 }
