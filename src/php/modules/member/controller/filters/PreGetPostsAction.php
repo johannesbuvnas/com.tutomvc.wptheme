@@ -22,12 +22,14 @@ class PreGetPostsAction extends ActionCommand
 		// Do not execute this action for copied wp queries
 		if(array_key_exists("is_copy_wp_query", $wpQuery->query_vars)) return;
 
+
 		$vars = array_merge( $wpQuery->query_vars, array(
 			"is_copy_wp_query" => TRUE, // Anti loop fix
 			"nopaging" => TRUE // Pagination fix
 		) );
 		$copyWpQuery = new \WP_Query( $vars );
 		$blockedPosts = array();
+		if(count($copyWpQuery->posts) <= 1) return; // Let the WPCommand do the rest
 		foreach($copyWpQuery->posts as $post)
 		{
 			if(!PrivacyMetaBox::isUserAllowed( NULL, $post->ID )) $blockedPosts[] = $post->ID;
