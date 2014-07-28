@@ -69,11 +69,8 @@ class PrivacyMetaBox extends MetaBox
 			$user = $current_user;
 		}
 
-		if(!$postID)
-		{
-			global $post;
-			$postID = $post->ID;
-		}
+		global $post;
+		if(!$postID && $post) $postID = $post->ID;
 
 		if(!in_array( get_post_type( $postID ), self::$supportedPostTypes)) return PrivacySettings::isUserAllowed($user);
 
