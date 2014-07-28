@@ -17,7 +17,7 @@ class PrivacySettingsAdminMenuPage extends AdminMenuSettingsPage
 			NULL
 		);
 
-		$this->setType( AdminMenuSettingsPage::TYPE_THEME );
+		$this->setType( AdminMenuSettingsPage::TYPE_OPTIONS );
 	}
 
 	public function onLoad()

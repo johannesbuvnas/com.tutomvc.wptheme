@@ -26,35 +26,21 @@ class WPCommand extends ActionCommand
 
 			global $post;
 
-			if(!$post) return;
-
-			if(is_home() || $post->post_type == "post")
+			if(is_home() || ($post && $post->post_type == "post"))
 			{
 				if(!PrivacyMetaBox::isUserAllowed( NULL, get_option( "page_for_posts" ) )) return $this->redirect();
 				return;
 			}
 
-			if(!$post) return;
 			if(!PrivacyMetaBox::isUserAllowed()) $this->redirect();
 		}
 	}
 
 	function redirect()
 	{
-		global $post;
+		global $wp;
 		
-		if(is_home())
-		{
-			wp_redirect( wp_login_url( get_permalink( get_option( "page_for_posts" ) ) ) );
-		}
-		else if($post)
-		{
-			wp_redirect( wp_login_url( get_permalink( $post->ID ) ) );
-		}
-		else
-		{
-			wp_redirect( wp_login_url() );
-		}
+		wp_redirect( wp_login_url( get_home_url( NULL, $wp->request, NULL ) ) );
 
 		exit;
 	}
