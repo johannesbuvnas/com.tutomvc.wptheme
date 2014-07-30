@@ -1,6 +1,6 @@
 require.config({
 	baseUrl : AppFacade.getURL( "src/scripts" ),
-	urlArgs : "v=" + AppFacade.version,
+	urlArgs : AppFacade.isProduction ? "v=" + AppFacade.version : "v=" + Date.now(),
 	paths : {
 		"requirejs" : "libs/requirejs/require",
 		text : "libs/requirejs-text/text",

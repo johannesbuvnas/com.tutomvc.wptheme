@@ -30,6 +30,7 @@ $ajaxCommands = array(
 			var url = "<?php echo $themeFacade->getURL(); ?>";
 			return relativePath ? url + "/" + relativePath : url;
 		},
+		"isProduction" : <?php echo AppFacade::isProduction() ? "true" : "false"; ?>,
 		"version" : "<?php echo AppFacade::VERSION; ?>",
 		"nonce" : "<?php echo wp_create_nonce( AppConstants::NONCE_NAME ); ?>",
 		"ajaxURL" : "<?php echo admin_url( 'admin-ajax.php' ); ?>",
