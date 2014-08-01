@@ -8,7 +8,7 @@ class FoundPostsFilter extends FilterCommand
 
 	function __construct()
 	{
-		parent::__construct(self::NAME, 2);
+		parent::__construct(self::NAME, 10, 2);
 	}
 
 	function execute()

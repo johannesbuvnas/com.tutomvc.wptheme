@@ -19,14 +19,14 @@ function(
 {
 	"use strict";
 
-	// if(console && console.log) console.log( "Hello world" );
-
 	var AppView = Backbone.View.extend({
 		el : "body",
 		_started : false,
 		initialize : function()
 		{
 			this.on( AppConstants.STARTUP, StartUpCommand );
+
+			this.$el.addClass("Ready");
 		},
 		startup : function()
 		{

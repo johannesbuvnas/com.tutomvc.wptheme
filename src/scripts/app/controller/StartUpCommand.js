@@ -1,18 +1,16 @@
 define([
+	"jquery",
+	"underscore",
 	"backbone",
 	"app/AppConstants",
 	"app/AppModel",
 	"app/AppRouter",
-	"jquery",
-	"underscore",
 	"app/controller/WindowResizeCommand",
 	"app/controller/AppResizeCommand",
 	"app/controller/AppContentResizeCommand",
 	"app/controller/AppRenderCommand",
 	"app/modules/MasonryModule",
 	"app/view/Stage",
-	"app/view/components/content/ContentBlockContainer",
-	"app/view/components/navigation/Navigation",
 	"app/controller/ScrollCommand",
 	"app/controller/router/PostRouteCommand",
 	"app/controller/router/DefaultRouteCommand",
@@ -21,20 +19,18 @@ define([
 	"imagesloaded/imagesloaded"
 ],
 function( 
+	$, 
+	_,
 	Backbone, 
 	AppConstants, 
 	AppModel, 
 	AppRouter, 
-	$, 
-	_, 
 	WindowResizeCommand, 
 	AppResizeCommand,
 	AppContentResizeCommand,
 	AppRenderCommand,
 	MasonryModule, 
 	Stage, 
-	ContentBlockContainer, 
-	Navigation, 
 	ScrollCommand, 
 	PostRouteCommand, 
 	DefaultRouteCommand,
@@ -61,23 +57,6 @@ function(
 			app.stage = new Stage({
 				el : $("#stage")
 			});
-
-			app.navigation = new Navigation({
-				el : $("#navigation")
-			});
-			app.stage.$el.append( app.navigation.pagination.$el );
-
-			app.$( ".ContentBlockContainer" ).each(function()
-			{
-				var view = new ContentBlockContainer({
-					el : this
-				});
-				app.navigation.collection.add({
-					view : view,
-					current : app.navigation.collection.length == 0 ? true : false
-				});
-			});
-
 			prepViewFallbacks();
 		}
 

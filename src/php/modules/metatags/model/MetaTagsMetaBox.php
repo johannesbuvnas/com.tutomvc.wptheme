@@ -19,8 +19,8 @@ class MetaTagsMetaBox extends MetaBox
 			__( "Custom Meta Tags (for sharing on Facebook etc.)" ), 
 			array( "page", "post" ),
 			1,
-			MetaBox::CONTEXT_NORMAL,
-			MetaBox::PRIORITY_HIGH
+			MetaBox::CONTEXT_SIDE,
+			MetaBox::PRIORITY_CORE
 			);
 
 		$this->addField(new MetaField(

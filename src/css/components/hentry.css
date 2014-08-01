@@ -1,0 +1,75 @@
+article.hentry
+{
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+article.hentry > .Inner
+{
+	height: 100%;
+}
+
+article.hentry header.EntryHeader,
+article.hentry section.EntryTitles
+{
+	width: 100%;
+}
+article.hentry section.EntryTitles
+{
+	padding: 50px 0 50px 0;
+}
+article.hentry.HasNoHeroBanner section.EntryTitles .ShadowBox,
+article.hentry.HasHeroBanner.hero-template_straight_cover section.EntryTitles .ShadowBox,
+article.hentry.HasHeroBanner.hero-template_straight_full section.EntryTitles .ShadowBox,
+article.hentry.HasHeroBanner.hero-template_straight_fit section.EntryTitles .ShadowBox
+{
+	background: 0;
+}
+article.hentry header.EntryHeader
+{
+	position: relative;
+}
+article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader
+{
+	width: 100%;
+	height: 0;
+	padding-bottom: 50%;
+	overflow: hidden;
+}
+article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles
+{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	bottom: 100px;
+	color: #FFF;
+}
+
+article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader,
+article.hentry div.EntryContent
+{
+	margin-bottom: 50px;
+}
+
+article.hentry section.EntryTitles h4
+{
+	font-family: "Regular";
+}
+
+article.hentry section.EntryTitles h2,
+article.hentry section.EntryTitles h4,
+article.hentry p
+{
+	width: 700px;
+	margin: 0 auto;
+}
+
+article.hentry div.EntryContent p:after
+{
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}

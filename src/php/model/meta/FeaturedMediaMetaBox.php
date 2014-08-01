@@ -16,7 +16,7 @@ class FeaturedMediaMetaBox extends MetaBox
 			array( "post", "page" ),
 			1,
 			MetaBox::CONTEXT_SIDE,
-			MetaBox::PRIORITY_DEFAULT
+			MetaBox::PRIORITY_CORE
 		);
 
 		$this->addField( new MetaField(
