@@ -1,0 +1,54 @@
+/**
+*	#navigation
+*/
+#navigation
+{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.3);
+	position: fixed;
+	top: 45px;
+	left: 0;
+}
+
+#navigation nav
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	height: 100%;
+	background: #FFF;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+#navigation nav a
+{
+	display: block;
+	color: #1d1d1d;
+	text-decoration: none;
+	text-transform: uppercase;
+	font: 14px/30px "Bold";
+	margin-right: 120px;
+}
+#navigation nav > a:hover
+{
+	color: #0099FF;
+}
+
+nav#wpNavigation 
+{
+	right: 0px;
+	left: auto;
+}
+
+nav#wpNavigation 
+{
+	text-align: right;
+}
+nav#wpNavigation > a
+{
+	margin-right: 0px;
+	margin-left: 120px;
+}

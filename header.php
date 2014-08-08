@@ -67,8 +67,34 @@ global $themeFacade;
 
 	<body <?php body_class(); ?>>
 
-		<header id="navigation">
+		<header id="header">
+			<div class="Inner">
+				<button id="navButton">
+					<span class="genericon genericon-menu"></span>
+				</button>
+				<h1><?php echo \tutomvc\WordPressUtil::getPageTitle(); ?></h1>
+				<div id="navigation">
+					<div class="Inner">
+						<nav id="mainNavigation">
+							<h6>Navigation</h6>
+							<a href="#">Hem</a>
+							<a href="#">Case</a>
+							<a href="#">Inspiration</a>
+							<a href="#">Sök</a>
+						</nav>
+						<nav id="wpNavigation">
+							<h6>Administration</h6>
+							<a href="#">Skriv nyhet</a>
+							<a href="#">Skapa case</a>
+							<a href="#">Inspirera</a>
+							<a href="#">Hantera användare</a>
+						</nav>
+					</div>
+				</div>
+			</div>
 		</header>
+
+		
 
 		<?php
 			$classes = array();

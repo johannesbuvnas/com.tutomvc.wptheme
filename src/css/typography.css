@@ -104,6 +104,14 @@ h2.EntryTitle
 {
 	font-size: 60px;
 }
+h6
+{
+    border-top: 1px solid #b2b2b2;
+    font: 11px/11px "Bold";
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: 10px 0px;
+}
 .required,
 .Required
 {
