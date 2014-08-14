@@ -1,16 +1,108 @@
-.Card
+.Card,
+button.Card
 {
-	padding: 20px;
-	background: #FFF;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
-	border: 1px solid #CCC;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	padding: 5px;
 }
+
+.tagcloud > .Card,
+.Cards > .Card
+{
+	float: left;
+}
+
+.Card,
+button.Card
+{
+	display: block;
+	width: 33%;
+	color: #1d1d1d;
+	font: 11px/1em "Semibold";
+	text-transform: uppercase;
+	letter-spacing: .1em;
+}
+.Card.PostCard
+{
+	width: 100%;
+}
+
+.Card a
+{
+	text-decoration: none;
+	color: #1d1d1d;
+}
+.Card a.AuthorLink:hover
+{
+	text-decoration: underline;
+}
+
 .Card > .Inner
 {
-	background: #ebebeb;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px;
+	background: #FFF;
+}
+
+button.Card > .Inner
+{
+	background: 0;
+}
+
+.Card .CardImage
+{
+	position: relative;
+	width: 100%;
+	padding-bottom: 100%;
+	background: #c4c4c4;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+.Card.AuthorCard .CardImage img
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.Card .CardImage > .CardImageTitle
+{
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: #FFF;
+	position: absolute;
+	top: 50%;
+	margin-top: -6px;
+}
+
+.Card .CardContent
+{
+	display: block;
+	text-align: center;
+}
+.Card.PostCard .CardContent
+{
+	text-align: left;
+}
+
+.Card .CardName
+{
+	
+}
+.Card.PostCard .CardName
+{
+	font: 14px/1.5em "Bold";
+}
+
+@media all and (min-width:740px){
+	#main .PostCard
+	{
+		/*width: 50%;*/
+	}
 }

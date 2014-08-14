@@ -2,8 +2,9 @@ section.HeroBanner.template_wide
 {
 	width: 100%;
 	height: 100%;
-	position: absolute;
+	position: relative;
 	overflow: hidden;
+	padding-bottom: 50%;
 }
 section.HeroBanner > .Inner
 {
@@ -69,17 +70,23 @@ section.HeroBanner p.HeroItem img
 {
 	margin: 0;
 }
+section.HeroBanner p.HeroItem
+{
+	margin-bottom: 0px;
+}
 section.HeroBanner.template_straight_fit > .Inner,
 section.HeroBanner.template_straight_full > .Inner
 {
-	padding-top: 50px;
 }
 section.HeroBanner.template_straight_fit img,
 section.HeroBanner.template_straight_full img
 {
-	margin-bottom: 50px;
+	margin-bottom: 0px;
 }
 section.HeroBanner.template_wide .HeroItem:last-child
 {
 	right: 0%;
+}
+
+@media all and (min-width: 740px){
 }

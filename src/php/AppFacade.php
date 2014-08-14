@@ -30,6 +30,7 @@ class AppFacade extends Facade
 		self::$isPreview = array_key_exists( "preview", $_GET );
 		
 		$this->controller->registerCommand( new InitCommand() );
+		$this->controller->registerCommand( new WidgetsInitCommand() );
 	}
 
 	/* ENVIRONMENT */

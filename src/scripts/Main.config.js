@@ -3,7 +3,7 @@ require.config({
 	urlArgs : AppFacade.isProduction ? "v=" + AppFacade.version : "v=" + (new Date()).getTime(),
 	paths : {
 		"requirejs" : "libs/requirejs/require",
-		text : "libs/requirejs-text/text",
+		"text" : "libs/requirejs-text/text",
 		"outlayer/outlayer" : "libs/outlayer/outlayer",
 		'get-size/get-size' : "libs/get-size/get-size",
 		"Masonry" : "libs/masonry/masonry",
@@ -16,6 +16,7 @@ require.config({
 		"imagesloaded/imagesloaded" : "libs/imagesloaded/imagesloaded",
 		"modernizr" : "libs/modernizr",
 		"jquery-easytabs" : "libs/jquery-easytabs/lib/jquery.easytabs",
+		"jquery-touchswipe" : "libs/jquery-touchswipe/jquery.touchSwipe",
 		"html2canvas" : "libs/html2canvas/build/html2canvas"
 	},
 	shim : {

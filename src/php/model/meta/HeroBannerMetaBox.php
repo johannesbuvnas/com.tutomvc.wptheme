@@ -49,5 +49,25 @@ class HeroBannerMetaBox extends MetaBox
 			),
 			self::TEMPLATE_WIDE
 		) );
+
+		add_filter( "get_post_metadata", array( $this, "filter_get_post_metadata" ), 15, 4 );
+	}
+
+	function filter_get_post_metadata( $null, $object_id, $meta_key, $single )
+	{
+		if($meta_key == "_thumbnail_id")
+		{
+			$postType = get_post_type( $object_id );
+			if(in_array($postType, $this->getSupportedPostTypes()))
+			{
+				$images = get_post_meta( $object_id, self::constructMetaKey( self::NAME, self::IMAGES ) );
+				if(is_array($images) && count($images))
+				{
+					return $images[0]['id'];
+				}
+			}
+		}
+
+		return NULL;
 	}
 }

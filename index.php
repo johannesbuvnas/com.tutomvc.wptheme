@@ -17,10 +17,15 @@ get_header();
 				while ( have_posts() )
 				{
 					the_post();
-					get_template_part( 'content' );
+					global $post;
+					get_template_part( 'content', $post->post_type );
 
 					// TODO: Pagination here
 				}
+			}
+			else
+			{
+				get_template_part( 'content', 'none' );
 			}
 		?>
 

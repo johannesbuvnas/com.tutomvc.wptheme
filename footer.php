@@ -6,7 +6,7 @@ namespace tutomvc\theme;
  * Contains footer content and the closing of the #stage.
  */
 ?>
-
+				</section><!-- #main -->
 			</div><!-- .Inner -->
 		</div><!-- #stage -->
 		<footer></footer>

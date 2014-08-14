@@ -5,6 +5,7 @@
 		"requirejs" : "latest",
 		"requirejs-text" : "latest",
 		"jquery" : "1.10.2",
+		"jquery-touchswipe" : "latest",
 		"gsap" : "latest",
 		"underscore" : null,
 		"backbone" : null,

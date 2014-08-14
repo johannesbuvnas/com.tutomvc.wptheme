@@ -8,10 +8,13 @@
 @import "components/hentry.css";
 @import "components/HeroBanner.css";
 @import "components/VideoLinkage.css";
+@import "components/WidgetArea.css";
 /* ELEMENTS */
 @import "components/img.css";
 @import "components/header.css";
 @import "components/navigation.css";
+@import "components/search.css";
+@import "components/discussion.css";
 .Unselectable
 {
 	user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; -ms-user-select:none;
@@ -38,4 +41,15 @@
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	speak: none;
+}
+.genericon-before-16:before
+{
+	font-size: 16px;
+}
+
+.BorderBox
+{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }

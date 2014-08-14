@@ -16,4 +16,9 @@ class AppConstants
 	const SCRIPT_JS = "tutomvc/theme/script/js";
 	const SCRIPT_JS_REQUIRE = "tutomvc/theme/script/js/require";
 	const STYLE_CSS = "tutomvc/theme/style/css";
+
+	const SIDEBAR_SEARCH = "sidebar-search";
+
+	const NAV_MENU_NAVIGATION = "nav-menu-navigation";
+	const NAV_MENU_ADMINISTRATION = "nav-menu-administration";
 }

@@ -1,41 +1,25 @@
 define([
 	"jquery",
+	"jquery-touchswipe",
 	"underscore",
 	"backbone",
 	"app/AppConstants",
 	"app/AppModel",
 	"app/AppRouter",
-	"app/controller/WindowResizeCommand",
-	"app/controller/AppResizeCommand",
-	"app/controller/AppContentResizeCommand",
-	"app/controller/AppRenderCommand",
-	"app/modules/MasonryModule",
 	"app/view/Stage",
-	"app/controller/ScrollCommand",
-	"app/controller/router/PostRouteCommand",
-	"app/controller/router/DefaultRouteCommand",
-	"app/controller/ScrollTopChangeCommand",
-	"app/controller/IndexChangeCommand",
+	"app/controller/SwipeStatusCommand",
 	"imagesloaded/imagesloaded"
 ],
 function( 
-	$, 
+	$,
+	jQueryTouchSwipe,
 	_,
 	Backbone, 
 	AppConstants, 
 	AppModel, 
 	AppRouter, 
-	WindowResizeCommand, 
-	AppResizeCommand,
-	AppContentResizeCommand,
-	AppRenderCommand,
-	MasonryModule, 
 	Stage, 
-	ScrollCommand, 
-	PostRouteCommand, 
-	DefaultRouteCommand,
-	ScrollTopChangeCommand,
-	IndexChangeCommand,
+	SwipeStatusCommand,
 	ImagesLoaded
 )
 {
@@ -91,21 +75,15 @@ function(
 
 		function prepController()
 		{
-			AppRouter.route( PostRouteCommand.ROUTE, _.bind( PostRouteCommand, app ) );
-			AppRouter.route( ":id", _.bind( DefaultRouteCommand, app ) );
-
-			AppModel.on( "change:index", _.bind( IndexChangeCommand, app ) );
-			AppModel.on( "change:scrollTop", _.bind( ScrollTopChangeCommand, app ) );
-
-			$( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).on( "resize", _.bind( WindowResizeCommand, app ) );
-
-			$( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).on( "scroll", _.bind( ScrollCommand, app ) );
-
-			app.on( AppConstants.RENDER, AppRenderCommand );
-			app.$el.on( AppConstants.RESIZE, _.bind( app.render, app ) );
-			app.$el.on( AppConstants.RESIZE_CONTENT, _.bind( AppContentResizeCommand, app ) );
-
 			ImagesLoaded( app.$el, _.bind( app.render, app ) );
+
+			// Only touch screens
+			if(Modernizr.touch)
+			{
+				app.$el.swipe( {
+					swipeStatus : _.bind( SwipeStatusCommand, app )
+				} );
+			}
 		}
 
 		prepModel();

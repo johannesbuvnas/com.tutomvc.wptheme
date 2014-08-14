@@ -32,7 +32,7 @@ function(
 		// Events
 		onHeroIndexChange : function(model, newValue)
 		{
-			if(newValue != 0) this.$(".EntryTitles").fadeOut();
+			if(newValue != 0 && $(window).width() >= 740) this.$(".EntryTitles").fadeOut();
 			else this.$(".EntryTitles").fadeIn();
 		}
 	},

@@ -65,15 +65,27 @@ input[type=submit]
 	height: 44px;
 	display: inline-block;
 	background: #0099FF url(../images/symbol-check-white.png) center center no-repeat;
+	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
-	font: 17px/1em "Bold";
+	font: 11px/1em "Semibold";
+	text-transform: uppercase;
+	letter-spacing: .1em;
 	color: #FFF;
 	border: 0;
-	text-indent: -9999em;
-	overflow: hidden;
 	text-align: center;
-	border: 0;
 	-webkit-box-shadow: 0;
 	box-shadow: 0;
+}
+
+button.SimpleButton
+{
+	padding: 0;
+	border: 0;
+	background: 0;
+	cursor: pointer;
+}
+button.SimpleButton:focus
+{
+	outline: none;
 }

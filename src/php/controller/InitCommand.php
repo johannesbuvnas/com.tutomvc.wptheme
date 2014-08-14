@@ -49,6 +49,12 @@ class InitCommand extends ActionCommand
 		$this->getFacade()->memberModule = $this->getFacade()->registerSubFacade( new \tutomvc\modules\member\MemberModule() );
 		$this->getFacade()->metaTagsModule = $this->getFacade()->registerSubFacade( new \tutomvc\modules\metatags\MetaTagsModule() );
 		$this->getFacade()->analyticsModule = $this->getFacade()->registerSubFacade( new \tutomvc\modules\analytics\AnalyticsModule() );
+
+		// Nav menus
+		register_nav_menus( array(
+			AppConstants::NAV_MENU_NAVIGATION => __( "Navigation" ),
+			AppConstants::NAV_MENU_ADMINISTRATION => __( "Administration" ),
+		) );
 	}
 
 	function prepView()
@@ -60,6 +66,7 @@ class InitCommand extends ActionCommand
 
 	function prepController()
 	{
+		add_filter('show_admin_bar', '__return_false');
 		$this->getFacade()->controller->registerCommand( new AdminInitCommand() );
 		$this->getFacade()->controller->registerCommand( new UploadThumbnailAjaxCommand() );
 		$this->getFacade()->controller->registerCommand( new SavePostActionCommand() );
@@ -74,7 +81,7 @@ class InitCommand extends ActionCommand
 		
 		if(!is_admin())
 		{
-			$this->getFacade()->controller->registerCommand( new FoundPostsFilter() );
+			// $this->getFacade()->controller->registerCommand( new FoundPostsFilter() );
 		}
 
 		// Multisite fixes

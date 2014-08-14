@@ -17,7 +17,7 @@ class PostClassFilter extends FilterCommand
 		$class = $this->getArg(1);
 		$postID = $this->getArg( 2 );
 
-		$classes[] = "Card";
+		// $classes[] = "Card";
 
 		$heroMeta = get_post_meta( $postID, HeroBannerMetaBox::NAME );
 

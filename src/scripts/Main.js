@@ -24,9 +24,8 @@ function(
 		_started : false,
 		initialize : function()
 		{
+			// Controllers
 			this.on( AppConstants.STARTUP, StartUpCommand );
-
-			this.$el.addClass("Ready");
 		},
 		startup : function()
 		{

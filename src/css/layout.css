@@ -12,11 +12,14 @@ body
 #stage
 {
 	width: 100%;
-	padding: 10px 0;
 }
 #stage > .Inner
 {
-	padding: 0 15px;
+	padding: 0 10px;
+}
+#main
+{
+	padding: 10px 0;
 }
 @media only all
 {

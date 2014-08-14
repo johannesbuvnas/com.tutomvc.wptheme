@@ -1,4 +1,7 @@
 <?php
+/**
+*	Apply page children to main query.
+*/
 namespace tutomvc\theme;
 use \tutomvc\FilterCommand;
 

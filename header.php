@@ -66,36 +66,6 @@ global $themeFacade;
 	</head>
 
 	<body <?php body_class(); ?>>
-
-		<header id="header">
-			<div class="Inner">
-				<button id="navButton">
-					<span class="genericon genericon-menu"></span>
-				</button>
-				<h1><?php echo \tutomvc\WordPressUtil::getPageTitle(); ?></h1>
-				<div id="navigation">
-					<div class="Inner">
-						<nav id="mainNavigation">
-							<h6>Navigation</h6>
-							<a href="#">Hem</a>
-							<a href="#">Case</a>
-							<a href="#">Inspiration</a>
-							<a href="#">Sök</a>
-						</nav>
-						<nav id="wpNavigation">
-							<h6>Administration</h6>
-							<a href="#">Skriv nyhet</a>
-							<a href="#">Skapa case</a>
-							<a href="#">Inspirera</a>
-							<a href="#">Hantera användare</a>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</header>
-
-		
-
 		<?php
 			$classes = array();
 			$classes[] = AppFacade::$isPreview ? "Preview" : "";
@@ -103,3 +73,62 @@ global $themeFacade;
 
 		<div id="stage" class="<?php echo implode(" ", $classes); ?>">
 			<div class="Inner">
+			
+				<!-- #header -->
+				<header id="header">
+				
+					<div class="Inner">
+						<button id="navButton" class="SimpleButton">
+							<span class="genericon genericon-menu"></span>
+						</button>
+						<button id="searchButton" class="SimpleButton">
+							<span class="genericon genericon-search"></span>
+						</button>
+						<h1><?php echo \tutomvc\WordPressUtil::getPageTitle(); ?></h1>
+					</div>
+
+					<!-- #navigation -->
+					<section id="navigation" class="Hidden PriorityMedium">
+						<div class="Inner BorderBox">
+							<h6>Navigation</h6>
+							<?php
+								wp_nav_menu( array(
+									"theme_location" => AppConstants::NAV_MENU_NAVIGATION,
+									"container" => "nav"
+								) );
+							?>
+							<?php if(is_user_logged_in()): ?>
+								<h6>Administration</h6>
+								<?php
+									wp_nav_menu( array(
+										"theme_location" => AppConstants::NAV_MENU_ADMINISTRATION,
+										"container" => "nav"
+									) );
+								?>
+							<?php endif; ?>
+						</div>
+					</section>
+					<!-- end #navigation -->
+
+					<!-- #search -->
+					<?php 
+						$classes = array( "PriorityMedium", "Hidden" );
+						// $classes = array( "PriorityMedium" );
+					?>
+					<section id="search" class="<?php echo implode( " ", $classes ); ?>">
+						<div class="Inner BorderBox">
+							<?php 
+								get_search_form( TRUE ); 
+							?>
+							<section class="WidgetArea">
+								<?php dynamic_sidebar( AppConstants::SIDEBAR_SEARCH ); ?>
+							</section>
+						</div>
+					</section>
+					<!-- end #search -->
+
+				</header>
+				<!-- end #header -->
+
+				<!-- #main -->
+				<section id="main">

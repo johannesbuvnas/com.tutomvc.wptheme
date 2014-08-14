@@ -22,14 +22,14 @@ img.alignleft,
 a.alignleft
 {
 	float: left;
-	margin-right: 20px;
+	margin-right: 10px;
 }
 
 img.alignright,
 a.alignright
 {
 	float: right;
-	margin-left: 20px;
+	margin-left: 10px;
 }
 
 a.alignleft > img.alignleft,
@@ -42,4 +42,11 @@ img.size-tutomvc_hero_wide
 {
 	width: 100%;
 	height: auto;
+}
+
+img.Circle, figure.Circle
+{
+	-webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
 }

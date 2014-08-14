@@ -1,7 +1,7 @@
 article.hentry
 {
 	width: 100%;
-	margin-bottom: 20px;
+	/*background: #FFF;*/
 }
 
 article.hentry > .Inner
@@ -9,19 +9,26 @@ article.hentry > .Inner
 	height: 100%;
 }
 
+article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader
+{
+	width: 100%;
+}
+
 article.hentry header.EntryHeader,
 article.hentry section.EntryTitles
 {
 	width: 100%;
 }
-article.hentry section.EntryTitles
+article.hentry section.EntryTitles h2,
+article.hentry section.EntryTitles h4
 {
-	padding: 50px 0 50px 0;
+	margin: 0;
 }
-article.hentry.HasNoHeroBanner section.EntryTitles .ShadowBox,
-article.hentry.HasHeroBanner.hero-template_straight_cover section.EntryTitles .ShadowBox,
-article.hentry.HasHeroBanner.hero-template_straight_full section.EntryTitles .ShadowBox,
-article.hentry.HasHeroBanner.hero-template_straight_fit section.EntryTitles .ShadowBox
+article.hentry section.EntryTitles > .Inner
+{
+	padding: 10px;
+}
+article.hentry section.EntryTitles .ShadowBox
 {
 	background: 0;
 }
@@ -29,42 +36,37 @@ article.hentry header.EntryHeader
 {
 	position: relative;
 }
-article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader
+
+article.hentry section.EntryContent
 {
-	width: 100%;
-	height: 0;
-	padding-bottom: 50%;
-	overflow: hidden;
-}
-article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles
-{
-	position: absolute;
-	margin: 0;
-	padding: 0;
-	bottom: 100px;
-	color: #FFF;
+	padding-bottom: 40px;
 }
 
-article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader,
-article.hentry div.EntryContent
+article.hentry section.EntryContent > .Inner
 {
-	margin-bottom: 50px;
+	padding: 0 10px;
 }
+
+article.hentry section.EntryContent,
+article.hentry section.EntryByline > .Inner > section,
+article.hentry section.EntryLinks .PostCard
+{
+	margin-bottom: 10px;
+}
+
+article.hentry header,
+article.hentry section.EntryContent
+{
+	background: #FFF;
+}
+
 
 article.hentry section.EntryTitles h4
 {
 	font-family: "Regular";
 }
 
-article.hentry section.EntryTitles h2,
-article.hentry section.EntryTitles h4,
-article.hentry p
-{
-	width: 700px;
-	margin: 0 auto;
-}
-
-article.hentry div.EntryContent p:after
+article.hentry section.EntryContent p:after
 {
 	content: ".";
 	display: block;
@@ -72,4 +74,80 @@ article.hentry div.EntryContent p:after
 	visibility: hidden;
 	line-height: 0;
 	height: 0;
+}
+
+article.hentry section.EntryTitles
+{
+	padding: 20px 0 20px 0;
+}
+
+@media all and (min-width:740px) {
+	article.hentry.HasHeroBanner.hero-template_wide section.EntryTitles .ShadowBox
+	{
+		background: transparent url(../../images/bg-000-30.png) repeat;
+	}
+
+	article.hentry section.EntryTitles > .Inner
+	{
+		padding: 0;
+	}
+
+	article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles
+	{
+		position: absolute;
+		margin: 0;
+		padding: 0;
+		bottom: 100px;
+		color: #FFF;
+	}
+
+	article.hentry section.EntryTitles
+	{
+		padding: 50px 0 50px 0;
+	}
+
+	article.hentry section.EntryTitles h2,
+	article.hentry section.EntryTitles h4,
+	article.hentry p,
+	article.hentry section.EntryByline,
+	article.hentry section.EntryLinks
+	{
+		width: 700px;
+		margin: 0 auto;
+	}
+
+	article.hentry.HasHeroBanner.hero-template_wide section.EntryContent
+	{
+		padding-top: 50px;
+	}
+
+	article.hentry section.EntryByline:after
+	{
+		content: ".";
+		display: block;
+		clear: both;
+		visibility: hidden;
+		line-height: 0;
+		height: 0;
+	}
+
+	article.hentry section.EntryByline > .Inner > section
+	{
+		float: left;
+	}
+
+	article.hentry section.EntryByline > .Inner > section > .Inner
+	{
+		padding-right: 10px;
+	}
+
+	article.hentry section.EntryContent > .Inner
+	{
+		padding: 0;
+	}
+
+	article.hentry section.EntryByline > .Inner > section
+	{
+		width: 50%;
+	}
 }
