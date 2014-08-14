@@ -121,21 +121,6 @@ article.hentry section.EntryTitles
 		padding-top: 50px;
 	}
 
-	article.hentry section.EntryByline:after
-	{
-		content: ".";
-		display: block;
-		clear: both;
-		visibility: hidden;
-		line-height: 0;
-		height: 0;
-	}
-
-	article.hentry section.EntryByline > .Inner > section
-	{
-		float: left;
-	}
-
 	article.hentry section.EntryByline > .Inner > section > .Inner
 	{
 		padding-right: 10px;
@@ -146,7 +131,7 @@ article.hentry section.EntryTitles
 		padding: 0;
 	}
 
-	article.hentry section.EntryByline > .Inner > section
+	article.hentry section.EntryByline .TopLevelCard
 	{
 		width: 50%;
 	}

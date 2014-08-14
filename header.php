@@ -84,7 +84,7 @@ global $themeFacade;
 						<button id="searchButton" class="SimpleButton">
 							<span class="genericon genericon-search"></span>
 						</button>
-						<h1><?php echo \tutomvc\WordPressUtil::getPageTitle(); ?></h1>
+						<h1><?php echo get_bloginfo( 'name' ); ?></h1>
 					</div>
 
 					<!-- #navigation -->
@@ -113,7 +113,7 @@ global $themeFacade;
 					<!-- #search -->
 					<?php 
 						$classes = array( "PriorityMedium", "Hidden" );
-						// $classes = array( "PriorityMedium" );
+						if(is_404()) $classes = array( "PriorityLow" );
 					?>
 					<section id="search" class="<?php echo implode( " ", $classes ); ?>">
 						<div class="Inner BorderBox">

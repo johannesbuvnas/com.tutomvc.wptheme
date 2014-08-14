@@ -15,30 +15,34 @@ function(
 {
 	"use strict";
 	var Cards = Backbone.View.extend({
+		masonry : undefined,
+		constructor : function()
+		{
+			Backbone.View.apply( this, arguments );
+		},
 		initialize : function()
 		{
-			// Model
-			if(!this.model) this.model = new Cards.Model();
-			this.model.set({posts:this.$(".Card").length});
+			Cards._instanceMap[ this.cid ] = this;
 
-			var cardWidthPercentage = this.$(".Card").first().width() / this.$el.width();
-			if(cardWidthPercentage <= .33) this.model.set({posts_per_page:6});
-			else if(cardWidthPercentage > .5) this.model.set({posts_per_page:4});
+			// Model
+			var options;
+			if(this.$el.attr("data-options")) options = $.parseJSON( this.$el.attr("data-options") );
+			if(!this.model) this.model = new Cards.Model( options );
+			this.model.set({posts:this.$( this.model.get("itemSelector") ).length});
 
 			//Views
 			this.$el.addClass("CardsInitialized");
-			if(this.$(".Card").length > 6)
-			{
-				this.$moreButton = $( CardsNavigationButtonMoreHTML );
-				this.$el.append( this.$moreButton );
-			}
+			this.$moreButton = $( CardsNavigationButtonMoreHTML );
+			this.$el.append( this.$moreButton );
 			this.masonry = new Masonry(this.el, {
-				itemSelector : ".Card",
-				transitionDuration: 0
+				itemSelector : this.model.get("itemSelector"),
+				transitionDuration: 0,
+				isResizeBound : false
 			});
 
 			// Controller
 			this.listenTo( this.model, "change:page", this.render );
+			this.listenTo( this.model, "change:filter", this.onFilterChange );
 
 			this.render();
 		},
@@ -46,42 +50,106 @@ function(
 		{
 			var i = 0;
 			var hideAt = (this.model.get("posts_per_page") * this.model.get("page"));
-			this.$( ".Card" ).each(function()
+			var validated;
+			var _this = this;
+			var appendCards = [];
+			var columnWidth = 0;
+			// this.$el.html("");
+			this.$( this.model.get("itemSelector") ).each(function()
 				{
-					if(!$(this).is(".SimpleButton"))
+					if(_this.model.isFiltered())
+					{
+						var name = $(this).find(".CardName").text();
+						if(name.indexOf( _this.model.get("filter") ) >= 0) validated = true;
+						else validated = false;
+					}
+					else
+					{
+						validated = true;
+					}
+
+					if(validated)
 					{
 						i++;
 
-						if(i < hideAt) $(this).css("display", "block");
-						else $(this).css("display", "none");
+						if(hideAt > 0 && i > hideAt) validated = false;
 					}
+					
+					if(validated) $(this).css("display", "block"), columnWidth = $(this).outerWidth();
+					else $(this).css("display", "none");
 				});
 
-			if(!this.model.hasMore() && this.$moreButton) this.$moreButton.css( "display", "none" );
 
+			if(this.model.hasMore()) this.$moreButton.css("display", "block");
+			else this.$moreButton.css("display", "none");
+
+			if(this.model.isFiltered()) this.masonry.options.columnWidth = columnWidth;
+			else this.masonry.options.columnWidth = undefined;
 			this.masonry.layout();
+
+			this.$el.trigger( "render" );
 
 			return this;
 		},
 		events : {
-			"click .MoreButton" : "onMoreClick"
+			"click .MoreButton" : "onMoreClick",
+			"render .Cards" : "onCardsRender"
+		},
+		onCardsRender : function(e)
+		{
+			this.render();
 		},
 		onMoreClick : function(e)
 		{
-			console.log(this.model.hasMore());
 			if(this.model.hasMore()) this.model.set({page:this.model.get("page") + 1});
+		},
+		onFilterChange : function(e)
+		{
+			var i = 0;
+
+			if(this.model.isFiltered())
+			{
+				var _this = this;
+				this.$( this.model.get("itemSelector") ).each(function()
+					{
+						if(!$(this).is(".SimpleButton"))
+						{
+							var name = $(this).find(".CardName").text();
+							name = name.toLowerCase();
+							if(name.indexOf( _this.model.get("filter").toLowerCase() ) >= 0) i++;
+						}
+					});
+			}
+			else
+			{
+				i = this.$( this.model.get("itemSelector") ).length;
+			}
+
+			this.model.set({
+				posts : i,
+				page : 1
+			}, {silent:true});
+
+			this.render();
 		}
 	},
 	{
+		_instanceMap : [],
 		Model : Backbone.Model.extend({
 			defaults : {
 				posts_per_page : 6,
 				posts : 0,
-				page : 1
+				page : 1,
+				filter : undefined,
+				itemSelector: ".Card"
+			},
+			isFiltered : function()
+			{
+				return this.get("filter") && this.get("filter").length;
 			},
 			hasMore : function()
 			{
-				return this.get("page") < this.getMaxPage();
+				return this.get("posts_per_page") > 0 && this.get("page") < this.getMaxPage();
 			},
 			getMaxPage : function()
 			{
@@ -94,8 +162,19 @@ function(
 				{
 					if(!$(this).hasClass("CardsInitialized")) new Cards( { el : this } );
 				});
+		},
+		_onWindowResize : function(e)
+		{
+			for(var key in Cards._instanceMap)
+			{
+				var instance = Cards._instanceMap[ key ];
+				instance.masonry.layout();
+			}
 		}
 	});
+	
+	// One master resize command to resize them in the right order
+	$(window).resize( _.bind( Cards._onWindowResize, Cards ) );
 
 	return Cards;
 });

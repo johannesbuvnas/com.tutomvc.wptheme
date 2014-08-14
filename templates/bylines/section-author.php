@@ -4,7 +4,7 @@
 */
 namespace tutomvc\theme;
 ?>
-<section class="Author">
+<section class="Author TopLevelCard">
 	<div class="Inner BorderBox">
 		<h6 class="genericon-before genericon-user"><?php echo __( "By" ) ?></h6>
 		<div class="Cards">

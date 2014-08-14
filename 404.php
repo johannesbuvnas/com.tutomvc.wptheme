@@ -1,4 +1,8 @@
 <?php
-	// TODO: Get a search form instead?
-	wp_redirect( home_url() );
-?>
+namespace tutomvc\theme;
+/**
+ *	The 404 template file
+ */
+get_header();
+
+get_footer();

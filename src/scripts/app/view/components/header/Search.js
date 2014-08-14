@@ -31,6 +31,12 @@ function(
 					.to( $("body"), 0, {overflow:"hidden"} )
 					.paused( true );
 			}
+			// else
+			// {
+			// 	this.timeline
+			// 		.to( this.$el, 0, {top:"100%"} )
+			// 		.paused( true );
+			// }
 		},
 		toggle : function()
 		{
@@ -51,6 +57,8 @@ function(
 				this.$toggleButton.find(".genericon").removeClass("genericon-search");
 				this.$toggleButton.find(".genericon").addClass("genericon-close");
 			}
+
+			this.$( "input[type=search]" ).focus();
 		},
 		hide : function()
 		{

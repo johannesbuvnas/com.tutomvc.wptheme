@@ -4,6 +4,7 @@
 */
 namespace tutomvc\theme;
 $post = get_post();
+$user = get_user_by( "id", $post->post_author );
 ?>
 <div class="Card PostCard">
 	<div class="Inner">
@@ -23,7 +24,7 @@ $post = get_post();
 			<a href="<?php echo get_permalink( $post->ID ); ?>">
 				<span class="CardName"><?php echo apply_filters( "the_title", $post->post_title ); ?></span>
 			</a><br/>
-			<span><?php echo __("By"); ?> <a class="AuthorLink" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author_meta( 'display_name' ); ?></a></span>
+			<span><?php echo __("By"); ?> <a class="AuthorLink" href="<?php echo get_author_posts_url( $user->ID ); ?>"><?php echo $user->display_name; ?></a></span>
 		</div>
 	</div>
 </div>

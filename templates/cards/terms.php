@@ -21,7 +21,7 @@ foreach($terms as $term)
 			</a>
 			<div class="CardContent">
 				<a href="<?php echo esc_attr($term->link); ?>" title="<?php echo $title_attribute; ?>">
-					<span class="CardName"><?php echo $term->name; ?></span>
+					<span class="CardName Hyphenate"><?php echo $term->name; ?></span>
 				</a>
 			</div>
 		</div>

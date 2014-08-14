@@ -92,7 +92,7 @@ class WidgetsInitCommand extends ActionCommand
 					</a>
 					<div class="CardContent">
 						<a href="'.esc_attr($term->link).'" title="'.$title_attribute.'">
-							<span class="CardName">'.$term->name.'</span>
+							<span class="CardName Hyphenate">'.$term->name.'</span>
 						</a>
 					</div>
 				</div>

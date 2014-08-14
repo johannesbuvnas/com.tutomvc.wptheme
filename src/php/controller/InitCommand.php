@@ -31,9 +31,8 @@ class InitCommand extends ActionCommand
 
 		// Post types
 		$this->getSystem()->postTypeCenter->add( new DefaultPostType() );
-		// remove_post_type_support( DefaultPostType::NAME, "editor" );
+		$this->getSystem()->postTypeCenter->add( new DefaultAttachmentPostType() );
 		$this->getSystem()->postTypeCenter->add( new DefaultPagePostType() );
-		// remove_post_type_support( DefaultPagePostType::NAME, "editor" );
 
 		// Admin menus
 		$this->getSystem()->adminMenuPageCenter->add( new ThemeSettingsAdminMenuPage() );

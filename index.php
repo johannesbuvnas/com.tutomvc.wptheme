@@ -10,24 +10,7 @@ namespace tutomvc\theme;
  *
  */
 get_header();
-?>
-		<?php
-			if ( have_posts() ) 
-			{	
-				while ( have_posts() )
-				{
-					the_post();
-					global $post;
-					get_template_part( 'content', $post->post_type );
 
-					// TODO: Pagination here
-				}
-			}
-			else
-			{
-				get_template_part( 'content', 'none' );
-			}
-		?>
+get_template_part( "loop" );
 
-<?php
 get_footer();
