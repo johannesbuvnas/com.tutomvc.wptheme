@@ -1,4 +1,4 @@
-<?php
+<?php namespace tutomvc\theme;
 /**
  * The template for displaying Comments
  *
@@ -8,6 +8,11 @@
  * @subpackage Twenty_Fourteen
  * @since Twenty Fourteen 1.0
  */
+global $wp_query;
+global $post;
+$elementID = "discussion";
+$elementClasses = array( "container-fluid", "tab-pane" );
+if($wp_query->byline && $wp_query->byline['current'] == $elementID) $elementClasses[] = "active";
 
 /*
  * If the current post is protected by a password and the visitor has not yet
@@ -16,24 +21,16 @@
 if ( post_password_required() ) return;
 if ( !comments_open() && !get_comments_number() ) return;
 ?>
-<!-- #discussion -->
-<section id="discussion">
+<section id="<?php echo $elementID; ?>" class="<?php echo implode(" ", $elementClasses); ?>">
 
-	<div class="Inner BorderBox">
+	<div class="Inner">
 		<?php if ( have_comments() ) : ?>
-
-		<h6 class="genericon-before genericon-chat">
-			<?php
-				printf( _n( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'twentyfourteen' ),
-					number_format_i18n( get_comments_number() ), get_the_title() );
-			?>
-		</h6>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 		<nav id="comment-nav-above" class="navigation comment-navigation" role="navigation">
-			<h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'twentyfourteen' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'twentyfourteen' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'twentyfourteen' ) ); ?></div>
+			<h1 class="screen-reader-text"><?php _e( 'Comment navigation', "tutomvc-theme" ); ?></h1>
+			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', "tutomvc-theme" ) ); ?></div>
+			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', "tutomvc-theme" ) ); ?></div>
 		</nav><!-- #comment-nav-above -->
 		<?php endif; // Check for comment navigation. ?>
 
@@ -42,30 +39,42 @@ if ( !comments_open() && !get_comments_number() ) return;
 				wp_list_comments( array(
 					'style'      => 'ol',
 					'short_ping' => true,
-					'avatar_size'=> 34,
+					'avatar_size'=> 150,
+					"walker" => new CommentWalker()
 				) );
 			?>
 		</ol><!-- .comment-list -->
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
 		<nav id="comment-nav-below" class="navigation comment-navigation" role="navigation">
-			<h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'twentyfourteen' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'twentyfourteen' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'twentyfourteen' ) ); ?></div>
+			<h1 class="screen-reader-text"><?php _e( 'Comment navigation', "tutomvc-theme" ); ?></h1>
+			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', "tutomvc-theme" ) ); ?></div>
+			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', "tutomvc-theme" ) ); ?></div>
 		</nav><!-- #comment-nav-below -->
 		<?php endif; // Check for comment navigation. ?>
 
 		<?php if ( ! comments_open() ) : ?>
-		<p class="no-comments"><?php _e( 'Comments are closed.', 'twentyfourteen' ); ?></p>
+		<p class="no-comments"><?php _e( 'Comments are closed.', "tutomvc-theme" ); ?></p>
 		<?php endif; ?>
 
 		<?php endif; // have_comments() ?>
 
 		<?php 
+			if(is_user_logged_in())
+			{
+				$user = wp_get_current_user();
+				$commentField = '
+					<p class="comment-form-comment">
+						<!--<label for="comment">'.get_avatar( $user->ID, 32 ).'<span>'.$user->display_name.'</span></label>-->
+						<textarea id="comment" name="comment" cols="45" rows="3" aria-required="true" class="form-control"></textarea>
+					</p>
+				';
+			}
+			
 			comment_form(array(
-				// "logged_in_as" => ""
+				"logged_in_as" => '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>',
+				"comment_field" => $commentField
 			));
 		?>
 	</div>
-</section>
-<!-- end#discussion -->
+</section><!-- end #discussion -->

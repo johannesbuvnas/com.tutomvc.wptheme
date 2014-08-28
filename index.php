@@ -9,6 +9,7 @@ namespace tutomvc\theme;
  * e.g., it puts together the home page when no home.php file exists.
  *
  */
+
 get_header();
 
 get_template_part( "loop" );

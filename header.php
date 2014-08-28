@@ -72,17 +72,17 @@ global $themeFacade;
 		?>
 
 		<div id="stage" class="<?php echo implode(" ", $classes); ?>">
-			<div class="Inner">
+			<div class="Inner BorderBox">
 			
 				<!-- #header -->
 				<header id="header">
 				
 					<div class="Inner">
 						<button id="navButton" class="SimpleButton">
-							<span class="genericon genericon-menu"></span>
+							<span class="glyphicon glyphicon-align-justify"></span>
 						</button>
 						<button id="searchButton" class="SimpleButton">
-							<span class="genericon genericon-search"></span>
+							<span class="glyphicon glyphicon-search"></span>
 						</button>
 						<h1><?php echo get_bloginfo( 'name' ); ?></h1>
 					</div>
@@ -90,21 +90,36 @@ global $themeFacade;
 					<!-- #navigation -->
 					<section id="navigation" class="Hidden PriorityMedium">
 						<div class="Inner BorderBox">
-							<h6>Navigation</h6>
 							<?php
 								wp_nav_menu( array(
 									"theme_location" => AppConstants::NAV_MENU_NAVIGATION,
-									"container" => "nav"
+									"container" => "nav",
+									"fallback_cb" => NULL,
+									"echo" => TRUE,
+									'menu_class' => 'nav nav-tabs nav-stacked',
+									"walker" => new NavMenuWalker()
 								) );
 							?>
-							<?php if(is_user_logged_in()): ?>
-								<h6>Administration</h6>
-								<?php
-									wp_nav_menu( array(
-										"theme_location" => AppConstants::NAV_MENU_ADMINISTRATION,
-										"container" => "nav"
-									) );
-								?>
+							<?php if(is_user_logged_in()): 
+								$user = wp_get_current_user();
+							?>
+								<!-- <ul class="nav nav-tabs nav-stacked">
+								  <li>
+								  	<a href="<?php echo admin_url(); ?>">
+								  		<?php echo get_avatar($user->ID, 36); ?>
+								  		<span><?php echo $user->display_name; ?></span>
+								  	</a>
+								  </li>
+								</ul> -->
+								<!-- Single button -->
+								<div class="WPAdmin btn-group dropup">
+								  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+								    <?php echo get_avatar($user->ID, 30); ?> <span><?php echo $user->display_name; ?></span> <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu" role="menu">
+								    <li><a href="<?php echo admin_url(); ?>"><span class="glyphicon glyphicon-wrench"></span> <?php _e("Dashboard"); ?></a></li>
+								  </ul>
+								</div>
 							<?php endif; ?>
 						</div>
 					</section>
@@ -116,10 +131,17 @@ global $themeFacade;
 						if(is_404()) $classes = array( "PriorityLow" );
 					?>
 					<section id="search" class="<?php echo implode( " ", $classes ); ?>">
-						<div class="Inner BorderBox">
-							<?php 
-								get_search_form( TRUE ); 
-							?>
+						<div class="Inner container">
+							<div class="row">
+
+								<div class="col-md-12">
+									<?php 
+										get_search_form( TRUE );
+									?>
+								</div>
+								
+							</div>
+
 							<section class="WidgetArea">
 								<?php dynamic_sidebar( AppConstants::SIDEBAR_SEARCH ); ?>
 							</section>

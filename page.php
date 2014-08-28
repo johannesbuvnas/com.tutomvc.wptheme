@@ -10,6 +10,4 @@ get_header();
 
 get_template_part( 'content', $post->post_type );
 
-comments_template();
-
 get_footer();
