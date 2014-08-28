@@ -1,0 +1,60 @@
+/**
+*	#header
+*/
+@header-height : 45px;
+#header
+{
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+}
+#header > .Inner
+{
+	z-index: 10;
+	position: absolute;
+	width: 100%;
+	height: @header-height;
+	background: #FFF;
+	border-bottom: 1px solid @gray-lighter;
+}
+#navButton,
+#searchButton
+{
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	left: 0;
+}
+#searchButton
+{
+	right: 0;
+	left: auto;
+}
+
+#searchButton .glyphicon,
+#navButton .glyphicon
+{
+}
+
+#header h1
+{
+	margin: 0;
+	text-align: center;
+	font: 24px/45px "Semibold";
+}
+
+
+.PriorityLow
+{
+	z-index: 2;
+}
+.PriorityMedium
+{
+	z-index: 5;
+}
+.PriorityHigh
+{
+	z-index: 7;
+}

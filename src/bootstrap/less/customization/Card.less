@@ -1,0 +1,104 @@
+.Card
+{
+	font: 11px "Semibold";
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	color: rgba(0,0,0,.8);
+	background: #FFF;
+	position: relative;
+}
+
+.Card > .Inner
+{
+	padding: 10px 0;
+}
+
+.Card .Name
+{
+	font: 18px "Bold";
+	text-transform: none;
+	letter-spacing: 0;
+}
+
+.Card a
+{
+	text-decoration: none;
+	color: #1d1d1d;
+}
+
+.Card a.AuthorLink:hover,
+.Card a.PostTypeArchiveLink:hover
+{
+	text-decoration: underline;
+}
+
+button.Card > .Inner
+{
+	background: 0;
+}
+
+.Card .CardImage
+{
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 100%;
+	background: #c4c4c4;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+// .TagCard .CardImage
+// {
+// 	width: 33%;
+// 	padding-bottom: 33%;
+// 	float: left;
+// 	margin: 0px 10px 10px 0px;
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// }
+
+.Card.AuthorCard .CardImage img
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+
+.Card .CardImage > .CardImageTitle
+{
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: #FFF;
+	position: absolute;
+	top: 50%;
+	margin-top: -6px;
+}
+
+.Card .CardContent
+{
+	display: block;
+	text-align: center;
+}
+.Card .CardContent img.alignnone
+{
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+// .TagCard .CardContent
+// {
+// 	text-align: left;
+// 	padding-left: 35%;
+// 	min-height: 120px;
+// }
+
+
+@media all and (min-width:740px){
+	.Card
+	{
+		font-size: 13px;
+	}
+}

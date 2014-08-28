@@ -1,0 +1,85 @@
+.Meta
+{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	/*background: #fff;*/
+	/*border-top: 1px dotted #CCC;*/
+	padding: 20px 0;
+}
+.Meta .Title,
+.Meta h1
+{
+	color: #333;
+	margin-bottom: 0;
+}
+.Meta > .Wrapper
+{
+	width: 500px;
+	margin: 0 auto;
+}
+.Meta > .Wrapper > .Inner
+{
+	text-align: center;
+	font-size: 17px;
+	padding: 0px 20px;
+	position: relative;
+}
+@media only screen and (max-width: 900px)
+{
+	.Meta > .Wrapper
+	{
+		width: 100%;
+	}
+}
+
+.Meta input,
+.Meta textarea
+{
+	text-align: center;
+}
+
+.Meta > .Wrapper > .Inner p.PostMetaComments
+{
+	margin-bottom: 5px;
+}
+.Meta > .Wrapper > .Inner p.CategoryList,
+.Meta > .Wrapper > .Inner p.TagList
+{
+	margin-bottom: 8px;
+}
+
+.Meta > .Wrapper > .Inner .CategoryList,
+.Meta > .Wrapper > .Inner .TagList,
+.comment-meta a,
+.comment-list .reply,
+.comment-navigation .nav-previous a,
+.comment-navigation .nav-next a,
+.comment-navigation .nav-previous a,
+.comment-meta a
+{
+	font: 17px/20px "Bold";
+}
+.comment-meta,
+.comment-meta a
+{
+	font: 14px/1.4em "Regular";
+}
+.Meta > .Wrapper > .Inner .CategoryList a,
+.Meta > .Wrapper > .Inner .TagList a,
+.comment-list .reply a,
+.comment-meta a,
+.comment-navigation .nav-next a,
+.comment-navigation .nav-previous a
+{
+	text-decoration: none;
+}
+.Meta > .Wrapper > .Inner .CategoryList a:hover,
+.Meta > .Wrapper > .Inner .TagList a:hover
+{
+	text-decoration: underline;
+}
+.Meta > .Wrapper > .Inner .TagList a:before
+{
+	content: "#";
+}
