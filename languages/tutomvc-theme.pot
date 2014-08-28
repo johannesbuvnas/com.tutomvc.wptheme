@@ -1,0 +1,226 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: tutomvc-theme\n"
+"POT-Creation-Date: 2014-08-15 11:20+0100\n"
+"PO-Revision-Date: 2014-08-15 11:20+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_n;_e;_x;_ex\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../comments.php:28
+#, php-format
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgstr ""
+
+#: ../comments.php:35 ../comments.php:54
+msgid "Comment navigation"
+msgstr ""
+
+#: ../comments.php:36 ../comments.php:55
+#: ../src/templates/components/content/meta/comments.php:11
+#: ../src/templates/components/content/meta/comments.php:28
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: ../comments.php:37 ../comments.php:56
+#: ../src/templates/components/content/meta/comments.php:12
+#: ../src/templates/components/content/meta/comments.php:29
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: ../comments.php:61
+msgid "Comments are closed."
+msgstr ""
+
+#: ../search.php:9
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../src/php/controller/AdminInitCommand.php:27
+msgid "This is <strong>NOT</strong> production environment."
+msgstr ""
+
+#: ../src/php/controller/InitCommand.php:50
+msgid "Wide"
+msgstr ""
+
+#: ../src/php/controller/InitCommand.php:58
+msgid "Navigation"
+msgstr ""
+
+#: ../src/php/controller/InitCommand.php:59
+msgid "Administration"
+msgstr ""
+
+#: ../src/php/controller/actions/WidgetsInitCommand.php:17
+msgid "Search Sidebar"
+msgstr ""
+
+#: ../src/php/model/menu/MainMenu.php:11
+msgid "The main menu."
+msgstr ""
+
+#: ../src/php/model/meta/ContentBlockMetaBox.php:22
+#: ../src/php/model/meta/ContentBlockMetaBox.php:32
+#: ../src/php/model/meta/ContentBlockMetaBox.php:35
+msgid "Content"
+msgstr ""
+
+#: ../src/php/model/meta/ContentBlockMetaBox.php:24
+#: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:30
+msgid "Type"
+msgstr ""
+
+#: ../src/php/model/meta/ContentBlockMetaBox.php:26
+msgid "One column"
+msgstr ""
+
+#: ../src/php/model/meta/ContentBlockMetaBox.php:27
+msgid "Two columns"
+msgstr ""
+
+#: ../src/php/model/meta/ContentBlockMetaBox.php:44
+msgid "Align"
+msgstr ""
+
+#: ../src/php/model/meta/ContentBlockMetaBox.php:46
+msgid "Default"
+msgstr ""
+
+#: ../src/php/model/meta/ContentBlockMetaBox.php:47
+msgid "Vertical Center"
+msgstr ""
+
+#: ../src/php/model/meta/ContentBlockMetaBox.php:52
+msgid "Background Image"
+msgstr ""
+
+#: ../src/php/model/meta/ContentBlockMetaBox.php:57
+msgid "Link"
+msgstr ""
+
+#: ../src/php/model/meta/FeaturedMediaMetaBox.php:15
+msgid "Featured Media"
+msgstr ""
+
+#: ../src/php/model/meta/FeaturedMediaMetaBox.php:24
+msgid "Screenshot Thumbnail"
+msgstr ""
+
+#: ../src/php/model/meta/FeaturedMediaMetaBox.php:25
+msgid "This is auto generated. Do not edit."
+msgstr ""
+
+#: ../src/php/model/meta/HeroBannerMetaBox.php:22
+msgid "Hero Banner"
+msgstr ""
+
+#: ../src/php/model/meta/HeroBannerMetaBox.php:31
+msgid "Images"
+msgstr ""
+
+#: ../src/php/model/meta/HeroBannerMetaBox.php:42
+msgid "Template"
+msgstr ""
+
+#: ../src/php/model/meta/HeroBannerMetaBox.php:45
+msgid "Wide 2:1 (with controls)"
+msgstr ""
+
+#: ../src/php/model/meta/HeroBannerMetaBox.php:46
+msgid "Straight & Cover"
+msgstr ""
+
+#: ../src/php/model/meta/HeroBannerMetaBox.php:47
+msgid "Straight & Full"
+msgstr ""
+
+#: ../src/php/model/meta/HeroBannerMetaBox.php:48
+msgid "Straight & Fit"
+msgstr ""
+
+#: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:21
+msgid "Video Linkage"
+msgstr ""
+
+#: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:33
+msgid "URL"
+msgstr ""
+
+#: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:34
+msgid "File"
+msgstr ""
+
+#: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:41
+msgid "Video URL"
+msgstr ""
+
+#: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:52
+msgid "Video File(s)"
+msgstr ""
+
+#: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:56
+msgid "Select"
+msgstr ""
+
+#: ../src/php/model/meta/TitlesMetaBox.php:18
+msgid "Titles"
+msgstr ""
+
+#: ../src/php/model/meta/TitlesMetaBox.php:29
+msgid "Subtitle"
+msgstr ""
+
+#: ../src/php/model/walkers/CommentWalker.php:37
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../src/php/model/walkers/CommentWalker.php:40
+msgid "Edit"
+msgstr ""
+
+#: ../src/php/model/walkers/CommentWalker.php:44
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../src/php/view/admin/WPLoginMediator.php:36
+msgid "Who is knocking on my door?"
+msgstr ""
+
+#: ../src/templates/components/content/meta/meta.php:6
+msgid "Posted in"
+msgstr ""
+
+#: ../src/templates/components/content/meta/meta.php:6
+msgid ", "
+msgstr ""
+
+#: ../src/templates/components/content/meta/meta.php:28
+msgid "One comment"
+msgstr ""
+
+#: ../templates/bylines/section-author.php:9 ../templates/cards/post.php:27
+msgid "By"
+msgstr ""
+
+#: ../templates/bylines/section-terms.php:12
+msgid "Published in"
+msgstr ""
+
+#: ../templates/content-section-links.php:20
+msgid "Previous"
+msgstr ""
+
+#: ../templates/content-section-links.php:27
+msgid "Next"
+msgstr ""
