@@ -1,14 +1,17 @@
-<?php
+<?php namespace tutomvc\theme;
 /**
-*	Post author byline-section.
+*	section#author
 */
-namespace tutomvc\theme;
+global $wp_query;
+global $post;
+$elementID = "author";
+$elementClasses = array( "container-fluid", "tab-pane" );
+if($wp_query->byline && $wp_query->byline['current'] == $elementID) $elementClasses[] = "active";
 ?>
-<section class="Author TopLevelCard">
-	<div class="Inner BorderBox">
-		<h6 class="genericon-before genericon-user"><?php echo __( "By" ) ?></h6>
-		<div class="Cards">
+<section id="<?php echo $elementID; ?>" class="<?php echo implode(" ", $elementClasses); ?>">
+	<div class="row">
+		<div class="col-sm-2 col-xs-3">
 			<?php get_template_part( "templates/cards/author" ); ?>
 		</div>
 	</div>
-</section>
+</section><!-- end #author -->

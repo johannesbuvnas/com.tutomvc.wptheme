@@ -11,6 +11,22 @@ if(count($heroMeta))
 	$heroMeta = array_pop($heroMeta);
 	if(count($heroMeta[ HeroBannerMetaBox::IMAGES ]))
 	{
-		if(file_exists( STYLESHEETPATH . '/' . "templates/hero-" . $heroMeta[ HeroBannerMetaBox::TEMPLATE ] . ".php" )) get_template_part( 'templates/hero', $heroMeta[ HeroBannerMetaBox::TEMPLATE ] );
+		?>
+			<!-- .FallbackHeroBanner -->
+			<a href="<?php echo get_permalink( $post->ID ); ?>">
+				<?php
+					$attachmentID = get_post_thumbnail_id( $post->ID );
+					$size = "post-thumbnail";
+					$classes = array(
+						"alignnone",
+						"wp-image-" . $attachmentID,
+						"FallbackHeroBanner"
+					);
+					$src = wp_get_attachment_image_src( $attachmentID, $size );
+				?>
+				<figure style="background-image: url(<?php echo $src[0]; ?>) ;" class="<?php echo implode(" ", $classes); ?>"></figure>
+			</a><!-- end .FallbackHeroBanner -->
+		<?php
+		get_template_part( 'templates/banners/hero', $heroMeta[ HeroBannerMetaBox::TEMPLATE ] );
 	}
 }

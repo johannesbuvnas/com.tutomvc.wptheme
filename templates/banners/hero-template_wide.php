@@ -38,8 +38,8 @@ $classes[] = $heroMeta[ HeroBannerMetaBox::TEMPLATE ];
 				?>
 					<figure class="HeroItem" style="background-image: url(<?php echo $src[0]; ?>) ;">
 						<?php if(is_string($videoURL) && strlen($videoURL)): ?>
-							<a href="<?php echo $videoURL; ?>" target="_blank" class="VideoLinkage MediaLink genericon genericon-play ShadowBox">
-								<span class="Label">Play video</span>
+							<a href="<?php echo $videoURL; ?>" target="_blank" class="VideoLinkage MediaLink ShadowBox img-rounded">
+								<span class="glyphicon glyphicon-play"></span>
 							</a>
 						<?php endif; ?>
 					</figure>
@@ -53,11 +53,11 @@ $classes[] = $heroMeta[ HeroBannerMetaBox::TEMPLATE ];
 		{
 		?>
 			<div class="Control">
-				<a href="#" class="Previous genericon genericon-previous ShadowBox">
-					<span class="Label">Previous</span>
+				<a href="#" class="Previous ShadowBox img-rounded">
+					<span class="glyphicon glyphicon-chevron-left"></span>
 				</a>
-				<a href="#" class="Next genericon genericon-next ShadowBox">
-					<span class="Label">Next</span>
+				<a href="#" class="Next ShadowBox img-rounded">
+					<span class="glyphicon glyphicon-chevron-right"></span>
 				</a>
 			</div>
 		<?php

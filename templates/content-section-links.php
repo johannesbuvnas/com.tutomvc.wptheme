@@ -7,7 +7,7 @@ global $post;
 ?>
 <!-- .EntryLinks -->
 <section class="EntryLinks">
-	<div class="Inner">
+	<div class="Inner BorderBox clearfix">
 		<?php
 			// Don't print empty markup if there's nowhere to navigate.
 			$originalPost = $post;
@@ -17,17 +17,31 @@ global $post;
 
 			if($previous)
 			{
-				echo '<h6><a class="genericon-before genericon-previous" href="'.get_permalink( $previous ).'">'.__("Previous").' '.strtolower($postTypeLabels->singular_name).'</a></h6>';
-				$post = $previous;
-				get_template_part( "templates/cards/post" );
+			?>
+				<article class="Previous clearfix">
+					<h6><a class="genericon-before genericon-previous" href="<?php echo get_permalink( $previous ); ?>"><?php _e( "Previous", "tutomvc-theme" ); echo strtolower( $postTypeLabels->singular_name ); ?></a></h6>
+				<?php
+					$post = $previous;
+					get_template_part( "templates/cards/post" );
+				?>
+				</article>
+			<?php
 			}
 
 			if ( $next )
 			{
-				echo '<h6><a class="genericon-before genericon-next" href="'.get_permalink( $next ).'">'.__("Next").' '.strtolower($postTypeLabels->singular_name).'</a></h6>';
-				$post = $next;
-				get_template_part( "templates/cards/post" );
+			?>
+				<article class="Next clearfix">
+					<h6><a class="genericon-before genericon-next" href="<?php echo get_permalink( $next ); ?>"><?php _e( "Next", "tutomvc-theme" ); echo strtolower( $postTypeLabels->singular_name ); ?></a></h6>
+				<?php
+					$post = $next;
+					get_template_part( "templates/cards/post" );
+				?>
+				</article>
+			<?php
 			}
+
+			
 
 			$post = $originalPost;
 		?>
