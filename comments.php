@@ -60,16 +60,11 @@ if ( !comments_open() && !get_comments_number() ) return;
 		<?php endif; // have_comments() ?>
 
 		<?php 
-			if(is_user_logged_in())
-			{
-				$user = wp_get_current_user();
-				$commentField = '
-					<p class="comment-form-comment">
-						<!--<label for="comment">'.get_avatar( $user->ID, 32 ).'<span>'.$user->display_name.'</span></label>-->
-						<textarea id="comment" name="comment" cols="45" rows="3" aria-required="true" class="form-control"></textarea>
-					</p>
-				';
-			}
+			$commentField = '
+				<p class="comment-form-comment">
+					<textarea id="comment" name="comment" cols="45" rows="3" aria-required="true" class="form-control"></textarea>
+				</p>
+			';
 			
 			comment_form(array(
 				"logged_in_as" => '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) ) ) . '</p>',
