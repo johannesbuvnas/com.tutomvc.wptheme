@@ -1,14 +1,15 @@
 /* CLASSES */
-@import "components/ImagePlaceholder.css";
-@import "components/Columns.css";
-@import "components/Masonry.css";
-@import "components/Meta.css";
+/*@import "components/ImagePlaceholder.css";*/
+/*@import "components/Columns.css";*/
+/*@import "components/Masonry.css";*/
+/*@import "components/Meta.css";*/
 @import "components/inputs.css";
 @import "components/Card.css";
 @import "components/hentry.css";
 @import "components/HeroBanner.css";
 @import "components/VideoLinkage.css";
 @import "components/WidgetArea.css";
+@import "components/Pagination.css";
 /* ELEMENTS */
 @import "components/img.css";
 @import "components/header.css";
@@ -24,9 +25,14 @@
 	pointer-events: none;
 }
 
+.genericon-before
+{
+	vertical-align: top;
+}
 .genericon-before:before
 {
-	vertical-align: middle;
+	vertical-align: top;
+	font-size: 16px;
 	text-align: center;
 	-moz-transition: color .1s ease-in 0;
 	-webkit-transition: color .1s ease-in 0;

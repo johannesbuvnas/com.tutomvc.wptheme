@@ -3,7 +3,7 @@ namespace tutomvc\theme;
 global $themeFacade;
 
 $categories = wp_get_post_categories( $post->ID );
-$categoryList = '<p class="CategoryList">'.__( "Posted in", AppFacade::KEY )." ".get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', AppFacade::KEY ) )."</p>";
+$categoryList = '<p class="CategoryList">'.__( "Posted in", "tutomvc-theme" )." ".get_the_category_list( _x( ', ', 'Used between list items, there is a space after the comma.', "tutomvc-theme" ) )."</p>";
 
 $tagsList = get_the_tag_list( '<p class="TagList">', " ", "</p>", $post->ID );
 
@@ -25,7 +25,7 @@ if(!count($categories) && (get_the_tags( $post->ID ) === FALSE || !count(get_the
 				else
 				{
 					echo '<p class="Title">'.get_the_title( $post->ID ).'</p>';
-					echo '<p class="PostMetaComments"><a class="CommentsLink" href="'.get_permalink( $post ).'#comments">'.sprintf( _n( 'One comment', '%1$s comments', get_comments_number(), AppFacade::KEY ), number_format_i18n( get_comments_number() ) ).'</a></p>';
+					echo '<p class="PostMetaComments"><a class="CommentsLink" href="'.get_permalink( $post ).'#comments">'.sprintf( _n( 'One comment', '%1$s comments', get_comments_number(), "tutomvc-theme" ), number_format_i18n( get_comments_number() ) ).'</a></p>';
 					echo count($categories) ? $categoryList : '';
 					echo get_the_tags( $post->ID ) !== FALSE ? $tagsList : '';
 				}

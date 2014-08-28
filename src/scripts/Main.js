@@ -5,7 +5,8 @@ define([
 	"backbone",
 	"app/AppConstants",
 	"app/AppModel",
-	"app/controller/StartUpCommand"
+	"app/controller/StartUpCommand",
+	"bootstrap"
 ],
 function(
 	DocReady,
@@ -14,7 +15,8 @@ function(
 	Backbone,
 	AppConstants,
 	AppModel,
-	StartUpCommand
+	StartUpCommand,
+	bootstrap
 	)
 {
 	"use strict";

@@ -8,6 +8,6 @@ class MainMenu extends Menu
 
 	function __construct()
 	{
-		parent::__construct( self::NAME, __( "The main menu." ) );
+		parent::__construct( self::NAME, __( "The main menu.", "tutomvc-theme" ) );
 	}
 }

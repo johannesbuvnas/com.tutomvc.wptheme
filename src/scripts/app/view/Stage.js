@@ -32,6 +32,18 @@ function(
 			Hentry.autoInstance( this.$el );
 			CardsComponent.autoInstance( this.$el );
 			Cards.autoInstance( this.$el );
+
+			this.$(".nav-tabs a").click(function(e)
+			{
+				var link = $(e.currentTarget).attr("href");
+
+				if(link && link.slice(0,1) == "#")
+				{
+					e.preventDefault();
+					// if(!$(this).parent().hasClass("active")) $(this).tab('show');
+					$(this).tab('show');
+				}
+			});
 		}
 	});
 

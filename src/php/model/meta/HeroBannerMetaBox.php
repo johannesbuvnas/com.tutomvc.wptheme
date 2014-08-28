@@ -19,7 +19,7 @@ class HeroBannerMetaBox extends MetaBox
 	{
 		parent::__construct(
 			self::NAME,
-			__( "Hero Banner" ),
+			__( "Hero Banner", "tutomvc-theme" ),
 			array( "post", "page" ),
 			1,
 			MetaBox::CONTEXT_NORMAL,
@@ -28,7 +28,7 @@ class HeroBannerMetaBox extends MetaBox
 
 		$this->addField( new MetaField(
 			self::IMAGES,
-			__("Images"),
+			__( "Images", "tutomvc-theme" ),
 			"",
 			MetaField::TYPE_ATTACHMENT,
 			array(
@@ -39,13 +39,13 @@ class HeroBannerMetaBox extends MetaBox
 
 		$this->addField( new SingleSelectorMetaField(
 			self::TEMPLATE,
-			__("Template"),
+			__( "Template", "tutomvc-theme" ),
 			"",
 			array(
-				self::TEMPLATE_WIDE => __( "Wide 2:1 (with controls)" ),
-				self::TEMPLATE_STRAIGHT_COVER => __( "Straight & Cover" ),
-				self::TEMPLATE_STRAIGHT_FULL => __( "Straight & Full" ),
-				self::TEMPLATE_STRAIGHT_FIT => __( "Straight & Fit" )
+				self::TEMPLATE_WIDE => __( "Wide 2:1 (with controls)", "tutomvc-theme" ),
+				self::TEMPLATE_STRAIGHT_COVER => __( "Straight & Cover", "tutomvc-theme" ),
+				self::TEMPLATE_STRAIGHT_FULL => __( "Straight & Full", "tutomvc-theme" ),
+				self::TEMPLATE_STRAIGHT_FIT => __( "Straight & Fit", "tutomvc-theme" )
 			),
 			self::TEMPLATE_WIDE
 		) );

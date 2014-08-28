@@ -15,7 +15,7 @@ class TitlesMetaBox extends MetaBox
 	{
 		parent::__construct(
 			self::NAME,
-			__( "Titles" ),
+			__( "Titles", "tutomvc-theme" ),
 			array( "post", "page" ),
 			1,
 			MetaBox::CONTEXT_SIDE,
@@ -26,7 +26,7 @@ class TitlesMetaBox extends MetaBox
 
 		$this->addField( new TextAreaMetaField(
 			self::SUBTITLE,
-			__("Subtitle"),
+			__( "Subtitle", "tutomvc-theme" ),
 			"",
 			5
 		) );

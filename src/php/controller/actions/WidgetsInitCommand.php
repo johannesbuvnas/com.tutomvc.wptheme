@@ -14,7 +14,7 @@ class WidgetsInitCommand extends ActionCommand
 	function execute()
 	{
 		register_sidebar( array(
-			'name' => __( 'Search Sidebar' ),
+			'name' => __( 'Search Sidebar', "tutomvc-theme" ),
 			'id' => AppConstants::SIDEBAR_SEARCH,
 			'before_widget' => '<div class="Widget"><div class="Inner BorderBox">',
 			'after_widget' => '</div></div>',
@@ -39,8 +39,11 @@ class WidgetsInitCommand extends ActionCommand
 
 		// register_widget( "\\tutomvc\\theme\\TagCloudWidget" );
 
-		add_filter( "widget_tag_cloud_args", array( $this, "filter_widget_tag_cloud_args" ) );
-		add_filter( "wp_generate_tag_cloud", array( $this, "filter_wp_generate_tag_cloud" ), 0, 3 );
+		if(!is_admin())
+		{
+			add_filter( "widget_tag_cloud_args", array( $this, "filter_widget_tag_cloud_args" ) );
+			add_filter( "wp_generate_tag_cloud", array( $this, "filter_wp_generate_tag_cloud" ), 0, 3 );
+		}
 	}
 
 	function filter_widget_tag_cloud_args( $args )

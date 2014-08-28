@@ -33,39 +33,42 @@ class TheContentFilter extends FilterCommand
 		{
 			$img = $a->getElementsByTagName('img')->item( 0 );
 
-			$classNames = $img->getAttribute("class");
-			$aClassNames = $a->getAttribute( "class" );
-			$a->setAttribute( "class", $aClassNames . " " . $classNames );
-			preg_match( '/wp-image-(?<id>\d+)/', $classNames, $attachmentID );
-			if(is_array($attachmentID) && array_key_exists("id", $attachmentID))
+			if($img)
 			{
-				$attachmentID = $attachmentID['id'];
-				if(filter_var( $attachmentID, FILTER_VALIDATE_INT ))
+				$classNames = $img->getAttribute("class");
+				$aClassNames = $a->getAttribute( "class" );
+				$a->setAttribute( "class", $aClassNames . " " . $classNames );
+				preg_match( '/wp-image-(?<id>\d+)/', $classNames, $attachmentID );
+				if(is_array($attachmentID) && array_key_exists("id", $attachmentID))
 				{
-					$attachmentID = intval($attachmentID);
-					if(get_post_type( $attachmentID ) == "attachment" && is_int(strpos( get_post_mime_type( $attachmentID ), "image")))
+					$attachmentID = $attachmentID['id'];
+					if(filter_var( $attachmentID, FILTER_VALIDATE_INT ))
 					{
-						$videoLinkageMeta = (array)get_post_meta( $attachmentID, ImageVideoLinkageMetaBox::NAME );
-						if(count($videoLinkageMeta))
+						$attachmentID = intval($attachmentID);
+						if(get_post_type( $attachmentID ) == "attachment" && filter_var(strpos( get_post_mime_type( $attachmentID ), "image"), FILTER_VALIDATE_INT))
 						{
-							$videoLinkageMeta = array_pop($videoLinkageMeta);
-							$videoURL = $videoLinkageMeta[ $videoLinkageMeta[ ImageVideoLinkageMetaBox::TYPE ] ];
-							if(is_array($videoURL))
+							$videoLinkageMeta = (array)get_post_meta( $attachmentID, ImageVideoLinkageMetaBox::NAME );
+							if(count($videoLinkageMeta))
 							{
-								// Attachment is the type
-								$videoURL = array_pop($videoURL);
-								$videoURL = $videoURL['url'];
+								$videoLinkageMeta = array_pop($videoLinkageMeta);
+								$videoURL = $videoLinkageMeta[ $videoLinkageMeta[ ImageVideoLinkageMetaBox::TYPE ] ];
+								if(is_array($videoURL))
+								{
+									// Attachment is the type
+									$videoURL = array_pop($videoURL);
+									$videoURL = $videoURL['url'];
+								}
+								$class = $img->parentNode->getAttribute("class");
+								$class .= " MediaLink InlineVideoLinkage";
+								$img->parentNode->setAttribute( "href", $videoURL );
+								$img->parentNode->setAttribute( "target", "_blank" );
+								$img->parentNode->setAttribute( "class", $class );
+
+								$genericon = $doc->createElement("span");
+								$genericon->setAttribute( "class", "genericon genericon-play ShadowBox" );
+
+								$a->appendChild( $genericon );
 							}
-							$class = $img->parentNode->getAttribute("class");
-							$class .= " MediaLink InlineVideoLinkage";
-							$img->parentNode->setAttribute( "href", $videoURL );
-							$img->parentNode->setAttribute( "target", "_blank" );
-							$img->parentNode->setAttribute( "class", $class );
-
-							$genericon = $doc->createElement("span");
-							$genericon->setAttribute( "class", "genericon genericon-play ShadowBox" );
-
-							$a->appendChild( $genericon );
 						}
 					}
 				}

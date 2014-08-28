@@ -68,7 +68,7 @@
 body,
 body.login
 {
-	font: 22px/1.4em "SemiBold";
+	font: 20px/1.4em "SemiBold";
 	color: #333;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
@@ -85,6 +85,15 @@ p
 a
 {
     color: #0099FF;
+    text-decoration: none;
+}
+a:hover
+{
+    text-decoration: none;
+}
+
+a.OtherLink:hover
+{
     text-decoration: underline;
 }
 
@@ -101,22 +110,35 @@ h1,h2,h3,h4,h5,h6
 	font: 36px/1.16em "Bold";
     margin-bottom: .7em;
 }
-h1,h2,h3,h4,h5,h6
-{
-}
 h2.EntryTitle
 {
-	font-size: 60px;
+	font-size: 36px;
+}
+.EditPostLink
+{
+    text-transform: uppercase;
+    color: #b2b2b2;
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 1em;
+}
+.EditPostLink:hover
+{
+    text-decoration: underline;
+}
+h6,
+.SmallTitle
+{
+    font: 11px/1em "Bold";
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: #b2b2b2;
 }
 h6
 {
     border-top: 1px solid #b2b2b2;
-    font: 11px/11px "Bold";
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    padding: 10px 0px;
+    padding: 10px 0 10px 10px;
     margin: 0;
-    color: #b2b2b2;
 }
 h6 a
 {
@@ -145,4 +167,16 @@ h6 a
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     hyphens: auto;
+}
+
+@media only all and (min-width: 740px) {
+    h2.EntryTitle
+    {
+        font-size: 60px;
+    }
+    h6,
+    .SmallTitle
+    {
+        font-size: 13px;
+    }
 }

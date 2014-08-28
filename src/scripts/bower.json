@@ -11,6 +11,7 @@
 		"backbone" : null,
 		"masonry" : "latest",
 		"imagesloaded" : "latest",
-		"html2canvas" : "latest"
+		"html2canvas" : "latest",
+		"bootstrap" : "latest"
 	}
 }

@@ -1,5 +1,6 @@
-@import "reset.css";
-@import "animate.css";
-@import "typography.css";
+/*@import "reset.css";*/
+/*@import "animate.css";*/
+/*@import "typography.css";*/
+@import "../bootstrap/dist/css/bootstrap.css";
 @import "components.css";
 @import "layout.css";

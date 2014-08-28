@@ -17,7 +17,8 @@ require.config({
 		"modernizr" : "libs/modernizr",
 		"jquery-easytabs" : "libs/jquery-easytabs/lib/jquery.easytabs",
 		"jquery-touchswipe" : "libs/jquery-touchswipe/jquery.touchSwipe",
-		"html2canvas" : "libs/html2canvas/build/html2canvas"
+		"html2canvas" : "libs/html2canvas/build/html2canvas",
+		"bootstrap" : "../bootstrap/dist/js/bootstrap"
 	},
 	shim : {
 		backbone : {

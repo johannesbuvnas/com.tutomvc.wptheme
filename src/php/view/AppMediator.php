@@ -16,9 +16,9 @@ class AppMediator extends Mediator
 
 	function onRegister()
 	{
-		$this->_headMediator = $this->getFacade()->view->registerMediator( new HeadMediator() );
-		$this->_bodyMediator = $this->getFacade()->view->registerMediator( new BodyMediator() );
-		$this->getFacade()->view->registerMediator( new WPLoginMediator() );
+		// $this->_headMediator = $this->getFacade()->view->registerMediator( new HeadMediator() );
+		// $this->_bodyMediator = $this->getFacade()->view->registerMediator( new BodyMediator() );
+		// $this->getFacade()->view->registerMediator( new WPLoginMediator() );
 	}
 
 	function getContent()

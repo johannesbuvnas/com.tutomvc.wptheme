@@ -60,7 +60,8 @@ function(
 					if(_this.model.isFiltered())
 					{
 						var name = $(this).find(".CardName").text();
-						if(name.indexOf( _this.model.get("filter") ) >= 0) validated = true;
+						name = name.toLowerCase();
+						if(name.indexOf( _this.model.get("filter").toLowerCase() ) >= 0) validated = true;
 						else validated = false;
 					}
 					else

@@ -18,7 +18,7 @@ class ImageVideoLinkageMetaBox extends MetaBox
 	{
 		parent::__construct(
 			self::NAME,
-			__( "Video Linkage" ),
+			__( "Video Linkage", "tutomvc-theme" ),
 			array( "attachment" ),
 			1,
 			MetaBox::CONTEXT_SIDE,
@@ -27,18 +27,18 @@ class ImageVideoLinkageMetaBox extends MetaBox
 
 		$this->addField( new SingleSelectorMetaField(
 			self::TYPE,
-			__( "Type" ),
+			__( "Type", "tutomvc-theme" ),
 			"",
 			array(
-				self::TYPE_URL => __( "URL" ),
-				self::TYPE_FILE => __( "File" ),
+				self::TYPE_URL => __( "URL", "tutomvc-theme" ),
+				self::TYPE_FILE => __( "File", "tutomvc-theme" ),
 			),
 			self::TYPE_URL
 		) );
 
 		$this->addField( new MetaField(
 			self::TYPE_URL,
-			__( "Video URL" ),
+			__( "Video URL", "tutomvc-theme" ),
 			"YouTube or Vimeo",
 			MetaField::TYPE_TEXT,
 			NULL,
@@ -49,11 +49,11 @@ class ImageVideoLinkageMetaBox extends MetaBox
 
 		$this->addField( new AttachmentMetaField(
 			self::TYPE_FILE,
-			__( "Video File(s)" ),
+			__( "Video File(s)", "tutomvc-theme" ),
 			"",
 			-1,
 			array("video"),
-			__( "Select" ),
+			__( "Select", "tutomvc-theme" ),
 			array( 
 				new MetaCondition( self::NAME, self::TYPE, self::TYPE_FILE, MetaCondition::CALLBACK_SHOW, MetaCondition::CALLBACK_HIDE )
 			)
@@ -68,7 +68,7 @@ class ImageVideoLinkageMetaBox extends MetaBox
 
 	public static function hasVideoLinkage( $objectID )
 	{
-		if(get_post_type( $objectID ) == "attachment" && is_int(strpos( get_post_mime_type( $objectID ), "image")))
+		if(get_post_type( $objectID ) == "attachment" && filter_var(strpos( get_post_mime_type( $objectID ), "image"), FILTER_VALIDATE_INT))
 		{
 			$videoLinkageMeta = (array)get_post_meta( $objectID, ImageVideoLinkageMetaBox::NAME );
 			if(count($videoLinkageMeta))

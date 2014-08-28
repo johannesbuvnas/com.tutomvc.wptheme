@@ -54,9 +54,10 @@ function(
 		Model : Backbone.Model.extend({
 			defaults : {
 				title : "",
-				filterEnabled : true,
+				filterEnabled : false,
 				paginationEnabled : false,
-				wpQuery : undefined
+				wpQuery : undefined,
+				max_num_pages : 0,
 			}
 		}),
 		autoInstance : function( $el )

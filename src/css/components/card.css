@@ -50,18 +50,21 @@ button.Card
 }
 
 .Card,
+button.Card,
+.Card time,
+.Card .AuthorLink,
+.Card .EditPostLink
+{
+	font: 11px "Semibold";
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	color: #1d1d1d;
+}
+
+.Card,
 button.Card
 {
 	display: block;
-	width: 33%;
-	color: #1d1d1d;
-	font: 11px/1em "Semibold";
-	text-transform: uppercase;
-	letter-spacing: .1em;
-}
-.Card.PostCard
-{
-	width: 100%;
 }
 
 .Card a
@@ -69,7 +72,8 @@ button.Card
 	text-decoration: none;
 	color: #1d1d1d;
 }
-.Card a.AuthorLink:hover
+.Card a.AuthorLink:hover,
+.Card a.PostTypeArchiveLink:hover
 {
 	text-decoration: underline;
 }
@@ -122,6 +126,11 @@ button.Card > .Inner
 	display: block;
 	text-align: center;
 }
+.Card .CardContent img.alignnone
+{
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
 .Card.PostCard .CardContent
 {
 	text-align: left;
@@ -133,15 +142,37 @@ button.Card > .Inner
 }
 .Card.PostCard .CardName
 {
-	font: 14px/1.5em "Bold";
+	font: 16px/1.5em "Bold";
+}
+
+.Card.PostCard.PostType_post a.PostTypeArchiveLink > span:before
+{
+	content: '\f443';
 }
 
 .TopLevelCard
 {
 	width: 100%;
 	float: left;
+	margin-bottom: 5px;
 }
 
 @media all and (min-width:740px){
-	
+	.CardsComponent h6 input[type=text]
+	{
+		font-size: 13px;
+	}
+	.TheLoop .Card.PostCard
+	{
+		width: 50%;
+		padding: 5px;
+	}
+	.Card,
+	button.Card,
+	.Card time,
+	.Card .AuthorLink,
+	.Card .EditPostLink
+	{
+		font-size: 13px;
+	}
 }

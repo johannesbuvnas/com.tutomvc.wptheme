@@ -16,9 +16,3 @@ class GetImageTagFilter extends FilterCommand
 		return $html;
 	}
 }
-
-// monterosa
-// dempsei
-// apartment5
-// ring per ek
-// anders bergmark

@@ -33,7 +33,7 @@ class WPLoginMediator extends Mediator
 	}
 	function filterMessage($message)
 	{
-		$customMessage = "<p class='message'>"._x("Who is knocking on my door?", "Message at login")."</p>";
+		$customMessage = "<p class='message'>".__( "Who is knocking on my door?", "tutomvc-theme" )."</p>";
 		return $customMessage . $message;
 	}
 }
