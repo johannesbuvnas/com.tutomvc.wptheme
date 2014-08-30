@@ -14,24 +14,13 @@ class CommentWalker extends Walker_Comment {
 		$user = get_user_by( "id", $comment->user_id );
 		$url    = $user ? get_author_posts_url( $user->ID ) : get_comment_author_url( $comment->comment_ID );
 		$author = get_comment_author( $comment->comment_ID );
+		global $themeFacade;
 ?>
 		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
 			<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 					<footer class="comment-meta">
-						<div class="Card AuthorCard">
-							<div class="Inner">
-								<a href="<?php echo $url; ?>">
-									<figure class="CardImage Circle">
-										<?php echo get_avatar( $comment, get_option( 'thumbnail_size_w' ) ); ?>
-									</figure>
-								</a>
-								<a href="<?php echo $url; ?>">
-									<div class="CardContent">
-										<span class="CardName"><?php echo $user ? $user->display_name : $author; ?></span>
-									</div>
-								</a>
-							</div>
-						</div>
+
+						<?php $themeFacade->view->getMediator( CommentAuthorCardMediator::NAME )->render( $comment ); ?>
 
 						<div class="comment-metadata">
 							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID, $args ) ); ?>">

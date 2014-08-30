@@ -14,7 +14,7 @@ if(!post_password_required() && (comments_open() || get_comments_number()))
 	// $tabs["discussion"] = get_comments_number() ? __("Comments") . "( ".get_comments_number()." )" : __("Comment");
 	// $tabs["discussion"] = "<span class='glyphicon glyphicon-comment'></span> " . $tabs["discussion"];
 }
-// if(get_edit_post_link()) $tabs[get_edit_post_link()] = "<span class='glyphicon glyphicon-pencil'></span> " . __('Edit');
+if(get_edit_post_link()) $tabs[get_edit_post_link()] = "<span class='glyphicon glyphicon-pencil'></span> " . __( 'Edit' );
 if(!count($tabs)) return;
 $wp_query->byline = array(
 	"tabs" => $tabs,

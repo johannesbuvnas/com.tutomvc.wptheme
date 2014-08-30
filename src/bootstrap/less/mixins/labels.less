@@ -10,3 +10,15 @@
     }
   }
 }
+
+.label-variant-2(@url) {
+  background-image: url(@url);
+  
+  &[href] {
+    &:hover,
+    &:focus {
+      background-image: url(@url);
+    }
+  }
+}
+

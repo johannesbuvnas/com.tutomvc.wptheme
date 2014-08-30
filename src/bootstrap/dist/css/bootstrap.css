@@ -943,6 +943,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+.avatar,
 .img-circle {
   border-radius: 50%;
 }
@@ -3154,6 +3155,9 @@ body.login {
 p {
   margin-bottom: 1em;
 }
+.JSLink {
+  cursor: pointer;
+}
 a {
   color: #0099FF;
   text-decoration: none;
@@ -3807,6 +3811,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-top: 1px solid #666666;
   cursor: default;
 }
+.nav-tabs > li.active > a .breadcrumb li.active {
+  color: #666666;
+}
+.nav-tabs > li.active > a .breadcrumb li .JSLink:hover,
+.nav-tabs > li.active > a .breadcrumb li a:hover {
+  color: #666666;
+}
 .nav-tabs.nav-justified {
   width: 100%;
   border-bottom: 0;
@@ -3843,9 +3854,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav-tabs .breadcrumb li {
   color: #cccccc;
-}
-.nav-tabs .breadcrumb li.active {
-  color: #666666;
 }
 .nav-pills > li {
   float: left;
@@ -4455,7 +4463,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   display: inline-block;
   padding-left: 0;
   margin: 20px auto;
-  border-radius: 4px;
+  font: 14px "Bold";
+  text-transform: uppercase;
 }
 .pagination > li,
 .page-numbers > li {
@@ -4470,9 +4479,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   padding: 6px 12px;
   line-height: 1.42857143;
   text-decoration: none;
-  color: #428bca;
-  background-color: #ffffff;
-  border: 1px solid #dddddd;
+  color: #c4c4c4;
+  border-top: 1px solid #c4c4c4;
   margin-left: -1px;
 }
 .pagination > li:first-child > a,
@@ -4480,15 +4488,6 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li:first-child > span,
 .page-numbers > li:first-child > span {
   margin-left: 0;
-  border-bottom-left-radius: 4px;
-  border-top-left-radius: 4px;
-}
-.pagination > li:last-child > a,
-.page-numbers > li:last-child > a,
-.pagination > li:last-child > span,
-.page-numbers > li:last-child > span {
-  border-bottom-right-radius: 4px;
-  border-top-right-radius: 4px;
 }
 .pagination > li > a:hover,
 .page-numbers > li > a:hover,
@@ -4498,9 +4497,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .page-numbers > li > a:focus,
 .pagination > li > span:focus,
 .page-numbers > li > span:focus {
-  color: #2a6496;
-  background-color: #eeeeee;
-  border-color: #dddddd;
+  color: #666666;
 }
 .pagination > .active > a,
 .page-numbers > .active > a,
@@ -4521,9 +4518,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > .current:focus,
 .page-numbers > li > .current:focus {
   z-index: 2;
-  color: #ffffff;
-  background-color: #428bca;
-  border-color: #428bca;
+  color: #333333;
+  border-color: #333333;
   cursor: default;
 }
 .pagination > .disabled > span,
@@ -4677,6 +4673,13 @@ a.label:focus {
 .label-danger[href]:hover,
 .label-danger[href]:focus {
   background-color: #c9302c;
+}
+.label-shadow {
+  background-image: url("../../images/bg-000-30.png");
+}
+.label-shadow[href]:hover,
+.label-shadow[href]:focus {
+  background-image: url("../../images/bg-000-30.png");
 }
 .badge {
   display: inline-block;
@@ -5633,47 +5636,41 @@ button.SimpleButton:focus {
 }
 .Card {
   font: 11px "Semibold";
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: rgba(0, 0, 0, 0.8);
+  color: #333333;
   background: #FFF;
   position: relative;
 }
 .Card > .Inner {
   padding: 10px 0;
+  position: relative;
 }
 .Card .Name {
-  font: 18px "Bold";
-  text-transform: none;
+  font: 14px "Bold";
   letter-spacing: 0;
+  color: #333333;
+  text-transform: none;
 }
 .Card a {
   text-decoration: none;
   color: #1d1d1d;
 }
-.Card a.AuthorLink:hover,
-.Card a.PostTypeArchiveLink:hover {
+.Card a .AuthorLink:hover,
+.Card a .PostTypeArchiveLink:hover {
   text-decoration: underline;
-}
-button.Card > .Inner {
-  background: 0;
 }
 .Card .CardImage {
   position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 100%;
-  background: #c4c4c4;
-  margin-bottom: 10px;
   overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 80px;
+  height: 80px;
+  padding: 0;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }
-.Card.AuthorCard .CardImage img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-.Card .CardImage > .CardImageTitle {
+.Card .CardImage .Title {
   display: block;
   width: 100%;
   text-align: center;
@@ -5690,6 +5687,15 @@ button.Card > .Inner {
   margin: 0 auto;
   margin-bottom: 10px;
 }
+.Card .AuthorCard .CardImage img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.TermCard .CardImage {
+  background-color: #eeeeee;
+}
 @media all and (min-width: 740px) {
   .Card {
     font-size: 13px;
@@ -5702,7 +5708,7 @@ article.hentry {
 article.hentry > .Inner {
   height: 100%;
 }
-body.single article.hentry figure.FallbackHeroBanner {
+article.hentry figure.FallbackHeroBanner {
   display: none;
 }
 article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader {
@@ -5733,9 +5739,15 @@ article.hentry section.EntryTitles h5.EntryByline .avatar {
   border-radius: 100%;
   display: none;
 }
-article.hentry a.AuthorLink:hover,
-article.hentry a.ArchiveLink:hover {
+article.hentry section.EntryTitles a:hover {
   text-decoration: underline;
+  color: #333333;
+}
+article.hentry section.EntryTitles a.EntryLink:hover,
+article.hentry section.EntryTitles a.EntryLink:hover h2,
+article.hentry section.EntryTitles a.EntryLink:hover h4 {
+  text-decoration: none;
+  color: #333333 !important;
 }
 article.hentry section.EntryTitles > .Inner {
   padding: 10px;
@@ -5773,6 +5785,9 @@ article.hentry section.EntryContent p:after {
   float: left;
   margin: 0!important;
 }
+.TheLoop article.hentry figure.FallbackHeroBanner {
+  display: block;
+}
 .TheLoop article.hentry section.EntryTitles h5.EntryByline {
   display: block;
 }
@@ -5798,8 +5813,8 @@ article.hentry section.EntryContent p:after {
 .TheLoop article.hentry > .Inner {
   background: #FFF;
 }
-.TheLoop article.hentry .EntryByline,
-.TheLoop article.hentry .EntryByline a {
+.TheLoop article.hentry section.EntryTitles h5.EntryByline,
+.TheLoop article.hentry section.EntryTitles h5.EntryByline a {
   font: 11px "Regular";
   text-transform: uppercase;
   letter-spacing: .1em;
@@ -5812,16 +5827,12 @@ article.hentry section.EntryContent p:after {
 .TheLoop article.hentry section.EntryTitles h2,
 .TheLoop article.hentry section.EntryTitles h2 a {
   font: 24px "Regular";
-  color: #666666;
+  color: #333333;
 }
 .TheLoop article.hentry section.EntryTitles h4,
 .TheLoop article.hentry section.EntryTitles h4 a {
   font: 20px "Regular";
   color: #666666;
-}
-.TheLoop article.hentry section.EntryTitles a:hover,
-.TheLoop article.hentry .EntryByline a:hover {
-  color: #333333;
 }
 .TheLoop article.hentry a.PostTypeArchiveLink > span:before {
   content: '\f443';
@@ -5840,36 +5851,28 @@ article.hentry section.EntryContent p:after {
   article.hentry section.EntryTitles > .Inner {
     padding: 0;
   }
-  body.single article.hentry.HasHeroBanner.hero-template_wide section.EntryTitles .ShadowBox,
-  body.page article.hentry.HasHeroBanner.hero-template_wide section.EntryTitles .ShadowBox {
+  #main > article.hentry.HasHeroBanner.hero-template_wide section.EntryTitles .ShadowBox {
     background: transparent url(../../images/bg-000-30.png) repeat;
   }
-  body.single article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles,
-  body.page article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles {
+  #main > article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles {
     position: absolute;
     margin: 0;
     padding: 0;
     bottom: 100px;
     color: #FFF;
   }
-  body.single article.hentry section.EntryTitles h2,
-  body.page article.hentry section.EntryTitles h2,
-  body.single article.hentry section.EntryTitles h4,
-  body.page article.hentry section.EntryTitles h4,
-  body.single article.hentry .EntryContent p,
-  body.page article.hentry .EntryContent p,
-  body.single article.hentry .EntryContent ul,
-  body.page article.hentry .EntryContent ul,
-  body.single article.hentry .EntryContent ol,
-  body.page article.hentry .EntryContent ol {
+  #main > article.hentry section.EntryTitles h2,
+  #main > article.hentry section.EntryTitles h4,
+  #main > article.hentry .EntryContent p,
+  #main > article.hentry .HeroBanner p,
+  #main > article.hentry .EntryContent ul,
+  #main > article.hentry .EntryContent ol {
     max-width: 700px;
     margin: 0 auto;
     margin-bottom: 1em;
   }
-  body.single article.hentry section.EntryTitles h2,
-  body.page article.hentry section.EntryTitles h2,
-  body.single article.hentry section.EntryTitles h4,
-  body.page article.hentry section.EntryTitles h4 {
+  #main > article.hentry section.EntryTitles h2,
+  #main > article.hentry section.EntryTitles h4 {
     margin: 0 auto;
   }
   article.hentry section.EntryTitles {
@@ -5893,13 +5896,17 @@ article.hentry section.EntryContent p:after {
   }
 }
 @media all and (min-width: 992px) {
-  .TheLoop article.hentry .EntryByline,
-  .TheLoop article.hentry .EntryByline a {
+  .TheLoop article.hentry section.EntryTitles h5.EntryByline,
+  .TheLoop article.hentry section.EntryTitles h5.EntryByline a {
     font-size: 14px;
   }
   .TheLoop article.hentry section.EntryTitles h2,
   .TheLoop article.hentry section.EntryTitles h2 a {
     font: 32px "Regular";
+  }
+  .TheLoop article.hentry section.EntryTitles h4,
+  .TheLoop article.hentry section.EntryTitles h4 a {
+    font: 24px "Regular";
   }
   .TheLoop article.hentry figure.FallbackHeroBanner {
     height: 350px;
@@ -6007,15 +6014,6 @@ a.InlineVideoLinkage .genericon {
   color: #fff;
   font-size: 50px;
   text-decoration: none;
-}
-.Widget > .Inner {
-  padding-right: 10px;
-}
-@media all and (min-width: 900px) {
-  .Widget {
-    width: 33%;
-    float: left;
-  }
 }
 /* columns of same height styles */
 .container-xs-height {
@@ -6134,18 +6132,6 @@ a.alignright > img.alignright {
 img.size-tutomvc_hero_wide {
   width: 100%;
   height: auto;
-}
-img.Circle,
-figure.Circle {
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  border-radius: 100%;
-}
-img.Rounded,
-figure.Rounded {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
 }
 /**
 *	#header

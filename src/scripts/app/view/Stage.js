@@ -44,6 +44,12 @@ function(
 					$(this).tab('show');
 				}
 			});
+
+			this.$(".JSLink").click(function(e)
+			{
+				var link = $(e.currentTarget).attr("href");
+				location.href = link;
+			});
 		}
 	});
 

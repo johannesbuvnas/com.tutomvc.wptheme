@@ -65,6 +65,10 @@ class InitCommand extends ActionCommand
 		) );
 		
 		$this->getFacade()->view->registerMediator( new AppMediator() );
+		$this->getFacade()->view->registerMediator( new TagCloudWidgetMediator() );
+		$this->getFacade()->view->registerMediator( new TermCardMediator() );
+		$this->getFacade()->view->registerMediator( new AuthorCardMediator() );
+		$this->getFacade()->view->registerMediator( new CommentAuthorCardMediator() );
 
 		if(!AppFacade::isProduction() && intval(get_option("blog_public")) > 0) update_option( "blog_public", 0 );
 	}
@@ -79,16 +83,6 @@ class InitCommand extends ActionCommand
 		$this->getFacade()->controller->registerCommand( new TheContentFilter() );
 		$this->getFacade()->controller->registerCommand( new EditPostLinkFilter() );
 		$this->getFacade()->controller->registerCommand( new NavMenuLinkAttrFilter() );
-		// remove_filter( 'the_content', 'wpautop' );
-
-		// $this->getFacade()->controller->registerCommand( new ImageSendToEditorFilter() );
-		// $this->getFacade()->controller->registerCommand( new GetImageTagFilter() );
-		// $this->getFacade()->controller->registerCommand( new GetAttachmentURLFilter() );
-		
-		if(!is_admin())
-		{
-			// $this->getFacade()->controller->registerCommand( new FoundPostsFilter() );
-		}
 
 		// Multisite fixes
 		if(is_multisite())

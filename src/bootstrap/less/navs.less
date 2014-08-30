@@ -110,6 +110,20 @@
         // border-bottom-color: transparent;
         cursor: default;
       }
+      .breadcrumb
+      {
+        li {
+          &.active
+          {
+            color: @nav-tabs-active-link-hover-color;
+          }
+          .JSLink:hover,
+          a:hover
+          {
+            color: @nav-tabs-active-link-hover-color;
+          }
+        }
+      }
     }
   }
   // pulling this in mainly for less shorthand
@@ -126,9 +140,6 @@
     li
     {
       color: @breadcrumb-color;
-    }
-    li.active {
-      color: @nav-tabs-active-link-hover-color;
     }
   }
 }

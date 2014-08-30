@@ -117,7 +117,8 @@ global $themeFacade;
 								    <?php echo get_avatar($user->ID, 30); ?> <span><?php echo $user->display_name; ?></span> <span class="caret"></span>
 								  </button>
 								  <ul class="dropdown-menu" role="menu">
-								    <li><a href="<?php echo admin_url(); ?>"><span class="glyphicon glyphicon-wrench"></span> <?php _e("Dashboard"); ?></a></li>
+								  	<li><a href="<?php echo wp_logout_url(); ?>"><span class="glyphicon glyphicon-remove"></span> <?php _e( "Log out", "tutomvc-theme" ); ?></a></li>
+								    <li><a href="<?php echo admin_url(); ?>"><span class="glyphicon glyphicon-wrench"></span> <?php _e( "Dashboard", "tutomvc-theme" ); ?></a></li>
 								  </ul>
 								</div>
 							<?php endif; ?>

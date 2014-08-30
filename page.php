@@ -5,6 +5,7 @@ namespace tutomvc\theme;
  *
  */
 global $post;
+global $themeFacade;
 
 get_header();
 

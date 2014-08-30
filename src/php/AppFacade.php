@@ -13,6 +13,7 @@ class AppFacade extends Facade
 	public $memberModule;
 	public $metaTagsModule;
 	public $analyticsModule;
+	public $termPageModule;
 	public $repository;
 
 	function __construct()
@@ -28,6 +29,8 @@ class AppFacade extends Facade
 	function onRegister()
 	{	
 		self::$isPreview = array_key_exists( "preview", $_GET );
+
+		$this->termPageModule = $this->registerSubFacade( new \tutomvc\modules\termpage\TermPageModule() );
 		
 		$this->controller->registerCommand( new InitCommand() );
 		$this->controller->registerCommand( new WidgetsInitCommand() );

@@ -13,28 +13,22 @@ $subtitle = get_post_meta( $post->ID, TitlesMetaBox::constructMetaKey( TitlesMet
 	<!-- .EntryTitles -->
 	<section class="EntryTitles">
 		<div class="Inner BorderBox">
-			<h2 class="EntryTitle">
-				<?php if(!is_single() && !is_page()): ?>
-				<a href="<?php echo get_permalink( $post->ID ); ?>">
-					<?php the_title(); ?>
-				</a>
-					<?php else: ?>
-					<span class="ShadowBox"><?php the_title(); ?></span>
-				<?php endif; ?>
-			</h2>
-			<?php if(strlen($subtitle)): ?>
-				<h4>
-					<?php if(!is_single() && !is_page()): ?>
-						<a href="<?php echo get_permalink( $post->ID ); ?>">
-							<?php if(strlen($subtitle)): ?>
-								<span class="ShadowBox"><?php echo $subtitle; ?></span>
-							<?php endif; ?>
-						</a>
-					<?php else: ?>
-							<span class="ShadowBox"><?php echo $subtitle; ?></span>
-					<?php endif; ?>
-				</h2>
+			<?php if(!is_single() && !is_page()): ?>
+				<a class="EntryLink" href="<?php echo get_permalink( $post->ID ); ?>">
 			<?php endif; ?>
+
+					<h2 class="EntryTitle"><span class="ShadowBox"><?php the_title(); ?></span></h2>
+
+				<?php if(strlen($subtitle)): ?>
+
+					<h4><span class="ShadowBox"><?php echo $subtitle; ?></span></h4>
+
+				<?php endif; ?>
+
+			<?php if(!is_single() && !is_page()): ?>
+				</a><!-- end .EntryLink -->
+			<?php endif; ?>
+
 			<?php 
 				if(!is_single() && !is_page()): 
 			?>
@@ -56,9 +50,9 @@ $subtitle = get_post_meta( $post->ID, TitlesMetaBox::constructMetaKey( TitlesMet
 						<span><?php echo $user->display_name; ?></span>
 					</a>
 					|
-					<a href="<?php echo get_permalink( $post->ID ); ?>"><time class="EntryDate" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time></a>
+					<a class="EntryLink" href="<?php echo get_permalink( $post->ID ); ?>"><time class="EntryDate" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time></a>
 				</h5>
 			<?php endif; ?>
-		</div>
+		</div><!-- end .Inner -->
 	</section><!-- end .EntryTitles -->
 </header><!-- end .EntryHeader -->

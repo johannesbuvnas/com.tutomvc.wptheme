@@ -9,7 +9,7 @@ article.hentry > .Inner
 	height: 100%;
 }
 
-body.single article.hentry figure.FallbackHeroBanner
+article.hentry figure.FallbackHeroBanner
 {
 	display: none;
 }
@@ -50,10 +50,17 @@ article.hentry section.EntryTitles h5.EntryByline .avatar
     border-radius: 100%;
     display: none;
 }
-article.hentry a.AuthorLink:hover,
-article.hentry a.ArchiveLink:hover
+article.hentry section.EntryTitles a:hover
 {
 	text-decoration: underline;
+	color: @gray-dark;
+}
+article.hentry section.EntryTitles a.EntryLink:hover,
+article.hentry section.EntryTitles a.EntryLink:hover h2,
+article.hentry section.EntryTitles a.EntryLink:hover h4
+{
+	text-decoration: none;
+	color: @gray-dark!important;
 }
 article.hentry section.EntryTitles > .Inner
 {
@@ -104,6 +111,10 @@ article.hentry section.EntryContent p:after
 	float: left;
 	margin: 0!important;
 }
+.TheLoop article.hentry figure.FallbackHeroBanner
+{
+	display: block;
+}
 .TheLoop article.hentry section.EntryTitles h5.EntryByline
 {
 	display: block;
@@ -140,8 +151,8 @@ article.hentry section.EntryContent p:after
 	background: #FFF;
 }
 
-.TheLoop article.hentry .EntryByline,
-.TheLoop article.hentry .EntryByline a
+.TheLoop article.hentry section.EntryTitles h5.EntryByline,
+.TheLoop article.hentry section.EntryTitles h5.EntryByline a
 {
 	font: 11px "Regular";
 	text-transform: uppercase;
@@ -159,7 +170,7 @@ article.hentry section.EntryContent p:after
 .TheLoop article.hentry section.EntryTitles h2 a
 {
 	font: 24px "Regular";
-	color: @gray;
+	color: @gray-dark;
 }
 
 .TheLoop article.hentry section.EntryTitles h4,
@@ -167,12 +178,6 @@ article.hentry section.EntryContent p:after
 {
 	font: 20px "Regular";
 	color: @gray;
-}
-
-.TheLoop article.hentry section.EntryTitles a:hover,
-.TheLoop article.hentry .EntryByline a:hover
-{
-	color: @gray-dark;
 }
 
 .TheLoop article.hentry a.PostTypeArchiveLink > span:before
@@ -199,14 +204,13 @@ article.hentry section.EntryContent p:after
 		padding: 0;
 	}
 
-	body.single,
-	body.page
+	#main
 	{
-		article.hentry.HasHeroBanner.hero-template_wide section.EntryTitles .ShadowBox
+		> article.hentry.HasHeroBanner.hero-template_wide section.EntryTitles .ShadowBox
 		{
 			background: transparent url(../../images/bg-000-30.png) repeat;
 		}
-		article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles
+		> article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles
 		{
 			position: absolute;
 			margin: 0;
@@ -214,18 +218,19 @@ article.hentry section.EntryContent p:after
 			bottom: 100px;
 			color: #FFF;
 		}
-		article.hentry section.EntryTitles h2,
-		article.hentry section.EntryTitles h4,
-		article.hentry .EntryContent p,
-		article.hentry .EntryContent ul,
-		article.hentry .EntryContent ol
+		> article.hentry section.EntryTitles h2,
+		> article.hentry section.EntryTitles h4,
+		> article.hentry .EntryContent p,
+		> article.hentry .HeroBanner p,
+		> article.hentry .EntryContent ul,
+		> article.hentry .EntryContent ol
 		{
 			max-width: 700px;
 			margin: 0 auto;
 			margin-bottom: 1em;
 		}
-		article.hentry section.EntryTitles h2,
-		article.hentry section.EntryTitles h4
+		> article.hentry section.EntryTitles h2,
+		> article.hentry section.EntryTitles h4
 		{
 			margin: 0 auto;
 		}
@@ -265,8 +270,8 @@ article.hentry section.EntryContent p:after
 	{
 		// border: 0;
 	}
-	.TheLoop article.hentry .EntryByline,
-	.TheLoop article.hentry .EntryByline a
+	.TheLoop article.hentry section.EntryTitles h5.EntryByline,
+	.TheLoop article.hentry section.EntryTitles h5.EntryByline a
 	{
 		font-size: 14px;
 	}
@@ -274,6 +279,11 @@ article.hentry section.EntryContent p:after
 	.TheLoop article.hentry section.EntryTitles h2 a
 	{
 		font: 32px "Regular";
+	}
+	.TheLoop article.hentry section.EntryTitles h4,
+	.TheLoop article.hentry section.EntryTitles h4 a
+	{
+		font: 24px "Regular";
 	}
 	.TheLoop article.hentry figure.FallbackHeroBanner
 	{
