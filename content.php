@@ -8,10 +8,10 @@
 		
 		<?php get_template_part( "templates/content-section", "header" ); ?>
 
-		<?php if((is_single() || is_page()) && strlen($post->post_content)): ?>
+		<?php if((is_single() || is_page()) && (strlen($post->post_content) || is_attachment() )): ?>
 			<section class="EntryContent">
 				<div class="Inner">
-					<?php echo apply_filters( 'the_content', $post->post_content ); ?>
+					<?php the_content(); ?>
 				</div>
 			</section><!-- end .EntryContent -->
 		<?php endif; ?>

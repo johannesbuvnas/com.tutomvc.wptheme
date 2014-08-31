@@ -67,6 +67,8 @@ global $themeFacade;
 
 	<body <?php body_class(); ?>>
 		<?php
+			if(AppFacade::isProduction()) do_action( \tutomvc\modules\analytics\AnalyticsModule::ACTION_RENDER );
+			
 			$classes = array();
 			$classes[] = AppFacade::$isPreview ? "Preview" : "";
 		?>

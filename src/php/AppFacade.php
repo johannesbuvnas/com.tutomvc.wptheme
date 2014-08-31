@@ -10,10 +10,9 @@ class AppFacade extends Facade
 	private static $_environmentsMap;
 	static $isPreview = FALSE;
 
-	public $memberModule;
-	public $metaTagsModule;
 	public $analyticsModule;
 	public $termPageModule;
+	public $memberModule;
 	public $repository;
 
 	function __construct()
@@ -31,6 +30,8 @@ class AppFacade extends Facade
 		self::$isPreview = array_key_exists( "preview", $_GET );
 
 		$this->termPageModule = $this->registerSubFacade( new \tutomvc\modules\termpage\TermPageModule() );
+		$this->analyticsModule = $this->registerSubFacade( new \tutomvc\modules\analytics\AnalyticsModule() );
+		$this->memberModule = $this->registerSubFacade( new \tutomvc\modules\member\MemberModule() );
 		
 		$this->controller->registerCommand( new InitCommand() );
 		$this->controller->registerCommand( new WidgetsInitCommand() );

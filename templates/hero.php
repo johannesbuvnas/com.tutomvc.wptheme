@@ -30,3 +30,7 @@ if(count($heroMeta))
 		get_template_part( 'templates/banners/hero', $heroMeta[ HeroBannerMetaBox::TEMPLATE ] );
 	}
 }
+else if ( is_attachment() && wp_attachment_is_image() )
+{
+	// get_template_part( 'templates/banners/hero-attachment-image', HeroBannerMetaBox::TEMPLATE_STRAIGHT_FULL );
+}

@@ -197,7 +197,7 @@ article.hentry section.EntryContent p:after
 	border-right: 1px solid @gray-light;
 }
 
-@media all and (min-width:740px) {
+@media (min-width: @screen-sm-min) {
 
 	article.hentry section.EntryTitles > .Inner
 	{
@@ -225,9 +225,7 @@ article.hentry section.EntryContent p:after
 		> article.hentry .EntryContent ul,
 		> article.hentry .EntryContent ol
 		{
-			max-width: 700px;
-			margin: 0 auto;
-			margin-bottom: 1em;
+			.screen-md-viewPort();
 		}
 		> article.hentry section.EntryTitles h2,
 		> article.hentry section.EntryTitles h4

@@ -1,5 +1,4 @@
-<?php
-namespace tutomvc\theme;
+<?php namespace tutomvc\theme;
 use \tutomvc\ActionCommand;
 use \tutomvc\ImageSize;
 
@@ -23,12 +22,12 @@ class InitCommand extends ActionCommand
 	{
 		load_theme_textdomain( "tutomvc-theme", get_template_directory() . '/languages' );
 
-		$this->getFacade()->repository = new \tutomvc\GitRepositoryVO( $this->getFacade()->vo->getRoot(), AppConstants::REPOSITORY_URL );
+		$this->getFacade()->repository = new \tutomvc\GitRepositoryVO( $this->getFacade()->vo->getRoot(), AppConstants::REPOSITORY_URL, "v2" );
 
 		// Meta Boxes
 		$this->getSystem()->metaCenter->add( new HeroBannerMetaBox() );
 		$this->getSystem()->metaCenter->add( new TitlesMetaBox() );
-		$this->getSystem()->metaCenter->add( new ImageVideoLinkageMetaBox() );
+		// $this->getSystem()->metaCenter->add( new ImageVideoLinkageMetaBox() );
 
 		// Post types
 		$this->getSystem()->postTypeCenter->add( new DefaultPostType() );
@@ -60,6 +59,9 @@ class InitCommand extends ActionCommand
 
 	function prepView()
 	{
+		global $content_width;
+		$content_width = 700;
+
 		add_theme_support( 'html5', array(
 			'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
 		) );
@@ -83,6 +85,7 @@ class InitCommand extends ActionCommand
 		$this->getFacade()->controller->registerCommand( new TheContentFilter() );
 		$this->getFacade()->controller->registerCommand( new EditPostLinkFilter() );
 		$this->getFacade()->controller->registerCommand( new NavMenuLinkAttrFilter() );
+		$this->getFacade()->controller->registerCommand( new OEMBEDHTMLFilter() );
 
 		// Multisite fixes
 		if(is_multisite())

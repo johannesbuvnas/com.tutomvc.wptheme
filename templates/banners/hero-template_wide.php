@@ -21,28 +21,9 @@ $classes[] = $heroMeta[ HeroBannerMetaBox::TEMPLATE ];
 			$src = wp_get_attachment_image_src( $image['id'], AppConstants::IMAGE_SIZE_HERO_WIDE );
 			if(count($src))
 			{
-				$videoLinkageMeta = (array)get_post_meta( $image['id'], ImageVideoLinkageMetaBox::NAME );
-				$videoURL = NULL;
-				if(count($videoLinkageMeta))
-				{
-					$videoLinkageMeta = array_pop($videoLinkageMeta);
-					$videoURL = $videoLinkageMeta[ $videoLinkageMeta[ ImageVideoLinkageMetaBox::TYPE ] ];
-					if(is_array($videoURL))
-					{
-						// Attachment is the type
-						$videoURL = array_pop($videoURL);
-						$videoURL = $videoURL['url'];
-					}
-				}
 				$i++;
 				?>
-					<figure class="HeroItem" style="background-image: url(<?php echo $src[0]; ?>) ;">
-						<?php if(is_string($videoURL) && strlen($videoURL)): ?>
-							<a href="<?php echo $videoURL; ?>" target="_blank" class="VideoLinkage MediaLink ShadowBox img-rounded">
-								<span class="glyphicon glyphicon-play"></span>
-							</a>
-						<?php endif; ?>
-					</figure>
+					<figure class="HeroItem" style="background-image: url(<?php echo $src[0]; ?>) ;"></figure>
 				<?php
 			}
 		}

@@ -9,6 +9,10 @@ global $themeFacade;
 
 get_header();
 
-get_template_part( 'content', $post->post_type );
+while ( have_posts() )
+{
+	the_post();
+	get_template_part( 'content', $post->post_type );
+}
 
 get_footer();

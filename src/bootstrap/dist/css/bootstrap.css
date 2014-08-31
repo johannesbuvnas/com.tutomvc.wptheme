@@ -5847,7 +5847,7 @@ article.hentry section.EntryContent p:after {
   border-left: 1px solid #c4c4c4;
   border-right: 1px solid #c4c4c4;
 }
-@media all and (min-width: 740px) {
+@media (min-width: 768px) {
   article.hentry section.EntryTitles > .Inner {
     padding: 0;
   }
@@ -6003,7 +6003,7 @@ a.InlineVideoLinkage {
   position: relative;
   display: inline-block;
 }
-a.InlineVideoLinkage .genericon {
+a.InlineVideoLinkage .glyphicon {
   position: absolute;
   top: 50%;
   margin-top: -25px;
@@ -6012,8 +6012,10 @@ a.InlineVideoLinkage .genericon {
   width: 50px;
   height: 50px;
   color: #fff;
-  font-size: 50px;
+  font-size: 20px;
+  text-align: center;
   text-decoration: none;
+  padding-top: 13px;
 }
 /* columns of same height styles */
 .container-xs-height {
@@ -6099,6 +6101,23 @@ section.TheLoop > .Inner > section {
 }
 section.TheLoop > .Inner > section > .Inner {
   margin: 0 auto;
+}
+.OEMBED {
+  max-width: 700px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+.OEMBED > .Inner {
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  position: relative;
+}
+.OEMBED > .Inner > * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 /**
 *	Styling <img />
@@ -6264,11 +6283,11 @@ img.size-tutomvc_hero_wide {
 #search > .Inner {
   padding-top: 45px;
 }
-#search input[type=search] {
+#search #searchForm input[type=search] {
   border: 0;
   padding: 10px 0 10px 0;
   width: 100%;
-  font: 45px/1em "Regular";
+  font: 36px/1em "Bold";
   outline: none;
   background: 0;
   -webkit-appearance: none;
@@ -6280,8 +6299,19 @@ img.size-tutomvc_hero_wide {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-#search input[type=submit] {
+#search #searchForm input[type=submit] {
   display: none;
+}
+@media (min-width: 768px) {
+  #search #searchForm {
+    padding: 30px 0 30px 0;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 1em;
+  }
+  #search #searchForm input[type=search] {
+    font: 60px/1em "Bold";
+  }
 }
 /**
 *	section#discussion

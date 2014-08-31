@@ -35,6 +35,7 @@ return array(
     'tutomvc\\theme\\MasonryMediator' => $baseDir . '/src/php/view/components/content/MasonryMediator.php',
     'tutomvc\\theme\\NavMenuLinkAttrFilter' => $baseDir . '/src/php/controller/filters/NavMenuLinkAttrFilter.php',
     'tutomvc\\theme\\NavMenuWalker' => $baseDir . '/src/php/model/walkers/NavMenuWalker.php',
+    'tutomvc\\theme\\OEMBEDHTMLFilter' => $baseDir . '/src/php/controller/filters/OEMBEDHTMLFilter.php',
     'tutomvc\\theme\\PostClassFilter' => $baseDir . '/src/php/controller/filters/PostClassFilter.php',
     'tutomvc\\theme\\PostCommentsMediator' => $baseDir . '/src/php/view/components/content/meta/PostCommentsMediator.php',
     'tutomvc\\theme\\PostContentMediator' => $baseDir . '/src/php/view/components/content/PostContentMediator.php',

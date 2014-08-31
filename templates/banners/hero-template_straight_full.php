@@ -19,8 +19,7 @@ $classes[] = $heroMeta[ HeroBannerMetaBox::TEMPLATE ];
 			$html = wp_get_attachment_image( $image['id'], "full", NULL, array(
 				'class'	=> "HeroItem size-full alignnone wp-image-" . $image['id'],
 			) );
-			if(ImageVideoLinkageMetaBox::hasVideoLinkage( $image['id'] )) echo apply_filters( "the_content", "<a href='#'>" . $html . "</a>" );
-			else echo $html;
+			echo $html;
 		}
 		?>
 	</div>
