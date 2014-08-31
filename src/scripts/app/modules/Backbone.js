@@ -1,5 +1,5 @@
 define([
-	"libs/backbone/backbone",
+	"backbone",
 	"underscore"
 ],
 function(backbone, _)

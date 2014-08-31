@@ -1,5 +1,5 @@
 define([
-	"libs/underscore/underscore"
+	"underscore"
 ],
 function( underscore )
 {

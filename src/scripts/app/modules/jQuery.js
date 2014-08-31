@@ -1,7 +1,7 @@
 define([
-	"libs/jquery/jquery",
-	"libs/gsap/src/uncompressed/TweenMax",
-	"libs/gsap/src/uncompressed/TimelineLite"
+	"jquery",
+	"tweenmax",
+	"timelinelite"
 ],
 function( $, gsap )
 {

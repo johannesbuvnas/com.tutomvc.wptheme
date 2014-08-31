@@ -1,7 +1,7 @@
 ({
 	paths : {
 		"requirejs" : "libs/requirejs/require",
-		text : "libs/requirejs-text/text",
+		"text" : "libs/requirejs-text/text",
 		"outlayer/outlayer" : "libs/outlayer/outlayer",
 		'get-size/get-size' : "libs/get-size/get-size",
 		"Masonry" : "libs/masonry/masonry",

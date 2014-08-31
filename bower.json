@@ -1,0 +1,17 @@
+{
+	"name" : "TutoMVC Theme",
+	"version" : "1.0",
+	"dependencies" : {
+		"requirejs" : "latest",
+		"requirejs-text" : "latest",
+		"jquery" : "1.10.2",
+		"jquery-touchswipe" : "latest",
+		"gsap" : "latest",
+		"underscore" : "latest",
+		"backbone" : "latest",
+		"masonry" : "latest",
+		"imagesloaded" : "latest",
+		"html2canvas" : "latest",
+		"bootstrap" : "latest"
+	}
+}
