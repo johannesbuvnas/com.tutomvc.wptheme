@@ -18,7 +18,7 @@ class TheContentFilter extends FilterCommand
 	function execute($content, $br = false)
 	{
 		// Remove P tags
-		// $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+		$content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 		// Alter attachment links
 		$content = preg_replace_callback('/\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*/iU', array( $this, "filterLinkedImages" ), $content);
 		
