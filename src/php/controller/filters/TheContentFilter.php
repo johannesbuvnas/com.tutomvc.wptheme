@@ -27,7 +27,7 @@ class TheContentFilter extends FilterCommand
 
 	function filterLinkedImages( $matches )
 	{
-		$html = $matches[0];
+		$html = mb_convert_encoding($matches[0], 'HTML-ENTITIES', "UTF-8");
 		$doc = new \DOMDocument;
 		$doc->loadHTML( $html );
 		$as = $doc->getElementsByTagName('a');
