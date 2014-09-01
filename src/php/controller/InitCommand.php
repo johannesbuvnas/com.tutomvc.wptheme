@@ -20,6 +20,7 @@ class InitCommand extends ActionCommand
 
 	function prepModel()
 	{
+		add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
 		load_theme_textdomain( "tutomvc-theme", get_template_directory() . '/languages' );
 
 		$this->getFacade()->repository = new \tutomvc\GitRepositoryVO( $this->getFacade()->vo->getRoot(), AppConstants::REPOSITORY_URL, "v2" );

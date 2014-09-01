@@ -249,9 +249,9 @@ article.hentry
 
 @media (min-width: @screen-md-viewPort) 
 {
-	body.page,
-	body.single
-	{
+	// body.page,
+	// body.single
+	// {
 		article.hentry
 		{
 			&.HasHeroBanner.hero-template_wide
@@ -324,21 +324,63 @@ article.hentry
 				}
 			}
 		}
-	}
+	// }
 }
 @media (min-width:@screen-md) {
 	.TheLoop
 	{
 		article.hentry
 		{
+			&.HasHeroBanner.hero-template_wide
+			{
+				header.EntryHeader
+				{
+					> section.EntryTitles
+					{
+						position: static;
+						max-width: none;
+
+						> .Inner
+						{
+							width: 100%;
+						}
+
+						h2,h4
+						{
+							max-width: none;
+						}
+						.ShadowBox
+						{
+							background: 0;
+						}
+					}
+					.HeroBanner p
+					{
+						.screen-md-viewPort();
+					}
+				}
+				> .Inner
+				{
+					section.EntryContent
+					{
+						padding-top: 50px;
+					}
+				}
+			}
 			> .Inner
 			{
 				> header
 				{
 					section.EntryTitles
 					{
+						max-width: none;
+						> .Inner
+						{
+
+						}
 						h2
 						{
+							max-width: none;
 							&, a
 							{
 								font: 32px "Regular";
@@ -346,6 +388,7 @@ article.hentry
 						}
 						h4
 						{
+							max-width: none;
 							&, a
 							{
 								font: 24px "Regular";

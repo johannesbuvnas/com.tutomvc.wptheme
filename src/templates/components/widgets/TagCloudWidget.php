@@ -35,7 +35,7 @@ $terms = get_terms( $instance['taxonomy'], array( 'orderby' => 'count', 'order' 
 			</li>
 		</ul>
 		<div class="tab-content container">
-			<div id="<?php echo $args['widget_id']; ?>" class="tab-pane active">
+			<div id="<?php echo $args['widget_id']; ?>" class="tab-pane active container-fluid">
 				<?php
 					$i=0;
 					$cols = 3;

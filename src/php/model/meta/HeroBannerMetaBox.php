@@ -50,7 +50,7 @@ class HeroBannerMetaBox extends MetaBox
 			self::TEMPLATE_WIDE
 		) );
 
-		add_filter( "get_post_metadata", array( $this, "filter_get_post_metadata" ), 15, 4 );
+		add_filter( "get_post_metadata", array( $this, "filter_get_post_metadata" ), 99, 4 );
 	}
 
 	function filter_get_post_metadata( $null, $object_id, $meta_key, $single )
