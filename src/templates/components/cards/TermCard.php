@@ -11,7 +11,7 @@ $termURL = get_term_link( $term, $term->taxonomy );
 $associatedPage = TaxonomyUtil::getAssociatedPageByTerm( $term );
 if($associatedPage)
 {
-	$thumbnailID = get_post_thumbnail_id( $associatedPage->ID );
+	$thumbnailID = HeroBannerMetaBox::getFeaturedImageID( $associatedPage->ID );
 	if($thumbnailID)
 	{
 		$thumbnailURL = wp_get_attachment_thumb_url($thumbnailID);

@@ -3170,6 +3170,9 @@ body.login {
   -moz-hyphens: auto;
   hyphens: auto;
 }
+.JSLink {
+  cursor: pointer;
+}
 .fade {
   opacity: 0;
   -webkit-transition: opacity 0.15s linear;
@@ -5814,8 +5817,7 @@ article.hentry > .Inner > section > .Inner {
   display: none;
 }
 @media (min-width: 740px) {
-  body.page article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles,
-  body.single article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles {
+  article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles {
     position: absolute;
     margin: 0;
     padding: 0;
@@ -5824,58 +5826,78 @@ article.hentry > .Inner > section > .Inner {
     width: 100%;
     max-width: none;
   }
-  body.page article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles > .Inner,
-  body.single article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles > .Inner {
+  article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles > .Inner {
     width: 100%;
   }
-  body.page article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles h2,
-  body.single article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles h2,
-  body.page article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles h4,
-  body.single article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles h4 {
+  article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles h2,
+  article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles h4 {
     max-width: 700px;
     margin: 0 auto;
     margin-bottom: 1em;
     margin-bottom: 0;
   }
-  body.page article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles .ShadowBox,
-  body.single article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles .ShadowBox {
+  article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles .ShadowBox {
     background: url(src/images/bg-000-30.png);
   }
-  body.page article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader .HeroBanner p,
-  body.single article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader .HeroBanner p {
+  article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader .HeroBanner p {
     max-width: 700px;
     margin: 0 auto;
     margin-bottom: 1em;
   }
-  body.page article.hentry.HasHeroBanner.hero-template_wide > .Inner section.EntryContent,
-  body.single article.hentry.HasHeroBanner.hero-template_wide > .Inner section.EntryContent {
+  article.hentry.HasHeroBanner.hero-template_wide > .Inner section.EntryContent {
     padding-top: 50px;
   }
-  body.page article.hentry > .Inner > header > section.EntryTitles,
-  body.single article.hentry > .Inner > header > section.EntryTitles {
+  article.hentry > .Inner > header > section.EntryTitles {
     max-width: 700px;
     margin: 0 auto;
     margin-bottom: 1em;
   }
-  body.page article.hentry > .Inner > .EntryContent > .Inner > *,
-  body.single article.hentry > .Inner > .EntryContent > .Inner > * {
+  article.hentry > .Inner > .EntryContent > .Inner > * {
     max-width: 700px;
     margin: 0 auto;
     margin-bottom: 1em;
   }
-  body.page article.hentry > .Inner > .EntryContent > .Inner > a,
-  body.single article.hentry > .Inner > .EntryContent > .Inner > a,
-  body.page article.hentry > .Inner > .EntryContent > .Inner > a img,
-  body.single article.hentry > .Inner > .EntryContent > .Inner > a img,
-  body.page article.hentry > .Inner > .EntryContent > .Inner > img,
-  body.single article.hentry > .Inner > .EntryContent > .Inner > img {
+  article.hentry > .Inner > .EntryContent > .Inner > a,
+  article.hentry > .Inner > .EntryContent > .Inner > a img,
+  article.hentry > .Inner > .EntryContent > .Inner > img {
     max-width: 100%;
   }
 }
 @media (min-width: 992px) {
+  .TheLoop article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles {
+    position: static;
+    max-width: none;
+  }
+  .TheLoop article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles > .Inner {
+    width: 100%;
+  }
+  .TheLoop article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles h2,
+  .TheLoop article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles h4 {
+    max-width: none;
+  }
+  .TheLoop article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles .ShadowBox {
+    background: 0;
+  }
+  .TheLoop article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader .HeroBanner p {
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 1em;
+  }
+  .TheLoop article.hentry.HasHeroBanner.hero-template_wide > .Inner section.EntryContent {
+    padding-top: 50px;
+  }
+  .TheLoop article.hentry > .Inner > header section.EntryTitles {
+    max-width: none;
+  }
+  .TheLoop article.hentry > .Inner > header section.EntryTitles h2 {
+    max-width: none;
+  }
   .TheLoop article.hentry > .Inner > header section.EntryTitles h2,
   .TheLoop article.hentry > .Inner > header section.EntryTitles h2 a {
     font: 32px "Regular";
+  }
+  .TheLoop article.hentry > .Inner > header section.EntryTitles h4 {
+    max-width: none;
   }
   .TheLoop article.hentry > .Inner > header section.EntryTitles h4,
   .TheLoop article.hentry > .Inner > header section.EntryTitles h4 a {

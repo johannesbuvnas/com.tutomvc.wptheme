@@ -50,7 +50,24 @@ class HeroBannerMetaBox extends MetaBox
 			self::TEMPLATE_WIDE
 		) );
 
-		add_filter( "get_post_metadata", array( $this, "filter_get_post_metadata" ), 99, 4 );
+		// if(!is_admin()) add_filter( "get_post_metadata", array( $this, "filter_get_post_metadata" ), 99, 4 );
+	}
+
+	public static function getFeaturedImageID( $postID )
+	{
+		$attachmentID = get_post_thumbnail_id( $postID );
+
+		if(!$attachmentID)
+		{
+			$heroMeta = get_post_meta( $postID, HeroBannerMetaBox::NAME );
+			if(count($heroMeta))
+			{
+				$heroMeta = array_pop($heroMeta);
+				$attachmentID = $heroMeta[ HeroBannerMetaBox::IMAGES ][0]['id'];
+			}
+		}
+
+		return $attachmentID;
 	}
 
 	function filter_get_post_metadata( $null, $object_id, $meta_key, $single )

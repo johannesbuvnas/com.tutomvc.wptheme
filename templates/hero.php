@@ -11,11 +11,11 @@ if(count($heroMeta))
 	$heroMeta = array_pop($heroMeta);
 	if(count($heroMeta[ HeroBannerMetaBox::IMAGES ]))
 	{
+		$attachmentID = HeroBannerMetaBox::getFeaturedImageID( $post->ID );
 		?>
 			<!-- .FallbackHeroBanner -->
 			<a href="<?php echo get_permalink( $post->ID ); ?>">
 				<?php
-					$attachmentID = get_post_thumbnail_id( $post->ID );
 					$size = "post-thumbnail";
 					$classes = array(
 						"alignnone",
