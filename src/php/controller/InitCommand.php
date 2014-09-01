@@ -43,7 +43,6 @@ class InitCommand extends ActionCommand
 		if(get_option( "thumbnail_size_h" ) != 150) update_option( "thumbnail_size_h", 150 );
 		if(intval(get_option( "thumbnail_crop" )) < 1) update_option( "thumbnail_crop", 1 );
 		set_post_thumbnail_size( 672, 372, true );
-		$this->getSystem()->imageSizeCenter->add( new \tutomvc\ImageSize( AppConstants::IMAGE_SIZE_UNCROPPED_THUMBNAIL, "Uncropped Thumbnail", get_option( "thumbnail_size_w" ), get_option( "thumbnail_size_h" ), FALSE ) );
 		$this->getSystem()->imageSizeCenter->add( new \tutomvc\ImageSize( AppConstants::IMAGE_SIZE_HERO_WIDE, __( "Wide", "tutomvc-theme" ), 1600, 800, TRUE ) );
 
 		// $this->getFacade()->memberModule = $this->getFacade()->registerSubFacade( new \tutomvc\modules\member\MemberModule() );
@@ -60,7 +59,7 @@ class InitCommand extends ActionCommand
 	function prepView()
 	{
 		global $content_width;
-		$content_width = 700;
+		$content_width = 768;
 
 		add_theme_support( 'html5', array(
 			'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'

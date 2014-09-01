@@ -929,7 +929,6 @@ img {
   width: 100% \9;
   max-width: 100%;
   height: auto;
-  width: 100%;
 }
 .img-rounded {
   border-radius: 6px;
@@ -3148,7 +3147,7 @@ body {
 body,
 body.login {
   font: 20px/1.4em "Regular";
-  color: #333;
+  color: #333333;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   -font-smoothing: antialiased;
@@ -3156,79 +3155,6 @@ body.login {
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
-}
-p {
-  margin-bottom: 1em;
-}
-.JSLink {
-  cursor: pointer;
-}
-a {
-  color: #0099FF;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: none;
-}
-a.OtherLink:hover {
-  text-decoration: underline;
-}
-strong,
-b,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.Title,
-.Tagline,
-cite {
-  font-family: "Bold";
-  font-style: normal;
-  font-weight: normal;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font: 36px/1.16em "Bold";
-  margin-bottom: .7em;
-}
-h2.EntryTitle {
-  font-size: 36px;
-}
-.EditPostLink {
-  text-transform: uppercase;
-  color: #b2b2b2;
-  text-decoration: none;
-  font-size: 12px;
-  line-height: 1em;
-}
-.EditPostLink:hover {
-  text-decoration: underline;
-}
-h6,
-.SmallTitle {
-  font: 11px/1em "Bold";
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: #b2b2b2;
-}
-h6 {
-  border-top: 1px solid #b2b2b2;
-  padding: 10px 0 10px 10px;
-  margin: 0;
-}
-h6 a {
-  text-decoration: none;
-  color: #b2b2b2;
-}
-.required,
-.Required {
-  color: #c0392b;
 }
 .ShadowBox {
   background: transparent url(src/images/bg-000-30.png) repeat;
@@ -3243,15 +3169,6 @@ h6 a {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   hyphens: auto;
-}
-@media only all and (min-width: 740px) {
-  h2.EntryTitle {
-    font-size: 60px;
-  }
-  h6,
-  .SmallTitle {
-    font-size: 13px;
-  }
 }
 .fade {
   opacity: 0;
@@ -5710,139 +5627,130 @@ article.hentry {
   width: 100%;
   background: #FFF;
 }
-article.hentry > .Inner {
-  height: 100%;
-}
-article.hentry figure.FallbackHeroBanner {
-  display: none;
-}
 article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader {
   width: 100%;
 }
-article.hentry header.EntryHeader {
+article.hentry > .Inner {
+  height: 100%;
+}
+article.hentry > .Inner figure.FallbackHeroBanner {
+  display: none;
+}
+article.hentry > .Inner > header {
+  position: relative;
   background: #FFF;
 }
-article.hentry header.EntryHeader,
-article.hentry section.EntryTitles {
+article.hentry > .Inner > header section.HeroBanner p {
+  max-width: 700px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  margin-bottom: 0;
+}
+article.hentry > .Inner > header section.EntryTitles {
   width: 100%;
 }
-article.hentry section.EntryTitles h2,
-article.hentry section.EntryTitles h4 {
-  margin: 0;
+article.hentry > .Inner > header section.EntryTitles a:hover {
+  text-decoration: underline;
+  color: #333333;
 }
-article.hentry section.EntryTitles small,
-article.hentry section.EntryTitles h4 {
-  font-family: "Regular";
+article.hentry > .Inner > header section.EntryTitles a.EntryLink:hover,
+article.hentry > .Inner > header section.EntryTitles a.EntryLink:hover h2,
+article.hentry > .Inner > header section.EntryTitles a.EntryLink:hover h4 {
+  text-decoration: none;
+  color: #333333 !important;
 }
-article.hentry section.EntryTitles h5.EntryByline {
+article.hentry > .Inner > header section.EntryTitles h2,
+article.hentry > .Inner > header section.EntryTitles h4 {
+  margin-bottom: 1em;
+}
+article.hentry > .Inner > header section.EntryTitles h2 {
+  font: 36px/1.16em "Bold";
+}
+article.hentry > .Inner > header section.EntryTitles h4 {
+  margin-top: -0.5em;
+  font: 24px/1.16em "Regular";
+}
+article.hentry > .Inner > header section.EntryTitles h5.EntryByline {
   font: 14px/1.4em "Regular";
   display: none;
 }
-article.hentry section.EntryTitles h5.EntryByline .avatar {
+article.hentry > .Inner > header section.EntryTitles h5.EntryByline .avatar {
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   border-radius: 100%;
   display: none;
 }
-article.hentry section.EntryTitles a:hover {
-  text-decoration: underline;
-  color: #333333;
-}
-article.hentry section.EntryTitles a.EntryLink:hover,
-article.hentry section.EntryTitles a.EntryLink:hover h2,
-article.hentry section.EntryTitles a.EntryLink:hover h4 {
-  text-decoration: none;
-  color: #333333 !important;
-}
-article.hentry section.EntryTitles > .Inner {
+article.hentry > .Inner > header section.EntryTitles > .Inner {
   padding: 10px;
 }
-article.hentry section.EntryTitles .ShadowBox {
+article.hentry > .Inner > header section.EntryTitles > .Inner .ShadowBox {
   background: 0;
 }
-article.hentry header.EntryHeader {
-  position: relative;
-}
-article.hentry > .Inner > section {
-  margin: 40px 0;
-}
-article.hentry > .Inner > section.EntryByline {
-  margin: 0;
+@media (min-width: 992px) {
+  article.hentry > .Inner > header section.EntryTitles h2 {
+    font: 60px/1.16em "Bold";
+    margin-bottom: .5em;
+  }
+  article.hentry > .Inner > header section.EntryTitles h4 {
+    font: 36px/1.16em "Regular";
+  }
 }
 article.hentry > .Inner > section.EntryContent {
   margin-top: 0;
 }
-article.hentry section.EntryContent > .Inner,
-article.hentry section.EntryByline > .Inner,
-article.hentry section.EntryDiscussion > .Inner {
+article.hentry > .Inner > section.EntryContent > .Inner > .OEMBED {
+  max-width: 700px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+article.hentry > .Inner > section.EntryContent > .Inner > .OEMBED > .Inner {
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  position: relative;
+}
+article.hentry > .Inner > section.EntryContent > .Inner > .OEMBED > .Inner > * {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+article.hentry > .Inner > section.EntryByline {
+  margin: 0;
+}
+@media (min-width: 740px) {
+  article.hentry > .Inner > section.EntryDiscussion,
+  article.hentry > .Inner > section.EntryByline {
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 1em;
+  }
+}
+article.hentry > .Inner > section {
+  margin: 40px 0;
+}
+article.hentry > .Inner > section > .Inner {
   padding: 0 10px;
 }
-article.hentry section.EntryContent p:after {
-  content: ".";
-  display: block;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  height: 0;
+@media (min-width: 740px) {
+  article.hentry > .Inner > section > .Inner {
+    padding: 0;
+  }
 }
 .TheLoop article.hentry {
   background: 0;
   float: left;
   margin: 0!important;
 }
-.TheLoop article.hentry figure.FallbackHeroBanner {
-  display: block;
-}
-.TheLoop article.hentry section.EntryTitles h5.EntryByline {
-  display: block;
-}
-.TheLoop article.hentry section.HeroBanner,
-.TheLoop article.hentry section.EntryContent,
-.TheLoop article.hentry section.EntryByline,
-.TheLoop article.hentry section.EntryDiscussion {
-  display: none;
-}
-.TheLoop article.hentry img {
-  margin: 0 auto;
-}
-.TheLoop article.hentry section.EntryTitles {
-  padding: 0;
-}
-.TheLoop article.hentry section.EntryTitles {
-  padding: 0;
-}
-.TheLoop article.hentry section.EntryTitles > .Inner {
-  border-top: 1px solid #c4c4c4;
-  padding: 30px 0;
+.TheLoop article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader {
+  width: 100%;
 }
 .TheLoop article.hentry > .Inner {
   background: #FFF;
+  height: 100%;
 }
-.TheLoop article.hentry section.EntryTitles h5.EntryByline,
-.TheLoop article.hentry section.EntryTitles h5.EntryByline a {
-  font: 11px "Regular";
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: #666666;
-}
-.TheLoop article.hentry section.EntryTitles h2 {
-  width: 100%;
-  margin: 10px 0;
-}
-.TheLoop article.hentry section.EntryTitles h2,
-.TheLoop article.hentry section.EntryTitles h2 a {
-  font: 24px "Regular";
-  color: #333333;
-}
-.TheLoop article.hentry section.EntryTitles h4,
-.TheLoop article.hentry section.EntryTitles h4 a {
-  font: 20px "Regular";
-  color: #666666;
-}
-.TheLoop article.hentry a.PostTypeArchiveLink > span:before {
-  content: '\f443';
-}
-.TheLoop article.hentry figure.FallbackHeroBanner {
+.TheLoop article.hentry > .Inner figure.FallbackHeroBanner {
+  display: block;
   width: 100%;
   height: 200px;
   background-size: cover;
@@ -5852,68 +5760,132 @@ article.hentry section.EntryContent p:after {
   border-left: 1px solid #c4c4c4;
   border-right: 1px solid #c4c4c4;
 }
-@media (min-width: 768px) {
-  article.hentry section.EntryTitles > .Inner {
-    padding: 0;
-  }
-  #main > article.hentry.HasHeroBanner.hero-template_wide section.EntryTitles .ShadowBox {
-    background: transparent url(src/images/bg-000-30.png) repeat;
-  }
-  #main > article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles {
+.TheLoop article.hentry > .Inner > header,
+.TheLoop article.hentry > .Inner > header section.EntryTitles {
+  width: 100%;
+  padding: 0;
+}
+.TheLoop article.hentry > .Inner > header h2,
+.TheLoop article.hentry > .Inner > header section.EntryTitles h2 {
+  width: 100%;
+  margin: 10px 0;
+  margin-bottom: .7em;
+}
+.TheLoop article.hentry > .Inner > header h2,
+.TheLoop article.hentry > .Inner > header section.EntryTitles h2,
+.TheLoop article.hentry > .Inner > header h2 a,
+.TheLoop article.hentry > .Inner > header section.EntryTitles h2 a {
+  font: 24px "Regular";
+  color: #333333;
+}
+.TheLoop article.hentry > .Inner > header h4,
+.TheLoop article.hentry > .Inner > header section.EntryTitles h4,
+.TheLoop article.hentry > .Inner > header h4 a,
+.TheLoop article.hentry > .Inner > header section.EntryTitles h4 a {
+  font: 20px "Regular";
+  color: #666666;
+}
+.TheLoop article.hentry > .Inner > header h5.EntryByline,
+.TheLoop article.hentry > .Inner > header section.EntryTitles h5.EntryByline {
+  display: block;
+}
+.TheLoop article.hentry > .Inner > header h5.EntryByline,
+.TheLoop article.hentry > .Inner > header section.EntryTitles h5.EntryByline,
+.TheLoop article.hentry > .Inner > header h5.EntryByline a,
+.TheLoop article.hentry > .Inner > header section.EntryTitles h5.EntryByline a {
+  font: 11px "Regular";
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #666666;
+}
+.TheLoop article.hentry > .Inner > header > .Inner,
+.TheLoop article.hentry > .Inner > header section.EntryTitles > .Inner {
+  border-top: 1px solid #c4c4c4;
+  padding: 30px 0;
+}
+.TheLoop article.hentry > .Inner > header .ShadowBox,
+.TheLoop article.hentry > .Inner > header section.EntryTitles .ShadowBox {
+  background: 0;
+}
+.TheLoop article.hentry > .Inner > header > section.HeroBanner {
+  display: none;
+}
+.TheLoop article.hentry > .Inner > section {
+  display: none;
+}
+@media (min-width: 740px) {
+  body.page article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles,
+  body.single article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles {
     position: absolute;
     margin: 0;
     padding: 0;
     bottom: 100px;
     color: #FFF;
+    width: 100%;
+    max-width: none;
   }
-  #main > article.hentry section.EntryTitles h2,
-  #main > article.hentry section.EntryTitles h4,
-  #main > article.hentry .EntryContent p,
-  #main > article.hentry .HeroBanner p,
-  #main > article.hentry .EntryContent ul,
-  #main > article.hentry .EntryContent ol {
+  body.page article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles > .Inner,
+  body.single article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles > .Inner {
+    width: 100%;
+  }
+  body.page article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles h2,
+  body.single article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles h2,
+  body.page article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles h4,
+  body.single article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles h4 {
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    margin-bottom: 0;
+  }
+  body.page article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles .ShadowBox,
+  body.single article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles .ShadowBox {
+    background: url(src/images/bg-000-30.png);
+  }
+  body.page article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader .HeroBanner p,
+  body.single article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader .HeroBanner p {
     max-width: 700px;
     margin: 0 auto;
     margin-bottom: 1em;
   }
-  #main > article.hentry section.EntryTitles h2,
-  #main > article.hentry section.EntryTitles h4 {
-    margin: 0 auto;
-  }
-  article.hentry section.EntryTitles {
-    padding: 30px 0 30px 0;
-  }
-  article.hentry section.EntryByline > .Inner,
-  article.hentry section.EntryDiscussion > .Inner {
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  article.hentry.HasHeroBanner.hero-template_wide section.EntryContent {
+  body.page article.hentry.HasHeroBanner.hero-template_wide > .Inner section.EntryContent,
+  body.single article.hentry.HasHeroBanner.hero-template_wide > .Inner section.EntryContent {
     padding-top: 50px;
   }
-  article.hentry section.EntryContent > .Inner,
-  article.hentry section.EntryByline > .Inner,
-  article.hentry section.EntryDiscussion > .Inner {
-    padding: 0;
+  body.page article.hentry > .Inner > header > section.EntryTitles,
+  body.single article.hentry > .Inner > header > section.EntryTitles {
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 1em;
   }
-  article.hentry section.EntryByline .TopLevelCard {
-    width: 50%;
+  body.page article.hentry > .Inner > .EntryContent > .Inner > *,
+  body.single article.hentry > .Inner > .EntryContent > .Inner > * {
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 1em;
+  }
+  body.page article.hentry > .Inner > .EntryContent > .Inner > a,
+  body.single article.hentry > .Inner > .EntryContent > .Inner > a,
+  body.page article.hentry > .Inner > .EntryContent > .Inner > a img,
+  body.single article.hentry > .Inner > .EntryContent > .Inner > a img,
+  body.page article.hentry > .Inner > .EntryContent > .Inner > img,
+  body.single article.hentry > .Inner > .EntryContent > .Inner > img {
+    max-width: 100%;
   }
 }
-@media all and (min-width: 992px) {
-  .TheLoop article.hentry section.EntryTitles h5.EntryByline,
-  .TheLoop article.hentry section.EntryTitles h5.EntryByline a {
-    font-size: 14px;
-  }
-  .TheLoop article.hentry section.EntryTitles h2,
-  .TheLoop article.hentry section.EntryTitles h2 a {
+@media (min-width: 992px) {
+  .TheLoop article.hentry > .Inner > header section.EntryTitles h2,
+  .TheLoop article.hentry > .Inner > header section.EntryTitles h2 a {
     font: 32px "Regular";
   }
-  .TheLoop article.hentry section.EntryTitles h4,
-  .TheLoop article.hentry section.EntryTitles h4 a {
+  .TheLoop article.hentry > .Inner > header section.EntryTitles h4,
+  .TheLoop article.hentry > .Inner > header section.EntryTitles h4 a {
     font: 24px "Regular";
   }
-  .TheLoop article.hentry figure.FallbackHeroBanner {
+  .TheLoop article.hentry > .Inner > header section.EntryTitles h5.EntryByline,
+  .TheLoop article.hentry > .Inner > header section.EntryTitles h5.EntryByline a {
+    font-size: 14px;
+  }
+  .TheLoop article.hentry > .Inner > header figure.FallbackHeroBanner {
     height: 350px;
   }
 }
@@ -6022,79 +5994,6 @@ a.InlineVideoLinkage .glyphicon {
   text-decoration: none;
   padding-top: 13px;
 }
-/* columns of same height styles */
-.container-xs-height {
-  display: table;
-  padding-left: 0px;
-  padding-right: 0px;
-}
-.row-xs-height {
-  display: table-row;
-}
-.col-xs-height {
-  display: table-cell;
-  float: none;
-}
-/* vertical alignment styles */
-.col-top {
-  vertical-align: top;
-}
-.col-middle {
-  vertical-align: middle;
-}
-.col-bottom {
-  vertical-align: bottom;
-}
-/* fix firefox responsive images */
-.img-responsive,
-.thumbnail > img,
-.thumbnail a > img,
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-  width: 100%;
-}
-@media (min-width: 768px) {
-  .container-sm-height {
-    display: table;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  .row-sm-height {
-    display: table-row;
-  }
-  .col-sm-height {
-    display: table-cell;
-    float: none;
-  }
-}
-@media (min-width: 992px) {
-  .container-md-height {
-    display: table;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  .row-md-height {
-    display: table-row;
-  }
-  .col-md-height {
-    display: table-cell;
-    float: none;
-  }
-}
-@media (min-width: 1200px) {
-  .container-lg-height {
-    display: table;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  .row-lg-height {
-    display: table-row;
-  }
-  .col-lg-height {
-    display: table-cell;
-    float: none;
-  }
-}
 section.TheLoop {
   background: #FFF;
   border: 1px solid transparent;
@@ -6106,23 +6005,6 @@ section.TheLoop > .Inner > section {
 }
 section.TheLoop > .Inner > section > .Inner {
   margin: 0 auto;
-}
-.OEMBED {
-  max-width: 700px;
-  margin: 0 auto;
-  margin-bottom: 1em;
-}
-.OEMBED > .Inner {
-  padding-bottom: 56.25%;
-  /* 16:9 */
-  height: 0;
-  overflow: hidden;
-  position: relative;
-}
-.OEMBED > .Inner > * {
-  position: absolute;
-  width: 100%;
-  height: 100%;
 }
 /**
 *	Styling <img />
@@ -6231,25 +6113,8 @@ img.size-tutomvc_hero_wide {
   overflow: scroll;
   padding-top: 1px;
 }
-#navigation .nav-tabs {
-  border-top: 0;
-}
-#navigation > .Inner > nav a:hover,
-#navigation .nav-tabs li.active.current-menu-ancestor > a:hover {
+#navigation > .Inner > nav a:hover {
   color: #666666;
-}
-#navigation .nav-tabs li.active.current-menu-ancestor > a {
-  color: #c4c4c4;
-}
-#navigation .nav-tabs > li .nav-tabs {
-  margin-left: 10px;
-}
-#navigation .nav-tabs > li .nav-tabs,
-#navigation .nav-tabs > li .nav-tabs .active > a {
-  border-top: 0;
-}
-#navigation .nav-tabs li.active a {
-  cursor: pointer;
 }
 #navigation .WPAdmin {
   position: absolute;
@@ -6269,6 +6134,23 @@ img.size-tutomvc_hero_wide {
   border-radius: 0;
   font: 14px "Regular";
   color: #c4c4c4;
+}
+#navigation .nav-tabs {
+  border-top: 0;
+}
+#navigation .nav-tabs > li .nav-tabs,
+#navigation .nav-tabs > li .nav-tabs .active > a {
+  margin-left: 10px;
+  border-top: 0;
+}
+#navigation .nav-tabs li.active.current-menu-ancestor > a:hover {
+  color: #666666;
+}
+#navigation .nav-tabs li.active.current-menu-ancestor > a {
+  color: #c4c4c4;
+}
+#navigation .nav-tabs li.active a {
+  cursor: pointer;
 }
 /**
 *	section#search element styles.

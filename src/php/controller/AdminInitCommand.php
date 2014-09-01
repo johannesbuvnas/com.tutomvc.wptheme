@@ -29,7 +29,7 @@ class AdminInitCommand extends ActionCommand
 
 	function prepView()
 	{
-		add_editor_style( "src/css/wp.editor.css" );
+		add_editor_style( "style.css" );
 	}
 
 	function prepController()

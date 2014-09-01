@@ -2,289 +2,369 @@ article.hentry
 {
 	width: 100%;
 	background: #FFF;
-}
-
-article.hentry > .Inner
-{
-	height: 100%;
-}
-
-article.hentry figure.FallbackHeroBanner
-{
-	display: none;
-}
-
-article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader
-{
-	width: 100%;
-}
-article.hentry header.EntryHeader
-{
-	background: #FFF;
-}
-
-article.hentry header.EntryHeader,
-article.hentry section.EntryTitles
-{
-	width: 100%;
-}
-article.hentry section.EntryTitles h2,
-article.hentry section.EntryTitles h4
-{
-	margin: 0;
-}
-article.hentry section.EntryTitles small,
-article.hentry section.EntryTitles h4
-{
-	font-family: "Regular";
-}
-article.hentry section.EntryTitles h5.EntryByline
-{
-	font: 14px/1.4em "Regular";
-	display: none;
-}
-article.hentry section.EntryTitles h5.EntryByline .avatar
-{
-	-webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    border-radius: 100%;
-    display: none;
-}
-article.hentry section.EntryTitles a:hover
-{
-	text-decoration: underline;
-	color: @gray-dark;
-}
-article.hentry section.EntryTitles a.EntryLink:hover,
-article.hentry section.EntryTitles a.EntryLink:hover h2,
-article.hentry section.EntryTitles a.EntryLink:hover h4
-{
-	text-decoration: none;
-	color: @gray-dark!important;
-}
-article.hentry section.EntryTitles > .Inner
-{
-	padding: 10px;
-}
-article.hentry section.EntryTitles .ShadowBox
-{
-	background: 0;
-}
-article.hentry header.EntryHeader
-{
-	position: relative;
-}
-
-article.hentry > .Inner > section
-{
-	margin: @hentry-section-margin 0;
-}
-article.hentry > .Inner > section.EntryByline
-{
-	margin: 0;
-}
-article.hentry > .Inner > section.EntryContent
-{
-	margin-top: 0;
-}
-
-article.hentry section.EntryContent > .Inner,
-article.hentry section.EntryByline > .Inner,
-article.hentry section.EntryDiscussion > .Inner
-{
-	padding: 0 10px;
-}
-
-article.hentry section.EntryContent p:after
-{
-	content: ".";
-	display: block;
-	clear: both;
-	visibility: hidden;
-	line-height: 0;
-	height: 0;
-}
-
-.TheLoop article.hentry
-{
-	background: 0;
-	float: left;
-	margin: 0!important;
-}
-.TheLoop article.hentry figure.FallbackHeroBanner
-{
-	display: block;
-}
-.TheLoop article.hentry section.EntryTitles h5.EntryByline
-{
-	display: block;
-}
-.TheLoop article.hentry section.HeroBanner,
-.TheLoop article.hentry section.EntryContent,
-.TheLoop article.hentry section.EntryByline,
-.TheLoop article.hentry section.EntryDiscussion
-{
-	display: none;
-}
-
-.TheLoop article.hentry img
-{
-	margin: 0 auto;
-}
-
-.TheLoop article.hentry section.EntryTitles
-{
-	padding: 0;
-}
-
-.TheLoop article.hentry section.EntryTitles
-{
-	padding: 0;
-}
-.TheLoop article.hentry section.EntryTitles > .Inner
-{
-	border-top: 1px solid @gray-light;
-	padding: @grid-gutter-width 0;
-}
-.TheLoop article.hentry > .Inner
-{
-	background: #FFF;
-}
-
-.TheLoop article.hentry section.EntryTitles h5.EntryByline,
-.TheLoop article.hentry section.EntryTitles h5.EntryByline a
-{
-	font: 11px "Regular";
-	text-transform: uppercase;
-	letter-spacing: .1em;
-	color: @gray;
-}
-
-.TheLoop article.hentry section.EntryTitles h2
-{
-	width: 100%;
-	margin: 10px 0;
-}
-
-.TheLoop article.hentry section.EntryTitles h2,
-.TheLoop article.hentry section.EntryTitles h2 a
-{
-	font: 24px "Regular";
-	color: @gray-dark;
-}
-
-.TheLoop article.hentry section.EntryTitles h4,
-.TheLoop article.hentry section.EntryTitles h4 a
-{
-	font: 20px "Regular";
-	color: @gray;
-}
-
-.TheLoop article.hentry a.PostTypeArchiveLink > span:before
-{
-	content: '\f443';
-}
-
-.TheLoop article.hentry figure.FallbackHeroBanner
-{
-	width: 100%;
-	height: 200px;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
-	border-top: 1px solid @gray-light;
-	border-left: 1px solid @gray-light;
-	border-right: 1px solid @gray-light;
-}
-
-@media (min-width: @screen-sm-min) {
-
-	article.hentry section.EntryTitles > .Inner
+	&.HasHeroBanner.hero-template_wide
 	{
-		padding: 0;
+		header.EntryHeader
+		{
+			width: 100%;
+		}
 	}
-
-	#main
+	> .Inner
 	{
-		> article.hentry.HasHeroBanner.hero-template_wide section.EntryTitles .ShadowBox
+		height: 100%;
+		figure.FallbackHeroBanner
 		{
-			background: transparent url(../images/bg-000-30.png) repeat;
+			display: none;
 		}
-		> article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles
+		> header
 		{
-			position: absolute;
+			position: relative;
+			background: #FFF;
+
+			section.HeroBanner
+			{
+				p
+				{
+					.screen-md-viewPort();
+					margin-bottom: 0;
+				}
+			}
+
+			section.EntryTitles
+			{
+				width: 100%;
+				a:hover
+				{
+					text-decoration: underline;
+					color: @gray-dark;
+				}
+				a.EntryLink:hover,
+				a.EntryLink:hover h2,
+				a.EntryLink:hover h4
+				{
+					text-decoration: none;
+					color: @gray-dark!important;
+				}
+				h2,h4
+				{
+					margin-bottom: 1em;
+				}
+				h2
+				{
+					font: 36px/1.16em "Bold";
+				}
+				h4
+				{
+					margin-top: -.5em;
+					font: 24px/1.16em "Regular";
+				}
+				h5.EntryByline
+				{
+					font: 14px/1.4em "Regular";
+					display: none;
+					.avatar
+					{
+						-webkit-border-radius: 100%;
+					    -moz-border-radius: 100%;
+					    border-radius: 100%;
+					    display: none;
+					}
+				}
+				> .Inner
+				{
+					padding: 10px;
+					.ShadowBox
+					{
+						background: 0;
+					}
+
+				}
+			@media (min-width: @screen-md)
+			{
+				h2
+				{
+					font: 60px/1.16em "Bold";
+					margin-bottom: .5em;
+				}
+				h4
+				{
+					font: 36px/1.16em "Regular";
+				}
+			}
+			}
+		}
+		> section.EntryContent
+		{
+			margin-top: 0;
+			> .Inner
+			{
+				> .OEMBED
+				{
+					.screen-md-viewPort();
+					> .Inner
+					{
+						padding-bottom: 56.25%; /* 16:9 */
+						height: 0;
+						overflow: hidden;
+						position: relative;
+						> *
+						{
+							position: absolute;
+							width: 100%;
+							height: 100%;
+						}
+					}
+				}
+			}
+		}
+		> section.EntryByline
+		{
 			margin: 0;
-			padding: 0;
-			bottom: 100px;
-			color: #FFF;
 		}
-		> article.hentry section.EntryTitles h2,
-		> article.hentry section.EntryTitles h4,
-		> article.hentry .EntryContent p,
-		> article.hentry .HeroBanner p,
-		> article.hentry .EntryContent ul,
-		> article.hentry .EntryContent ol
+	@media (min-width: @screen-md-viewPort)
+	{
+		> section.EntryDiscussion,
+		> section.EntryByline
 		{
 			.screen-md-viewPort();
 		}
-		> article.hentry section.EntryTitles h2,
-		> article.hentry section.EntryTitles h4
+	}
+		> section
 		{
-			margin: 0 auto;
+			margin: @hentry-section-margin 0;
+			> .Inner
+			{
+				padding: 0 10px;
+			@media (min-width: @screen-md-viewPort)
+			{
+				&
+				{
+					padding: 0;
+				}
+			}
+			}
 		}
 	}
-
-	article.hentry section.EntryTitles
+}
+.TheLoop
+{
+	article.hentry
 	{
-		padding: 30px 0 30px 0;
-	}
-
-	article.hentry section.EntryByline > .Inner,
-	article.hentry section.EntryDiscussion > .Inner
-	{
-		max-width: 700px;
-		margin: 0 auto;
-	}
-
-	article.hentry.HasHeroBanner.hero-template_wide section.EntryContent
-	{
-		padding-top: 50px;
-	}
-
-	article.hentry section.EntryContent > .Inner,
-	article.hentry section.EntryByline > .Inner,
-	article.hentry section.EntryDiscussion > .Inner
-	{
-		padding: 0;
-	}
-
-	article.hentry section.EntryByline .TopLevelCard
-	{
-		width: 50%;
+		background: 0;
+		float: left;
+		margin: 0!important;
+		&.HasHeroBanner.hero-template_wide
+		{
+			header.EntryHeader
+			{
+				width: 100%;
+			}
+		}
+		> .Inner
+		{
+			background: #FFF;
+			height: 100%;
+			figure.FallbackHeroBanner
+			{
+				display: block;
+				width: 100%;
+				height: 200px;
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: center center;
+				border-top: 1px solid @gray-light;
+				border-left: 1px solid @gray-light;
+				border-right: 1px solid @gray-light;
+			}
+			> header
+			{
+				&,
+				section.EntryTitles
+				{
+					width: 100%;
+					padding: 0;
+					a:hover
+					{
+					}
+					a.EntryLink:hover,
+					a.EntryLink:hover h2,
+					a.EntryLink:hover h4
+					{
+					}
+					h2,h4
+					{
+					}
+					h2
+					{
+						width: 100%;
+						margin: 10px 0;
+						margin-bottom: .7em;
+						&, a
+						{
+							font: 24px "Regular";
+							color: @gray-dark;
+						}
+					}
+					h4
+					{
+						&, a
+						{
+							font: 20px "Regular";
+							color: @gray;
+						}
+					}
+					h5.EntryByline
+					{
+						display: block;
+						&, a
+						{
+							font: 11px "Regular";
+							text-transform: uppercase;
+							letter-spacing: .1em;
+							color: @gray;
+						}
+					}
+					> .Inner
+					{
+						border-top: 1px solid @gray-light;
+						padding: @grid-gutter-width 0;
+					}
+					.ShadowBox
+					{
+						background: 0;
+					}
+				}
+				> section.HeroBanner
+				{
+					display: none;
+				}
+			}
+			> section
+			{
+				display: none;
+			}
+		}
 	}
 }
-@media all and (min-width:@screen-md) {
-	.TheLoop article.hentry section.EntryTitles > .Inner
+
+@media (min-width: @screen-md-viewPort) 
+{
+	body.page,
+	body.single
 	{
-		// border: 0;
+		article.hentry
+		{
+			&.HasHeroBanner.hero-template_wide
+			{
+				header.EntryHeader
+				{
+					> section.EntryTitles
+					{
+						position: absolute;
+						margin: 0;
+						padding: 0;
+						bottom: 100px;
+						color: #FFF;
+						width: 100%;
+						max-width: none;
+
+						> .Inner
+						{
+							width: 100%;
+						}
+
+						h2,h4
+						{
+							.screen-md-viewPort();
+							margin-bottom: 0;
+						}
+						.ShadowBox
+						{
+							background: url(../images/bg-000-30.png);
+						}
+					}
+					.HeroBanner p
+					{
+						.screen-md-viewPort();
+					}
+				}
+				> .Inner
+				{
+					section.EntryContent
+					{
+						padding-top: 50px;
+					}
+				}
+			}
+
+			> .Inner
+			{
+				> header
+				{
+					> section.EntryTitles
+					{
+						.screen-md-viewPort();
+					}
+				}
+				> .EntryContent
+				{
+					> .Inner
+					{
+						> *
+						{
+							.screen-md-viewPort();
+						}
+						> a,
+						> a img,
+						> img
+						{
+							max-width: 100%;
+						}
+					}
+				}
+			}
+		}
 	}
-	.TheLoop article.hentry section.EntryTitles h5.EntryByline,
-	.TheLoop article.hentry section.EntryTitles h5.EntryByline a
+}
+@media (min-width:@screen-md) {
+	.TheLoop
 	{
-		font-size: 14px;
-	}
-	.TheLoop article.hentry section.EntryTitles h2,
-	.TheLoop article.hentry section.EntryTitles h2 a
-	{
-		font: 32px "Regular";
-	}
-	.TheLoop article.hentry section.EntryTitles h4,
-	.TheLoop article.hentry section.EntryTitles h4 a
-	{
-		font: 24px "Regular";
-	}
-	.TheLoop article.hentry figure.FallbackHeroBanner
-	{
-		height: 350px;
+		article.hentry
+		{
+			> .Inner
+			{
+				> header
+				{
+					section.EntryTitles
+					{
+						h2
+						{
+							&, a
+							{
+								font: 32px "Regular";
+							}
+						}
+						h4
+						{
+							&, a
+							{
+								font: 24px "Regular";
+							}
+						}
+						h5.EntryByline
+						{
+							&, a
+							{
+								font-size: 14px;
+							}
+						}
+					}
+					figure.FallbackHeroBanner
+					{
+						height: 350px;
+					}
+				}
+			}
+		}
 	}
 }

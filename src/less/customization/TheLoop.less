@@ -2,25 +2,21 @@ section.TheLoop
 {
 	background: #FFF;
 	border: 1px solid transparent;
-}
-
-section.TheLoop > .Inner
-{
-}
-
-section.TheLoop > .Inner > header
-{
-	// min-height: 1px;
-}
-
-section.TheLoop > .Inner > section
-{
-	margin: @hentry-section-margin 0;
-	display: inline-block;
-	width: 100%;
-}
-
-section.TheLoop > .Inner > section > .Inner
-{
-	margin: 0 auto;
+	> .Inner
+	{
+		> header
+		{
+			// min-height: 1px;
+		}
+		> section
+		{
+			margin: @hentry-section-margin 0;
+			display: inline-block;
+			width: 100%;
+			> .Inner
+			{
+				margin: 0 auto;
+			}
+		}
+	}
 }

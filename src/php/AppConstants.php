@@ -10,7 +10,6 @@ class AppConstants
 	const ENVIRONMENT_STAGE = "tutomvc/theme/stage";
 	const ENVIRONMENT_PRODUCTION = "tutomvc/theme/production";
 
-	const IMAGE_SIZE_UNCROPPED_THUMBNAIL = "tutomvc_uncropped_thumbnail";
 	const IMAGE_SIZE_HERO_WIDE = "tutomvc_hero_wide";
 
 	const SCRIPT_JS = "tutomvc/theme/script/js";
