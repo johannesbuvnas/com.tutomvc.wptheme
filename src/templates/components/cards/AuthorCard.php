@@ -5,7 +5,7 @@
 if(!isset($user)) return;
 $authorLink = get_author_posts_url( $user->ID );
 ?>
-<div class="Card AuthorCard col-sm-2 col-xs-4">
+<div class="Card AuthorCard col-sm-2 col-xs-4 author-<?php echo $user->ID ?>">
 	<div class="Inner">
 		<a href="<?php echo $authorLink; ?>">
 			<figure class="CardImage">
@@ -13,7 +13,7 @@ $authorLink = get_author_posts_url( $user->ID );
 			</figure>
 		</a>
 		<div class="CardContent">
-			<a class="AuthorLink" href="<?php echo $authorLink; ?>"><span class="Name"><?php echo $user->display_name; ?></span></a>
+			<p class="Name"><a class="AuthorLink" href="<?php echo $authorLink; ?>"><?php echo $user->display_name; ?></a></p>
 		</div>
 	</div>
 </div>

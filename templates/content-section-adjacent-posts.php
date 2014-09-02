@@ -34,7 +34,7 @@ $colClasses = array("AdjacentPost col-xs-12");
 					<a class="EntryLink" href="<?php echo get_permalink( $post->ID ); ?>">
 						<div class="Inner">
 							<header>
-								<p class="AdjacentTitle ShadowText"><?php echo $adjacentTitle ?></p>
+								<h6 class="AdjacentTitle ShadowText"><?php echo $adjacentTitle ?></h6>
 								<h2 class="EntryTitle ShadowText"><?php the_title(); ?></h2>
 							<?php if(strlen($subtitle)): ?>
 								<h4 class="EntrySubtitle ShadowText"><?php echo $subtitle; ?></h4>

@@ -1,63 +1,73 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tutomvc-theme\n"
-"POT-Creation-Date: 2014-08-15 11:20+0100\n"
-"PO-Revision-Date: 2014-08-15 11:20+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2014-09-02 19:19+0100\n"
+"PO-Revision-Date: 2014-09-02 19:20+0100\n"
+"Last-Translator: Johannes Buvnäs <johannes.buvnas@gmail.com>\n"
 "Language-Team: \n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.7\n"
+"X-Generator: Poedit 1.6.9\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_n;_e;_x;_ex\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../comments.php:28
-#, php-format
-msgid "One thought on &ldquo;%2$s&rdquo;"
-msgstr ""
-
-#: ../comments.php:35 ../comments.php:54
+#: ../comments.php:31 ../comments.php:50
 msgid "Comment navigation"
 msgstr ""
 
-#: ../comments.php:36 ../comments.php:55
-#: ../src/templates/components/content/meta/comments.php:11
-#: ../src/templates/components/content/meta/comments.php:28
+#: ../comments.php:32 ../comments.php:51
 msgid "&larr; Older Comments"
 msgstr ""
 
-#: ../comments.php:37 ../comments.php:56
-#: ../src/templates/components/content/meta/comments.php:12
-#: ../src/templates/components/content/meta/comments.php:29
+#: ../comments.php:33 ../comments.php:52
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: ../comments.php:61
+#: ../comments.php:57
 msgid "Comments are closed."
 msgstr ""
 
-#: ../search.php:9
+#: ../comments.php:70
 #, php-format
-msgid "Search Results for: %s"
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
+msgstr ""
+
+#: ../header.php:122
+msgid "Log out"
+msgstr ""
+
+#: ../header.php:123
+msgid "Dashboard"
+msgstr ""
+
+#: ../loop.php:8
+msgid "Archive"
+msgstr ""
+
+#: ../loop.php:65
+#, php-format
+msgid "Published by %s"
 msgstr ""
 
 #: ../src/php/controller/AdminInitCommand.php:27
 msgid "This is <strong>NOT</strong> production environment."
 msgstr ""
 
-#: ../src/php/controller/InitCommand.php:50
+#: ../src/php/controller/InitCommand.php:47
 msgid "Wide"
 msgstr ""
 
-#: ../src/php/controller/InitCommand.php:58
+#: ../src/php/controller/InitCommand.php:55
 msgid "Navigation"
 msgstr ""
 
-#: ../src/php/controller/InitCommand.php:59
+#: ../src/php/controller/InitCommand.php:56
 msgid "Administration"
 msgstr ""
 
@@ -65,59 +75,14 @@ msgstr ""
 msgid "Search Sidebar"
 msgstr ""
 
+#: ../src/php/controller/filters/EditPostLinkFilter.php:28
+#: ../src/php/model/walkers/CommentWalker.php:31
+#: ../templates/content-section-byline.php:17
+msgid "Edit"
+msgstr ""
+
 #: ../src/php/model/menu/MainMenu.php:11
 msgid "The main menu."
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:22
-#: ../src/php/model/meta/ContentBlockMetaBox.php:32
-#: ../src/php/model/meta/ContentBlockMetaBox.php:35
-msgid "Content"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:24
-#: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:30
-msgid "Type"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:26
-msgid "One column"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:27
-msgid "Two columns"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:44
-msgid "Align"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:46
-msgid "Default"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:47
-msgid "Vertical Center"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:52
-msgid "Background Image"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:57
-msgid "Link"
-msgstr ""
-
-#: ../src/php/model/meta/FeaturedMediaMetaBox.php:15
-msgid "Featured Media"
-msgstr ""
-
-#: ../src/php/model/meta/FeaturedMediaMetaBox.php:24
-msgid "Screenshot Thumbnail"
-msgstr ""
-
-#: ../src/php/model/meta/FeaturedMediaMetaBox.php:25
-msgid "This is auto generated. Do not edit."
 msgstr ""
 
 #: ../src/php/model/meta/HeroBannerMetaBox.php:22
@@ -152,6 +117,10 @@ msgstr ""
 msgid "Video Linkage"
 msgstr ""
 
+#: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:30
+msgid "Type"
+msgstr ""
+
 #: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:33
 msgid "URL"
 msgstr ""
@@ -180,16 +149,12 @@ msgstr ""
 msgid "Subtitle"
 msgstr ""
 
-#: ../src/php/model/walkers/CommentWalker.php:37
+#: ../src/php/model/walkers/CommentWalker.php:28
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: ../src/php/model/walkers/CommentWalker.php:40
-msgid "Edit"
-msgstr ""
-
-#: ../src/php/model/walkers/CommentWalker.php:44
+#: ../src/php/model/walkers/CommentWalker.php:35
 msgid "Your comment is awaiting moderation."
 msgstr ""
 
@@ -197,30 +162,40 @@ msgstr ""
 msgid "Who is knocking on my door?"
 msgstr ""
 
-#: ../src/templates/components/content/meta/meta.php:6
-msgid "Posted in"
+#: ../src/templates/components/widgets/TagCloudWidget.php:15
+msgid "Tags"
 msgstr ""
 
-#: ../src/templates/components/content/meta/meta.php:6
-msgid ", "
+#: ../templates/content-section-adjacent-posts.php:23
+msgid "Next"
 msgstr ""
 
-#: ../src/templates/components/content/meta/meta.php:28
-msgid "One comment"
-msgstr ""
-
-#: ../templates/bylines/section-author.php:9 ../templates/cards/post.php:27
-msgid "By"
-msgstr ""
-
-#: ../templates/bylines/section-terms.php:12
-msgid "Published in"
-msgstr ""
-
-#: ../templates/content-section-links.php:20
+#: ../templates/content-section-adjacent-posts.php:24
 msgid "Previous"
 msgstr ""
 
-#: ../templates/content-section-links.php:27
-msgid "Next"
+#: ../templates/content-section-byline.php:10
+msgid "By"
+msgstr ""
+
+#: ../templates/content-section-byline.php:11
+msgid "Published in"
+msgstr ""
+
+#: ../templates/content-section-discussion.php:14
+msgid "Discussion"
+msgstr ""
+
+#: ../templates/content-section-discussion.php:14
+msgid "Discuss"
+msgstr ""
+
+#: ../templates/loops/loop-12-8-4.php:90 ../templates/loops/loop-2.php:65
+#: ../templates/loops/loop-6-6.php:53 ../templates/loops/loops-12.php:53
+msgid "&larr; Previous"
+msgstr ""
+
+#: ../templates/loops/loop-12-8-4.php:91 ../templates/loops/loop-2.php:66
+#: ../templates/loops/loop-6-6.php:54 ../templates/loops/loops-12.php:54
+msgid "Next &rarr;"
 msgstr ""

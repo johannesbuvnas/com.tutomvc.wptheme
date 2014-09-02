@@ -1,124 +1,91 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tutomvc-theme\n"
-"POT-Creation-Date: 2014-08-15 11:20+0100\n"
-"PO-Revision-Date: 2014-08-15 11:28+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2014-09-02 19:35+0100\n"
+"PO-Revision-Date: 2014-09-02 19:35+0100\n"
+"Last-Translator: Johannes Buvnäs <johannes.buvnas@gmail.com>\n"
 "Language-Team: \n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.7\n"
+"X-Generator: Poedit 1.6.9\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_n;_e;_x;_ex\n"
-"Language: sv\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../comments.php:28
-#, php-format
-msgid "One thought on &ldquo;%2$s&rdquo;"
-msgstr ""
-
-#: ../comments.php:35 ../comments.php:54
+#: ../comments.php:31 ../comments.php:50
 msgid "Comment navigation"
-msgstr ""
+msgstr "Navigera kommentarer"
 
-#: ../comments.php:36 ../comments.php:55
-#: ../src/templates/components/content/meta/comments.php:11
-#: ../src/templates/components/content/meta/comments.php:28
+#: ../comments.php:32 ../comments.php:51
 msgid "&larr; Older Comments"
-msgstr ""
+msgstr "&larr; Äldre Kommentarer"
 
-#: ../comments.php:37 ../comments.php:56
-#: ../src/templates/components/content/meta/comments.php:12
-#: ../src/templates/components/content/meta/comments.php:29
+#: ../comments.php:33 ../comments.php:52
 msgid "Newer Comments &rarr;"
-msgstr ""
+msgstr "Nyare Kommentarer &rarr;"
 
-#: ../comments.php:61
+#: ../comments.php:57
 msgid "Comments are closed."
-msgstr ""
+msgstr "Kommentarer är stängt."
 
-#: ../search.php:9
+#: ../comments.php:70
 #, php-format
-msgid "Search Results for: %s"
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
 msgstr ""
+"Inloggad som <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Logga ut"
+"\">Logga ut?</a>"
+
+#: ../header.php:122
+msgid "Log out"
+msgstr "Logga ut"
+
+#: ../header.php:123
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: ../loop.php:8
+msgid "Archive"
+msgstr "Arkiv"
+
+#: ../loop.php:65
+#, php-format
+msgid "Published by %s"
+msgstr "Publicerat av %s"
 
 #: ../src/php/controller/AdminInitCommand.php:27
 msgid "This is <strong>NOT</strong> production environment."
 msgstr ""
 
-#: ../src/php/controller/InitCommand.php:50
+#: ../src/php/controller/InitCommand.php:47
 msgid "Wide"
-msgstr ""
+msgstr "Bred"
 
-#: ../src/php/controller/InitCommand.php:58
+#: ../src/php/controller/InitCommand.php:55
 msgid "Navigation"
 msgstr ""
 
-#: ../src/php/controller/InitCommand.php:59
+#: ../src/php/controller/InitCommand.php:56
 msgid "Administration"
 msgstr ""
 
 #: ../src/php/controller/actions/WidgetsInitCommand.php:17
 msgid "Search Sidebar"
-msgstr ""
+msgstr "Sök Area"
+
+#: ../src/php/controller/filters/EditPostLinkFilter.php:28
+#: ../src/php/model/walkers/CommentWalker.php:31
+#: ../templates/content-section-byline.php:17
+msgid "Edit"
+msgstr "Redigera"
 
 #: ../src/php/model/menu/MainMenu.php:11
 msgid "The main menu."
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:22
-#: ../src/php/model/meta/ContentBlockMetaBox.php:32
-#: ../src/php/model/meta/ContentBlockMetaBox.php:35
-msgid "Content"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:24
-#: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:30
-msgid "Type"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:26
-msgid "One column"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:27
-msgid "Two columns"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:44
-msgid "Align"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:46
-msgid "Default"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:47
-msgid "Vertical Center"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:52
-msgid "Background Image"
-msgstr ""
-
-#: ../src/php/model/meta/ContentBlockMetaBox.php:57
-msgid "Link"
-msgstr ""
-
-#: ../src/php/model/meta/FeaturedMediaMetaBox.php:15
-msgid "Featured Media"
-msgstr ""
-
-#: ../src/php/model/meta/FeaturedMediaMetaBox.php:24
-msgid "Screenshot Thumbnail"
-msgstr ""
-
-#: ../src/php/model/meta/FeaturedMediaMetaBox.php:25
-msgid "This is auto generated. Do not edit."
-msgstr ""
+msgstr "Huvudmenyn."
 
 #: ../src/php/model/meta/HeroBannerMetaBox.php:22
 msgid "Hero Banner"
@@ -126,31 +93,35 @@ msgstr ""
 
 #: ../src/php/model/meta/HeroBannerMetaBox.php:31
 msgid "Images"
-msgstr ""
+msgstr "Bilder"
 
 #: ../src/php/model/meta/HeroBannerMetaBox.php:42
 msgid "Template"
-msgstr ""
+msgstr "Mall"
 
 #: ../src/php/model/meta/HeroBannerMetaBox.php:45
 msgid "Wide 2:1 (with controls)"
-msgstr ""
+msgstr "Bred 2:1 (med knappar)"
 
 #: ../src/php/model/meta/HeroBannerMetaBox.php:46
 msgid "Straight & Cover"
-msgstr ""
+msgstr "Rak & Täckt"
 
 #: ../src/php/model/meta/HeroBannerMetaBox.php:47
 msgid "Straight & Full"
-msgstr ""
+msgstr "Rak & Full"
 
 #: ../src/php/model/meta/HeroBannerMetaBox.php:48
 msgid "Straight & Fit"
-msgstr ""
+msgstr "Rak & Anpassad"
 
 #: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:21
 msgid "Video Linkage"
 msgstr ""
+
+#: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:30
+msgid "Type"
+msgstr "Typ"
 
 #: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:33
 msgid "URL"
@@ -158,7 +129,7 @@ msgstr ""
 
 #: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:34
 msgid "File"
-msgstr ""
+msgstr "Fil"
 
 #: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:41
 msgid "Video URL"
@@ -170,7 +141,7 @@ msgstr ""
 
 #: ../src/php/model/meta/ImageVideoLinkageMetaBox.php:56
 msgid "Select"
-msgstr ""
+msgstr "Välj"
 
 #: ../src/php/model/meta/TitlesMetaBox.php:18
 msgid "Titles"
@@ -180,47 +151,53 @@ msgstr "Titlar"
 msgid "Subtitle"
 msgstr ""
 
-#: ../src/php/model/walkers/CommentWalker.php:37
+#: ../src/php/model/walkers/CommentWalker.php:28
 #, php-format
 msgid "%1$s at %2$s"
-msgstr ""
+msgstr "%1$s på %2$s"
 
-#: ../src/php/model/walkers/CommentWalker.php:40
-msgid "Edit"
-msgstr ""
-
-#: ../src/php/model/walkers/CommentWalker.php:44
+#: ../src/php/model/walkers/CommentWalker.php:35
 msgid "Your comment is awaiting moderation."
-msgstr ""
+msgstr "Din kommentar väntar på att bli godkänd."
 
 #: ../src/php/view/admin/WPLoginMediator.php:36
 msgid "Who is knocking on my door?"
 msgstr ""
 
-#: ../src/templates/components/content/meta/meta.php:6
-msgid "Posted in"
-msgstr "Publicerat i"
-
-#: ../src/templates/components/content/meta/meta.php:6
-msgid ", "
+#: ../src/templates/components/widgets/TagCloudWidget.php:15
+msgid "Tags"
 msgstr ""
 
-#: ../src/templates/components/content/meta/meta.php:28
-msgid "One comment"
-msgstr "En kommentar"
+#: ../templates/content-section-adjacent-posts.php:23
+msgid "Next"
+msgstr "Nästa"
 
-#: ../templates/bylines/section-author.php:9 ../templates/cards/post.php:27
-msgid "By"
-msgstr "Av"
-
-#: ../templates/bylines/section-terms.php:12
-msgid "Published in"
-msgstr "Publicerat i"
-
-#: ../templates/content-section-links.php:20
+#: ../templates/content-section-adjacent-posts.php:24
 msgid "Previous"
 msgstr "Föregående"
 
-#: ../templates/content-section-links.php:27
-msgid "Next"
-msgstr "Nästa"
+#: ../templates/content-section-byline.php:10
+msgid "By"
+msgstr "Av"
+
+#: ../templates/content-section-byline.php:11
+msgid "Published in"
+msgstr "Publicerat i"
+
+#: ../templates/content-section-discussion.php:14
+msgid "Discussion"
+msgstr "Diskussion"
+
+#: ../templates/content-section-discussion.php:14
+msgid "Discuss"
+msgstr "Diskutera"
+
+#: ../templates/loops/loop-12-8-4.php:90 ../templates/loops/loop-2.php:65
+#: ../templates/loops/loop-6-6.php:53 ../templates/loops/loops-12.php:53
+msgid "&larr; Previous"
+msgstr "&larr; Föregående"
+
+#: ../templates/loops/loop-12-8-4.php:91 ../templates/loops/loop-2.php:66
+#: ../templates/loops/loop-6-6.php:54 ../templates/loops/loops-12.php:54
+msgid "Next &rarr;"
+msgstr "Nästa &rarr;"

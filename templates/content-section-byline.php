@@ -7,8 +7,8 @@ global $wp_query;
 global $post;
 $terms = \tutomvc\WordPressUtil::getAllTerms( $post );
 $tabs = array();
-if(!is_page()) $tabs["author"] = '<span class="glyphicon glyphicon-calendar"></span> <time datetime="'.esc_attr( get_the_date( 'c' ) ).'">' . esc_html( get_the_date() ) . '</time> ' . __("By") . " ...";
-if(count($terms)) $tabs["terms"] = '<span class="glyphicon glyphicon-tags"></span> '.__("Published in") . " (".count($terms).")";
+if(!is_page()) $tabs["author"] = '<span class="glyphicon glyphicon-calendar"></span> <time datetime="'.esc_attr( get_the_date( 'c' ) ).'">' . esc_html( get_the_date() ) . '</time> ' . __( "By", "tutomvc-theme" ) . " ...";
+if(count($terms)) $tabs["terms"] = '<span class="glyphicon glyphicon-tags"></span> '.__( "Published in", "tutomvc-theme" ) . " (".count($terms).")";
 if(!post_password_required() && (comments_open() || get_comments_number()))
 {
 	// $tabs["discussion"] = get_comments_number() ? __("Comments") . "( ".get_comments_number()." )" : __("Comment");
