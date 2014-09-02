@@ -21,7 +21,7 @@ $subtitle = get_post_meta( $post->ID, TitlesMetaBox::constructMetaKey( TitlesMet
 
 				<?php if(strlen($subtitle)): ?>
 
-					<h4><span class="ShadowBox"><?php echo $subtitle; ?></span></h4>
+					<h4 class="EntrySubtitle"><span class="ShadowBox"><?php echo $subtitle; ?></span></h4>
 
 				<?php endif; ?>
 
@@ -41,16 +41,17 @@ $subtitle = get_post_meta( $post->ID, TitlesMetaBox::constructMetaKey( TitlesMet
 							<a class="ArchiveLink" href="<?php echo get_post_type_archive_link( $post->post_type ); ?>">
 								<span><?php echo $postTypeObject->labels->singular_name; ?></span>
 							</a>
-							|
 						<?php else: ?>
 							<span><?php echo $postTypeObject->labels->singular_name; ?></span>
-							|
 						<?php endif; ?>
+				<?php if($post->post_type != "page"): ?>
+					<span>|</span>
 					<a class="AuthorLink" href="<?php echo get_author_posts_url( $user->ID ); ?>">
 						<span><?php echo $user->display_name; ?></span>
 					</a>
-					|
+					<span>|</span>
 					<a class="EntryLink" href="<?php echo get_permalink( $post->ID ); ?>"><time class="EntryDate" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time></a>
+				<?php endif; ?>
 				</h5>
 			<?php endif; ?>
 		</div><!-- end .Inner -->

@@ -5911,6 +5911,86 @@ article.hentry > .Inner > section > .Inner {
     height: 350px;
   }
 }
+section.AdjacentPosts article {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+  height: 350px;
+}
+section.AdjacentPosts article > a > .Inner {
+  padding: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(src/images/bg-000-30.png);
+  color: #FFF;
+}
+section.AdjacentPosts article > a > .Inner header {
+  max-width: 700px;
+  margin: 0 auto;
+  margin-bottom: 1em;
+  padding-top: 30px;
+}
+section.AdjacentPosts article > a > .Inner header .AdjacentTitle {
+  font: 12px "Bold";
+  color: #FFF;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  border-top: 1px solid #FFF;
+  padding: 15px 0 0 15px;
+}
+section.AdjacentPosts article > a > .Inner header h2 {
+  width: 100%;
+  margin: 10px 0;
+  margin-bottom: 0em;
+  margin-left: 15px;
+}
+section.AdjacentPosts article > a > .Inner header h2,
+section.AdjacentPosts article > a > .Inner header h2 a {
+  font: 24px "Bold";
+  color: #FFF;
+}
+section.AdjacentPosts article > a > .Inner header h4 {
+  margin-left: 15px;
+}
+section.AdjacentPosts article > a > .Inner header h4,
+section.AdjacentPosts article > a > .Inner header h4 a {
+  font: 20px "Regular";
+  color: #FFF;
+}
+section.AdjacentPosts article > a > .Inner header h5.EntryByline {
+  margin-left: 15px;
+}
+section.AdjacentPosts article > a > .Inner header h5.EntryByline,
+section.AdjacentPosts article > a > .Inner header h5.EntryByline a {
+  font: 11px "Regular";
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #FFF;
+}
+@media (min-width: 992px) {
+  section.AdjacentPosts article > a > .Inner header h2 {
+    max-width: none;
+  }
+  section.AdjacentPosts article > a > .Inner header h2,
+  section.AdjacentPosts article > a > .Inner header h2 a {
+    font: 32px "Bold";
+  }
+  section.AdjacentPosts article > a > .Inner header h4 {
+    max-width: none;
+  }
+  section.AdjacentPosts article > a > .Inner header h4,
+  section.AdjacentPosts article > a > .Inner header h4 a {
+    font: 24px "Regular";
+  }
+  section.AdjacentPosts article > a > .Inner header h5.EntryByline,
+  section.AdjacentPosts article > a > .Inner header h5.EntryByline a {
+    font-size: 14px;
+  }
+}
 section.HeroBanner.template_wide {
   width: 100%;
   height: 100%;
@@ -6079,21 +6159,26 @@ img.size-tutomvc_hero_wide {
   background: #FFF;
   border-bottom: 1px solid #eeeeee;
 }
-#navButton,
-#searchButton {
+#header #navTitle {
+  margin: 0;
+  text-align: center;
+  font: 24px/45px "Semibold";
+}
+@media (max-width: 768px) {
+  #header #navTitle {
+    font-size: 14px;
+  }
+}
+#header #navButton,
+#header #searchButton {
   position: absolute;
   width: 45px;
   height: 45px;
   left: 0;
 }
-#searchButton {
+#header #searchButton {
   right: 0;
   left: auto;
-}
-#header h1 {
-  margin: 0;
-  text-align: center;
-  font: 24px/45px "Semibold";
 }
 .PriorityLow {
   z-index: 2;
@@ -6192,11 +6277,13 @@ img.size-tutomvc_hero_wide {
 #search > .Inner {
   padding-top: 45px;
 }
+#search #searchForm {
+  padding: 10px;
+}
 #search #searchForm input[type=search] {
   border: 0;
-  padding: 10px 0 10px 0;
   width: 100%;
-  font: 36px/1em "Bold";
+  font: 36px/1.16em "Bold";
   outline: none;
   background: 0;
   -webkit-appearance: none;
@@ -6207,19 +6294,20 @@ img.size-tutomvc_hero_wide {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  margin-bottom: .5em;
+  margin-top: 20px;
 }
 #search #searchForm input[type=submit] {
   display: none;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   #search #searchForm {
-    padding: 30px 0 30px 0;
     max-width: 700px;
     margin: 0 auto;
     margin-bottom: 1em;
   }
   #search #searchForm input[type=search] {
-    font: 60px/1em "Bold";
+    font: 60px/1.16em "Bold";
   }
 }
 /**

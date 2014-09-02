@@ -86,7 +86,7 @@ global $themeFacade;
 						<button id="searchButton" class="SimpleButton">
 							<span class="glyphicon glyphicon-search"></span>
 						</button>
-						<h1><?php echo get_bloginfo( 'name' ); ?></h1>
+						<h1 id="navTitle"><?php echo get_bloginfo( 'name' ); ?></h1>
 					</div>
 
 					<!-- #navigation -->

@@ -65,8 +65,8 @@ if(is_author())
 	$title = sprintf( __( "Published by %s", "tutomvc-theme" ), $user->display_name );
 }
 
-if ( have_posts() )
-{
+// if ( have_posts() )
+// {
 ?>
 	<section id="loop" class="TheLoop">
 		<div class="Inner">
@@ -87,4 +87,4 @@ if ( have_posts() )
 		</div><!-- end .Inner -->
 	</section><!-- end .TheLoop -->
 <?php
-}
+// }
