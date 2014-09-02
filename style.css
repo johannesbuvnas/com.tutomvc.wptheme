@@ -3160,7 +3160,7 @@ body.login {
   background: transparent url(src/images/bg-000-30.png) repeat;
 }
 .ShadowText {
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .Hyphenate {
   -ms-word-break: break-all;

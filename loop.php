@@ -6,7 +6,7 @@ global $post;
 global $wp_query;
 
 $title = __( "Archive", "tutomvc-theme" );
-if(is_search()) $title = sprintf( __( "Search Results for: '%s'", "tutomvc-theme" ), get_search_query() );
+if(is_search()) $title = sprintf( translate_nooped_plural( _n_noop( "%s result for:", "%s results for:", "tutomvc-theme" ), $wp_query->found_posts, "tutomvc-theme" ), $wp_query->found_posts ) . " '".get_search_query() . "'";
 if(is_post_type_archive())
 {
 	$postTypeObject = get_post_type_object($wp_query->get("post_type"));
@@ -62,7 +62,7 @@ if(is_tax() || get_query_var( "tag" ) || is_category())
 if(is_author())
 {
 	$user = $wp_query->get_queried_object();
-	$title = sprintf( __( "Published by %s", "tutomvc-theme" ), $user->display_name );
+	$title = sprintf( __( "Published by %s", "tutomvc-theme" ), $user->display_name ) . " (".$wp_query->found_posts.")";
 }
 
 // if ( have_posts() )
@@ -72,7 +72,7 @@ if(is_author())
 		<div class="Inner">
 			<section class="Loops">
 				<div class="Inner container">
-					<ul class="nav nav-tabs container" role="tablist">
+					<ul class="nav nav-tabs" role="tablist">
 						<li class="active">
 							<a href="#loop1"><?php echo $title; ?></a>
 						</li>

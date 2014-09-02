@@ -63,7 +63,7 @@ class HeroBannerMetaBox extends MetaBox
 			if(count($heroMeta))
 			{
 				$heroMeta = array_pop($heroMeta);
-				$attachmentID = $heroMeta[ HeroBannerMetaBox::IMAGES ][0]['id'];
+				if(count($heroMeta[ HeroBannerMetaBox::IMAGES ])) $attachmentID = $heroMeta[ HeroBannerMetaBox::IMAGES ][0]['id'];
 			}
 		}
 

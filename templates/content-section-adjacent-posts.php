@@ -34,12 +34,12 @@ $colClasses = array("AdjacentPost col-xs-12");
 					<a class="EntryLink" href="<?php echo get_permalink( $post->ID ); ?>">
 						<div class="Inner">
 							<header>
-								<p class="AdjacentTitle"><?php echo $adjacentTitle ?></p>
-								<h2 class="EntryTitle"><?php the_title(); ?></h2>
+								<p class="AdjacentTitle ShadowText"><?php echo $adjacentTitle ?></p>
+								<h2 class="EntryTitle ShadowText"><?php the_title(); ?></h2>
 							<?php if(strlen($subtitle)): ?>
-								<h4 class="EntrySubtitle"><?php echo $subtitle; ?></h4>
+								<h4 class="EntrySubtitle ShadowText"><?php echo $subtitle; ?></h4>
 							<?php endif; ?>
-							<h5 class="EntryByline">
+							<h5 class="EntryByline ShadowText">
 								<span><?php echo $user->display_name; ?></span>
 								<span>|</span>
 								<time class="EntryDate" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date() ); ?></time>
