@@ -84,7 +84,7 @@ article.hentry
 						background: 0;
 					}
 				}
-			@media (min-width: @screen-md)
+			@media (min-width: @screen-md-viewPort)
 			{
 				> .Inner
 				{
@@ -121,7 +121,7 @@ article.hentry
 		{
 			margin: 0;
 		}
-	@media (min-width: @screen-md)
+	@media (min-width: @screen-md-viewPort)
 	{
 		> section.EntryDiscussion,
 		> section.EntryByline
@@ -135,7 +135,7 @@ article.hentry
 			> .Inner
 			{
 				padding: 0 10px;
-			@media (min-width: @screen-md)
+			@media (min-width: @screen-md-viewPort)
 			{
 				&
 				{
@@ -159,6 +159,15 @@ article.hentry
 			header.EntryHeader
 			{
 				width: 100%;
+				section.EntryTitles
+				{
+					position: static;
+					max-width: none;
+					.ShadowBox
+					{
+						background: 0;
+					}
+				}
 			}
 		}
 		> .Inner
@@ -251,7 +260,7 @@ article.hentry
 	}
 }
 
-@media (min-width: @screen-md) 
+@media (min-width: @screen-md-viewPort) 
 {
 	// body.page,
 	// body.single

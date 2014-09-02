@@ -5717,7 +5717,7 @@ article.hentry > .Inner > header section.EntryTitles > .Inner {
 article.hentry > .Inner > header section.EntryTitles > .Inner .ShadowBox {
   background: 0;
 }
-@media (min-width: 992px) {
+@media (min-width: 740px) {
   article.hentry > .Inner > header section.EntryTitles > .Inner {
     padding: 10px 0;
   }
@@ -5756,7 +5756,7 @@ article.hentry > .Inner > section.EntryContent > .Inner > .OEMBED > .Inner > * {
 article.hentry > .Inner > section.EntryByline {
   margin: 0;
 }
-@media (min-width: 992px) {
+@media (min-width: 740px) {
   article.hentry > .Inner > section.EntryDiscussion,
   article.hentry > .Inner > section.EntryByline {
     max-width: 700px;
@@ -5770,7 +5770,7 @@ article.hentry > .Inner > section {
 article.hentry > .Inner > section > .Inner {
   padding: 0 10px;
 }
-@media (min-width: 992px) {
+@media (min-width: 740px) {
   article.hentry > .Inner > section > .Inner {
     padding: 0;
   }
@@ -5782,6 +5782,13 @@ article.hentry > .Inner > section > .Inner {
 }
 .TheLoop article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader {
   width: 100%;
+}
+.TheLoop article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader section.EntryTitles {
+  position: static;
+  max-width: none;
+}
+.TheLoop article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader section.EntryTitles .ShadowBox {
+  background: 0;
 }
 .TheLoop article.hentry > .Inner {
   background: #FFF;
@@ -5854,7 +5861,7 @@ article.hentry > .Inner > section > .Inner {
 .TheLoop article.hentry > .Inner > section {
   display: none;
 }
-@media (min-width: 992px) {
+@media (min-width: 740px) {
   article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles {
     position: absolute;
     margin: 0;
