@@ -12,6 +12,7 @@
 		"masonry" : "latest",
 		"imagesloaded" : "latest",
 		"html2canvas" : "latest",
-		"bootstrap" : "latest"
+		"bootstrap" : "latest",
+		"ekko-lightbox" : "latest"
 	}
 }

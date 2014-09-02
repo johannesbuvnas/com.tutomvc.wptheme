@@ -6,7 +6,8 @@ define([
 	"app/AppConstants",
 	"app/AppModel",
 	"app/controller/StartUpCommand",
-	"bootstrap"
+	"bootstrap",
+	"ekko-lightbox"
 ],
 function(
 	DocReady,

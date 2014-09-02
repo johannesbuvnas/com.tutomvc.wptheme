@@ -50,6 +50,11 @@ function(
 				var link = $(e.currentTarget).attr("href");
 				location.href = link;
 			});
+			this.$('*[data-toggle="lightbox"]').click(function(e)
+			{
+				e.preventDefault();
+				$(e.currentTarget).ekkoLightbox();
+			});
 		}
 	});
 

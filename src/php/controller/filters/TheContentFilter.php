@@ -88,6 +88,7 @@ class TheContentFilter extends FilterCommand
 								$class .= " MediaLink InlineVideoLinkage";
 								$img->parentNode->setAttribute( "target", "_blank" );
 								$img->parentNode->setAttribute( "class", $class );
+								$img->parentNode->setAttribute( "data-toggle", "lightbox" );
 								$genericon = $doc->createElement("span");
 								$genericon->setAttribute( "class", "glyphicon glyphicon-play ShadowBox img-rounded" );
 

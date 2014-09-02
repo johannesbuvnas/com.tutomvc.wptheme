@@ -18,6 +18,7 @@ require.config({
 	  "jquery-touchswipe" : "../../lib/script/jquery-touchswipe/jquery.touchSwipe",
 	  "html2canvas" : "../../lib/script/html2canvas/build/html2canvas",
 	  "bootstrap" : "../../lib/script/bootstrap/dist/js/bootstrap",
+	  "ekko-lightbox" : "../../lib/script/ekko-lightbox/dist/ekko-lightbox",
 	  "tweenmax" : "../../lib/script/gsap/src/uncompressed/TweenMax",
 	  "timelinelite" : "../../lib/script/gsap/src/uncompressed/TimelineLite",
 	  "TweenLite" : "../../lib/script/gsap/src/uncompressed/TweenLite"
