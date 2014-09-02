@@ -32,7 +32,7 @@ function(
 
 	return function(event, phase, direction, distance, duration, fingerCount)
 	{
-		if(fingerCount < 500) return;
+		if(fingerCount > 1) return;
 		
 		if(phase == "end" || phase == "cancel")
 		{

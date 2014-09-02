@@ -80,9 +80,10 @@ function(
 			// Only touch screens
 			if(Modernizr.touch)
 			{
-				app.$el.swipe( {
-					swipeStatus : _.bind( SwipeStatusCommand, app )
-				} );
+				// TODO: Swipe disables scroll.
+				// app.$el.swipe( {
+				// 	swipeStatus : _.bind( SwipeStatusCommand, app )
+				// } );
 			}
 		}
 
