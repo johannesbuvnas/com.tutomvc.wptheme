@@ -75,7 +75,7 @@ class AppFacade extends Facade
 			break;
 		}
 	}
-	public function isProduction()
+	public static function isProduction()
 	{
 		return !in_array( $_SERVER['HTTP_HOST'], self::$_environmentsMap[ self::ENVIRONMENT_STAGE ] );
 	}

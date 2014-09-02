@@ -5756,7 +5756,7 @@ article.hentry > .Inner > section.EntryContent > .Inner > .OEMBED > .Inner > * {
 article.hentry > .Inner > section.EntryByline {
   margin: 0;
 }
-@media (min-width: 740px) {
+@media (min-width: 992px) {
   article.hentry > .Inner > section.EntryDiscussion,
   article.hentry > .Inner > section.EntryByline {
     max-width: 700px;
@@ -5770,7 +5770,7 @@ article.hentry > .Inner > section {
 article.hentry > .Inner > section > .Inner {
   padding: 0 10px;
 }
-@media (min-width: 740px) {
+@media (min-width: 992px) {
   article.hentry > .Inner > section > .Inner {
     padding: 0;
   }
@@ -5854,7 +5854,7 @@ article.hentry > .Inner > section > .Inner {
 .TheLoop article.hentry > .Inner > section {
   display: none;
 }
-@media (min-width: 740px) {
+@media (min-width: 992px) {
   article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader > section.EntryTitles {
     position: absolute;
     margin: 0;
@@ -6407,7 +6407,7 @@ img.size-tutomvc_hero_wide {
 }
 @media (min-width: 992px) {
   #search #searchForm {
-    padding: 10px;
+    padding: 10px 0;
     max-width: 700px;
     margin: 0 auto;
     margin-bottom: 1em;
