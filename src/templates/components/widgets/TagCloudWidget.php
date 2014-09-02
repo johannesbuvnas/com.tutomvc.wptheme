@@ -38,12 +38,12 @@ $terms = get_terms( $instance['taxonomy'], array( 'orderby' => 'count', 'order' 
 			<div id="<?php echo $args['widget_id']; ?>" class="tab-pane active container-fluid">
 				<?php
 					$i=0;
-					$cols = 3;
+					$cols = 6;
 					foreach($terms as $term)
 					{
 						$i++;
 						if($i == 1) echo '<div class="row">';
-						// if(($i % $cols) == 1 && $i != 1) echo '</div><div class="row">';
+						if(($i % $cols) == 1 && $i != 1) echo '</div><div class="row">';
 
 						$themeFacade->view->getMediator( TermCardMediator::NAME )
 							->render( $term );

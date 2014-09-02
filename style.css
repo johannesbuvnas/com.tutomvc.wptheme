@@ -3147,7 +3147,7 @@ body {
 body,
 body.login {
   font: 20px/1.4em "Regular";
-  color: #333333;
+  color: #222222;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   -font-smoothing: antialiased;
@@ -5565,6 +5565,10 @@ button.SimpleButton:focus {
   background: #FFF;
   position: relative;
 }
+.Card.col-sm-2 {
+  min-height: 180px;
+  overflow: hidden;
+}
 .Card > .Inner {
   padding: 10px 0;
   position: relative;
@@ -6482,6 +6486,7 @@ p.form-allowed-tags {
 .modal-title {
   margin: 0;
   line-height: 1.42857143;
+  font-family: "Bold";
 }
 .modal-body {
   position: relative;
