@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'tutomvc\\theme\\AdminInitCommand' => $baseDir . '/src/php/controller/AdminInitCommand.php',
-    'tutomvc\\theme\\AppConstants' => $baseDir . '/src/php/AppConstants.php',
     'tutomvc\\theme\\AppFacade' => $baseDir . '/src/php/AppFacade.php',
     'tutomvc\\theme\\AppMediator' => $baseDir . '/src/php/view/AppMediator.php',
     'tutomvc\\theme\\AppUtil' => $baseDir . '/src/php/AppUtil.php',

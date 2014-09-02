@@ -15,7 +15,7 @@ class WidgetsInitCommand extends ActionCommand
 	{
 		register_sidebar( array(
 			'name' => __( 'Search Sidebar', "tutomvc-theme" ),
-			'id' => AppConstants::SIDEBAR_SEARCH,
+			'id' => AppFacade::SIDEBAR_SEARCH,
 			'before_widget' => '<div class="Widget"><div class="Inner">',
 			'after_widget' => '</div></div>',
 			'before_title' => '<ul class="nav nav-tabs" role="tablist"><li class="active"><a href="#">',

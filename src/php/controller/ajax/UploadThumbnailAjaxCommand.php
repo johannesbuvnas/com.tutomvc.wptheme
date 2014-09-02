@@ -9,7 +9,7 @@ class UploadThumbnailAjaxCommand extends AjaxCommand
 
 	function __construct()
 	{
-		parent::__construct( self::NAME, AppConstants::NONCE_NAME );
+		parent::__construct( self::NAME, AppFacade::NONCE_NAME );
 	}
 
 	function execute()

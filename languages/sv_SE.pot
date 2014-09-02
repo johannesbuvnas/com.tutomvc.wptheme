@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: tutomvc-theme\n"
-"POT-Creation-Date: 2014-09-02 19:35+0100\n"
-"PO-Revision-Date: 2014-09-02 19:35+0100\n"
+"POT-Creation-Date: 2014-09-02 20:36+0100\n"
+"PO-Revision-Date: 2014-09-02 20:36+0100\n"
 "Last-Translator: Johannes Buvnäs <johannes.buvnas@gmail.com>\n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -57,19 +57,23 @@ msgstr "Arkiv"
 msgid "Published by %s"
 msgstr "Publicerat av %s"
 
+#: ../searchform.php:5
+msgid "Search ..."
+msgstr "Sök ..."
+
 #: ../src/php/controller/AdminInitCommand.php:27
 msgid "This is <strong>NOT</strong> production environment."
 msgstr ""
 
-#: ../src/php/controller/InitCommand.php:47
+#: ../src/php/controller/InitCommand.php:45
 msgid "Wide"
 msgstr "Bred"
 
-#: ../src/php/controller/InitCommand.php:55
+#: ../src/php/controller/InitCommand.php:53
 msgid "Navigation"
 msgstr ""
 
-#: ../src/php/controller/InitCommand.php:56
+#: ../src/php/controller/InitCommand.php:54
 msgid "Administration"
 msgstr ""
 

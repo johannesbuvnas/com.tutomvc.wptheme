@@ -15,17 +15,17 @@ class WPEnqueueScriptsCommand extends ActionCommand
 	{
 		// if(!AppFacade::isProduction())
 		// {
-		// 	wp_enqueue_style( AppConstants::STYLE_CSS, $this->getFacade()->getURL( "src/bootstrap/dist/css/bootstrap.css" ), NULL, AppFacade::VERSION );
-		// 	wp_enqueue_script( AppConstants::SCRIPT_JS_REQUIRE, $this->getFacade()->getURL( "src/scripts/libs/requirejs/require.js" ), NULL, AppFacade::VERSION, TRUE );
-		// 	wp_enqueue_script( AppConstants::SCRIPT_JS, $this->getFacade()->getURL( "src/scripts/Main.config.js" ), array( AppConstants::SCRIPT_JS_REQUIRE ), AppFacade::VERSION, TRUE );
+		// 	wp_enqueue_style( AppFacade::STYLE_CSS, $this->getFacade()->getURL( "src/bootstrap/dist/css/bootstrap.css" ), NULL, AppFacade::VERSION );
+		// 	wp_enqueue_script( AppFacade::SCRIPT_JS_REQUIRE, $this->getFacade()->getURL( "src/scripts/libs/requirejs/require.js" ), NULL, AppFacade::VERSION, TRUE );
+		// 	wp_enqueue_script( AppFacade::SCRIPT_JS, $this->getFacade()->getURL( "src/scripts/Main.config.js" ), array( AppFacade::SCRIPT_JS_REQUIRE ), AppFacade::VERSION, TRUE );
 		// }
 		// else
 		// {
-		// 	wp_enqueue_style( AppConstants::STYLE_CSS, $this->getFacade()->getURL( "src/bootstrap/dist/css/bootstrap.min.css" ), NULL, AppFacade::VERSION );
+		// 	wp_enqueue_style( AppFacade::STYLE_CSS, $this->getFacade()->getURL( "src/bootstrap/dist/css/bootstrap.min.css" ), NULL, AppFacade::VERSION );
 		// 	// TODO: DO NOT ENQUEUE, ADD MANUALLY WITH ASYNC INSTEAD
 		// 	wp_enqueue_script( "tutomvc/js", $this->getFacade()->getURL( "src/scripts/Main.pkgd.js" ), NULL, AppFacade::VERSION, TRUE );
 		// }
-		wp_enqueue_style( AppConstants::STYLE_CSS, $this->getFacade()->getURL( "style.min.css" ), NULL, AppFacade::VERSION );
-		wp_enqueue_script( AppConstants::SCRIPT_JS, $this->getFacade()->getURL( "script.min.js" ), NULL, AppFacade::VERSION, TRUE );
+		wp_enqueue_style( AppFacade::STYLE_CSS, $this->getFacade()->getURL( "style.min.css" ), NULL, AppFacade::VERSION );
+		wp_enqueue_script( AppFacade::SCRIPT_JS, $this->getFacade()->getURL( "script.min.js" ), NULL, AppFacade::VERSION, TRUE );
 	}
 }

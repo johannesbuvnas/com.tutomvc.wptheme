@@ -5718,6 +5718,9 @@ article.hentry > .Inner > header section.EntryTitles > .Inner .ShadowBox {
   background: 0;
 }
 @media (min-width: 992px) {
+  article.hentry > .Inner > header section.EntryTitles > .Inner {
+    padding: 10px 0;
+  }
   article.hentry > .Inner > header section.EntryTitles h2 {
     font-size: 60px;
     line-height: 1.16em;
@@ -6404,6 +6407,7 @@ img.size-tutomvc_hero_wide {
 }
 @media (min-width: 992px) {
   #search #searchForm {
+    padding: 10px;
     max-width: 700px;
     margin: 0 auto;
     margin-bottom: 1em;

@@ -32,7 +32,7 @@ $ajaxCommands = array(
 		},
 		"isProduction" : <?php echo AppFacade::isProduction() ? "true" : "false"; ?>,
 		"version" : "<?php echo AppFacade::VERSION; ?>",
-		"nonce" : "<?php echo wp_create_nonce( AppConstants::NONCE_NAME ); ?>",
+		"nonce" : "<?php echo wp_create_nonce( AppFacade::NONCE_NAME ); ?>",
 		"ajaxURL" : "<?php echo admin_url( 'admin-ajax.php' ); ?>",
 		"wpQuery" : {
 			"vars" : <?php echo json_encode($wp_query->query_vars); ?>,

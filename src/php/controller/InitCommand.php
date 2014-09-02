@@ -23,8 +23,6 @@ class InitCommand extends ActionCommand
 		add_theme_support( 'post-thumbnails', array( 'post', 'page' ) );
 		load_theme_textdomain( "tutomvc-theme", $this->getFacade()->vo->getRoot( "languages" ) );
 
-		$this->getFacade()->repository = new \tutomvc\GitRepositoryVO( $this->getFacade()->vo->getRoot(), AppConstants::REPOSITORY_URL, "v2" );
-
 		// Meta Boxes
 		$this->getSystem()->metaCenter->add( new HeroBannerMetaBox() );
 		$this->getSystem()->metaCenter->add( new TitlesMetaBox() );
@@ -44,7 +42,7 @@ class InitCommand extends ActionCommand
 		if(get_option( "thumbnail_size_h" ) != 150) update_option( "thumbnail_size_h", 150 );
 		if(intval(get_option( "thumbnail_crop" )) < 1) update_option( "thumbnail_crop", 1 );
 		set_post_thumbnail_size( 672, 372, true );
-		$this->getSystem()->imageSizeCenter->add( new \tutomvc\ImageSize( AppConstants::IMAGE_SIZE_HERO_WIDE, __( "Wide", "tutomvc-theme" ), 1600, 800, TRUE ) );
+		$this->getSystem()->imageSizeCenter->add( new \tutomvc\ImageSize( AppFacade::IMAGE_SIZE_HERO_WIDE, __( "Wide", "tutomvc-theme" ), 1600, 800, TRUE ) );
 
 		// $this->getFacade()->memberModule = $this->getFacade()->registerSubFacade( new \tutomvc\modules\member\MemberModule() );
 		// $this->getFacade()->metaTagsModule = $this->getFacade()->registerSubFacade( new \tutomvc\modules\metatags\MetaTagsModule() );
@@ -52,8 +50,8 @@ class InitCommand extends ActionCommand
 
 		// Nav menus
 		register_nav_menus( array(
-			AppConstants::NAV_MENU_NAVIGATION => __( "Navigation", "tutomvc-theme" ),
-			AppConstants::NAV_MENU_ADMINISTRATION => __( "Administration", "tutomvc-theme" ),
+			AppFacade::NAV_MENU_NAVIGATION => __( "Navigation", "tutomvc-theme" ),
+			AppFacade::NAV_MENU_ADMINISTRATION => __( "Administration", "tutomvc-theme" ),
 		) );
 	}
 

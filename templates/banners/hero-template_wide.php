@@ -18,7 +18,7 @@ $classes[] = $heroMeta[ HeroBannerMetaBox::TEMPLATE ];
 		$i = 0;
 		foreach( $heroMeta[ HeroBannerMetaBox::IMAGES ] as $image )
 		{
-			$src = wp_get_attachment_image_src( $image['id'], AppConstants::IMAGE_SIZE_HERO_WIDE );
+			$src = wp_get_attachment_image_src( $image['id'], AppFacade::IMAGE_SIZE_HERO_WIDE );
 			if(count($src))
 			{
 				$i++;

@@ -36,7 +36,7 @@ global $themeFacade;
 				},
 				"isProduction" : <?php echo AppFacade::isProduction() ? "true" : "false"; ?>,
 				"version" : "<?php echo AppFacade::VERSION; ?>",
-				"nonce" : "<?php echo wp_create_nonce( AppConstants::NONCE_NAME ); ?>",
+				"nonce" : "<?php echo wp_create_nonce( AppFacade::NONCE_NAME ); ?>",
 				"ajaxURL" : "<?php echo admin_url( 'admin-ajax.php' ); ?>",
 				"wpQuery" : {
 					"vars" : <?php echo json_encode($wp_query->query_vars); ?>,
@@ -94,7 +94,7 @@ global $themeFacade;
 						<div class="Inner BorderBox">
 							<?php
 								wp_nav_menu( array(
-									"theme_location" => AppConstants::NAV_MENU_NAVIGATION,
+									"theme_location" => AppFacade::NAV_MENU_NAVIGATION,
 									"container" => "nav",
 									"fallback_cb" => NULL,
 									"echo" => TRUE,
@@ -146,7 +146,7 @@ global $themeFacade;
 							</div>
 
 							<section class="WidgetArea">
-								<?php dynamic_sidebar( AppConstants::SIDEBAR_SEARCH ); ?>
+								<?php dynamic_sidebar( AppFacade::SIDEBAR_SEARCH ); ?>
 							</section>
 						</div>
 					</section>

@@ -7,6 +7,25 @@ class AppFacade extends Facade
 	const KEY = "tutomvc/theme/facade";
 	const VERSION = "1.0.1";
 
+	const GIT_REPOSITORY_URL = "https://github.com/johannesbuvnas/com.tutomvc.wptheme.git";
+	const GIT_REPOSITORY_BRANCH = "https://github.com/johannesbuvnas/com.tutomvc.wptheme.git";
+	
+	const NONCE_NAME = "tutomvc/theme/ajax/nonce";
+
+	const ENVIRONMENT_STAGE = "tutomvc/theme/stage";
+	const ENVIRONMENT_PRODUCTION = "tutomvc/theme/production";
+
+	const IMAGE_SIZE_HERO_WIDE = "tutomvc_hero_wide";
+
+	const SCRIPT_JS = "tutomvc/theme/script/js";
+	const SCRIPT_JS_REQUIRE = "tutomvc/theme/script/js/require";
+	const STYLE_CSS = "tutomvc/theme/style/css";
+
+	const SIDEBAR_SEARCH = "sidebar-search";
+
+	const NAV_MENU_NAVIGATION = "nav-menu-navigation";
+	const NAV_MENU_ADMINISTRATION = "nav-menu-administration";
+
 	private static $_environmentsMap;
 	static $isPreview = FALSE;
 
@@ -20,13 +39,15 @@ class AppFacade extends Facade
 		parent::__construct( self::KEY );
 
 		self::$_environmentsMap = array(
-			AppConstants::ENVIRONMENT_STAGE => array(),
-			AppConstants::ENVIRONMENT_PRODUCTION => array()
+			self::ENVIRONMENT_STAGE => array(),
+			self::ENVIRONMENT_PRODUCTION => array()
 		);
 	}
 
 	function onRegister()
 	{	
+		$this->repository = new \tutomvc\GitRepositoryVO( $this->vo->getRoot(), self::GIT_REPOSITORY_URL, self::GIT_REPOSITORY_BRANCH );
+
 		$this->termPageModule = \tutomvc\modules\termpage\TermPageModule::getInstance();
 		$this->analyticsModule = \tutomvc\modules\analytics\AnalyticsModule::getInstance();
 		$this->memberModule = \tutomvc\modules\privacy\PrivacyModule::getInstance();
@@ -36,7 +57,7 @@ class AppFacade extends Facade
 	}
 
 	/* ENVIRONMENT */
-	public static function addEnvironment( $environmentDomain, $type = AppConstants::ENVIRONMENT_STAGE )
+	public static function addEnvironment( $environmentDomain, $type = self::ENVIRONMENT_STAGE )
 	{
 		self::$_environmentsMap[ $type ][] = $environmentDomain;
 
@@ -56,6 +77,6 @@ class AppFacade extends Facade
 	}
 	public function isProduction()
 	{
-		return !in_array( $_SERVER['HTTP_HOST'], self::$_environmentsMap[ AppConstants::ENVIRONMENT_STAGE ] );
+		return !in_array( $_SERVER['HTTP_HOST'], self::$_environmentsMap[ self::ENVIRONMENT_STAGE ] );
 	}
 }
