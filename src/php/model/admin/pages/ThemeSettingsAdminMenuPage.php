@@ -28,7 +28,6 @@ class ThemeSettingsAdminMenuPage extends AdminMenuSettingsPage
 		if(!$themeFacade->repository->isInit())
 		{
 			$systemFacade->notificationCenter->add( $themeFacade->repository->init() );
-			$systemFacade->notificationCenter->add( $themeFacade->repository->checkout() );
 		}
 
 		$mediator = $themeFacade->view->registerMediator( new GitPullFormMediator() );

@@ -61,8 +61,6 @@ class AppFacade extends Facade
 	{
 		self::$_environmentsMap[ $type ][] = $environmentDomain;
 
-		var_dump(self::isProduction());
-
 		switch(self::isProduction())
 		{
 			case FALSE:
