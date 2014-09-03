@@ -24,9 +24,14 @@ class ThemeSettingsAdminMenuPage extends AdminMenuSettingsPage
 	{
 		global $themeFacade;
 		$systemFacade = \tutomvc\Facade::getInstance( \tutomvc\Facade::KEY_SYSTEM );
-		$themeFacade->repository->init();
-		$mediator = $themeFacade->view->registerMediator( new GitPullFormMediator() );
+		
+		if(!$themeFacade->repository->isInit())
+		{
+			$systemFacade->notificationCenter->add( $themeFacade->repository->init() );
+			$systemFacade->notificationCenter->add( $themeFacade->repository->checkout() );
+		}
 
+		$mediator = $themeFacade->view->registerMediator( new GitPullFormMediator() );
 		if($themeFacade->repository->hasUnpulledCommits())
 		{
 			$systemFacade->notificationCenter->add( "You have unpulled commits." . $mediator->getContent() );

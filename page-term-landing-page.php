@@ -9,7 +9,11 @@ global $themeFacade;
 
 get_header();
 
-get_template_part( 'content', $post->post_type );
+while(have_posts())
+{
+	the_post();
+	get_template_part( 'content', $post->post_type );
+}
 
 if(get_query_var( PreGetPostsAction::QUERY_VAR ))
 {

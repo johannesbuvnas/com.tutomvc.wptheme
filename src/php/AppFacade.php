@@ -8,7 +8,7 @@ class AppFacade extends Facade
 	const VERSION = "1.0.1";
 
 	const GIT_REPOSITORY_URL = "https://github.com/johannesbuvnas/com.tutomvc.wptheme.git";
-	const GIT_REPOSITORY_BRANCH = "https://github.com/johannesbuvnas/com.tutomvc.wptheme.git";
+	const GIT_REPOSITORY_BRANCH = "v2";
 	
 	const NONCE_NAME = "tutomvc/theme/ajax/nonce";
 
@@ -60,6 +60,8 @@ class AppFacade extends Facade
 	public static function addEnvironment( $environmentDomain, $type = self::ENVIRONMENT_STAGE )
 	{
 		self::$_environmentsMap[ $type ][] = $environmentDomain;
+
+		var_dump(self::isProduction());
 
 		switch(self::isProduction())
 		{
