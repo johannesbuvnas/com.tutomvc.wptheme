@@ -61,6 +61,10 @@ class TheContentFilter extends FilterCommand
 							));
 							if( LinkUtil::isVideoLink( $a->getAttribute("href") ) )
 							{
+								if(LinkUtil::isVimeo( $a->getAttribute("href") ))
+								{
+									$a->setAttribute( "href", "//player.vimeo.com/video/" . LinkUtil::getVimeoID( $a->getAttribute("href") ) );
+								}
 								// This is a video linkage ...
 								// $videoLinkageMeta = (array)get_post_meta( $attachmentID, ImageVideoLinkageMetaBox::NAME );
 								// if(count($videoLinkageMeta))

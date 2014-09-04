@@ -4,13 +4,13 @@ use \tutomvc\AdminMenuSettingsPage;
 
 class ThemeSettingsAdminMenuPage extends AdminMenuSettingsPage
 {
-	const NAME = "custom_settings";
+	const NAME = "tutomvc_theme_settings";
 
 	function __construct()
 	{
 		parent::__construct(
-			"The Theme",
-			"The Theme",
+			__( "The Theme", "tutomvc-theme" ),
+			__( "The Theme", "tutomvc-theme" ),
 			"edit_theme_options",
 			self::NAME,
 			NULL,

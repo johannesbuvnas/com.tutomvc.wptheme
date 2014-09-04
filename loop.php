@@ -59,10 +59,41 @@ if(is_tax() || get_query_var( "tag" ) || is_category())
 	$title .= '<li class="active">'.$originalTerm->name.'</li>';
 	$title .= '</ol>';
 }
+if(is_day() || is_month() || is_year())
+{
+	$title = '
+		<ol class="breadcrumb">
+			<li><span class="glyphicon glyphicon-calendar"></span></li>
+	';
+	$yearLink = is_year() ? "#" : get_year_link( get_the_date( 'Y' ) );
+	$monthLink = is_month() ? "#" : get_month_link( get_the_date( 'Y' ), get_the_date( 'm' ) );
+	$dayLink = is_day() ? "#" : get_day_link( get_the_date( 'Y' ), get_the_date( 'm' ), get_the_date( 'd' ) );
+	// $title .= '<li><a href="'.$yearLink.'">'.get_the_date( 'Y' ).'</a></li>';
+	if(is_year())
+	{
+		$title .= '<li class="active">'.get_the_date( 'Y' ).'</li>';
+	}
+	else
+	{
+		$title .= '<li><span class="JSLink" href="'.get_year_link( get_the_date( 'Y' ) ).'">'.get_the_date( 'Y' ).'</span></li>';
+	}
+	if(is_month())
+	{
+		$title .= '<li class="active">'.get_the_date( 'm' ).'</li>';
+	}
+	else if(is_day())
+	{
+		$title .= '<li><span class="JSLink" href="'.get_month_link( get_the_date( 'Y' ), get_the_date( 'm' ) ).'">'.get_the_date( 'm' ).'</span></li>';
+	}
+	if(is_day())
+	{
+		$title .= '<li class="active">'.get_the_date( 'd' ).'</li>';
+	}
+	$title .= '</ol>';
+}
 if(is_author())
 {
-	$user = $wp_query->get_queried_object();
-	$title = sprintf( __( "Published by %s", "tutomvc-theme" ), $user->display_name ) . " (".$wp_query->found_posts.")";
+	$title = sprintf( __( "Published by %s", "tutomvc-theme" ), get_the_author_meta( 'display_name', get_query_var( 'author' ) ) ) . " (".$wp_query->found_posts.")";
 }
 
 // if ( have_posts() )

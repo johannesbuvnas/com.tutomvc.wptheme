@@ -16,9 +16,6 @@ class AdminInitCommand extends ActionCommand
 		$this->prepModel();
 		$this->prepView();
 		$this->prepController();
-
-		// var_dump(get_image_send_to_editor( 292, "", "This is a video", "none" ));
-		// exit;
 	}
 
 	function prepModel()
@@ -34,6 +31,5 @@ class AdminInitCommand extends ActionCommand
 
 	function prepController()
 	{
-		$this->getFacade()->controller->registerCommand( new TinymceStartUpFilter() );
 	}
 }

@@ -16,7 +16,7 @@ class TaxonomyUtil
 	*/
 	public static function getAssociatedPageTaxonomyName( $taxonomyName )
 	{
-		$page = get_page_by_path( self::getTaxonomyRewriteSlug( $taxonomyName ) );
+		$page = get_page_by_path( \tutomvc\Taxonomy::getTaxonomyRewriteSlug( $taxonomyName ) );
 
 		if($page && $page->post_status != "publish") return NULL;
 
@@ -29,18 +29,6 @@ class TaxonomyUtil
 	public static function getAssociatedTerm( $post )
 	{
 		return TermPageModule::getTermForLandingPage( $post->ID );
-	}
-
-	public static function getTaxonomyRewriteSlug( $taxonomyName )
-	{
-		$taxonomy = get_taxonomy( $taxonomyName );
-		
-		if($taxonomy)
-		{
-			return $taxonomy->rewrite['slug'];
-		}
-
-		return NULL;
 	}
 
 	public static function getTaxonomyByRewriteSlug( $rewriteSlug )

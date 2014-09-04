@@ -1,11 +1,13 @@
-<?php
-namespace tutomvc\theme;
+<?php namespace tutomvc\theme;
 use \tutomvc\Settings;
 use \tutomvc\SettingsField;
 
+/**
+*	Create custom options for this theme.
+*/
 class ThemeSettings extends Settings
 {
-	const NAME = "custom_settings_options";
+	const NAME = "tutomvc_theme_settings_options";
 
 	function __construct()
 	{

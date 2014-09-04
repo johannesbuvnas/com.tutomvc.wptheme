@@ -5,7 +5,7 @@ use \tutomvc\Facade;
 class AppFacade extends Facade
 {
 	const KEY = "tutomvc/theme/facade";
-	const VERSION = "1.0.1";
+	const VERSION = "1.0.02";
 
 	const GIT_REPOSITORY_URL = "https://github.com/johannesbuvnas/com.tutomvc.wptheme.git";
 	const GIT_REPOSITORY_BRANCH = "v2";

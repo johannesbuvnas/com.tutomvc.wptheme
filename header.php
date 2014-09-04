@@ -5,9 +5,7 @@ namespace tutomvc\theme;
  *
  * Displays all of the <head> section and everything up till #stage
  */
-$ajaxCommands = array(
-	UploadThumbnailAjaxCommand::NAME
-);
+$ajaxCommands = array();
 global $themeFacade;
 ?>
 <!DOCTYPE html>

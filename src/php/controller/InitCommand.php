@@ -35,7 +35,7 @@ class InitCommand extends ActionCommand
 
 		// Admin menus
 		$this->getSystem()->adminMenuPageCenter->add( new ThemeSettingsAdminMenuPage() );
-		$this->getSystem()->settingsCenter->add( new ThemeSettings() );
+		// $this->getSystem()->settingsCenter->add( new ThemeSettings() );
 
 		// Image sizes
 		if(get_option( "thumbnail_size_w" ) != 150) update_option( "thumbnail_size_w", 150 );
@@ -44,14 +44,9 @@ class InitCommand extends ActionCommand
 		set_post_thumbnail_size( 672, 372, true );
 		$this->getSystem()->imageSizeCenter->add( new \tutomvc\ImageSize( AppFacade::IMAGE_SIZE_HERO_WIDE, __( "Wide", "tutomvc-theme" ), 1600, 800, TRUE ) );
 
-		// $this->getFacade()->memberModule = $this->getFacade()->registerSubFacade( new \tutomvc\modules\member\MemberModule() );
-		// $this->getFacade()->metaTagsModule = $this->getFacade()->registerSubFacade( new \tutomvc\modules\metatags\MetaTagsModule() );
-		// $this->getFacade()->analyticsModule = $this->getFacade()->registerSubFacade( new \tutomvc\modules\analytics\AnalyticsModule() );
-
 		// Nav menus
 		register_nav_menus( array(
-			AppFacade::NAV_MENU_NAVIGATION => __( "Navigation", "tutomvc-theme" ),
-			AppFacade::NAV_MENU_ADMINISTRATION => __( "Administration", "tutomvc-theme" ),
+			AppFacade::NAV_MENU_NAVIGATION => __( "Navigation", "tutomvc-theme" )
 		) );
 	}
 
@@ -64,7 +59,7 @@ class InitCommand extends ActionCommand
 			'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
 		) );
 		
-		$this->getFacade()->view->registerMediator( new AppMediator() );
+		// $this->getFacade()->view->registerMediator( new AppMediator() );
 		$this->getFacade()->view->registerMediator( new TagCloudWidgetMediator() );
 		$this->getFacade()->view->registerMediator( new TermCardMediator() );
 		$this->getFacade()->view->registerMediator( new AuthorCardMediator() );
@@ -77,11 +72,9 @@ class InitCommand extends ActionCommand
 	{
 		add_filter('show_admin_bar', '__return_false');
 		$this->getFacade()->controller->registerCommand( new AdminInitCommand() );
-		$this->getFacade()->controller->registerCommand( new UploadThumbnailAjaxCommand() );
 		$this->getFacade()->controller->registerCommand( new WPEnqueueScriptsCommand() );
 		$this->getFacade()->controller->registerCommand( new PostClassFilter() );
 		$this->getFacade()->controller->registerCommand( new TheContentFilter() );
-		$this->getFacade()->controller->registerCommand( new EditPostLinkFilter() );
 		$this->getFacade()->controller->registerCommand( new NavMenuLinkAttrFilter() );
 		$this->getFacade()->controller->registerCommand( new OEMBEDHTMLFilter() );
 
