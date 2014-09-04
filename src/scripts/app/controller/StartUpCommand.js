@@ -4,7 +4,6 @@ define([
 	"underscore",
 	"backbone",
 	"app/AppConstants",
-	"app/AppModel",
 	"app/AppRouter",
 	"app/view/Stage",
 	"app/controller/SwipeStatusCommand",
@@ -16,7 +15,6 @@ function(
 	_,
 	Backbone, 
 	AppConstants, 
-	AppModel, 
 	AppRouter, 
 	Stage, 
 	SwipeStatusCommand,
@@ -30,10 +28,6 @@ function(
 
 		function prepModel()
 		{
-			AppModel.set({
-				windowWidth : $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).width(),
-				windowHeight : $( AppConstants.SELECTOR_SCROLLABLE_ELEMENT ).height()
-			});
 		}
 
 		function prepView()
@@ -90,5 +84,6 @@ function(
 		prepModel();
 		prepView();
 		prepController();
+		Backbone.history.start();
 	};
 });

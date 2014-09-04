@@ -2,23 +2,17 @@ define([
 	"jquery",
 	"underscore",
 	"backbone",
-	"app/AppModel",
 	"app/AppConstants",
 	"app/view/components/hentry/Hentry",
-	"app/view/components/header/Header",
-	"app/view/components/cards/Cards",
-	"app/view/components/cards/CardsComponent"
+	"app/view/components/header/Header"
 ],
 function(
 	$, 
 	_, 
 	Backbone, 
-	AppModel, 
 	AppConstants,
 	Hentry,
-	Header,
-	Cards,
-	CardsComponent
+	Header
 	)
 {
 	"use strict";
@@ -30,8 +24,6 @@ function(
 				el : this.$("#header")
 			});
 			Hentry.autoInstance( this.$el );
-			CardsComponent.autoInstance( this.$el );
-			Cards.autoInstance( this.$el );
 
 			this.$(".JSLink").click(function(e)
 			{

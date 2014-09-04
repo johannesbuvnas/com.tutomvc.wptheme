@@ -1,15 +1,28 @@
 define([
+	"jquery",
 	"underscore",
 	"backbone"
 ],
-function(_, Backbone)
+function($, _, Backbone)
 {
 	"use strict";
 	var Router = Backbone.Router.extend({
-		navigateToPage : function( contentBlockContainerIndex, contentBlockIndex, options )
+		routes : {
+			"*path" : "respond"
+		},
+		respond : function(id)
 		{
-			if(contentBlockIndex) this.navigate( "post/" + contentBlockContainerIndex + "." + contentBlockIndex, options );
-			else this.navigate( "post/" + contentBlockContainerIndex, options );
+			var $el = $("#" + id);
+			if($el && $el.length)
+			{
+				var $tabPane = $el.closest( ".tab-pane" );
+				if($tabPane && $tabPane.length)
+				{
+					$( "a[href=#" + $tabPane.attr("id") + "]" ).tab("show");
+				}
+
+				$(window).scrollTop( $el.offset().top - 45 );
+			}
 		}
 	});
 
