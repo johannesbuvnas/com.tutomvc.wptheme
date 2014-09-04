@@ -5550,7 +5550,7 @@ textarea:focus {
 input[type=submit] {
   height: 44px;
   display: inline-block;
-  background: #0099ff url(src/images/symbol-check-white.png) center center no-repeat;
+  background-color: #0099FF;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
