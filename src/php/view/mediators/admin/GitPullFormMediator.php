@@ -4,7 +4,7 @@ use \tutomvc\Mediator;
 
 class GitPullFormMediator extends Mediator
 {
-	const NAME = "admin/form.git.pull.php";
+	const NAME = "admin/form-git_pull";
 	const ACTION_PULL = "tutomvc/theme/action/git_pull";
 
 

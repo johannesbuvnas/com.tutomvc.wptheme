@@ -3,7 +3,7 @@ use \tutomvc\Mediator;
 
 class TagCloudWidgetMediator extends Mediator
 {
-	const NAME = "components/widgets/TagCloudWidget";
+	const NAME = "widgets/TagCloudWidget";
 
 	function __construct()
 	{

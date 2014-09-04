@@ -1,9 +1,9 @@
 <?php namespace tutomvc\theme;
 use \tutomvc\Mediator;
 
-class TermCardMediator extends Mediator
+class AuthorCardMediator extends Mediator
 {
-	const NAME = "components/cards/TermCard";
+	const NAME = "cards/AuthorCard";
 
 	function __construct()
 	{
@@ -14,16 +14,16 @@ class TermCardMediator extends Mediator
 	{
 	}
 
-	function getContent( $term = NULL )
+	function getContent( $user = NULL )
 	{
-		if($term) $this->parse( "term", $term );
+		if($user) $this->parse( "user", $user );
 
 		return parent::getContent();
 	}
 
-	function render( $term )
+	function render( $user )
 	{
-		$this->parse( "term", $term );
+		$this->parse( "user", $user );
 
 		return parent::render();
 	}

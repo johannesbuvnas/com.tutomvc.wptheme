@@ -3,7 +3,7 @@ use \tutomvc\Mediator;
 
 class CommentAuthorCardMediator extends Mediator
 {
-	const NAME = "components/cards/CommentAuthorCard";
+	const NAME = "cards/CommentAuthorCard";
 
 	function __construct()
 	{

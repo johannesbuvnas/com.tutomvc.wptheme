@@ -5643,6 +5643,9 @@ button.SimpleButton:focus {
 .TermCard .CardImage {
   background-color: #eeeeee;
 }
+.TermCard .CardImage .Title {
+  line-height: 14px;
+}
 @media all and (min-width: 740px) {
   .Card {
     font-size: 13px;

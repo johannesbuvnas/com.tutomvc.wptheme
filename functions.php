@@ -7,7 +7,7 @@ function init()
 	require_once "vendor/autoload.php";
 	$themeFacade = \tutomvc\TutoMVC::startup( 
 		"tutomvc\\theme\\AppFacade", // Facade class name reference
-		"/src/templates" // Templates directory
+		"/src/php/view/components" // Templates directory for \\tutomvc\\Mediator
 	);
 	// var_dump($themeFacade);
 	// exit;
