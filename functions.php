@@ -9,10 +9,8 @@ function init()
 		"tutomvc\\theme\\AppFacade", // Facade class name reference
 		"/src/php/view/components" // Templates directory for \\tutomvc\\Mediator
 	);
-	// var_dump($themeFacade);
-	// exit;
+	
 	// Add staging environment
-	// TODO: WATCH THIS.
 	$themeFacade->addEnvironment( "local.tutomvc.com" );
 }
 if(class_exists("tutomvc\\TutoMVC")) init();
