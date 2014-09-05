@@ -11,6 +11,7 @@ class HeroBannerMetaBox extends MetaBox
 	const IMAGES = "images";
 	const TEMPLATE = "template";
 	const TEMPLATE_WIDE = "template_wide";
+	const TEMPLATE_WIDE_STRAIGHT_COVER = "template_wide_straight_cover";
 	const TEMPLATE_STRAIGHT_COVER = "template_straight_cover";
 	const TEMPLATE_STRAIGHT_FULL = "template_straight_full";
 	const TEMPLATE_STRAIGHT_FIT = "template_straight_fit";
@@ -43,6 +44,7 @@ class HeroBannerMetaBox extends MetaBox
 			"",
 			array(
 				self::TEMPLATE_WIDE => __( "Wide 2:1 (with controls)", "tutomvc-theme" ),
+				self::TEMPLATE_WIDE_STRAIGHT_COVER => __( "Wide 2:1, Straight & Cover", "tutomvc-theme" ),
 				self::TEMPLATE_STRAIGHT_COVER => __( "Straight & Cover", "tutomvc-theme" ),
 				self::TEMPLATE_STRAIGHT_FULL => __( "Straight & Full", "tutomvc-theme" ),
 				self::TEMPLATE_STRAIGHT_FIT => __( "Straight & Fit", "tutomvc-theme" )
