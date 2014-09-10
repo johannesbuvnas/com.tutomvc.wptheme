@@ -52,6 +52,15 @@ function(
 				e.preventDefault();
 				$(e.currentTarget).ekkoLightbox();
 			});
+			var i = 0;
+			this.$('.modal.auto-open').each(function()
+				{
+					i++;
+					if(i == 1)
+					{
+						$(this).modal("show");
+					}
+				});
 		}
 	});
 

@@ -41,7 +41,7 @@ class InitCommand extends ActionCommand
 		if(get_option( "thumbnail_size_w" ) != 150) update_option( "thumbnail_size_w", 150 );
 		if(get_option( "thumbnail_size_h" ) != 150) update_option( "thumbnail_size_h", 150 );
 		if(intval(get_option( "thumbnail_crop" )) < 1) update_option( "thumbnail_crop", 1 );
-		set_post_thumbnail_size( 672, 372, true );
+		set_post_thumbnail_size( 700, 350, TRUE );
 		$this->getSystem()->imageSizeCenter->add( new \tutomvc\ImageSize( AppFacade::IMAGE_SIZE_HERO_WIDE, __( "Wide", "tutomvc-theme" ), 1600, 800, TRUE ) );
 
 		// Nav menus
