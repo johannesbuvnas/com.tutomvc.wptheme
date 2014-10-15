@@ -46,32 +46,14 @@ global $themeFacade;
 			};
 		</script>
 		<?php wp_head(); ?>
-		<?php
-			if(!AppFacade::isProduction()):
-		?>
-			<noscript>
-				<link rel="stylesheet" type="text/css" media="all" href="<?php echo $themeFacade->getURL( "src/css/noscript.css" ); ?>"/>
-			</noscript>
-		<?php
-			else:
-		?>
-			<noscript>
-				<link rel="stylesheet" type="text/css" media="all" href="<?php echo $themeFacade->getURL( "src/css/noscript.pkgd.css" ); ?>"/>
-			</noscript>
-		<?php
-			endif;
-		?>
 	</head>
 
 	<body <?php body_class(); ?>>
 		<?php
 			if(AppFacade::isProduction()) do_action( \tutomvc\modules\analytics\AnalyticsModule::ACTION_RENDER );
-			
-			$classes = array();
-			$classes[] = AppFacade::$isPreview ? "Preview" : "";
 		?>
 
-		<div id="stage" class="<?php echo implode(" ", $classes); ?>">
+		<div id="stage">
 			<div class="Inner BorderBox">
 			
 				<!-- #header -->

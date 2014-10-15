@@ -2,10 +2,11 @@
 namespace tutomvc\theme;
 use \tutomvc\FilterCommand;
 use \tutomvc\LinkUtil;
-/**
-*	Fork version of wpautop.
-*/
 
+/**
+ *    Fork version of wpautop.
+ * TODO: Filter all a-tags. If the link is linked to content supported by the ekkoLightbox -> add attribute: data-toggle="lightbox"
+ */
 class TheContentFilter extends FilterCommand
 {
 	const NAME = "the_content";
@@ -15,55 +16,58 @@ class TheContentFilter extends FilterCommand
 		parent::__construct( self::NAME );
 	}
 
-	function execute($content, $br = false)
+	function execute( $content, $br = FALSE )
 	{
 		// Remove P tags
-		$content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+		$content = preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
 		// Alter attachment links
-		$content = preg_replace_callback('/\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*/iU', array( $this, "filterLinkedImages" ), $content);
-		
+		$content = preg_replace_callback( '/\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*/iU', array(
+			$this,
+			"filterLinkedImages"
+		), $content );
+
 		return $content;
 	}
 
 	function filterLinkedImages( $matches )
 	{
-		$html = mb_convert_encoding($matches[0], 'HTML-ENTITIES', "UTF-8");
-		$doc = new \DOMDocument;
+		$html = mb_convert_encoding( $matches[ 0 ], 'HTML-ENTITIES', "UTF-8" );
+		$doc  = new \DOMDocument;
 		$doc->loadHTML( $html );
-		$as = $doc->getElementsByTagName('a');
-		foreach ($as as $a)
+		$as = $doc->getElementsByTagName( 'a' );
+		foreach ( $as as $a )
 		{
-			$img = $a->getElementsByTagName('img')->item( 0 );
+			$img = $a->getElementsByTagName( 'img' )->item( 0 );
 
-			if($img)
+			if ( $img )
 			{
-				$classNames = $img->getAttribute("class");
+				$classNames  = $img->getAttribute( "class" );
 				$aClassNames = $a->getAttribute( "class" );
 				$a->setAttribute( "class", $aClassNames . " " . $classNames );
 				preg_match( '/wp-image-(?<id>\d+)/', $classNames, $attachmentID );
-				if(is_attachment())
+				if ( is_attachment() )
 				{
 					global $post;
-					$attachmentID = array("id"=>$post->ID);
+					$attachmentID = array( "id" => $post->ID );
 				}
-				if(is_array($attachmentID) && array_key_exists("id", $attachmentID))
+				if ( is_array( $attachmentID ) && array_key_exists( "id", $attachmentID ) )
 				{
-					$attachmentID = $attachmentID['id'];
-					if(filter_var( $attachmentID, FILTER_VALIDATE_INT ))
+					$attachmentID = $attachmentID[ 'id' ];
+					if ( filter_var( $attachmentID, FILTER_VALIDATE_INT ) )
 					{
-						$attachmentID = intval($attachmentID);
-						if(get_post_type( $attachmentID ) == "attachment" && is_int(strpos( get_post_mime_type( $attachmentID ), "image")))
+						$attachmentID = intval( $attachmentID );
+						if ( get_post_type( $attachmentID ) == "attachment" && is_int( strpos( get_post_mime_type( $attachmentID ), "image" ) ) )
 						{
 							// Only continue if the link is pointed to the file URI
-							$video = wp_video_shortcode(array(
-								"src" => $a->getAttribute("href"),
+							$video = wp_video_shortcode( array(
+								"src"    => $a->getAttribute( "href" ),
 								"poster" => wp_get_attachment_url( $attachmentID )
-							));
-							if( LinkUtil::isVideoLink( $a->getAttribute("href") ) )
+							) );
+							if ( LinkUtil::isVideoLink( $a->getAttribute( "href" ) ) )
 							{
-								if(LinkUtil::isVimeo( $a->getAttribute("href") ))
+								if ( LinkUtil::isVimeo( $a->getAttribute( "href" ) ) )
 								{
-									$a->setAttribute( "href", "//player.vimeo.com/video/" . LinkUtil::getVimeoID( $a->getAttribute("href") ) );
+									$a->setAttribute( "href", "//player.vimeo.com/video/" . LinkUtil::getVimeoID( $a->getAttribute( "href" ) ) );
 								}
 								// This is a video linkage ...
 								// $videoLinkageMeta = (array)get_post_meta( $attachmentID, ImageVideoLinkageMetaBox::NAME );
@@ -88,12 +92,12 @@ class TheContentFilter extends FilterCommand
 
 								// 	$a->appendChild( $genericon );
 								// }
-								$class = $img->parentNode->getAttribute("class");
+								$class = $img->parentNode->getAttribute( "class" );
 								$class .= " MediaLink InlineVideoLinkage";
 								$img->parentNode->setAttribute( "target", "_blank" );
 								$img->parentNode->setAttribute( "class", $class );
 								$img->parentNode->setAttribute( "data-toggle", "lightbox" );
-								$genericon = $doc->createElement("span");
+								$genericon = $doc->createElement( "span" );
 								$genericon->setAttribute( "class", "glyphicon glyphicon-play ShadowBox img-rounded" );
 
 								$a->appendChild( $genericon );
@@ -103,7 +107,7 @@ class TheContentFilter extends FilterCommand
 				}
 			}
 		}
-		
+
 		return $doc->saveHTML();
 	}
 }
