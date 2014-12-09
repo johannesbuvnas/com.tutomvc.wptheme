@@ -1,6 +1,5 @@
 <?php
 namespace tutomvc\theme;
-
 function init()
 {
 	global $themeFacade;
@@ -11,7 +10,7 @@ function init()
 	);
 	
 	// Add staging environment
-	$themeFacade->addEnvironment( "local.tutomvc.com" );
+//	$themeFacade->addEnvironment( "local.tutomvc.com" );
 }
 if(class_exists("tutomvc\\TutoMVC")) init();
-else add_action( "tutomvc/action/startup", "tutomvc\\theme\init" );
+else add_action( "tutomvc/action/startup", "tutomvc\\theme\\init" );

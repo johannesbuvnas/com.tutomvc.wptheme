@@ -1,0 +1,110 @@
+/**
+*	#siteNavigation
+*/
+#siteNavigation
+{
+  width: @siteNavigation-width-xs;
+  height: 100%;
+  background: rgba(0, 0, 0, .3);
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: @siteNavigation-background-color;
+  > .Blinder
+  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: @main-background-color;
+    .easeOutExpo(left);
+  }
+  > .Inner
+  {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px (@wp-admin-height + 10) 10px;
+    overflow: scroll;
+    > nav
+    {
+      height: 100%;
+      overflow: scroll;
+      padding-top: 1px;
+      a:hover
+      {
+        color: @gray;
+      }
+    }
+  }
+  .WPAdmin
+  {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid @gray-lighter;
+    border-bottom: 1px solid @gray-lighter;
+    height: @wp-admin-height;
+    .btn
+    {
+      display: block;
+      width: 100%;
+      text-align: left;
+      border: 0;
+      border-radius: 0;
+      font-size: 14px;
+      font-weight: normal;
+      color: @gray-light;
+    }
+  }
+  .nav-tabs
+  {
+    border-top: 0;
+    > li .nav-tabs,
+    > li .nav-tabs .active > a
+    {
+      margin-left: 10px;
+      border-top: 0;
+    }
+    li.active.current-menu-ancestor > a:hover
+    {
+      color: @gray;
+    }
+    li.active.current-menu-ancestor > a
+    {
+      color: @gray-light;
+    }
+    li.active a
+    {
+      cursor: pointer;
+    }
+  }
+  @media (min-width: @screen-sm)
+  {
+    width: @siteNavigation-width-sm;
+  }
+  @media (min-width: @screen-md)
+  {
+    width: @siteNavigation-width-md;
+  }
+}
+
+.SiteNavigationOverlay
+{
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+  display: none;
+  .StickOutRight();
+}

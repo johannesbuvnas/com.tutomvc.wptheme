@@ -3,6 +3,19 @@
 *  Text Domain: tutomvc-theme
 */
 
+.StickOutRight {
+  left: 80% !important;
+}
+@media (min-width: 768px) {
+  .StickOutRight {
+    left: 50% !important;
+  }
+}
+@media (min-width: 992px) {
+  .StickOutRight {
+    left: 30% !important;
+  }
+}
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -3073,16 +3086,31 @@ input[type="button"].btn-block {
 html,
 body {
   width: 100%;
-  height: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
 }
 body {
   background: #eaedee;
 }
-#stage {
-  width: 100%;
+body.SiteNavigationOpen #main {
+  left: 80% !important;
 }
-#stage > .Inner {
-  padding: 45px 0 0 0;
+@media (min-width: 768px) {
+  body.SiteNavigationOpen #main {
+    left: 50% !important;
+  }
+}
+@media (min-width: 992px) {
+  body.SiteNavigationOpen #main {
+    left: 30% !important;
+  }
+}
+body.SiteNavigationOpen .SiteNavigationOverlay {
+  display: block;
+}
+body.SiteNavigationOpen #siteNavigation > .Blinder {
+  left: 100%;
+  right: auto;
 }
 #pageHeader {
   border: 0;
@@ -5653,7 +5681,6 @@ button.SimpleButton:focus {
 }
 article.hentry {
   width: 100%;
-  background: #FFF;
 }
 article.hentry.HasHeroBanner.hero-template_wide header.EntryHeader {
   width: 100%;
@@ -5666,7 +5693,6 @@ article.hentry > .Inner figure.FallbackHeroBanner {
 }
 article.hentry > .Inner > header {
   position: relative;
-  background: #FFF;
 }
 article.hentry > .Inner > header section.HeroBanner p {
   max-width: 700px;
@@ -5794,7 +5820,6 @@ article.hentry > .Inner > section > .Inner {
   background: 0;
 }
 .TheLoop article.hentry > .Inner {
-  background: #FFF;
   height: 100%;
 }
 .TheLoop article.hentry > .Inner figure.FallbackHeroBanner {
@@ -6153,7 +6178,6 @@ a.InlineVideoLinkage .glyphicon {
   padding-top: 13px;
 }
 section.TheLoop {
-  background: #FFF;
   border: 1px solid transparent;
 }
 section.TheLoop > .Inner > section {
@@ -6252,91 +6276,91 @@ img.size-tutomvc_hero_wide {
   width: 100%;
   height: auto;
 }
-/**
-*	#header
-*/
-#header {
+#stage {
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
+  min-height: 100%;
+  position: relative;
+  left: 0%;
+  -webkit-transition: left 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition: left 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: left 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: left 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  /* easeOutExpo */
+  -webkit-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  /* easeOutExpo */
 }
-#header > .Inner {
-  z-index: 10;
-  position: absolute;
-  width: 100%;
-  height: 45px;
-  background: #FFF;
-  border-bottom: 1px solid #eeeeee;
+#stage > .Inner {
+  min-height: 100%;
+  padding: 65px 0 0 0;
 }
-#header #navTitle {
-  margin: 0;
-  text-align: center;
-  font-size: 24px;
-  line-height: 45px;
-  font-weight: normal;
+#stage.StickOutRight #siteNavigationOverlay {
+  left: 80% !important;
+  display: block;
 }
-@media (max-width: 768px) {
-  #header #navTitle {
-    font-size: 14px;
+@media (min-width: 768px) {
+  #stage.StickOutRight #siteNavigationOverlay {
+    left: 50% !important;
   }
 }
-#header #navButton,
-#header #searchButton {
-  position: absolute;
-  width: 45px;
-  height: 45px;
-  left: 0;
-}
-#header #searchButton {
-  right: 0;
-  left: auto;
-}
-.PriorityLow {
-  z-index: 2;
-}
-.PriorityMedium {
-  z-index: 5;
-}
-.PriorityHigh {
-  z-index: 7;
+@media (min-width: 992px) {
+  #stage.StickOutRight #siteNavigationOverlay {
+    left: 30% !important;
+  }
 }
 /**
-*	#navigation
+*	#siteNavigation
 */
-#navigation {
-  width: 100%;
+#siteNavigation {
+  width: 80%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
   position: fixed;
-  padding-top: 45px;
-  left: 0%;
+  left: 0;
+  top: 0;
+  background-color: #333333;
 }
-#navigation.Hidden {
-  left: -100%;
-  right: auto;
-}
-#navigation > .Inner {
+#siteNavigation > .Blinder {
   position: absolute;
   top: 0;
   left: 0;
-  display: inline-block;
+  right: 0;
+  bottom: 0;
+  width: 100%;
   height: 100%;
-  background: #FFF;
-  padding: 55px 10px 55px 10px;
-  min-width: 300px;
+  background: #ffffff;
+  -webkit-transition: left 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition: left 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: left 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: left 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  /* easeOutExpo */
+  -webkit-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  /* easeOutExpo */
+}
+#siteNavigation > .Inner {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 55px 10px;
   overflow: scroll;
 }
-#navigation > .Inner > nav {
+#siteNavigation > .Inner > nav {
   height: 100%;
   overflow: scroll;
   padding-top: 1px;
 }
-#navigation > .Inner > nav a:hover {
+#siteNavigation > .Inner > nav a:hover {
   color: #666666;
 }
-#navigation .WPAdmin {
+#siteNavigation .WPAdmin {
   position: absolute;
   display: block;
   bottom: 0;
@@ -6346,7 +6370,7 @@ img.size-tutomvc_hero_wide {
   border-bottom: 1px solid #eeeeee;
   height: 45px;
 }
-#navigation .WPAdmin .btn {
+#siteNavigation .WPAdmin .btn {
   display: block;
   width: 100%;
   text-align: left;
@@ -6356,45 +6380,104 @@ img.size-tutomvc_hero_wide {
   font-weight: normal;
   color: #c4c4c4;
 }
-#navigation .nav-tabs {
+#siteNavigation .nav-tabs {
   border-top: 0;
 }
-#navigation .nav-tabs > li .nav-tabs,
-#navigation .nav-tabs > li .nav-tabs .active > a {
+#siteNavigation .nav-tabs > li .nav-tabs,
+#siteNavigation .nav-tabs > li .nav-tabs .active > a {
   margin-left: 10px;
   border-top: 0;
 }
-#navigation .nav-tabs li.active.current-menu-ancestor > a:hover {
+#siteNavigation .nav-tabs li.active.current-menu-ancestor > a:hover {
   color: #666666;
 }
-#navigation .nav-tabs li.active.current-menu-ancestor > a {
+#siteNavigation .nav-tabs li.active.current-menu-ancestor > a {
   color: #c4c4c4;
 }
-#navigation .nav-tabs li.active a {
+#siteNavigation .nav-tabs li.active a {
   cursor: pointer;
+}
+@media (min-width: 768px) {
+  #siteNavigation {
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  #siteNavigation {
+    width: 30%;
+  }
+}
+.SiteNavigationOverlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+  display: none;
+  left: 80% !important;
+}
+@media (min-width: 768px) {
+  .SiteNavigationOverlay {
+    left: 50% !important;
+  }
+}
+@media (min-width: 992px) {
+  .SiteNavigationOverlay {
+    left: 30% !important;
+  }
+}
+#main {
+  position: relative;
+  background-color: #ffffff;
+  left: 0%;
+  overflow-x: hidden;
+  -webkit-transition: left 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition: left 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: left 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: left 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  /* easeOutExpo */
+  -webkit-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  /* easeOutExpo */
+}
+#main.DashboardOpen #mainContent {
+  display: none;
+}
+#main.DashboardOpen #mainDashboard {
+  top: 0;
+  overflow-y: visible;
 }
 /**
 *	section#search element styles.
 */
-#search {
+#mainDashboard {
+  position: fixed;
   width: 100%;
   height: 100%;
-  position: fixed;
-  top: 0%;
-  left: 0%;
-  background: #fff;
-  overflow-y: scroll;
-}
-#search.Hidden {
   top: -100%;
+  overflow: hidden;
+  background-color: #ffffff;
+  -webkit-transition: all 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition: all 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition: all 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  transition: all 250ms cubic-bezier(0.19, 1, 0.22, 1);
+  /* easeOutExpo */
+  -webkit-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -moz-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -o-transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  /* easeOutExpo */
 }
-#search > .Inner {
-  padding-top: 45px;
+#mainDashboard > .Inner {
+  padding-top: 65px;
 }
-#search #searchForm {
+#mainDashboard #searchForm {
   padding: 10px;
 }
-#search #searchForm input[type=search] {
+#mainDashboard #searchForm input[type=search] {
   border: 0;
   width: 100%;
   font-size: 36px;
@@ -6412,21 +6495,57 @@ img.size-tutomvc_hero_wide {
   margin-bottom: .5em;
   margin-top: 20px;
 }
-#search #searchForm input[type=submit] {
+#mainDashboard #searchForm input[type=submit] {
   display: none;
 }
 @media (min-width: 992px) {
-  #search #searchForm {
+  #mainDashboard #searchForm {
     padding: 10px 0;
     max-width: 700px;
     margin: 0 auto;
     margin-bottom: 1em;
   }
-  #search #searchForm input[type=search] {
+  #mainDashboard #searchForm input[type=search] {
     font-size: 60px;
     line-height: 1.16em;
     font-weight: bold;
   }
+}
+#mainHeader {
+  width: 100%;
+  position: relative;
+  top: 0;
+  z-index: 10;
+}
+#mainHeader > .Inner {
+  z-index: 10;
+  width: 100%;
+  height: 65px;
+  background: #FFF;
+  border-bottom: 1px solid #eeeeee;
+}
+#mainHeader #navTitle {
+  margin: 0;
+  text-align: center;
+  font-size: 24px;
+  line-height: 65px;
+  font-weight: normal;
+}
+@media (max-width: 768px) {
+  #mainHeader #navTitle {
+    font-size: 14px;
+  }
+}
+#mainHeader #siteNavigationButton,
+#mainHeader #mainDashboardButton {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  left: 0;
+}
+#mainHeader #mainDashboardButton {
+  right: 0;
+  left: auto;
 }
 /**
 *	section#discussion
@@ -6499,7 +6618,6 @@ p.form-allowed-tags {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 10px;
-  background: #FFF;
 }
 .comment .comment-body:after {
   content: ".";
@@ -7355,3 +7473,4 @@ p.form-allowed-tags {
     display: none !important;
   }
 }
+/*# sourceMappingURL=style.css.map */

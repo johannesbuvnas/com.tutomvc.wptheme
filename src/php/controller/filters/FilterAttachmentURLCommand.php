@@ -13,10 +13,10 @@ class FilterAttachmentURLCommand extends FilterCommand
 
 	function execute()
 	{
-		$siteURL = parse_url( get_option( "siteurl" ) );
+		$postURL = parse_url( get_option( "siteurl" ) );
 
 		$attachmentURL = parse_url( $this->getArg(0) );
-		$attachmentURL['host'] = $siteURL['host'];
+		$attachmentURL['host'] = $postURL['host'];
 
 		return $this->join_url( $attachmentURL, FALSE );
 	}

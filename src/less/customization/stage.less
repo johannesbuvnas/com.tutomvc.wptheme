@@ -1,0 +1,21 @@
+#stage
+{
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+  left: 0%;
+  .easeOutExpo(left);
+  > .Inner
+  {
+    min-height: 100%;
+    padding: @header-height 0 0 0;
+  }
+  &.StickOutRight
+  {
+    #siteNavigationOverlay
+    {
+      .StickOutRight();
+      display: block;
+    }
+  }
+}

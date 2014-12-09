@@ -1,0 +1,124 @@
+#main
+{
+  position: relative;
+  background-color: @main-background-color;
+  left: 0%;
+  overflow-x: hidden;
+  .easeOutExpo(left);
+  &.DashboardOpen
+  {
+    #mainContent
+    {
+      display: none;
+    }
+    #mainDashboard
+    {
+      top: 0;
+      overflow-y: visible;
+    }
+  }
+}
+
+/**
+*	section#search element styles.
+*/
+
+#mainDashboard
+{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  overflow: hidden;
+  background-color: @main-background-color;
+  .easeOutExpo(all);
+  > .Inner
+  {
+    padding-top: @header-height;
+  }
+  #searchForm
+  {
+    padding: 10px;
+    input[type=search]
+    {
+      border: 0;
+      width: 100%;
+      font-size: 36px;
+      line-height: 1.16em;
+      font-weight: bold;
+      outline: none;
+      background: 0;
+      -webkit-appearance: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      letter-spacing: -0.02em;
+      font-style: normal;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      margin-bottom: .5em;
+      margin-top: 20px;
+      // border-top: 1px solid @nav-tabs-border-color;
+    }
+    input[type=submit]
+    {
+      display: none;
+    }
+  }
+  @media (min-width: @screen-md)
+  {
+    #searchForm
+    {
+      padding: 10px 0;
+      .screen-md-viewPort();
+      input[type=search]
+      {
+        font-size: 60px;
+        line-height: 1.16em;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+#mainHeader
+{
+  width: 100%;
+  position: relative;
+  top: 0;
+  z-index: 10;
+  > .Inner
+  {
+    z-index: 10;
+    //    position: absolute;
+    width: 100%;
+    height: @header-height;
+    background: #FFF;
+    border-bottom: 1px solid @gray-lighter;
+  }
+
+  #navTitle
+  {
+    margin: 0;
+    text-align: center;
+    font-size: 24px;
+    line-height: @header-height;
+    font-weight: normal;
+    @media (max-width: @screen-sm)
+    {
+      font-size: 14px;
+    }
+  }
+  #siteNavigationButton,
+  #mainDashboardButton
+  {
+    position: absolute;
+    width: @header-height;
+    height: @header-height;
+    left: 0;
+  }
+  #mainDashboardButton
+  {
+    right: 0;
+    left: auto;
+  }
+}

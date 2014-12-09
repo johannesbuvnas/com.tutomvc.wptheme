@@ -25,3 +25,30 @@
 		}
 	}
 }
+
+// WebKit
+.easeOutExpo(@property:all)
+{
+  -webkit-transition: @property 250ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -moz-transition: @property 250ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -o-transition: @property 250ms cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  transition: @property 250ms cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
+
+  -webkit-transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -moz-transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  -o-transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000); /* easeOutExpo */
+}
+
+.StickOutRight
+{
+  left: @siteNavigation-width-xs!important;
+  @media (min-width: @screen-sm)
+  {
+    left: @siteNavigation-width-sm!important;
+  }
+  @media (min-width: @screen-md)
+  {
+    left: @siteNavigation-width-md!important;
+  }
+}

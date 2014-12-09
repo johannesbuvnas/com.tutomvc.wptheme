@@ -46,7 +46,7 @@ class InitCommand extends ActionCommand
 
 		// Nav menus
 		register_nav_menus( array(
-			AppFacade::NAV_MENU_NAVIGATION => __( "Navigation", "tutomvc-theme" )
+			AppFacade::NAV_SITE_NAVIGATION => __( "Site Navigation", "tutomvc-theme" )
 		) );
 	}
 

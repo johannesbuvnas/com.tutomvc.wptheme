@@ -19,7 +19,7 @@ return array(
     'tutomvc\\theme\\HeroBannerMetaBox' => $baseDir . '/src/php/model/meta/HeroBannerMetaBox.php',
     'tutomvc\\theme\\InitCommand' => $baseDir . '/src/php/controller/InitCommand.php',
     'tutomvc\\theme\\NavMenuLinkAttrFilter' => $baseDir . '/src/php/controller/filters/NavMenuLinkAttrFilter.php',
-    'tutomvc\\theme\\NavMenuWalker' => $baseDir . '/src/php/model/walkers/NavMenuWalker.php',
+    'tutomvc\\theme\\NavSiteWalker' => $baseDir . '/src/php/model/walkers/NavSiteWalker.php',
     'tutomvc\\theme\\OEMBEDHTMLFilter' => $baseDir . '/src/php/controller/filters/OEMBEDHTMLFilter.php',
     'tutomvc\\theme\\PostClassFilter' => $baseDir . '/src/php/controller/filters/PostClassFilter.php',
     'tutomvc\\theme\\TagCloudWidget' => $baseDir . '/src/php/model/widgets/TagCloudWidget.php',

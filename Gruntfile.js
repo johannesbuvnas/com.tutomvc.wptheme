@@ -11,7 +11,12 @@ module.exports = function(grunt)
     less: {
       compile : {
           options: {
-            rootpath : "src/less/"
+              rootpath : "src/less/",
+              strictMath: true,
+              sourceMap: true,
+              outputSourceFiles: true,
+              sourceMapURL: 'style.css.map',
+              sourceMapFilename: 'style.css.map'
           },
           files: {
             "style.css": "src/less/style.less"
@@ -79,7 +84,7 @@ module.exports = function(grunt)
             "requirejs",
             "Main.config"
           ],
-          // optimize : "none",
+          //optimize : "none",
           "out" : "script.min.js"
         }
       },
