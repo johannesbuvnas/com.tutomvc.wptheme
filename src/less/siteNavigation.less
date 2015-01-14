@@ -5,11 +5,10 @@
 {
   width: @siteNavigation-width-xs;
   height: 100%;
-  background: rgba(0, 0, 0, .3);
   position: fixed;
   left: 0;
   top: 0;
-  background-color: @siteNavigation-background-color;
+  background-color: darken( @body-bg, 70% );
   > .Blinder
   {
     position: absolute;
@@ -19,7 +18,7 @@
     bottom: 0;
     width: 100%;
     height: 100%;
-    background: @main-background-color;
+    background: @body-bg;
     .easeOutExpo(left);
   }
   > .Inner

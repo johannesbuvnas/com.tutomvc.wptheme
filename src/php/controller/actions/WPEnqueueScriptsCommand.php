@@ -25,7 +25,7 @@ class WPEnqueueScriptsCommand extends ActionCommand
 		// 	// TODO: DO NOT ENQUEUE, ADD MANUALLY WITH ASYNC INSTEAD
 		// 	wp_enqueue_script( "tutomvc/js", $this->getFacade()->getURL( "src/scripts/Main.pkgd.js" ), NULL, AppFacade::VERSION, TRUE );
 		// }
-		wp_enqueue_style( AppFacade::STYLE_CSS, $this->getFacade()->getURL( "style.min.css" ), NULL, AppFacade::VERSION );
+		wp_enqueue_style( AppFacade::STYLE_CSS, $this->getFacade()->getURL( "style.css" ), NULL, AppFacade::VERSION );
 		wp_enqueue_script( AppFacade::SCRIPT_JS, $this->getFacade()->getURL( "script.min.js" ), NULL, AppFacade::VERSION, TRUE );
 	}
 }

@@ -1,7 +1,7 @@
 #main
 {
   position: relative;
-  background-color: @main-background-color;
+//  background-color: @body-bg;
   left: 0%;
   overflow-x: hidden;
   .easeOutExpo(left);
@@ -30,7 +30,7 @@
   height: 100%;
   top: -100%;
   overflow: hidden;
-  background-color: @main-background-color;
+  background-color: @body-bg;
   .easeOutExpo(all);
   > .Inner
   {
@@ -86,13 +86,13 @@
   position: relative;
   top: 0;
   z-index: 10;
+  background-color: @body-bg;
   > .Inner
   {
     z-index: 10;
     //    position: absolute;
     width: 100%;
     height: @header-height;
-    background: #FFF;
     border-bottom: 1px solid @gray-lighter;
   }
 

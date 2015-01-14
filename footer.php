@@ -10,8 +10,6 @@
 <?php get_template_part( "templates/main", "dashboard" ); ?>
 </section><!-- #main -->
 <footer></footer>
-<div id="sandbox">
-</div>
 <?php wp_footer(); ?>
 </body>
 </html>
