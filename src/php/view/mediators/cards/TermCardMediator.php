@@ -14,13 +14,6 @@ class TermCardMediator extends Mediator
 	{
 	}
 
-	function getContent( $term = NULL )
-	{
-		if($term) $this->parse( "term", $term );
-
-		return parent::getContent();
-	}
-
 	function render( $term )
 	{
 		$this->parse( "term", $term );

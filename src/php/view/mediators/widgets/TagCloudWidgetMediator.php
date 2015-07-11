@@ -14,14 +14,6 @@ class TagCloudWidgetMediator extends Mediator
 	{
 	}
 
-	function getContent( $args = NULL, $instance = NULL )
-	{
-		if($args) $this->parse( "args", $args );
-		if($instance) $this->parse( "instance", $instance );
-
-		return parent::getContent();
-	}
-
 	function render( $args, $instance )
 	{
 		$this->parse( "args", $args );

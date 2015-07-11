@@ -14,13 +14,6 @@ class CommentAuthorCardMediator extends Mediator
 	{
 	}
 
-	function getContent( $comment = NULL )
-	{
-		if($comment) $this->parse( "comment", $comment );
-
-		return parent::getContent();
-	}
-
 	function render( $comment )
 	{
 		$this->parse( "comment", $comment );

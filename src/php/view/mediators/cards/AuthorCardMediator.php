@@ -14,13 +14,6 @@ class AuthorCardMediator extends Mediator
 	{
 	}
 
-	function getContent( $user = NULL )
-	{
-		if($user) $this->parse( "user", $user );
-
-		return parent::getContent();
-	}
-
 	function render( $user )
 	{
 		$this->parse( "user", $user );
